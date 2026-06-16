@@ -22,6 +22,14 @@ export interface BlogPostMeta {
 }
 
 // Custom frontmatter parser — no gray-matter dependency
+function parseYamlValue(raw: string): string {
+  const val = raw.trim();
+  if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+    return val.slice(1, -1);
+  }
+  return val;
+}
+
 function parseFrontmatter(raw: string): { data: Record<string, unknown>; content: string } {
   const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   if (!fmMatch) return { data: {}, content: raw };
@@ -62,10 +70,15 @@ function parseFrontmatter(raw: string): { data: Record<string, unknown>; content
         const items: Record<string, unknown>[] = [];
         while (i < lines.length && lines[i].match(/^\s{2}-\s/)) {
           const item: Record<string, unknown> = {};
+          const listLine = lines[i];
+          const inlineMatch = listLine.match(/^\s{2}-\s+(\w[\w-]*)\s*:\s*(.+)$/);
+          if (inlineMatch) {
+            item[inlineMatch[1]] = parseYamlValue(inlineMatch[2]);
+          }
           i++;
           while (i < lines.length && lines[i].match(/^\s{4}\w/)) {
-            const subMatch = lines[i].match(/^\s+(\w[\w-]*)\s*:\s*"?(.*?)"?\s*$/);
-            if (subMatch) item[subMatch[1]] = subMatch[2];
+            const subMatch = lines[i].match(/^\s+(\w[\w-]*)\s*:\s*(.+)$/);
+            if (subMatch) item[subMatch[1]] = parseYamlValue(subMatch[2]);
             i++;
           }
           items.push(item);
@@ -75,8 +88,8 @@ function parseFrontmatter(raw: string): { data: Record<string, unknown>; content
         // Simple nested object
         const obj: Record<string, unknown> = {};
         while (i < lines.length && lines[i].match(/^\s{2}\w/)) {
-          const subMatch = lines[i].match(/^\s+(\w[\w-]*)\s*:\s*"?(.*?)"?\s*$/);
-          if (subMatch) obj[subMatch[1]] = subMatch[2];
+          const subMatch = lines[i].match(/^\s+(\w[\w-]*)\s*:\s*(.+)$/);
+          if (subMatch) obj[subMatch[1]] = parseYamlValue(subMatch[2]);
           i++;
         }
         data[key] = obj;
