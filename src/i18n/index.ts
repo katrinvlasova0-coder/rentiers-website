@@ -249,4 +249,4 @@ const en = {
 } as const;
 
 export const translations = { de, en } as const;
-export type Translations = typeof de;
+export type Translations = typeof de | typeof en;
