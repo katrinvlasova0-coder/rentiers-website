@@ -1,4 +1,6 @@
-import Image from 'next/image';
+'use client';
+
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const banks = [
   { name: 'Deutsche Bank', file: 'DeutscheBank.svg' },
@@ -11,7 +13,11 @@ const banks = [
   { name: 'Société Générale', file: 'SocieteGenerale.svg' },
 ];
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export default function BankLogos() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-16 bg-white">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -20,10 +26,10 @@ export default function BankLogos() {
             className="text-2xl md:text-3xl font-extrabold mb-3"
             style={{ color: 'var(--color-dark)' }}
           >
-            Unsere Partner-Banken
+            {t.banks.heading}
           </h2>
           <p style={{ color: 'var(--color-text-secondary)' }}>
-            Ihr Kapital liegt bei geprüften Großbanken mit staatlichen Einlagengarantien.
+            {t.banks.subheading}
           </p>
         </div>
 
@@ -34,8 +40,9 @@ export default function BankLogos() {
               className="flex items-center justify-center p-5 rounded-2xl border hover:shadow-md transition-all"
               style={{ borderColor: 'var(--color-border)', background: 'var(--color-bg-light)' }}
             >
-              <Image
-                src={`/banks/${bank.file}`}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${BASE}/banks/${bank.file}`}
                 alt={bank.name}
                 width={120}
                 height={40}

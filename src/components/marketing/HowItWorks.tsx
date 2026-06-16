@@ -1,21 +1,26 @@
 'use client';
 
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const stepColors = [
-  'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary) 100%)',
-  'linear-gradient(135deg, var(--color-primary) 0%, #7C3AED 100%)',
-  'linear-gradient(135deg, var(--color-primary) 0%, #0891B2 100%)',
-];
-
-const stepDetails = [
-  'ID-Scan · Liveness-Check · Proof of Address',
-  'SEPA · SWIFT · Debit-/Kreditkarte',
-  'Quartalsweise Auszahlung · Rentiers Debitkarte',
+const stepImages = [
+  {
+    src: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=320&fit=crop&q=80',
+    alt: 'Identity verification',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=320&fit=crop&q=80',
+    alt: 'Investment portfolio',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=320&fit=crop&q=80',
+    alt: 'Receiving interest',
+  },
 ];
 
 export default function HowItWorks() {
   const { t } = useLanguage();
+  const hw = t.howItWorks;
 
   return (
     <section className="py-20" style={{ background: 'var(--color-bg-light)' }}>
@@ -25,41 +30,48 @@ export default function HowItWorks() {
             className="text-3xl md:text-4xl font-extrabold mb-4"
             style={{ color: 'var(--color-dark)' }}
           >
-            {t.howItWorks.heading}
+            {hw.heading}
           </h2>
           <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
-            {t.howItWorks.subheading}
+            {hw.subheading}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connecting line */}
-          <div
-            className="hidden md:block absolute top-10 left-1/6 right-1/6 h-0.5"
-            style={{ background: 'linear-gradient(90deg, var(--color-primary), var(--color-primary-light))', opacity: 0.3 }}
-          />
-
-          {t.howItWorks.steps.map((step, i) => (
-            <div key={step.num} className="relative flex flex-col items-center text-center">
-              {/* Step circle */}
-              <div
-                className="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-extrabold mb-6 shadow-lg relative z-10"
-                style={{ background: stepColors[i] }}
-              >
-                {step.num}
+        <div className="grid md:grid-cols-3 gap-8">
+          {hw.steps.map((step, i) => (
+            <div key={step.num} className="flex flex-col rounded-2xl overflow-hidden border shadow-sm" style={{ borderColor: 'var(--color-border)', background: 'white' }}>
+              {/* Step image */}
+              <div className="relative w-full h-44 overflow-hidden">
+                <Image
+                  src={stepImages[i].src}
+                  alt={stepImages[i].alt}
+                  fill
+                  className="object-cover"
+                />
+                {/* Step number badge */}
+                <div
+                  className="absolute top-3 left-3 w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-extrabold shadow-lg"
+                  style={{ background: 'var(--color-primary)' }}
+                >
+                  {step.num}
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--color-dark)' }}>
-                {step.title}
-              </h3>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--color-text-secondary)' }}>
-                {step.desc}
-              </p>
-              <span
-                className="text-xs font-medium px-3 py-1.5 rounded-full"
-                style={{ background: 'rgba(59,59,232,0.1)', color: 'var(--color-primary)' }}
-              >
-                {stepDetails[i]}
-              </span>
+
+              {/* Content */}
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--color-dark)' }}>
+                  {step.title}
+                </h3>
+                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: 'var(--color-text-secondary)' }}>
+                  {step.desc}
+                </p>
+                <span
+                  className="text-xs font-medium px-3 py-1.5 rounded-full self-start"
+                  style={{ background: 'rgba(59,59,232,0.1)', color: 'var(--color-primary)' }}
+                >
+                  {hw.stepDetails[i]}
+                </span>
+              </div>
             </div>
           ))}
         </div>
@@ -71,7 +83,7 @@ export default function HowItWorks() {
             style={{ background: 'white', borderColor: 'var(--color-border)' }}
           >
             <div className="flex items-center justify-between mb-4">
-              <h4 className="font-bold" style={{ color: 'var(--color-dark)' }}>Portfolioverteilung</h4>
+              <h4 className="font-bold" style={{ color: 'var(--color-dark)' }}>{hw.portfolioLabel}</h4>
               <span className="text-xs px-2 py-1 rounded-full"
                     style={{ background: 'var(--color-bg-light)', color: 'var(--color-text-secondary)' }}>
                 Live
@@ -80,10 +92,10 @@ export default function HowItWorks() {
 
             <div className="grid grid-cols-2 gap-3 mb-4">
               {[
-                { label: 'Investiert', value: '€25.000', color: 'var(--color-dark)' },
-                { label: 'Aktueller Wert', value: '€25.000', color: 'var(--color-success)' },
-                { label: 'Jahresrendite', value: '16%', color: 'var(--color-dark)' },
-                { label: 'Tägliche Zinsen', value: '€11,00', color: 'var(--color-warning)' },
+                { label: hw.invested, value: '€25.000', color: 'var(--color-dark)' },
+                { label: hw.currentValue, value: '€25.000', color: 'var(--color-success)' },
+                { label: hw.annualReturn, value: '16%', color: 'var(--color-dark)' },
+                { label: hw.dailyInterest, value: '€11,00', color: 'var(--color-warning)' },
               ].map((stat) => (
                 <div key={stat.label} className="rounded-xl p-3" style={{ background: 'var(--color-bg-light)' }}>
                   <p className="text-xs mb-1" style={{ color: 'var(--color-text-secondary)' }}>{stat.label}</p>
@@ -92,7 +104,7 @@ export default function HowItWorks() {
               ))}
             </div>
 
-            {/* Donut chart placeholder */}
+            {/* Donut chart */}
             <div className="flex items-center justify-center py-4">
               <div className="relative w-24 h-24">
                 <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
@@ -103,7 +115,7 @@ export default function HowItWorks() {
                           strokeDasharray="20 80" strokeDashoffset="-80" strokeLinecap="round" />
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-xs font-bold" style={{ color: 'var(--color-dark)' }}>Verteilt</span>
+                  <span className="text-xs font-bold" style={{ color: 'var(--color-dark)' }}>{hw.distributed}</span>
                 </div>
               </div>
             </div>
@@ -115,7 +127,7 @@ export default function HowItWorks() {
               </span>
               <span className="flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full inline-block" style={{ background: '#7C3AED' }} />
-                <span style={{ color: 'var(--color-text-secondary)' }}>Georgien (20%)</span>
+                <span style={{ color: 'var(--color-text-secondary)' }}>Georgia (20%)</span>
               </span>
             </div>
           </div>

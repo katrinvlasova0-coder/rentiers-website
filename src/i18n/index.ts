@@ -48,6 +48,13 @@ const de = {
       { num: '02', title: 'Portfolio wählen & einzahlen', desc: 'Wählen Sie Konservativ (12%), Ausgewogen (16%) oder High-Yield (20%). Betrag per SEPA oder Karte einzahlen.' },
       { num: '03', title: 'Zinsen empfangen', desc: 'Rentiers verteilt Ihr Kapital auf geprüfte Partnerbanken. Zinsen kommen quartalsweise direkt auf Ihre Rentiers-Karte.' },
     ],
+    stepDetails: ['ID-Scan · Liveness-Check · Adressnachweis', 'SEPA · SWIFT · Debit-/Kreditkarte', 'Quartalsweise Auszahlung · Rentiers Debitkarte'],
+    portfolioLabel: 'Portfolioverteilung',
+    invested: 'Investiert',
+    currentValue: 'Aktueller Wert',
+    annualReturn: 'Jahresrendite',
+    dailyInterest: 'Tägliche Zinsen',
+    distributed: 'Verteilt',
   },
   portfolios: {
     heading: 'Drei Portfolios für jeden Anlegertyp',
@@ -63,6 +70,7 @@ const de = {
   calculator: {
     heading: 'Berechnen Sie Ihre Rendite',
     subheading: 'Sehen Sie, wie viel Ihr Kapital bei Rentiers erwirtschaftet.',
+    inputPrompt: 'Anlagebetrag und Laufzeit eingeben',
     amountLabel: 'Einlagebetrag',
     durationLabel: 'Laufzeit',
     monthlyLabel: 'Monatliches Einkommen',
@@ -74,6 +82,10 @@ const de = {
     months: 'Monate',
     rateLabel: 'Jahresrendite',
     cta: 'Jetzt starten',
+    conservativeLabel: 'Konservativ (12%)',
+    balancedLabel: 'Ausgewogen (16%)',
+    highyieldLabel: 'High-Yield (20%)',
+    depositNote: 'Ihre ursprüngliche Einlage',
   },
   banks: {
     heading: 'Unsere Partner-Banken',
@@ -93,6 +105,7 @@ const de = {
   },
   testimonials: {
     heading: 'Was unsere Kunden sagen',
+    subheading: 'Echte Anleger, echte Renditen, echte Erfahrungen.',
     items: [
       { name: 'Thomas B.', role: 'Unternehmer, München', text: 'Mein Betriebsvermögen lag jahrelang auf einem Konto mit 0,1% Zinsen. Jetzt generiert es 16% p.a. — ohne dass ich etwas tun muss.', rating: 5 },
       { name: 'Ingrid M.', role: 'Rentnerin, Wien', text: 'Endlich wieder von Zinsen leben wie früher. 12% p.a. auf mein Erspartes — vierteljährliche Auszahlung direkt auf die Karte.', rating: 5 },
@@ -172,6 +185,13 @@ const en = {
       { num: '02', title: 'Choose portfolio & deposit', desc: 'Choose Conservative (12%), Balanced (16%) or High-Yield (20%). Deposit via SEPA or card.' },
       { num: '03', title: 'Receive interest', desc: 'Rentiers distributes your capital to vetted partner banks. Interest arrives quarterly on your Rentiers card.' },
     ],
+    stepDetails: ['ID Scan · Liveness Check · Proof of Address', 'SEPA · SWIFT · Debit / Credit Card', 'Quarterly Payout · Rentiers Debit Card'],
+    portfolioLabel: 'Portfolio Distribution',
+    invested: 'Invested',
+    currentValue: 'Current Value',
+    annualReturn: 'Annual Return',
+    dailyInterest: 'Daily Interest',
+    distributed: 'Diversified',
   },
   portfolios: {
     heading: 'Three portfolios for every investor',
@@ -187,6 +207,7 @@ const en = {
   calculator: {
     heading: 'Calculate Your Return',
     subheading: 'See how much your capital earns with Rentiers.',
+    inputPrompt: 'Enter deposit amount and term',
     amountLabel: 'Deposit Amount',
     durationLabel: 'Term',
     monthlyLabel: 'Monthly Income',
@@ -198,6 +219,10 @@ const en = {
     months: 'months',
     rateLabel: 'Annual Return',
     cta: 'Get Started',
+    conservativeLabel: 'Conservative (12%)',
+    balancedLabel: 'Balanced (16%)',
+    highyieldLabel: 'High-Yield (20%)',
+    depositNote: 'Your original deposit',
   },
   banks: {
     heading: 'Our Partner Banks',
@@ -217,6 +242,7 @@ const en = {
   },
   testimonials: {
     heading: 'What our clients say',
+    subheading: 'Real investors, real returns, real experiences.',
     items: [
       { name: 'Thomas B.', role: 'Entrepreneur, Munich', text: "My business reserves sat in an account earning 0.1% for years. Now they generate 16% p.a. — without me doing anything.", rating: 5 },
       { name: 'Ingrid M.', role: 'Retiree, Vienna', text: 'Finally living off interest again like in the old days. 12% p.a. on my savings — quarterly payout directly to the card.', rating: 5 },

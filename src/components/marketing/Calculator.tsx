@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const RATES: Record<string, number> = {
   conservative: 0.12,
@@ -9,17 +10,15 @@ const RATES: Record<string, number> = {
   highyield: 0.20,
 };
 
-const PORTFOLIO_LABELS: Record<string, string> = {
-  conservative: 'Konservativ (12%)',
-  balanced: 'Ausgewogen (16%)',
-  highyield: 'High-Yield (20%)',
-};
-
-function formatEur(n: number) {
-  return new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
+function formatNum(n: number, locale: string) {
+  return new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
 }
 
 export default function Calculator() {
+  const { t, lang } = useLanguage();
+  const c = t.calculator;
+  const locale = lang === 'de' ? 'de-DE' : 'en-US';
+
   const [amount, setAmount] = useState(50000);
   const [months, setMonths] = useState(60);
   const [portfolio, setPortfolio] = useState<'conservative' | 'balanced' | 'highyield'>('balanced');
@@ -29,6 +28,12 @@ export default function Calculator() {
   const monthlyIncome = annualIncome / 12;
   const totalReturn = (annualIncome * months) / 12;
 
+  const portfolioLabels: Record<string, string> = {
+    conservative: c.conservativeLabel,
+    balanced: c.balancedLabel,
+    highyield: c.highyieldLabel,
+  };
+
   return (
     <section className="py-20" style={{ background: 'var(--color-bg-light)' }}>
       <div className="max-w-[1200px] mx-auto px-6">
@@ -37,10 +42,10 @@ export default function Calculator() {
             className="text-3xl md:text-4xl font-extrabold mb-4"
             style={{ color: 'var(--color-dark)' }}
           >
-            Berechnen Sie Ihre Rendite
+            {c.heading}
           </h2>
           <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
-            Sehen Sie, wie viel Ihr Kapital bei Rentiers erwirtschaftet.
+            {c.subheading}
           </p>
         </div>
 
@@ -53,13 +58,13 @@ export default function Calculator() {
               {/* Left — Inputs */}
               <div className="space-y-6">
                 <p className="font-semibold text-lg" style={{ color: 'var(--color-dark)' }}>
-                  Bitte Anlagebetrag und Laufzeit eingeben
+                  {c.inputPrompt}
                 </p>
 
                 {/* Portfolio selector */}
                 <div>
                   <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-text-secondary)' }}>
-                    Portfolio
+                    {c.rateLabel}
                   </label>
                   <div className="grid grid-cols-3 gap-2">
                     {(Object.keys(RATES) as Array<keyof typeof RATES>).map((key) => (
@@ -78,16 +83,16 @@ export default function Calculator() {
                     ))}
                   </div>
                   <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>
-                    {PORTFOLIO_LABELS[portfolio]}
+                    {portfolioLabels[portfolio]}
                   </p>
                 </div>
 
                 {/* Amount slider */}
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span style={{ color: 'var(--color-text-secondary)' }}>Einlagebetrag</span>
+                    <span style={{ color: 'var(--color-text-secondary)' }}>{c.amountLabel}</span>
                     <span className="font-bold" style={{ color: 'var(--color-dark)' }}>
-                      {formatEur(amount)} €
+                      {formatNum(amount, locale)} €
                     </span>
                   </div>
                   <input
@@ -112,9 +117,9 @@ export default function Calculator() {
                 {/* Duration slider */}
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span style={{ color: 'var(--color-text-secondary)' }}>Laufzeit</span>
+                    <span style={{ color: 'var(--color-text-secondary)' }}>{c.durationLabel}</span>
                     <span className="font-bold" style={{ color: 'var(--color-dark)' }}>
-                      {months} Monate
+                      {months} {c.months}
                     </span>
                   </div>
                   <input
@@ -131,8 +136,8 @@ export default function Calculator() {
                     }}
                   />
                   <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
-                    <span>12 Monate</span>
-                    <span>120 Monate</span>
+                    <span>12 {c.months}</span>
+                    <span>120 {c.months}</span>
                   </div>
                 </div>
               </div>
@@ -144,13 +149,13 @@ export default function Calculator() {
                   style={{ background: 'var(--color-bg-light)' }}
                 >
                   <p className="text-sm mb-1" style={{ color: 'var(--color-text-secondary)' }}>
-                    Monatliches Einkommen
+                    {c.monthlyLabel}
                   </p>
                   <p className="text-3xl font-extrabold mb-1" style={{ color: 'var(--color-dark)' }}>
-                    {formatEur(monthlyIncome)} €
+                    {formatNum(monthlyIncome, locale)} €
                   </p>
                   <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
-                    jeden Monat auf Ihre Karte
+                    {c.monthlySubLabel}
                   </p>
                 </div>
 
@@ -159,13 +164,13 @@ export default function Calculator() {
                   style={{ background: 'var(--color-bg-light)' }}
                 >
                   <p className="text-sm mb-1" style={{ color: 'var(--color-text-secondary)' }}>
-                    Jährliches Einkommen
+                    {c.annualLabel}
                   </p>
                   <p className="text-2xl font-extrabold mb-1" style={{ color: 'var(--color-dark)' }}>
-                    {formatEur(annualIncome)} €
+                    {formatNum(annualIncome, locale)} €
                   </p>
                   <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
-                    pro Jahr garantiert
+                    {c.annualSubLabel}
                   </p>
                 </div>
 
@@ -174,13 +179,13 @@ export default function Calculator() {
                   style={{ background: 'linear-gradient(135deg, var(--color-primary) 0%, #5B5BF0 100%)' }}
                 >
                   <p className="text-sm mb-1 text-white/80">
-                    Gesamtertrag nach {months} Monate
+                    {c.totalLabel} — {months} {c.months}
                   </p>
                   <p className="text-3xl font-extrabold mb-1 text-white">
-                    {formatEur(totalReturn)} €
+                    {formatNum(totalReturn, locale)} €
                   </p>
                   <p className="text-xs text-white/70">
-                    Ihre ursprüngliche Einlage von {formatEur(amount)} €
+                    {c.depositNote}: {formatNum(amount, locale)} €
                   </p>
                 </div>
 
@@ -189,7 +194,7 @@ export default function Calculator() {
                   className="block text-center py-3.5 rounded-xl font-semibold text-white mt-2 hover:opacity-90 transition-opacity"
                   style={{ background: 'var(--color-dark)' }}
                 >
-                  Jetzt starten →
+                  {c.cta} →
                 </Link>
               </div>
             </div>
