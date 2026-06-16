@@ -635,5 +635,5 @@ export const pageContent = {
   },
 } as const;
 
-export type PageContent = typeof pageContent.de;
+export type PageContent = typeof pageContent.de | typeof pageContent.en;
 export type PageLang = keyof typeof pageContent;
