@@ -7,6 +7,8 @@ export interface BlogPostMeta {
   slug: string;
   title: string;
   description: string;
+  titleEn?: string;
+  descriptionEn?: string;
   datePublished: string;
   dateModified: string;
   author: { name: string; role: string };
@@ -16,6 +18,7 @@ export interface BlogPostMeta {
   featured?: boolean;
   tags: string[];
   faq?: Array<{ question: string; answer: string }>;
+  faqEn?: Array<{ question: string; answer: string }>;
 }
 
 // Custom frontmatter parser — no gray-matter dependency
@@ -114,13 +117,44 @@ export async function getAllPosts(): Promise<BlogPostMeta[]> {
   );
 }
 
+export type BlogLang = 'de' | 'en';
+
+const EN_SEPARATOR = '\n---en---\n';
+
+function splitLocalizedContent(rawContent: string): { de: string; en?: string } {
+  const parts = rawContent.split(EN_SEPARATOR);
+  return { de: parts[0].trim(), en: parts[1]?.trim() };
+}
+
+export function localizePost(
+  meta: BlogPostMeta,
+  content: string,
+  lang: BlogLang
+): { meta: BlogPostMeta; content: string } {
+  const { de, en } = splitLocalizedContent(content);
+  if (lang === 'de') {
+    return { meta, content: de };
+  }
+  return {
+    meta: {
+      ...meta,
+      title: meta.titleEn ?? meta.title,
+      description: meta.descriptionEn ?? meta.description,
+      faq: meta.faqEn ?? meta.faq,
+    },
+    content: en ?? de,
+  };
+}
+
 export async function getPostBySlug(
-  slug: string
+  slug: string,
+  lang: BlogLang = 'de'
 ): Promise<{ meta: BlogPostMeta; content: string }> {
   const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
   const raw = fs.readFileSync(filePath, 'utf8');
   const { data, content } = parseFrontmatter(raw);
-  return { meta: { slug, ...(data as Omit<BlogPostMeta, 'slug'>) }, content };
+  const meta = { slug, ...(data as Omit<BlogPostMeta, 'slug'>) };
+  return localizePost(meta, content, lang);
 }
 
 export async function getAllPostSlugs(): Promise<string[]> {

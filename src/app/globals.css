@@ -47,3 +47,102 @@ a, button { transition: all 0.2s ease; }
 
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Blog article typography */
+.blog-article {
+  color: var(--color-text-primary);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.blog-article .blog-p {
+  margin-bottom: 1.25rem;
+  color: var(--color-text-primary);
+}
+
+.blog-article .blog-h2 {
+  font-size: 1.625rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin: 2.5rem 0 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.blog-article .blog-h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 2rem 0 0.75rem;
+  line-height: 1.35;
+}
+
+.blog-article .blog-h4 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.blog-article .blog-hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0;
+}
+
+.blog-article .blog-list {
+  margin: 1rem 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.blog-article .blog-list li {
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.blog-article .blog-code {
+  background: var(--color-bg-light);
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+  font-family: ui-monospace, monospace;
+}
+
+.blog-article strong {
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.blog-article .blog-table-wrap {
+  overflow-x: auto;
+  margin: 1.75rem 0;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border);
+}
+
+.blog-article .blog-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.blog-article .blog-table th {
+  padding: 0.75rem 1rem;
+  background: var(--color-bg-light);
+  font-weight: 700;
+  text-align: left;
+  color: var(--color-dark);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.blog-article .blog-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+}
+
+.blog-article .blog-table tr:last-child td {
+  border-bottom: none;
+}

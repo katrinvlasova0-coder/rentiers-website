@@ -2,16 +2,19 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { translations, Lang, Translations } from '@/i18n';
+import { pageContent, PageContent } from '@/i18n/pages';
 
 interface LangCtx {
   lang: Lang;
   t: Translations;
+  p: PageContent;
   toggle: () => void;
 }
 
 const LanguageContext = createContext<LangCtx>({
   lang: 'de',
   t: translations.de,
+  p: pageContent.de,
   toggle: () => {},
 });
 
@@ -32,7 +35,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, t: translations[lang], toggle }}>
+    <LanguageContext.Provider value={{ lang, t: translations[lang], p: pageContent[lang], toggle }}>
       {children}
     </LanguageContext.Provider>
   );

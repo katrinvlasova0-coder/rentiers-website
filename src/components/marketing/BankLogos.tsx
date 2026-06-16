@@ -1,6 +1,7 @@
 'use client';
 
 import { useLanguage } from '@/contexts/LanguageContext';
+import { assetPath } from '@/lib/basePath';
 
 const banks = [
   { name: 'Deutsche Bank', file: 'DeutscheBank.svg' },
@@ -12,8 +13,6 @@ const banks = [
   { name: 'Santander', file: 'Santander.svg' },
   { name: 'Société Générale', file: 'SocieteGenerale.svg' },
 ];
-
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
 export default function BankLogos() {
   const { t } = useLanguage();
@@ -42,7 +41,7 @@ export default function BankLogos() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`${BASE}/banks/${bank.file}`}
+                src={assetPath(`/banks/${bank.file}`)}
                 alt={bank.name}
                 width={120}
                 height={40}
