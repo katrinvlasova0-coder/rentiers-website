@@ -1,12 +1,7 @@
-import Link from 'next/link';
+'use client';
 
-const footerLinks = [
-  { label: 'Partner-Banken', href: '/partner-banken' },
-  { label: 'Kalkulator', href: '/kalkulator' },
-  { label: 'Portfolios', href: '/portfolios' },
-  { label: 'Kontakt', href: '/kontakt' },
-  { label: 'Über uns', href: '/ueber-uns' },
-];
+import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const socialLinks = [
   { label: 'Facebook', href: '#', icon: 'F' },
@@ -16,6 +11,8 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer style={{ background: 'var(--color-bg-light)' }}>
       {/* Main footer */}
@@ -33,20 +30,18 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--color-text-secondary)' }}>
-              Rentiers ist die erste digitale Plattform für Einlagenarbitrage und -handel, die es
-              Nutzern ermöglicht, durch Einlagen bei großen Banken auf der ganzen Welt ohne Risiko
-              ein beträchtliches passives Einkommen zu erzielen.
+              {t.footer.desc}
             </p>
             <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-              1368 Ville Haute Luxembourg&nbsp;&nbsp;Land , Luxemburg
+              1368 Ville Haute Luxembourg, Luxemburg
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h3 className="font-semibold mb-4" style={{ color: 'var(--color-dark)' }}>Links</h3>
+            <h3 className="font-semibold mb-4" style={{ color: 'var(--color-dark)' }}>{t.footer.links}</h3>
             <ul className="space-y-2.5">
-              {footerLinks.map((link) => (
+              {t.footer.nav.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -62,19 +57,19 @@ export default function Footer() {
 
           {/* Info */}
           <div>
-            <h3 className="font-semibold mb-4" style={{ color: 'var(--color-dark)' }}>Info</h3>
+            <h3 className="font-semibold mb-4" style={{ color: 'var(--color-dark)' }}>{t.footer.info}</h3>
             <ul className="space-y-2.5 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
               <li>Phone: +49 (0) 69 1234 5678</li>
-              <li>Firmenname: Rentiers SA</li>
-              <li>Geschäftsführer: Max Müller, Pierre Dijon</li>
-              <li>Handelsregister: LU 127-18093451</li>
+              <li>Rentiers SA</li>
+              <li>Max Müller, Pierre Dijon</li>
+              <li>LU 127-18093451</li>
             </ul>
           </div>
 
           {/* Social */}
           <div>
             <h3 className="font-semibold mb-4" style={{ color: 'var(--color-dark)' }}>
-              Soziale Netzwerke
+              {t.footer.social}
             </h3>
             <div className="flex gap-2 flex-wrap">
               {socialLinks.map((s) => (
@@ -100,10 +95,7 @@ export default function Footer() {
           className="mt-10 pt-8 text-xs leading-relaxed"
           style={{ borderTop: '1px solid var(--color-border)', color: 'var(--color-text-muted, #9CA3AF)' }}
         >
-          Rentiers SA ist als Money Services Business (MSB) in Kanada und den USA lizenziert.
-          Investitionen sind mit Risiken verbunden. Vergangene Renditen sind keine Garantie für
-          zukünftige Ergebnisse. Die Höhe der staatlichen Einlagengarantien variiert je nach Land
-          und Partnerbank. Bitte lesen Sie die Risikohinweise vor der Anlage.
+          {t.footer.disclaimer}
         </div>
       </div>
 
@@ -111,11 +103,11 @@ export default function Footer() {
       <div style={{ borderTop: '1px solid var(--color-border)' }}>
         <div className="max-w-[1200px] mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm"
              style={{ color: 'var(--color-text-secondary)' }}>
-          <span>© 2025 Rentiers. Alle Rechte vorbehalten.</span>
+          <span>{t.footer.copyright}</span>
           <div className="flex gap-4">
-            <Link href="/datenschutz" className="hover:opacity-70">Datenschutzrichtlinie</Link>
+            <Link href="/datenschutz" className="hover:opacity-70">{t.footer.privacy}</Link>
             <span>•</span>
-            <Link href="/agb" className="hover:opacity-70">Geschäftsbedingungen</Link>
+            <Link href="/agb" className="hover:opacity-70">{t.footer.terms}</Link>
           </div>
         </div>
       </div>

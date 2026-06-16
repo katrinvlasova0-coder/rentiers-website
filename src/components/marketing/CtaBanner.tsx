@@ -1,6 +1,11 @@
+'use client';
+
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function CtaBanner() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20" style={{ background: 'var(--color-bg-light)' }}>
       <div className="max-w-[1200px] mx-auto px-6">
@@ -34,21 +39,21 @@ export default function CtaBanner() {
 
           <div className="relative z-10">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-              Starten Sie noch heute
+              {t.cta.heading}
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
-              Konto in unter 5 Minuten eröffnen. Keine Mindestlaufzeit-Strafe. Jederzeit kündbar.
+              {t.cta.subheading}
             </p>
             <Link
               href="/register"
               className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-lg text-white shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all"
               style={{ background: 'var(--color-primary)' }}
             >
-              Kostenloses Konto eröffnen
+              {t.cta.button}
               <span>→</span>
             </Link>
             <p className="text-white/50 text-sm mt-4">
-              Registrierung kostenlos · KYC in 5 Min. · MSB-lizenziert
+              {t.cta.disclaimer}
             </p>
           </div>
         </div>

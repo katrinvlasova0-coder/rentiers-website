@@ -22,22 +22,22 @@ const banks = [
 
 const criteria = [
   {
-    icon: '📊',
+    icon: '≡',
     title: 'Mindestrating B+ (S&P)',
     desc: 'Jede Partnerbank muss mindestens ein B+-Rating von Standard & Poors oder ein equivalentes Rating von Moody\'s (B1) oder Fitch aufweisen.',
   },
   {
-    icon: '🏦',
+    icon: '€',
     title: 'Lokale Regulierung',
     desc: 'Alle Partner-Banken sind vollständig von der Zentralbank oder der Finanzaufsichtsbehörde des jeweiligen Landes reguliert und lizenziert.',
   },
   {
-    icon: '🛡️',
+    icon: '✓',
     title: 'Staatliche Einlagengarantie',
     desc: 'Das Partnerland muss über ein funktionierendes staatliches Einlagengarantiesystem verfügen, das Kundeneinlagen absichert.',
   },
   {
-    icon: '🤖',
+    icon: 'AI',
     title: 'Kontinuierliches Monitoring',
     desc: 'Unser KI-System überprüft täglich alle Partnerbanken. Bei Verschlechterung des Ratings wird die Einlage automatisch umgeschichtet.',
   },

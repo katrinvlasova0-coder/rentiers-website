@@ -30,10 +30,10 @@ function BlogCard({ post }: { post: BlogPostMeta }) {
       )}
       {!post.coverImage && (
         <div
-          className="h-44 flex items-center justify-center text-4xl"
-          style={{ background: 'var(--color-bg-light)' }}
+          className="h-44 flex items-center justify-center"
+          style={{ background: 'linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-bg-light) 100%)' }}
         >
-          💶
+          <span className="text-3xl font-extrabold" style={{ color: 'var(--color-primary)', opacity: 0.4 }}>R</span>
         </div>
       )}
       <div className="p-5">
@@ -116,10 +116,10 @@ export default async function BlogPage() {
                     </div>
                   ) : (
                     <div
-                      className="h-64 md:h-auto flex items-center justify-center text-6xl"
-                      style={{ background: 'var(--color-bg-light)' }}
+                      className="h-64 md:h-auto flex items-center justify-center"
+                      style={{ background: 'linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-bg-light) 100%)' }}
                     >
-                      💶
+                      <span className="text-6xl font-extrabold" style={{ color: 'var(--color-primary)', opacity: 0.3 }}>R</span>
                     </div>
                   )}
                   <div className="p-8 flex flex-col justify-center">
@@ -127,7 +127,7 @@ export default async function BlogPage() {
                       className="inline-block text-xs font-medium px-3 py-1 rounded-full mb-4"
                       style={{ background: 'var(--color-primary-light)', color: 'var(--color-primary)' }}
                     >
-                      ⭐ Featured · {featured.category}
+                      Featured · {featured.category}
                     </span>
                     <h2
                       className="text-2xl font-extrabold mb-3"
@@ -161,7 +161,6 @@ export default async function BlogPage() {
 
           {posts.length === 0 && (
             <div className="text-center py-20" style={{ color: 'var(--color-text-secondary)' }}>
-              <p className="text-4xl mb-4">✍️</p>
               <p className="font-semibold">Artikel werden bald veröffentlicht.</p>
             </div>
           )}

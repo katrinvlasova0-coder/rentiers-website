@@ -22,7 +22,7 @@ const steps = [
       'Sofortige Überprüfung durch unser KYC-System',
       'GDPR-konform, CRS-integriert, AES-256-verschlüsselt',
     ],
-    icon: '✅',
+    icon: '✓',
     color: '#3B3BE8',
   },
   {
@@ -37,7 +37,7 @@ const steps = [
       'Kapitaldistribution auf Partnerbanken startet innerhalb von 24h',
       'Echtzeit-Bestätigung und Portfolio-Dashboard-Zugang',
     ],
-    icon: '💰',
+    icon: '€',
     color: '#7C3AED',
   },
   {
@@ -52,7 +52,7 @@ const steps = [
       'Zinsen mit der Karte ausgeben oder reinvestieren',
       'Kündigung jederzeit möglich (Laufzeitbedingungen beachten)',
     ],
-    icon: '📈',
+    icon: '+%',
     color: '#0891B2',
   },
 ];

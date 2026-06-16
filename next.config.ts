@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/rentiers-website',
   trailingSlash: true,
   images: {
     remotePatterns: [

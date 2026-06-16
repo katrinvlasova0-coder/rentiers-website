@@ -1,6 +1,6 @@
-export const dynamic = 'force-static';
-
 import type { MetadataRoute } from 'next';
+
+export const dynamic = 'force-static';
 import { getAllPosts } from '@/lib/blog';
 
 const BASE_URL = 'https://rentierspro.com';

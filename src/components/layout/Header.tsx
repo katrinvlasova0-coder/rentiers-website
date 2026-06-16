@@ -2,25 +2,27 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-
-const navLinks = [
-  { label: 'Portfolios', href: '/portfolios' },
-  { label: 'Wie es funktioniert', href: '/wie-es-funktioniert' },
-  { label: 'Kalkulator', href: '/kalkulator' },
-  { label: 'Partner-Banken', href: '/partner-banken' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Blog', href: '/blog' },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang, t, toggle } = useLanguage();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 16);
     window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
   }, []);
+
+  const navLinks = [
+    { label: t.nav.portfolios, href: '/portfolios' },
+    { label: t.nav.howItWorks, href: '/wie-es-funktioniert' },
+    { label: t.nav.calculator, href: '/kalkulator' },
+    { label: t.nav.partnerBanks, href: '/partner-banken' },
+    { label: t.nav.faq, href: '/faq' },
+    { label: t.nav.blog, href: '/blog' },
+  ];
 
   return (
     <header
@@ -56,43 +58,68 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* CTA */}
+        {/* CTA + Language switcher */}
         <div className="hidden lg:flex items-center gap-3">
+          {/* Language toggle */}
+          <button
+            onClick={toggle}
+            className="text-xs font-semibold px-3 py-1.5 rounded-lg border transition-all hover:shadow-sm"
+            style={{
+              borderColor: 'var(--color-border)',
+              color: 'var(--color-text-secondary)',
+              background: 'transparent',
+            }}
+            aria-label="Switch language"
+          >
+            {lang === 'de' ? 'EN' : 'DE'}
+          </button>
+
           <Link
             href="/login"
             className="text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-100"
             style={{ color: 'var(--color-text-secondary)' }}
           >
-            Anmelden
+            {t.nav.login}
           </Link>
           <Link
             href="/register"
             className="text-sm font-semibold px-5 py-2.5 rounded-xl text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
             style={{ background: 'var(--color-primary)' }}
           >
-            Konto eröffnen
+            {t.nav.cta}
           </Link>
         </div>
 
         {/* Mobile hamburger */}
-        <button
-          className="lg:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menü öffnen"
-        >
-          <span
-            className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}
-            style={{ background: 'var(--color-dark)' }}
-          />
-          <span
-            className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}
-            style={{ background: 'var(--color-dark)' }}
-          />
-          <span
-            className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}
-            style={{ background: 'var(--color-dark)' }}
-          />
-        </button>
+        <div className="lg:hidden flex items-center gap-2">
+          {/* Mobile language toggle */}
+          <button
+            onClick={toggle}
+            className="text-xs font-semibold px-2.5 py-1 rounded-lg border"
+            style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}
+          >
+            {lang === 'de' ? 'EN' : 'DE'}
+          </button>
+
+          <button
+            className="flex flex-col gap-1.5 p-2"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menü öffnen"
+          >
+            <span
+              className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}
+              style={{ background: 'var(--color-dark)' }}
+            />
+            <span
+              className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}
+              style={{ background: 'var(--color-dark)' }}
+            />
+            <span
+              className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}
+              style={{ background: 'var(--color-dark)' }}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -115,7 +142,7 @@ export default function Header() {
             style={{ background: 'var(--color-primary)' }}
             onClick={() => setMenuOpen(false)}
           >
-            Konto eröffnen
+            {t.nav.cta}
           </Link>
         </div>
       )}

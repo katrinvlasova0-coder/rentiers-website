@@ -165,9 +165,9 @@ export default async function BlogPostPage({
                 Häufige Fragen
               </h2>
               <div className="space-y-4">
-                {meta.faq.map((item) => (
+                {meta.faq.map((item, idx) => (
                   <div
-                    key={item.question}
+                    key={item.question ?? idx}
                     className="rounded-2xl p-5 border"
                     style={{ background: 'var(--color-bg-light)', borderColor: 'transparent' }}
                   >
@@ -257,24 +257,70 @@ export default async function BlogPostPage({
   );
 }
 
-// Simple markdown to HTML converter (no external deps needed for MVP)
+// Render a block of consecutive | lines as an HTML table
+function renderTable(tableLines: string[]): string {
+  const thStyle = 'padding:10px 14px;border:1px solid #E5E7EB;background:#F2F2FA;font-weight:700;text-align:left;font-size:0.875rem';
+  const tdStyle = 'padding:10px 14px;border:1px solid #E5E7EB;font-size:0.875rem;vertical-align:top;line-height:1.5';
+  // A separator row looks like |---|---|
+  const isSep = (l: string) => /^\|[\s\-:|]+\|$/.test(l.replace(/[^|:\-\s]/g, ''));
+
+  let html = '<div style="overflow-x:auto;margin:1.5rem 0"><table style="width:100%;border-collapse:collapse;border:1px solid #E5E7EB">';
+  let isFirstRow = true;
+  let bodyOpen = false;
+
+  for (const line of tableLines) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    if (isSep(trimmed)) {
+      // separator row — open tbody if not already
+      if (!bodyOpen) { html += '<tbody>'; bodyOpen = true; }
+      continue;
+    }
+    const cells = trimmed.split('|').slice(1, -1).map(c => c.trim());
+    if (isFirstRow && !bodyOpen) {
+      html += '<thead><tr>' + cells.map(c => `<th style="${thStyle}">${c}</th>`).join('') + '</tr></thead>';
+      isFirstRow = false;
+    } else {
+      if (!bodyOpen) { html += '<tbody>'; bodyOpen = true; }
+      html += '<tr>' + cells.map(c => `<td style="${tdStyle}">${c}</td>`).join('') + '</tr>';
+    }
+  }
+
+  if (bodyOpen) html += '</tbody>';
+  html += '</table></div>';
+  return html;
+}
+
+// Markdown → HTML converter with proper table support
 function markdownToHtml(md: string): string {
-  return md
-    .replace(/^### (.+)$/gm, '<h3 style="font-size:1.1rem;font-weight:700;color:var(--color-dark);margin:1.5rem 0 0.5rem">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 style="font-size:1.4rem;font-weight:800;color:var(--color-dark);margin:2rem 0 0.75rem">$1</h2>')
-    .replace(/^# (.+)$/gm, '<h1 style="font-size:1.8rem;font-weight:800;color:var(--color-dark);margin:2rem 0 1rem">$1</h1>')
+  // Pass 1: extract table blocks line-by-line
+  const lines = md.split('\n');
+  const segments: string[] = [];
+  let i = 0;
+  while (i < lines.length) {
+    if (lines[i].trim().startsWith('|')) {
+      const block: string[] = [];
+      while (i < lines.length && lines[i].trim().startsWith('|')) {
+        block.push(lines[i]);
+        i++;
+      }
+      segments.push(renderTable(block));
+    } else {
+      segments.push(lines[i]);
+      i++;
+    }
+  }
+
+  // Pass 2: standard markdown transforms (no table regex needed)
+  return segments.join('\n')
+    .replace(/^### (.+)$/gm, '<h3 style="font-size:1.1rem;font-weight:700;color:#1A1F3E;margin:1.5rem 0 0.5rem">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 style="font-size:1.4rem;font-weight:800;color:#1A1F3E;margin:2rem 0 0.75rem">$1</h2>')
+    .replace(/^# (.+)$/gm, '')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/`(.+?)`/g, '<code style="background:var(--color-bg-light);padding:2px 6px;border-radius:4px;font-size:0.85em">$1</code>')
-    .replace(/^\| .+ \|$/gm, (line) => {
-      if (line.includes('---')) return '';
-      const cells = line.split('|').filter(Boolean).map(c => c.trim());
-      return `<tr>${cells.map(c => `<td style="padding:8px 12px;border:1px solid var(--color-border)">${c}</td>`).join('')}</tr>`;
-    })
-    .replace(/(<tr>[\s\S]*?<\/tr>\n?)+/g, (table) => `<table style="width:100%;border-collapse:collapse;margin:1rem 0">${table}</table>`)
+    .replace(/`(.+?)`/g, '<code style="background:#F2F2FA;padding:2px 6px;border-radius:4px;font-size:0.85em">$1</code>')
     .replace(/^[-*] (.+)$/gm, '<li style="margin-bottom:4px">$1</li>')
-    .replace(/(<li[\s\S]*?<\/li>\n?)+/g, (list) => `<ul style="list-style:disc;padding-left:1.5rem;margin:0.75rem 0">${list}</ul>`)
-    .replace(/^\d+\. (.+)$/gm, '<li style="margin-bottom:4px">$1</li>')
-    .replace(/^(?!<[h|u|o|l|t]).+$/gm, (line) => line.trim() ? `<p style="margin-bottom:0.75rem;line-height:1.7;color:var(--color-text-secondary)">${line}</p>` : '')
-    .replace(/\n{3,}/g, '\n\n');
+    .replace(/^\d+\. (.+)$/gm, '<li style="margin-bottom:4px;list-style:decimal">$1</li>')
+    .replace(/(<li[^>]*>[\s\S]*?<\/li>\n?)+/g, (list) => `<ul style="padding-left:1.5rem;margin:0.75rem 0">${list}</ul>`)
+    .replace(/^(?!<|\s*$)(.+)$/gm, '<p style="margin-bottom:0.75rem;line-height:1.7;color:#6B7280">$1</p>');
 }

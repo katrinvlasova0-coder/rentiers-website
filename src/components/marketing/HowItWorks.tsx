@@ -1,25 +1,22 @@
-const steps = [
-  {
-    num: '01',
-    title: 'Konto eröffnen & verifizieren',
-    desc: 'KYC in unter 5 Minuten: Personalausweis + Selfie + Adressnachweis. Ihr Konto ist sofort aktiv. GDPR-konform, vollständig digital.',
-    detail: 'ID-Scan · Liveness-Check · Proof of Address',
-  },
-  {
-    num: '02',
-    title: 'Portfolio wählen & einzahlen',
-    desc: 'Wählen Sie Konservativ (12%), Ausgewogen (16%) oder High-Yield (20%). Betrag per SEPA, Banküberweisung oder Karte einzahlen.',
-    detail: 'SEPA · SWIFT · Debit-/Kreditkarte',
-  },
-  {
-    num: '03',
-    title: 'Zinsen empfangen & genießen',
-    desc: 'Rentiers verteilt Ihr Kapital automatisch auf geprüfte Partnerbanken. Zinsen kommen quartalsweise direkt auf Ihre Rentiers Mastercard.',
-    detail: 'Quartalsweise Auszahlung · Rentiers Debitkarte',
-  },
+'use client';
+
+import { useLanguage } from '@/contexts/LanguageContext';
+
+const stepColors = [
+  'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary) 100%)',
+  'linear-gradient(135deg, var(--color-primary) 0%, #7C3AED 100%)',
+  'linear-gradient(135deg, var(--color-primary) 0%, #0891B2 100%)',
+];
+
+const stepDetails = [
+  'ID-Scan · Liveness-Check · Proof of Address',
+  'SEPA · SWIFT · Debit-/Kreditkarte',
+  'Quartalsweise Auszahlung · Rentiers Debitkarte',
 ];
 
 export default function HowItWorks() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20" style={{ background: 'var(--color-bg-light)' }}>
       <div className="max-w-[1200px] mx-auto px-6">
@@ -28,10 +25,10 @@ export default function HowItWorks() {
             className="text-3xl md:text-4xl font-extrabold mb-4"
             style={{ color: 'var(--color-dark)' }}
           >
-            In 3 Schritten zu passivem Einkommen
+            {t.howItWorks.heading}
           </h2>
           <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
-            Keine Expertise nötig. Keine manuelle Verwaltung. Einfach anlegen und Zinsen kassieren.
+            {t.howItWorks.subheading}
           </p>
         </div>
 
@@ -42,12 +39,12 @@ export default function HowItWorks() {
             style={{ background: 'linear-gradient(90deg, var(--color-primary), var(--color-primary-light))', opacity: 0.3 }}
           />
 
-          {steps.map((step, i) => (
+          {t.howItWorks.steps.map((step, i) => (
             <div key={step.num} className="relative flex flex-col items-center text-center">
               {/* Step circle */}
               <div
                 className="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-extrabold mb-6 shadow-lg relative z-10"
-                style={{ background: `linear-gradient(135deg, var(--color-primary) 0%, ${i === 1 ? '#7C3AED' : i === 2 ? '#0891B2' : 'var(--color-primary)'} 100%)` }}
+                style={{ background: stepColors[i] }}
               >
                 {step.num}
               </div>
@@ -61,7 +58,7 @@ export default function HowItWorks() {
                 className="text-xs font-medium px-3 py-1.5 rounded-full"
                 style={{ background: 'rgba(59,59,232,0.1)', color: 'var(--color-primary)' }}
               >
-                {step.detail}
+                {stepDetails[i]}
               </span>
             </div>
           ))}
@@ -83,10 +80,10 @@ export default function HowItWorks() {
 
             <div className="grid grid-cols-2 gap-3 mb-4">
               {[
-                { label: 'Investiert', value: '€25.000', icon: '€', color: 'var(--color-dark)' },
-                { label: 'Aktueller Wert', value: '€25.000', icon: '💳', color: 'var(--color-success)' },
-                { label: 'Jahresrendite', value: '16%', icon: '📈', color: 'var(--color-dark)' },
-                { label: 'Tägliche Gebühren', value: '€0,11', icon: '📋', color: 'var(--color-warning)' },
+                { label: 'Investiert', value: '€25.000', color: 'var(--color-dark)' },
+                { label: 'Aktueller Wert', value: '€25.000', color: 'var(--color-success)' },
+                { label: 'Jahresrendite', value: '16%', color: 'var(--color-dark)' },
+                { label: 'Tägliche Zinsen', value: '€11,00', color: 'var(--color-warning)' },
               ].map((stat) => (
                 <div key={stat.label} className="rounded-xl p-3" style={{ background: 'var(--color-bg-light)' }}>
                   <p className="text-xs mb-1" style={{ color: 'var(--color-text-secondary)' }}>{stat.label}</p>
