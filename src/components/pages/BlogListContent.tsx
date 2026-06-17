@@ -2,23 +2,25 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
-import type { BlogPostMeta } from '@/lib/blog';
+import { localizeBlogMeta, type BlogPostMeta } from '@/lib/blog';
+import { slugify } from '@/lib/slugify';
 
-function localizedMeta(post: BlogPostMeta, lang: 'de' | 'en') {
-  if (lang === 'en') {
-    return {
-      title: post.titleEn ?? post.title,
-      description: post.descriptionEn ?? post.description,
-    };
-  }
-  return { title: post.title, description: post.description };
+function postMatchesTag(post: BlogPostMeta, tagSlug: string): boolean {
+  const allTags = [...(post.tags ?? []), ...(post.tagsEn ?? [])];
+  return allTags.some((t) => slugify(t) === tagSlug);
+}
+
+function postMatchesCategory(post: BlogPostMeta, category: string, lang: 'de' | 'en'): boolean {
+  const localized = localizeBlogMeta(post, lang);
+  return localized.category === category || post.category === category;
 }
 
 function BlogCard({ post, lang }: { post: BlogPostMeta; lang: 'de' | 'en' }) {
   const { p } = useLanguage();
   const labels = p.blog;
-  const { title, description } = localizedMeta(post, lang);
+  const meta = localizeBlogMeta(post, lang);
   const dateLocale = lang === 'en' ? 'en-GB' : 'de-DE';
 
   return (
@@ -31,7 +33,7 @@ function BlogCard({ post, lang }: { post: BlogPostMeta; lang: 'de' | 'en' }) {
         <div className="relative h-44 overflow-hidden">
           <Image
             src={post.coverImage}
-            alt={title}
+            alt={meta.title}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
@@ -50,20 +52,17 @@ function BlogCard({ post, lang }: { post: BlogPostMeta; lang: 'de' | 'en' }) {
             className="text-xs font-medium px-2 py-0.5 rounded-full"
             style={{ background: 'var(--color-primary-light)', color: 'var(--color-primary)' }}
           >
-            {post.category}
+            {meta.category}
           </span>
           <span className="text-xs" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
             {post.readTime} {labels.readTime}
           </span>
         </div>
-        <h2
-          className="font-bold text-base mb-2 line-clamp-2 group-hover:text-primary transition-colors"
-          style={{ color: 'var(--color-dark)' }}
-        >
-          {title}
+        <h2 className="font-bold text-base mb-2 line-clamp-2 transition-colors" style={{ color: 'var(--color-dark)' }}>
+          {meta.title}
         </h2>
         <p className="text-sm line-clamp-2" style={{ color: 'var(--color-text-secondary)' }}>
-          {description}
+          {meta.description}
         </p>
         <p className="text-xs mt-3" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
           {new Date(post.datePublished).toLocaleDateString(dateLocale, {
@@ -80,8 +79,27 @@ function BlogCard({ post, lang }: { post: BlogPostMeta; lang: 'de' | 'en' }) {
 export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
   const { lang, p } = useLanguage();
   const labels = p.blog;
-  const featured = posts.find((post) => post.featured);
-  const rest = posts.filter((post) => !post.featured);
+  const searchParams = useSearchParams();
+  const tagFilter = searchParams.get('tag');
+  const categoryFilter = searchParams.get('category');
+
+  let filtered = posts;
+  if (tagFilter) {
+    filtered = filtered.filter((post) => postMatchesTag(post, tagFilter));
+  }
+  if (categoryFilter) {
+    filtered = filtered.filter((post) => postMatchesCategory(post, categoryFilter, lang));
+  }
+
+  const activeTagLabel = tagFilter
+    ? localizeBlogMeta(
+        posts.find((p) => postMatchesTag(p, tagFilter)) ?? posts[0],
+        lang
+      ).tags?.find((t) => slugify(t) === tagFilter) ?? tagFilter
+    : null;
+
+  const featured = !tagFilter && !categoryFilter ? filtered.find((post) => post.featured) : undefined;
+  const rest = filtered.filter((post) => post !== featured);
 
   return (
     <>
@@ -101,6 +119,31 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
 
       <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
+          {(tagFilter || categoryFilter) && (
+            <div
+              className="mb-8 flex flex-wrap items-center justify-between gap-3 rounded-xl px-4 py-3 border"
+              style={{ background: 'var(--color-bg-light)', borderColor: 'var(--color-border)' }}
+            >
+              <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+                {tagFilter && (
+                  <>
+                    {labels.filterTag}: <strong style={{ color: 'var(--color-dark)' }}>{activeTagLabel}</strong>
+                  </>
+                )}
+                {categoryFilter && (
+                  <>
+                    {labels.filterCategory}: <strong style={{ color: 'var(--color-dark)' }}>{categoryFilter}</strong>
+                  </>
+                )}
+                {' · '}
+                {filtered.length} {labels.filterResults}
+              </p>
+              <Link href="/blog" className="text-sm font-semibold hover:underline" style={{ color: 'var(--color-primary)' }}>
+                {labels.clearFilter}
+              </Link>
+            </div>
+          )}
+
           {featured && (
             <div className="mb-12">
               <Link
@@ -111,7 +154,13 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
                 <div className="grid md:grid-cols-2">
                   {featured.coverImage ? (
                     <div className="relative h-64 md:h-auto min-h-[16rem]">
-                      <Image src={featured.coverImage} alt={localizedMeta(featured, lang).title} fill className="object-cover" priority />
+                      <Image
+                        src={featured.coverImage}
+                        alt={localizeBlogMeta(featured, lang).title}
+                        fill
+                        className="object-cover"
+                        priority
+                      />
                     </div>
                   ) : (
                     <div
@@ -126,13 +175,13 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
                       className="inline-block text-xs font-medium px-3 py-1 rounded-full mb-4"
                       style={{ background: 'var(--color-primary-light)', color: 'var(--color-primary)' }}
                     >
-                      {labels.featured} · {featured.category}
+                      {labels.featured} · {localizeBlogMeta(featured, lang).category}
                     </span>
                     <h2 className="text-2xl font-extrabold mb-3" style={{ color: 'var(--color-dark)' }}>
-                      {localizedMeta(featured, lang).title}
+                      {localizeBlogMeta(featured, lang).title}
                     </h2>
                     <p className="text-sm mb-4" style={{ color: 'var(--color-text-secondary)' }}>
-                      {localizedMeta(featured, lang).description}
+                      {localizeBlogMeta(featured, lang).description}
                     </p>
                     <span className="text-sm font-semibold" style={{ color: 'var(--color-primary)' }}>
                       {labels.readMore}
@@ -151,7 +200,7 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
             </div>
           )}
 
-          {posts.length === 0 && (
+          {filtered.length === 0 && (
             <div className="text-center py-20" style={{ color: 'var(--color-text-secondary)' }}>
               <p className="font-semibold">{labels.empty}</p>
             </div>

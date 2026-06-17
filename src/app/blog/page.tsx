@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { getAllPosts } from '@/lib/blog';
 import BlogListContent from '@/components/pages/BlogListContent';
 
@@ -11,5 +12,9 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const posts = await getAllPosts();
-  return <BlogListContent posts={posts} />;
+  return (
+    <Suspense>
+      <BlogListContent posts={posts} />
+    </Suspense>
+  );
 }

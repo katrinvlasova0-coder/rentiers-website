@@ -1,3 +1,6 @@
+import { assetPath } from '@/lib/basePath';
+import { slugify } from '@/lib/slugify';
+
 function renderTable(tableLines: string[]): string {
   const isSep = (l: string) => /^\|[\s\-:|]+\|$/.test(l.replace(/[^|:\-\s]/g, ''));
 
@@ -33,8 +36,65 @@ function renderTable(tableLines: string[]): string {
   return html;
 }
 
-export function markdownToHtml(md: string): string {
-  const lines = md.split('\n');
+function renderLinks(text: string): string {
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
+    const href = url.startsWith('/') ? assetPath(url) : url;
+    const external = /^https?:\/\//i.test(url);
+    const extra = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<a href="${href}" class="blog-link"${extra}>${label}</a>`;
+  });
+}
+
+function buildTocNav(title: string, items: string[]): string {
+  const list = items
+    .map((item) => {
+      const id = slugify(item);
+      return `<li><a href="#${id}" class="blog-toc-link">${item}</a></li>`;
+    })
+    .join('');
+  return `<nav class="blog-toc" aria-label="${title}"><p class="blog-toc-title">${title}</p><ol class="blog-toc-list">${list}</ol></nav>`;
+}
+
+function maybeInsertAutoToc(md: string, tocTitle: string): string {
+  if (/## (Inhaltsverzeichnis|Table of Contents)/m.test(md)) return md;
+
+  const headings: string[] = [];
+  md.replace(/^## (.+)$/gm, (_, title) => {
+    headings.push(title);
+    return '';
+  });
+  if (headings.length < 3) return md;
+
+  const tocBlock =
+    `## ${tocTitle}\n\n` +
+    headings.map((h, i) => `${i + 1}. ${h}`).join('\n') +
+    '\n\n---\n\n';
+
+  const firstH2 = md.search(/^## /m);
+  if (firstH2 === -1) return md;
+  return md.slice(0, firstH2) + tocBlock + md.slice(firstH2);
+}
+
+function replaceTocSection(md: string): string {
+  return md.replace(
+    /^## (Inhaltsverzeichnis|Table of Contents)\s*\n+((?:\d+\.\s+.+\n?)+)/gm,
+    (_, title, list) => {
+      const items = list
+        .trim()
+        .split('\n')
+        .map((line: string) => line.replace(/^\d+\.\s+/, '').trim())
+        .filter(Boolean);
+      return buildTocNav(title, items) + '\n\n';
+    }
+  );
+}
+
+export function markdownToHtml(md: string, lang: 'de' | 'en' = 'de'): string {
+  const tocTitle = lang === 'en' ? 'Table of Contents' : 'Inhaltsverzeichnis';
+  let content = maybeInsertAutoToc(md, tocTitle);
+  content = replaceTocSection(content);
+
+  const lines = content.split('\n');
   const segments: string[] = [];
   let i = 0;
   while (i < lines.length) {
@@ -51,24 +111,35 @@ export function markdownToHtml(md: string): string {
     }
   }
 
-  return segments
-    .join('\n')
-    .replace(/^#### (.+)$/gm, '<h4 class="blog-h4">$1</h4>')
-    .replace(/^### (.+)$/gm, '<h3 class="blog-h3">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 class="blog-h2">$1</h2>')
-    .replace(/^# (.+)$/gm, '')
-    .replace(/^---$/gm, '<hr class="blog-hr" />')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/`(.+?)`/g, '<code class="blog-code">$1</code>')
-    .replace(/^[-*] (.+)$/gm, '<li>$1</li>')
-    .replace(/^\d+\. (.+)$/gm, '<li class="blog-ol-item">$1</li>')
-    .replace(/(<li[^>]*>[\s\S]*?<\/li>\n?)+/g, (list) => {
-      const isOrdered = list.includes('blog-ol-item');
-      const tag = isOrdered ? 'ol' : 'ul';
-      const cleaned = list.replace(/ class="blog-ol-item"/g, '');
-      return `<${tag} class="blog-list">${cleaned}</${tag}>`;
-    })
-    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="blog-img" loading="lazy" />')
+  return renderLinks(
+    segments
+      .join('\n')
+      .replace(/^#### (.+)$/gm, (_, title) => {
+        const id = slugify(title);
+        return `<h4 class="blog-h4" id="${id}">${title}</h4>`;
+      })
+      .replace(/^### (.+)$/gm, (_, title) => {
+        const id = slugify(title);
+        return `<h3 class="blog-h3" id="${id}">${title}</h3>`;
+      })
+      .replace(/^## (.+)$/gm, (_, title) => {
+        const id = slugify(title);
+        return `<h2 class="blog-h2" id="${id}">${title}</h2>`;
+      })
+      .replace(/^# (.+)$/gm, '')
+      .replace(/^---$/gm, '<hr class="blog-hr" />')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em class="blog-em">$1</em>')
+      .replace(/`(.+?)`/g, '<code class="blog-code">$1</code>')
+      .replace(/^[-*] (.+)$/gm, '<li>$1</li>')
+      .replace(/^\d+\. (.+)$/gm, '<li class="blog-ol-item">$1</li>')
+      .replace(/(<li[^>]*>[\s\S]*?<\/li>\n?)+/g, (list) => {
+        const isOrdered = list.includes('blog-ol-item');
+        const tag = isOrdered ? 'ol' : 'ul';
+        const cleaned = list.replace(/ class="blog-ol-item"/g, '');
+        return `<${tag} class="blog-list">${cleaned}</${tag}>`;
+      })
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="blog-img" loading="lazy" />')
+  )
     .replace(/^(?!<|\s*$)(.+)$/gm, '<p class="blog-p">$1</p>');
 }
