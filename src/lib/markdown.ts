@@ -69,5 +69,6 @@ export function markdownToHtml(md: string): string {
       const cleaned = list.replace(/ class="blog-ol-item"/g, '');
       return `<${tag} class="blog-list">${cleaned}</${tag}>`;
     })
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="blog-img" loading="lazy" />')
     .replace(/^(?!<|\s*$)(.+)$/gm, '<p class="blog-p">$1</p>');
 }

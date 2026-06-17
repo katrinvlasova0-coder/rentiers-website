@@ -55,7 +55,7 @@ export default async function BlogPostPage({
   const allPosts = await getAllPosts();
   const related = allPosts
     .filter((p) => p.slug !== slug && p.category === de.meta.category)
-    .slice(0, 3);
+    .slice(0, 5);
 
   const breadcrumbs = [
     { name: 'Home', href: '/' },

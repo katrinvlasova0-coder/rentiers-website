@@ -158,7 +158,7 @@ export default function BlogPostContent({
           <h2 className="text-xl font-extrabold mb-6" style={{ color: 'var(--color-dark)' }}>
             {labels.relatedTitle}
           </h2>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {related.map((post) => {
               const relatedMeta = localizedMeta(post, lang);
               return (
