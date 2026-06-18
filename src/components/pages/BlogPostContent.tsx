@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { localizeBlogMeta, type BlogPostMeta } from '@/lib/blog';
+import { localizeBlogMeta, type BlogPostMeta } from '@/lib/blog-shared';
 import { markdownToHtml } from '@/lib/markdown';
 import { slugify } from '@/lib/slugify';
 

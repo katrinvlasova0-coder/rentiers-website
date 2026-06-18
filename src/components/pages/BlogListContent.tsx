@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { localizeBlogMeta, type BlogPostMeta } from '@/lib/blog';
+import { localizeBlogMeta, type BlogPostMeta } from '@/lib/blog-shared';
 import { slugify } from '@/lib/slugify';
 
 function postMatchesTag(post: BlogPostMeta, tagSlug: string): boolean {
@@ -91,11 +91,11 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
     filtered = filtered.filter((post) => postMatchesCategory(post, categoryFilter, lang));
   }
 
+  const tagMatchPost = tagFilter ? posts.find((p) => postMatchesTag(p, tagFilter)) : undefined;
   const activeTagLabel = tagFilter
-    ? localizeBlogMeta(
-        posts.find((p) => postMatchesTag(p, tagFilter)) ?? posts[0],
-        lang
-      ).tags?.find((t) => slugify(t) === tagFilter) ?? tagFilter
+    ? (tagMatchPost
+        ? localizeBlogMeta(tagMatchPost, lang).tags?.find((t) => slugify(t) === tagFilter)
+        : undefined) ?? tagFilter
     : null;
 
   const featured = !tagFilter && !categoryFilter ? filtered.find((post) => post.featured) : undefined;

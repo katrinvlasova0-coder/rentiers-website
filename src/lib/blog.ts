@@ -1,53 +1,15 @@
 import fs from 'fs';
 import path from 'path';
+import {
+  localizeBlogMeta,
+  type BlogLang,
+  type BlogPostMeta,
+} from '@/lib/blog-shared';
+
+export type { BlogLang, BlogPostMeta } from '@/lib/blog-shared';
+export { CATEGORY_LABELS, localizeBlogMeta } from '@/lib/blog-shared';
 
 const BLOG_DIR = path.join(process.cwd(), 'content/blog');
-
-export interface BlogPostMeta {
-  slug: string;
-  title: string;
-  description: string;
-  titleEn?: string;
-  descriptionEn?: string;
-  datePublished: string;
-  dateModified: string;
-  author: { name: string; role: string; roleEn?: string };
-  category: string;
-  categoryEn?: string;
-  readTime: number;
-  coverImage?: string;
-  featured?: boolean;
-  tags: string[];
-  tagsEn?: string[];
-  faq?: Array<{ question: string; answer: string }>;
-  faqEn?: Array<{ question: string; answer: string }>;
-}
-
-export const CATEGORY_LABELS: Record<string, { de: string; en: string }> = {
-  Einlagenarbitrage: { de: 'Einlagenarbitrage', en: 'Deposit Arbitrage' },
-  Festgeld: { de: 'Festgeld', en: 'Fixed Deposits' },
-  'Passives Einkommen': { de: 'Passives Einkommen', en: 'Passive Income' },
-};
-
-export function localizeBlogMeta(meta: BlogPostMeta, lang: BlogLang): BlogPostMeta {
-  if (lang === 'de') return meta;
-  const category =
-    meta.categoryEn ??
-    CATEGORY_LABELS[meta.category]?.en ??
-    meta.category;
-  return {
-    ...meta,
-    title: meta.titleEn ?? meta.title,
-    description: meta.descriptionEn ?? meta.description,
-    category,
-    tags: meta.tagsEn ?? meta.tags,
-    faq: meta.faqEn ?? meta.faq,
-    author: {
-      ...meta.author,
-      role: meta.author.roleEn ?? meta.author.role,
-    },
-  };
-}
 
 // Custom frontmatter parser — no gray-matter dependency
 function parseYamlValue(raw: string): string {
@@ -157,8 +119,6 @@ export async function getAllPosts(): Promise<BlogPostMeta[]> {
     (a, b) => new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
   );
 }
-
-export type BlogLang = 'de' | 'en';
 
 const EN_SEPARATOR = '\n---en---\n';
 
