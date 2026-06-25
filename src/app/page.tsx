@@ -3,6 +3,7 @@ import HeroHome from '@/components/marketing/HeroHome';
 import ProblemSection from '@/components/marketing/ProblemSection';
 import HowItWorks from '@/components/marketing/HowItWorks';
 import PortfoliosSection from '@/components/marketing/PortfoliosSection';
+import B2BSection from '@/components/marketing/B2BSection';
 import Calculator from '@/components/marketing/Calculator';
 import BankLogos from '@/components/marketing/BankLogos';
 import FeaturesGrid from '@/components/marketing/FeaturesGrid';
@@ -23,6 +24,7 @@ export default function HomePage() {
       <ProblemSection />
       <HowItWorks />
       <PortfoliosSection />
+      <B2BSection />
       <Calculator />
       <BankLogos />
       <FeaturesGrid />

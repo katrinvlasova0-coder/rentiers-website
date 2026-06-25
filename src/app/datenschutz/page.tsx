@@ -3,7 +3,7 @@ import LegalContent from '@/components/pages/LegalContent';
 
 export const metadata: Metadata = {
   title: 'Datenschutzrichtlinie — Rentiers Pro',
-  description: 'Datenschutzrichtlinie von Rentiers SA. Erfahren Sie, wie wir Ihre personenbezogenen Daten erheben, verarbeiten und schützen.',
+  description: 'Datenschutzrichtlinie von Rentiers Global. Erfahren Sie, wie wir Ihre personenbezogenen Daten erheben, verarbeiten und schützen.',
   alternates: { canonical: 'https://rentierspro.com/datenschutz' },
 };
 

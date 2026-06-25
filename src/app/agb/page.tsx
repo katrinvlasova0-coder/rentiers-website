@@ -3,7 +3,7 @@ import LegalContent from '@/components/pages/LegalContent';
 
 export const metadata: Metadata = {
   title: 'Allgemeine Geschäftsbedingungen — Rentiers Pro',
-  description: 'AGB von Rentiers SA. Nutzungsbedingungen für die Rentiers-Plattform.',
+  description: 'AGB von Rentiers Global. Nutzungsbedingungen für die Rentiers-Plattform.',
   alternates: { canonical: 'https://rentierspro.com/agb' },
 };
 

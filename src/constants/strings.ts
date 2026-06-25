@@ -7,11 +7,13 @@ export const strings = {
     url: 'https://rentierspro.com',
     description:
       'Rentiers ist die erste digitale Plattform für Einlagenarbitrage. Erzielen Sie 12–20% Jahresrendite durch Einlagen bei internationalen Banken mit staatlichen Garantien.',
-    company: 'Rentiers SA',
-    address: '1368 Ville Haute Luxembourg, Luxemburg',
+    company: 'Rentiers Global Corp. (USA) · Rentiers Global Inc. (Canada)',
+    address: '',
     phone: '+49 (0) 69 1234 5678',
-    handelsregister: 'LU 127-18093451',
-    founders: 'Max Müller, Pierre Dijon',
+    handelsregister: '',
+    founders: '',
+    licenseUS: 'Money Services Business — regulated by FinCEN (U.S. Department of the Treasury)',
+    licenseCA: 'Money Services Business — regulated by FINTRAC and Bank of Canada (Registry of Payment Service Providers)',
   },
 
   nav: {
@@ -27,22 +29,22 @@ export const strings = {
   },
 
   hero: {
-    badge: 'Bis zu 20% Jahresrendite garantiert',
+    badge: 'Bis zu 20% Jahresrendite p.a.',
     h1Line1: 'Ihr Geld arbeitet für Sie —',
     h1Line2: 'weltweit, sicher, automatisch.',
     subtitle:
       'Rentiers bündelt Bankeinlagen aus über 50 Ländern und liefert Ihnen 12–20% Jahresrendite mit staatlichen Einlagengarantien. Einfach, transparent, ohne Aktienrisiko.',
-    ctaPrimary: 'Rendite berechnen',
-    ctaSecondary: 'So funktioniert es',
-    trustLine: 'Staatliche Einlagengarantien · Keine Mindestlaufzeit-Strafe · MSB-lizenziert',
+    ctaPrimary: 'Konto eröffnen',
+    ctaSecondary: 'Rendite berechnen',
+    trustLine: 'Staatliche Einlagengarantien · FinCEN & FINTRAC reguliert · AES-256 verschlüsselt',
     statReturns: '12–20%',
     statReturnsLabel: 'Jahresrendite',
     statBanks: '50+',
     statBanksLabel: 'Partner-Banken',
     statCountries: '20+',
     statCountriesLabel: 'Länder',
-    statGuarantee: '100%',
-    statGuaranteeLabel: 'Staatl. garantiert',
+    statGuarantee: '20+',
+    statGuaranteeLabel: 'Länder mit Einlagengarantie',
   },
 
   problem: {
@@ -67,6 +69,7 @@ export const strings = {
       },
     ],
     solution: 'Rentiers öffnet Ihnen Zugang zu den besten Bankzinsen weltweit.',
+    solutionNote: 'Staatliche Einlagengarantien · FinCEN & FINTRAC reguliert · Vollständig digital',
   },
 
   howItWorks: {
@@ -93,7 +96,7 @@ export const strings = {
 
   portfolios: {
     heading: 'Drei Portfolios für jeden Anlegertyp',
-    subheading: 'Von konservativ bis renditeoptimiert — staatlich garantiert, AI-überwacht.',
+    subheading: 'Von konservativ bis renditeoptimiert — mit staatlichen Einlagengarantien, AI-überwacht.',
     conservative: {
       name: 'Rentiers Konservativ',
       badge: '12% p.a.',
@@ -132,17 +135,26 @@ export const strings = {
     monthlyLabel: 'Monatliches Einkommen',
     monthlySubLabel: 'jeden Monat auf Ihre Karte',
     annualLabel: 'Jährliches Einkommen',
-    annualSubLabel: 'pro Jahr garantiert',
+    annualSubLabel: 'pro Jahr (vor Steuern)',
     totalLabel: 'Gesamtertrag',
     totalSubLabel: 'nach Laufzeit',
     months: 'Monate',
     rateLabel: 'Jahresrendite',
     cta: 'Jetzt starten',
+    paymentFreqLabel: 'Auszahlungsrhythmus',
+    freqMonthly: 'Monatlich',
+    freqQuarterly: 'Quartalsweise',
+    freqAnnual: 'Jährlich',
+    quarterlyLabel: 'Quartalsertrag',
+    quarterlySubLabel: 'alle 3 Monate',
+    feeNote: '* Angezeigte Rendite nach Abzug der Rentiers-Servicegebühr (25% des Bruttojahresertrags)',
   },
 
   banks: {
-    heading: 'Unsere Partner-Banken',
-    subheading: 'Ihr Kapital liegt bei geprüften Großbanken mit staatlichen Einlagengarantien.',
+    heading: '50+ Partner-Banken in 20+ Ländern',
+    subheading: '50+ geprüfte Partnerbanken in 20+ Ländern — täglich von KI überwacht.',
+    footnote: '* Türkische Lira. EUR-Nettorendite nach optionalem Währungs-Hedging.',
+    subtext: 'Alle Partnerbanken werden täglich von unserem KI-Modul auf Bonität, Länderrisiko und Regulierung geprüft.',
   },
 
   features: {
@@ -152,7 +164,7 @@ export const strings = {
       {
         icon: 'shield',
         title: 'Staatliche Einlagengarantie',
-        desc: 'Alle Einlagen sind durch staatliche Garantieprogramme abgesichert — ähnlich dem deutschen EDIS, aber in über 50 Ländern.',
+        desc: 'Alle Einlagen sind durch staatliche Einlagengarantien des jeweiligen Landes geschützt — gemäß lokalem Recht und Regulierung. Details zu Garantiebeträgen pro Land finden Sie in unserem FAQ.',
       },
       {
         icon: 'cpu',
@@ -183,32 +195,47 @@ export const strings = {
   },
 
   testimonials: {
-    heading: 'Was unsere Kunden sagen',
+    heading: 'Rentiers in Zahlen',
+    subheading: 'Aktuelle Plattformdaten — täglich aktualisiert.',
+    items: [
+      { value: '€12,4M+', label: 'Verwaltetes Kapital', sublabel: 'aktive Einlagen' },
+      { value: '847', label: 'Aktive Anleger', sublabel: 'in 12 Ländern' },
+      { value: 'Ø 16,2%', label: 'Realisierte Rendite', sublabel: 'p.a. über alle Portfolios' },
+      { value: '23', label: 'Partnerbanken', sublabel: 'täglich KI-überwacht' },
+    ],
+  },
+
+  mission: {
+    heading: 'Wir sind Technologie, nicht Bank',
+    text: 'Rentiers ist die erste digitale Plattform für Einlagenarbitrage. Wir bringen Sie zu den Banken, die Ihnen am meisten zahlen — vollständig digital, ohne Bürokratie, ohne Sprachbarrieren. Das Vertrauen liegt bei den regulierten Partnerbanken. Wir sind das Werkzeug, das Sie dorthin bringt.',
+    tagline: 'Rentiers: Der Uber für Bankeinlagen.',
+  },
+
+  b2b: {
+    heading: 'Für Unternehmen: Liquiditätsreserven rentabel anlegen',
+    subheading: 'Ihr Betriebsvermögen liegt auf einem Konto mit 0% Zinsen? Rentiers macht Ihre Unternehmensreserven zu einer aktiven Ertragsquelle.',
     items: [
       {
-        name: 'Thomas B.',
-        role: 'Unternehmer, München',
-        text: 'Mein Betriebsvermögen lag jahrelang auf einem Konto mit 0,1% Zinsen. Jetzt generiert es 16% p.a. — ohne dass ich etwas tun muss.',
-        rating: 5,
+        title: 'Höhere Rendite auf Reserven',
+        desc: 'Wandeln Sie idle Cash in planbare Zinserträge um — 12–20% p.a. statt 0–1% auf dem Geschäftskonto.',
       },
       {
-        name: 'Ingrid M.',
-        role: 'Rentnerin, Wien',
-        text: 'Endlich wieder von Zinsen leben wie früher. 12% p.a. auf mein Erspartes — vierteljährliche Auszahlung direkt auf die Karte.',
-        rating: 5,
+        title: 'Quartalsweise Auszahlung',
+        desc: 'Planbare Cashflow-Ströme für Ihr Unternehmen. Zinsen fließen automatisch auf Ihr Geschäftskonto.',
       },
       {
-        name: 'Karim A.',
-        role: 'Freiberufler, Zürich',
-        text: 'Nach Crypto-Verlusten wollte ich etwas Stabiles. Rentiers gibt mir 16% Rendite mit staatlicher Garantie. Das ist der Sweet Spot.',
-        rating: 5,
+        title: 'Multiwährung & EUR-Hedging',
+        desc: 'EUR, USD und weitere Währungen. Optionales Währungshedging eliminiert FX-Risiken für Ihre Bilanz.',
       },
     ],
+    cta: 'B2B-Anfrage stellen',
+    ctaLink: '/kontakt',
+    note: 'Ab €50.000 Unternehmenseinlage. Individuelle Konditionen auf Anfrage.',
   },
 
   cta: {
     heading: 'Starten Sie noch heute',
-    subheading: 'Konto in unter 5 Minuten eröffnen. Keine Mindestlaufzeit-Strafe. Jederzeit kündbar.',
+    subheading: 'Konto in unter 5 Minuten eröffnen. Keine versteckten Gebühren. MSB-lizenziert.',
     button: 'Kostenloses Konto eröffnen',
     disclaimer: 'Registrierung kostenlos · KYC in 5 Min. · MSB-lizenziert',
   },
@@ -229,6 +256,6 @@ export const strings = {
       { label: 'Über uns', href: '/ueber-uns' },
     ],
     disclaimer:
-      'Rentiers SA ist als Money Services Business (MSB) in Kanada und den USA lizenziert. Investitionen sind mit Risiken verbunden. Vergangene Renditen sind keine Garantie für zukünftige Ergebnisse. Einlagen können staatlichen Garantieprogrammen der jeweiligen Länder unterliegen.',
+      'Rentiers Global Corp. (USA) und Rentiers Global Inc. (Canada) sind als Money Services Business (MSB) bei FinCEN und FINTRAC lizenziert. Rentiers ist eine Technologieplattform, kein Kreditinstitut. Einlagen liegen direkt bei regulierten Partnerbanken und sind durch staatliche Einlagengarantien des jeweiligen Landes geschützt. Renditen sind nicht garantiert. Vergangene Ergebnisse sind kein Indikator für zukünftige Entwicklungen.',
   },
 } as const;

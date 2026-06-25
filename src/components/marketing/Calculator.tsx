@@ -10,6 +10,8 @@ const RATES: Record<string, number> = {
   highyield: 0.20,
 };
 
+type PaymentFreq = 'monthly' | 'quarterly' | 'annual';
+
 function formatNum(n: number, locale: string) {
   return new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
 }
@@ -22,10 +24,12 @@ export default function Calculator() {
   const [amount, setAmount] = useState(50000);
   const [months, setMonths] = useState(60);
   const [portfolio, setPortfolio] = useState<'conservative' | 'balanced' | 'highyield'>('balanced');
+  const [paymentFreq, setPaymentFreq] = useState<PaymentFreq>('quarterly');
 
   const rate = RATES[portfolio];
   const annualIncome = amount * rate;
-  const monthlyIncome = annualIncome / 12;
+  const periodIncome =
+    paymentFreq === 'monthly' ? annualIncome / 12 : paymentFreq === 'quarterly' ? annualIncome / 4 : annualIncome;
   const totalReturn = (annualIncome * months) / 12;
 
   const portfolioLabels: Record<string, string> = {
@@ -34,8 +38,23 @@ export default function Calculator() {
     highyield: c.highyieldLabel,
   };
 
+  const periodLabel =
+    paymentFreq === 'monthly' ? c.monthlyLabel : paymentFreq === 'quarterly' ? c.quarterlyLabel : c.annualLabel;
+  const periodSubLabel =
+    paymentFreq === 'monthly'
+      ? c.monthlySubLabel
+      : paymentFreq === 'quarterly'
+        ? c.quarterlySubLabel
+        : c.annualSubLabel;
+
+  const freqOptions: { value: PaymentFreq; label: string }[] = [
+    { value: 'monthly', label: c.freqMonthly },
+    { value: 'quarterly', label: c.freqQuarterly },
+    { value: 'annual', label: c.freqAnnual },
+  ];
+
   return (
-    <section className="py-20" style={{ background: 'var(--color-bg-light)' }}>
+    <section id="kalkulator" className="py-20" style={{ background: 'var(--color-bg-light)' }}>
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="text-center mb-12 max-w-2xl mx-auto">
           <h2
@@ -85,6 +104,29 @@ export default function Calculator() {
                   <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>
                     {portfolioLabels[portfolio]}
                   </p>
+                </div>
+
+                {/* Payment frequency */}
+                <div>
+                  <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-text-secondary)' }}>
+                    {c.paymentFreqLabel}
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {freqOptions.map((opt) => (
+                      <button
+                        key={opt.value}
+                        onClick={() => setPaymentFreq(opt.value)}
+                        className="py-2 px-2 rounded-xl text-xs font-semibold border-2 transition-all"
+                        style={{
+                          borderColor: paymentFreq === opt.value ? 'var(--color-primary)' : 'var(--color-border)',
+                          background: paymentFreq === opt.value ? 'var(--color-primary-light)' : 'transparent',
+                          color: paymentFreq === opt.value ? 'var(--color-primary)' : 'var(--color-text-secondary)',
+                        }}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Amount slider */}
@@ -149,13 +191,13 @@ export default function Calculator() {
                   style={{ background: 'var(--color-bg-light)' }}
                 >
                   <p className="text-sm mb-1" style={{ color: 'var(--color-text-secondary)' }}>
-                    {c.monthlyLabel}
+                    {periodLabel}
                   </p>
                   <p className="text-3xl font-extrabold mb-1" style={{ color: 'var(--color-dark)' }}>
-                    {formatNum(monthlyIncome, locale)} €
+                    {formatNum(periodIncome, locale)} €
                   </p>
                   <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
-                    {c.monthlySubLabel}
+                    {periodSubLabel}
                   </p>
                 </div>
 
@@ -188,6 +230,10 @@ export default function Calculator() {
                     {c.depositNote}: {formatNum(amount, locale)} €
                   </p>
                 </div>
+
+                <p className="text-xs leading-relaxed" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
+                  {c.feeNote}
+                </p>
 
                 <Link
                   href="/register"

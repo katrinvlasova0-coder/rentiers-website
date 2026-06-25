@@ -70,7 +70,7 @@ export default function HeroHome() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <Link
-                href="/kalkulator"
+                href="/register"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
                 style={{ background: 'var(--color-primary)' }}
               >
@@ -78,7 +78,7 @@ export default function HeroHome() {
                 <span>→</span>
               </Link>
               <Link
-                href="/wie-es-funktioniert"
+                href="#kalkulator"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold border-2 hover:bg-white/50 transition-all"
                 style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
               >
@@ -87,9 +87,22 @@ export default function HeroHome() {
             </div>
 
             {/* Trust line */}
-            <div className="flex items-center gap-1.5 text-xs" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
-              <Lock className="w-3 h-3 shrink-0" />
-              <span>{t.hero.trustLine}</span>
+            <div className="space-y-2">
+              <div className="flex items-center gap-1.5 text-xs" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
+                <Lock className="w-3 h-3 shrink-0" />
+                <span>{t.hero.trustLine}</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {['FinCEN', 'FINTRAC', 'CRS-compliant', 'AES-256', 'GDPR'].map((badge) => (
+                  <span
+                    key={badge}
+                    className="px-2 py-0.5 rounded text-[10px] font-semibold"
+                    style={{ background: 'rgba(59,59,232,0.08)', color: 'var(--color-primary)' }}
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 

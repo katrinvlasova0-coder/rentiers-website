@@ -37,19 +37,14 @@ export function organizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Rentiers Pro',
+    legalName: 'Rentiers Global Corp. / Rentiers Global Inc.',
     url: BASE_URL,
     logo: `${BASE_URL}/logo.svg`,
     description:
-      'Digitale Plattform für Einlagenarbitrage — 12–20% Jahresrendite mit staatlichen Einlagengarantien.',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '1368 Ville Haute Luxembourg',
-      addressLocality: 'Luxemburg',
-      addressCountry: 'LU',
-    },
+      'Digitale Plattform für Einlagenarbitrage — Technologieplattform, kein Kreditinstitut. MSB-lizenziert bei FinCEN und FINTRAC.',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+49-69-12345678',
+      email: 'info@rentierspro.com',
       contactType: 'customer service',
       availableLanguage: ['German', 'English'],
     },

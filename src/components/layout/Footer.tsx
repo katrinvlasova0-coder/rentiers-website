@@ -32,9 +32,6 @@ export default function Footer() {
             <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--color-text-secondary)' }}>
               {t.footer.desc}
             </p>
-            <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-              1368 Ville Haute Luxembourg, Luxemburg
-            </p>
           </div>
 
           {/* Links */}
@@ -59,10 +56,9 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4" style={{ color: 'var(--color-dark)' }}>{t.footer.info}</h3>
             <ul className="space-y-2.5 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-              <li>Phone: +49 (0) 69 1234 5678</li>
-              <li>Rentiers SA</li>
-              <li>Max Müller, Pierre Dijon</li>
-              <li>LU 127-18093451</li>
+              <li>Rentiers Global Corp. (USA)</li>
+              <li>Rentiers Global Inc. (Canada)</li>
+              <li>info@rentierspro.com</li>
             </ul>
           </div>
 

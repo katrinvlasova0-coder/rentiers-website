@@ -66,7 +66,7 @@ export default function ProblemSection() {
             {t.problem.solution}
           </p>
           <p className="text-white/80 text-sm">
-            Staatlich garantiert · AI-überwacht · Vollständig digital
+            {t.problem.solutionNote}
           </p>
         </div>
       </div>

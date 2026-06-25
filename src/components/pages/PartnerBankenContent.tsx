@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { assetPath } from '@/lib/basePath';
 
 export default function PartnerBankenContent() {
   const { p } = useLanguage();
@@ -30,29 +29,23 @@ export default function PartnerBankenContent() {
             {c.banks.map((bank) => (
               <div
                 key={bank.name}
-                className="flex flex-col items-center justify-center p-6 rounded-2xl border hover:shadow-md transition-all"
+                className="flex flex-col items-center justify-center p-6 rounded-2xl border hover:shadow-md transition-all text-center"
                 style={{ borderColor: 'var(--color-border)', background: 'var(--color-bg-light)' }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={assetPath(`/banks/${bank.file}`)}
-                  alt={bank.name}
-                  width={120}
-                  height={40}
-                  className="object-contain h-10 w-auto mb-3"
-                />
-                <p className="text-xs font-semibold text-center" style={{ color: 'var(--color-dark)' }}>
+                <p className="text-sm font-semibold mb-1" style={{ color: 'var(--color-dark)' }}>
                   {bank.name}
                 </p>
-                <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
+                <p className="text-xs mb-2" style={{ color: 'var(--color-text-secondary)' }}>
                   {bank.country}
                 </p>
-                <span
-                  className="mt-2 text-xs px-2 py-0.5 rounded-full font-medium"
-                  style={{ background: 'rgba(34,197,94,0.1)', color: '#15803D' }}
-                >
-                  {bank.rating}
-                </span>
+                {bank.rating && (
+                  <span
+                    className="text-xs px-2 py-0.5 rounded-full font-medium"
+                    style={{ background: 'rgba(59,59,232,0.1)', color: 'var(--color-primary)' }}
+                  >
+                    {bank.rating}
+                  </span>
+                )}
               </div>
             ))}
           </div>
