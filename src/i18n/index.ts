@@ -100,6 +100,16 @@ const de = {
     subheading: '50+ geprüfte Partnerbanken in 20+ Ländern — täglich von KI überwacht.',
     footnote: '* Türkische Lira. EUR-Nettorendite nach optionalem Währungs-Hedging.',
     subtext: 'Alle Partnerbanken werden täglich von unserem KI-Modul auf Bonität, Länderrisiko und Regulierung geprüft.',
+    regions: [
+      { flag: '🇬🇪', country: 'Georgien', banks: '8+ Banken', rate: 'bis 14% p.a.' },
+      { flag: '🇦🇲', country: 'Armenien', banks: '6+ Banken', rate: 'bis 12% p.a.' },
+      { flag: '🇮🇱', country: 'Israel', banks: '5+ Banken', rate: 'bis 8% p.a.' },
+      { flag: '🇷🇸', country: 'Serbien', banks: '4+ Banken', rate: 'bis 9% p.a.' },
+      { flag: '🇹🇷', country: 'Türkei', banks: '6+ Banken', rate: 'bis 20% p.a.*' },
+      { flag: '🇰🇿', country: 'Kasachstan', banks: '4+ Banken', rate: 'bis 15% p.a.' },
+      { flag: '🇺🇿', country: 'Usbekistan', banks: '3+ Banken', rate: 'bis 18% p.a.' },
+      { flag: '🌍', country: '+ 13 weitere', banks: '20+ Banken', rate: '' },
+    ],
   },
   features: {
     heading: 'Warum Rentiers?',
@@ -265,6 +275,16 @@ const en = {
     subheading: '50+ vetted partner banks in 20+ countries — AI-monitored daily.',
     footnote: '* Turkish Lira. EUR net return after optional currency hedging.',
     subtext: 'All partner banks are reviewed daily by our AI module for creditworthiness, country risk, and regulation.',
+    regions: [
+      { flag: '🇬🇪', country: 'Georgia', banks: '8+ Banks', rate: 'up to 14% p.a.' },
+      { flag: '🇦🇲', country: 'Armenia', banks: '6+ Banks', rate: 'up to 12% p.a.' },
+      { flag: '🇮🇱', country: 'Israel', banks: '5+ Banks', rate: 'up to 8% p.a.' },
+      { flag: '🇷🇸', country: 'Serbia', banks: '4+ Banks', rate: 'up to 9% p.a.' },
+      { flag: '🇹🇷', country: 'Turkey', banks: '6+ Banks', rate: 'up to 20% p.a.*' },
+      { flag: '🇰🇿', country: 'Kazakhstan', banks: '4+ Banks', rate: 'up to 15% p.a.' },
+      { flag: '🇺🇿', country: 'Uzbekistan', banks: '3+ Banks', rate: 'up to 18% p.a.' },
+      { flag: '🌍', country: '+ 13 more', banks: '20+ Banks', rate: '' },
+    ],
   },
   features: {
     heading: 'Why Rentiers?',

@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadButton from '@/components/ui/LeadButton';
 
 export default function PartnerBankenContent() {
   const { p } = useLanguage();
@@ -78,13 +78,12 @@ export default function PartnerBankenContent() {
         <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-dark)' }}>
           {c.ctaTitle}
         </h2>
-        <Link
-          href="/register"
+        <LeadButton
           className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
           style={{ background: 'var(--color-primary)' }}
         >
           {c.ctaButton}
-        </Link>
+        </LeadButton>
       </section>
     </>
   );

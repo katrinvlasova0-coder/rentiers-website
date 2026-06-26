@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import CtaBanner from '@/components/marketing/CtaBanner';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadButton from '@/components/ui/LeadButton';
 
 export default function PortfoliosContent() {
   const { p } = useLanguage();
@@ -55,13 +56,12 @@ export default function PortfoliosContent() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/register"
+                <LeadButton
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
                   style={{ background: portfolio.gradient }}
                 >
                   {portfolio.name} {c.chooseButton}
-                </Link>
+                </LeadButton>
               </div>
 
               <div className={idx % 2 === 1 ? 'lg:order-1' : ''}>

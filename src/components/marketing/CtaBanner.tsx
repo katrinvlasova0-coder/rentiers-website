@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadButton from '@/components/ui/LeadButton';
 
 export default function CtaBanner() {
   const { t } = useLanguage();
@@ -44,14 +44,13 @@ export default function CtaBanner() {
             <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
               {t.cta.subheading}
             </p>
-            <Link
-              href="/register"
+            <LeadButton
               className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-lg text-white shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all"
               style={{ background: 'var(--color-primary)' }}
             >
               {t.cta.button}
               <span>→</span>
-            </Link>
+            </LeadButton>
             <p className="text-white/50 text-sm mt-4">
               {t.cta.disclaimer}
             </p>

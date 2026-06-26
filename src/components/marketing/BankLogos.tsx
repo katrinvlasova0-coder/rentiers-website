@@ -2,17 +2,6 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const regions = [
-  { flag: '🇬🇪', country: 'Georgien', banks: '8+ Banken', rate: 'bis 14% p.a.' },
-  { flag: '🇦🇲', country: 'Armenien', banks: '6+ Banken', rate: 'bis 12% p.a.' },
-  { flag: '🇮🇱', country: 'Israel', banks: '5+ Banken', rate: 'bis 8% p.a.' },
-  { flag: '🇷🇸', country: 'Serbien', banks: '4+ Banken', rate: 'bis 9% p.a.' },
-  { flag: '🇹🇷', country: 'Türkei', banks: '6+ Banken', rate: 'bis 20% p.a.*' },
-  { flag: '🇰🇿', country: 'Kasachstan', banks: '4+ Banken', rate: 'bis 15% p.a.' },
-  { flag: '🇺🇿', country: 'Usbekistan', banks: '3+ Banken', rate: 'bis 18% p.a.' },
-  { flag: '🌍', country: '+ 13 weitere', banks: '20+ Banken', rate: '' },
-];
-
 export default function BankLogos() {
   const { t } = useLanguage();
 
@@ -32,7 +21,7 @@ export default function BankLogos() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {regions.map((region) => (
+          {t.banks.regions.map((region) => (
             <div
               key={region.country}
               className="flex flex-col items-center justify-center p-5 rounded-2xl border hover:shadow-md transition-all text-center"

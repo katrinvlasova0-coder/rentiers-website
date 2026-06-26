@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadButton from '@/components/ui/LeadButton';
 
 const RATES: Record<string, number> = {
   conservative: 0.12,
@@ -235,13 +235,12 @@ export default function Calculator() {
                   {c.feeNote}
                 </p>
 
-                <Link
-                  href="/register"
-                  className="block text-center py-3.5 rounded-xl font-semibold text-white mt-2 hover:opacity-90 transition-opacity"
+                <LeadButton
+                  className="block w-full text-center py-3.5 rounded-xl font-semibold text-white mt-2 hover:opacity-90 transition-opacity"
                   style={{ background: 'var(--color-dark)' }}
                 >
                   {c.cta} →
-                </Link>
+                </LeadButton>
               </div>
             </div>
           </div>

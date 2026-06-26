@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadButton from '@/components/ui/LeadButton';
 
 export default function AboutContent() {
   const { p } = useLanguage();
@@ -72,13 +73,12 @@ export default function AboutContent() {
           </div>
 
           <div className="text-center">
-            <Link
-              href="/register"
+            <LeadButton
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
               style={{ background: 'var(--color-primary)' }}
             >
               {c.ctaButton}
-            </Link>
+            </LeadButton>
           </div>
         </div>
       </section>

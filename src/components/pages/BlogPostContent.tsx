@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadButton from '@/components/ui/LeadButton';
 import { localizeBlogMeta, type BlogPostMeta } from '@/lib/blog-shared';
 import { markdownToHtml } from '@/lib/markdown';
 import { slugify } from '@/lib/slugify';
@@ -210,13 +211,12 @@ export default function BlogPostContent({
         >
           <p className="text-white font-bold text-lg mb-2">{labels.ctaTitle}</p>
           <p className="text-white/80 text-sm mb-4">{labels.ctaSubtitle}</p>
-          <Link
-            href="/register"
+          <LeadButton
             className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-xl font-semibold text-sm hover:shadow-md transition-all"
             style={{ color: 'var(--color-primary)' }}
           >
             {labels.ctaButton}
-          </Link>
+          </LeadButton>
         </div>
       </div>
     </article>

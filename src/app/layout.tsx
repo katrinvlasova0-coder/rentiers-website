@@ -3,7 +3,10 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HtmlLang from "@/components/layout/HtmlLang";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { LeadFormProvider } from "@/contexts/LeadFormContext";
+import { assetPath } from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: "Rentiers Pro — Bis zu 20% Jahresrendite auf Bankeinlagen",
@@ -24,6 +27,10 @@ export const metadata: Metadata = {
     canonical: "https://rentierspro.com",
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [{ url: assetPath('/favicon.svg'), type: 'image/svg+xml' }],
+    shortcut: assetPath('/favicon.svg'),
+  },
 };
 
 export default function RootLayout({
@@ -35,10 +42,13 @@ export default function RootLayout({
     <html lang="de" className="h-full">
       <body className="min-h-full flex flex-col antialiased">
         <LanguageProvider>
-          <HtmlLang />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <LeadFormProvider>
+            <HtmlLang />
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <ScrollToTop />
+          </LeadFormProvider>
         </LanguageProvider>
       </body>
     </html>

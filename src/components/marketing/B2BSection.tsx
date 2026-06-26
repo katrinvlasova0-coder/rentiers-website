@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { TrendingUp, Calendar, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadButton from '@/components/ui/LeadButton';
 
 const icons = [TrendingUp, Calendar, Globe];
 
@@ -52,14 +52,13 @@ export default function B2BSection() {
         </div>
 
         <div className="text-center">
-          <Link
-            href={b.ctaLink}
+          <LeadButton
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
             style={{ background: 'var(--color-primary)' }}
           >
             {b.cta}
             <span>→</span>
-          </Link>
+          </LeadButton>
           <p className="text-sm mt-4" style={{ color: 'var(--color-text-secondary)' }}>
             {b.note}
           </p>

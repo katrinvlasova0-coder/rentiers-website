@@ -77,58 +77,59 @@ export default function HowItWorks() {
         </div>
 
         {/* Portfolio screen preview */}
-        <div className="mt-16 flex justify-center">
+        <div className="mt-16">
           <div
-            className="rounded-2xl p-6 max-w-sm w-full shadow-xl border"
+            className="rounded-2xl p-6 md:p-8 w-full shadow-xl border"
             style={{ background: 'white', borderColor: 'var(--color-border)' }}
           >
-            <div className="flex items-center justify-between mb-4">
-              <h4 className="font-bold" style={{ color: 'var(--color-dark)' }}>{hw.portfolioLabel}</h4>
-              <span className="text-xs px-2 py-1 rounded-full"
+            <div className="flex items-center justify-between mb-6">
+              <h4 className="text-lg font-bold" style={{ color: 'var(--color-dark)' }}>{hw.portfolioLabel}</h4>
+              <span className="text-xs px-2.5 py-1 rounded-full font-medium"
                     style={{ background: 'var(--color-bg-light)', color: 'var(--color-text-secondary)' }}>
                 Live
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 mb-4">
-              {[
-                { label: hw.invested, value: '€25.000', color: 'var(--color-dark)' },
-                { label: hw.currentValue, value: '€25.000', color: 'var(--color-success)' },
-                { label: hw.annualReturn, value: '16%', color: 'var(--color-dark)' },
-                { label: hw.dailyInterest, value: '€11,00', color: 'var(--color-warning)' },
-              ].map((stat) => (
-                <div key={stat.label} className="rounded-xl p-3" style={{ background: 'var(--color-bg-light)' }}>
-                  <p className="text-xs mb-1" style={{ color: 'var(--color-text-secondary)' }}>{stat.label}</p>
-                  <p className="font-bold text-sm" style={{ color: stat.color }}>{stat.value}</p>
-                </div>
-              ))}
-            </div>
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { label: hw.invested, value: '€25.000', color: 'var(--color-dark)' },
+                  { label: hw.currentValue, value: '€25.000', color: 'var(--color-success)' },
+                  { label: hw.annualReturn, value: '16%', color: 'var(--color-dark)' },
+                  { label: hw.dailyInterest, value: '€11,00', color: 'var(--color-warning)' },
+                ].map((stat) => (
+                  <div key={stat.label} className="rounded-xl p-4" style={{ background: 'var(--color-bg-light)' }}>
+                    <p className="text-xs mb-1" style={{ color: 'var(--color-text-secondary)' }}>{stat.label}</p>
+                    <p className="font-bold text-lg" style={{ color: stat.color }}>{stat.value}</p>
+                  </div>
+                ))}
+              </div>
 
-            {/* Donut chart */}
-            <div className="flex items-center justify-center py-4">
-              <div className="relative w-24 h-24">
-                <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
-                  <circle cx="18" cy="18" r="14" fill="none" stroke="#EDEDFC" strokeWidth="4" />
-                  <circle cx="18" cy="18" r="14" fill="none" stroke="var(--color-primary)" strokeWidth="4"
-                          strokeDasharray="80 20" strokeLinecap="round" />
-                  <circle cx="18" cy="18" r="14" fill="none" stroke="#7C3AED" strokeWidth="4"
-                          strokeDasharray="20 80" strokeDashoffset="-80" strokeLinecap="round" />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-xs font-bold" style={{ color: 'var(--color-dark)' }}>{hw.distributed}</span>
+              <div className="flex flex-col items-center">
+                <div className="relative w-36 h-36 mb-4">
+                  <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
+                    <circle cx="18" cy="18" r="14" fill="none" stroke="#EDEDFC" strokeWidth="4" />
+                    <circle cx="18" cy="18" r="14" fill="none" stroke="var(--color-primary)" strokeWidth="4"
+                            strokeDasharray="80 20" strokeLinecap="round" />
+                    <circle cx="18" cy="18" r="14" fill="none" stroke="#7C3AED" strokeWidth="4"
+                            strokeDasharray="20 80" strokeDashoffset="-80" strokeLinecap="round" />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-sm font-bold text-center px-2" style={{ color: 'var(--color-dark)' }}>{hw.distributed}</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-4 justify-center text-sm">
+                  <span className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: 'var(--color-primary)' }} />
+                    <span style={{ color: 'var(--color-text-secondary)' }}>Israel (80%)</span>
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: '#7C3AED' }} />
+                    <span style={{ color: 'var(--color-text-secondary)' }}>Georgia (20%)</span>
+                  </span>
                 </div>
               </div>
-            </div>
-
-            <div className="flex gap-3 justify-center text-xs">
-              <span className="flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full inline-block" style={{ background: 'var(--color-primary)' }} />
-                <span style={{ color: 'var(--color-text-secondary)' }}>Israel (80%)</span>
-              </span>
-              <span className="flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full inline-block" style={{ background: '#7C3AED' }} />
-                <span style={{ color: 'var(--color-text-secondary)' }}>Georgia (20%)</span>
-              </span>
             </div>
           </div>
         </div>

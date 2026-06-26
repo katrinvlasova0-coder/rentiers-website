@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Lock, Wifi, Battery, Home, BarChart2, Zap, Building2, Menu } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadButton from '@/components/ui/LeadButton';
 
 const phoneNavItems = [
   { Icon: Home, label: 'Home' },
@@ -69,14 +70,13 @@ export default function HeroHome() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
-              <Link
-                href="/register"
+              <LeadButton
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
                 style={{ background: 'var(--color-primary)' }}
               >
                 {t.hero.ctaPrimary}
                 <span>→</span>
-              </Link>
+              </LeadButton>
               <Link
                 href="#kalkulator"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold border-2 hover:bg-white/50 transition-all"

@@ -1,8 +1,24 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import CtaBanner from '@/components/marketing/CtaBanner';
 import { useLanguage } from '@/contexts/LanguageContext';
+
+const stepImages = [
+  {
+    src: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop&q=80',
+    alt: 'Identity verification',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop&q=80',
+    alt: 'Portfolio selection',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop&q=80',
+    alt: 'Receiving interest payments',
+  },
+];
 
 export default function HowItWorksContent() {
   const { p } = useLanguage();
@@ -58,15 +74,18 @@ export default function HowItWorksContent() {
                 </div>
 
                 <div className={idx % 2 === 1 ? 'lg:order-1' : ''}>
-                  <div
-                    className="rounded-3xl p-10 flex items-center justify-center"
-                    style={{ background: `${step.color}15` }}
-                  >
+                  <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[16/10]">
+                    <Image
+                      src={stepImages[idx].src}
+                      alt={stepImages[idx].alt}
+                      fill
+                      className="object-cover"
+                    />
                     <div
-                      className="w-32 h-32 rounded-full flex items-center justify-center text-6xl shadow-lg"
-                      style={{ background: `linear-gradient(135deg, ${step.color} 0%, ${step.color}AA 100%)` }}
+                      className="absolute top-4 left-4 w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-extrabold shadow-lg"
+                      style={{ background: step.color }}
                     >
-                      {step.icon}
+                      {step.num}
                     </div>
                   </div>
                 </div>

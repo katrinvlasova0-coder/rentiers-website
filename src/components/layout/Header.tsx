@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadButton from '@/components/ui/LeadButton';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -74,20 +75,18 @@ export default function Header() {
             {lang === 'de' ? 'EN' : 'DE'}
           </button>
 
-          <Link
-            href="/login"
+          <LeadButton
             className="text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-100"
             style={{ color: 'var(--color-text-secondary)' }}
           >
             {t.nav.login}
-          </Link>
-          <Link
-            href="/register"
+          </LeadButton>
+          <LeadButton
             className="text-sm font-semibold px-5 py-2.5 rounded-xl text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
             style={{ background: 'var(--color-primary)' }}
           >
             {t.nav.cta}
-          </Link>
+          </LeadButton>
         </div>
 
         {/* Mobile hamburger */}
@@ -136,14 +135,13 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/register"
-            className="mt-2 text-center text-sm font-semibold px-5 py-3 rounded-xl text-white"
+          <LeadButton
+            className="mt-2 w-full text-center text-sm font-semibold px-5 py-3 rounded-xl text-white"
             style={{ background: 'var(--color-primary)' }}
             onClick={() => setMenuOpen(false)}
           >
             {t.nav.cta}
-          </Link>
+          </LeadButton>
         </div>
       )}
     </header>
