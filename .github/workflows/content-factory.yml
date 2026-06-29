@@ -13,11 +13,18 @@ on:
         type: boolean
         default: true
 
+# Required for git push from Actions (Settings → Actions → Workflow permissions → Read and write)
+permissions:
+  contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -54,7 +61,7 @@ jobs:
             MOCK_FLAG="--mock"
             echo "Using mock generator (no Claude API)"
           fi
-          npm run batch -- --count ${{ github.event.inputs.count || '1' }} $MOCK_FLAG --commit
+          npm run batch -- --count ${{ github.event.inputs.count || '1' }} $MOCK_FLAG
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
@@ -65,10 +72,14 @@ jobs:
           CONTENT_DIR: ../content/blog
           SITE_PUBLIC_DIR: ../public
 
-      - name: Push generated articles
+      - name: Commit and push generated articles
         run: |
-          git config user.name "Content Factory Bot"
-          git config user.email "bot@rentiers.pro"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/blog/ public/sitemap.xml content-factory/queue/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "feat(blog): content factory generated articles"
+          git push origin HEAD:${{ github.ref_name }}
