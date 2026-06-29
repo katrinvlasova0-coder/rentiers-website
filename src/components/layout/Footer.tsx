@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { assetPath } from '@/lib/basePath';
 
 const socialLinks = [
   { label: 'Facebook', href: '#', icon: 'F' },
@@ -21,13 +22,12 @@ export default function Footer() {
           {/* Brand column */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-                   style={{ background: 'var(--color-primary)' }}>
-                <span className="text-white font-bold text-sm">R</span>
-              </div>
-              <span className="font-bold text-lg" style={{ color: 'var(--color-dark)' }}>
-                Rentiers Pro
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={assetPath('/rentiers_logo.png')}
+                alt="Rentiers"
+                className="h-7 w-auto object-contain"
+              />
             </div>
             <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--color-text-secondary)' }}>
               {t.footer.desc}

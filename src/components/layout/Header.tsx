@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LeadButton from '@/components/ui/LeadButton';
+import { assetPath } from '@/lib/basePath';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -36,13 +37,12 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-               style={{ background: 'var(--color-primary)' }}>
-            <span className="text-white font-bold text-sm">R</span>
-          </div>
-          <span className="font-bold text-lg" style={{ color: 'var(--color-dark)' }}>
-            Rentiers Pro
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={assetPath('/rentiers_logo.png')}
+            alt="Rentiers"
+            className="h-8 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Nav */}

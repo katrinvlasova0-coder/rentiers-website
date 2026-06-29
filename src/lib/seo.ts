@@ -39,7 +39,7 @@ export function organizationSchema() {
     name: 'Rentiers Pro',
     legalName: 'Rentiers Global Corp. / Rentiers Global Inc.',
     url: BASE_URL,
-    logo: `${BASE_URL}/logo.svg`,
+    logo: `${BASE_URL}/rentiers_logo.png`,
     description:
       'Digitale Plattform für Einlagenarbitrage — Technologieplattform, kein Kreditinstitut. MSB-lizenziert bei FinCEN und FINTRAC.',
     contactPoint: {
