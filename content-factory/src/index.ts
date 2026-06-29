@@ -80,6 +80,9 @@ program
 
     console.log(`📋 Generating ${articles.length} articles from queue...`);
 
+    let successCount = 0;
+    let failCount = 0;
+
     for (let i = 0; i < articles.length; i++) {
       const article = articles[i];
       try {
@@ -90,6 +93,7 @@ program
         await publishArticle(article.slug, content, article, options.commit ?? false);
         await addArticleToSitemap(article.slug, article.plannedDate, article.priority);
         markAsCompleted(article.slug);
+        successCount++;
         console.log(`✅ Done: /blog/${article.slug}`);
 
         if (i < articles.length - 1) {
@@ -97,11 +101,16 @@ program
           await new Promise((r) => setTimeout(r, delay));
         }
       } catch (error) {
+        failCount++;
         console.error(`❌ Failed: ${article.slug}`, error);
       }
     }
 
-    console.log('\n🏁 Batch generation complete!');
+    console.log(`\n🏁 Batch complete: ${successCount} succeeded, ${failCount} failed`);
+
+    if (successCount === 0 && articles.length > 0) {
+      process.exit(1);
+    }
   });
 
 program

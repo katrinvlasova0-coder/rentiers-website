@@ -7,13 +7,12 @@ on:
     inputs:
       count:
         description: 'Number of articles to generate'
-        default: '2'
+        default: '1'
       mock:
         description: 'Use mock generator (no Claude API)'
         type: boolean
         default: true
 
-# Required for git push from Actions (Settings → Actions → Workflow permissions → Read and write)
 permissions:
   contents: write
 
@@ -42,13 +41,20 @@ jobs:
           CONTENT_DIR: ../content/blog
           SITE_PUBLIC_DIR: ../public
 
+      - name: Show queue before generation
+        run: |
+          cd content-factory
+          npm run queue:list
+          npx tsx src/index.ts queue stats
+
       - name: Run integration test
+        continue-on-error: true
         run: cd content-factory && npm run test
         env:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
-          FROM_EMAIL: content@rentiers.pro
+          FROM_EMAIL: onboarding@resend.dev
           SITE_BASE_URL: https://rentierspro.com
           CONTENT_DIR: ../content/blog
           SITE_PUBLIC_DIR: ../public
@@ -56,21 +62,29 @@ jobs:
       - name: Generate articles batch (mock if no Anthropic key)
         run: |
           cd content-factory
-          MOCK_FLAG=""
-          if [ "${{ github.event.inputs.mock }}" = "true" ] || [ -z "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
-            MOCK_FLAG="--mock"
+          MOCK_FLAG="--mock"
+          if [ "${{ github.event.inputs.mock }}" != "true" ] && [ -n "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
+            MOCK_FLAG=""
+            echo "Using Claude API"
+          else
             echo "Using mock generator (no Claude API)"
           fi
-          npm run batch -- --count ${{ github.event.inputs.count || '1' }} $MOCK_FLAG
+          npm run batch -- -n ${{ github.event.inputs.count || '1' }} $MOCK_FLAG
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
-          FROM_EMAIL: content@rentiers.pro
+          FROM_EMAIL: onboarding@resend.dev
           SITE_BASE_URL: https://rentierspro.com
           CONTENT_DIR: ../content/blog
           SITE_PUBLIC_DIR: ../public
+
+      - name: Show generated files
+        run: |
+          echo "=== New/updated blog files ==="
+          git status --short content/blog/ public/sitemap.xml content-factory/queue/ || true
+          ls -la content/blog/*.mdx | tail -5 || true
 
       - name: Commit and push generated articles
         run: |
@@ -78,8 +92,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add content/blog/ public/sitemap.xml content-factory/queue/
           if git diff --staged --quiet; then
-            echo "No changes to commit"
-            exit 0
+            echo "::error::No article files to commit — generation likely failed. Check batch logs above."
+            exit 1
           fi
           git commit -m "feat(blog): content factory generated articles"
           git push origin HEAD:${{ github.ref_name }}

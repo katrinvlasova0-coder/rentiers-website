@@ -45,7 +45,8 @@ export async function publishArticle(
     }
   }
 
-  await sendArticleNotification({
+  try {
+    await sendArticleNotification({
     slug,
     titleDe: String(frontmatter.title ?? request.titleDe),
     titleEn: String(frontmatter.titleEn ?? request.titleEn),
@@ -58,5 +59,8 @@ export async function publishArticle(
     publishedDate: String(frontmatter.datePublished ?? request.plannedDate),
     coverImage: String(frontmatter.coverImage ?? ''),
     descriptionDe: String(frontmatter.description ?? ''),
-  });
+    });
+  } catch (e) {
+    console.warn('⚠️ Email notification failed (article still published):', e);
+  }
 }

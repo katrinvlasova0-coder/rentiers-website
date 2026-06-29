@@ -117,12 +117,17 @@ export async function sendArticleNotification(
 </body>
 </html>`;
 
-  await resend.emails.send({
+  const { data, error } = await resend.emails.send({
     from: `Rentiers Content Factory <${fromEmail}>`,
     to: process.env.NOTIFY_EMAIL,
     subject: `✅ Neue Artikel: ${article.titleDe}`,
     html,
   });
 
-  console.log(`📧 Email notification sent to ${process.env.NOTIFY_EMAIL}`);
+  if (error) {
+    console.error('❌ Resend API error:', error);
+    throw new Error(`Resend failed: ${error.message}`);
+  }
+
+  console.log(`📧 Email notification sent to ${process.env.NOTIFY_EMAIL} (id: ${data?.id ?? 'n/a'})`);
 }
