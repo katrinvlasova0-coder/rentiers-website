@@ -1,5 +1,34 @@
 [
   {
+    "id": 3,
+    "cluster": "Einlagenarbitrage",
+    "slug": "sparkonto-inflation-zinsen-2026",
+    "titleDe": "Warum Ihr Sparkonto Ihr Feind ist: Die Inflation-Zinsen-Lücke 2026",
+    "titleEn": "Why Your Savings Account Is Your Enemy: The Inflation-Rate Gap 2026",
+    "keywordDe": "sparkonto zinsen 2026",
+    "searchVolDe": 8100,
+    "kd": 18,
+    "keywordEn": "savings account vs inflation 2026",
+    "searchVolEn": 12100,
+    "lsiKeywords": [
+      "inflationsschutz geld",
+      "reale rendite",
+      "kaufkraft schützen"
+    ],
+    "format": "Meinungsartikel",
+    "targetLength": 1000,
+    "taSegments": [
+      "1",
+      "6"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-15",
+    "language": "DE+EN",
+    "category": "Einlagenarbitrage",
+    "status": "pending",
+    "unsplashQuery": "banking finance international"
+  },
+  {
     "id": 4,
     "cluster": "Einlagenarbitrage",
     "slug": "festgeld-etf-vergleich-2026",
@@ -405,36 +434,6 @@
     ],
     "priority": "high",
     "plannedDate": "2026-01-15",
-    "language": "DE+EN",
-    "category": "Länder-Guides",
-    "status": "pending",
-    "unsplashQuery": "tbilisi georgia finance"
-  },
-  {
-    "id": 19,
-    "cluster": "Страновые гиды",
-    "slug": "einlagengarantie-laender-tabelle-2026",
-    "titleDe": "Staatliche Einlagengarantien weltweit: Vollständige Ländertabelle 2026",
-    "titleEn": "State Deposit Guarantees Worldwide: Complete Country Table 2026",
-    "keywordDe": "einlagengarantie länder tabelle",
-    "searchVolDe": 1600,
-    "kd": 33,
-    "keywordEn": "deposit insurance by country 2026",
-    "searchVolEn": 3600,
-    "lsiKeywords": [
-      "einlagensicherung international",
-      "staatliche garantie auslandskonto",
-      "deposit protection table"
-    ],
-    "format": "Datentabelle",
-    "targetLength": 1667,
-    "taSegments": [
-      "1",
-      "2",
-      "3"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-01-01",
     "language": "DE+EN",
     "category": "Länder-Guides",
     "status": "pending",

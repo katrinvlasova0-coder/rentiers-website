@@ -121,5 +121,36 @@
     "status": "completed",
     "unsplashQuery": "financial comparison investment",
     "completedAt": "2026-02-08"
+  },
+  {
+    "id": 19,
+    "cluster": "Страновые гиды",
+    "slug": "einlagengarantie-laender-tabelle-2026",
+    "titleDe": "Staatliche Einlagengarantien weltweit: Vollständige Ländertabelle 2026",
+    "titleEn": "State Deposit Guarantees Worldwide: Complete Country Table 2026",
+    "keywordDe": "einlagengarantie länder tabelle",
+    "searchVolDe": 1600,
+    "kd": 33,
+    "keywordEn": "deposit insurance by country 2026",
+    "searchVolEn": 3600,
+    "lsiKeywords": [
+      "einlagensicherung international",
+      "staatliche garantie auslandskonto",
+      "deposit protection table"
+    ],
+    "format": "Datentabelle",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-01",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "completed",
+    "unsplashQuery": "tbilisi georgia finance",
+    "completedAt": "2026-06-29T19:30:18.317Z"
   }
 ]
