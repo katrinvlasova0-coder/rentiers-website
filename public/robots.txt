@@ -1,5 +1,272 @@
+# ============================================================
+# robots.txt — Rentiers Pro (rentierspro.com)
+# Updated: 2026-06-20
+# ============================================================
+# Strategy: Allow all legitimate search & AI crawlers full
+# access to public content. Protect only backend/API routes.
+# AI crawlers (ChatGPT, Perplexity, Claude, Gemini) are
+# explicitly permitted to index /blog/ and all content pages
+# to maximise visibility in AI-generated answers (GEO).
+# ============================================================
+
+# -----------------------------------------------
+# 1. DEFAULT RULE — all crawlers not listed below
+# -----------------------------------------------
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /api/*
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /investor/
+Disallow: /auth/
+Crawl-delay: 1
 
+# -----------------------------------------------
+# 2. GOOGLE — standard search index
+# -----------------------------------------------
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /api/*
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /investor/
+Disallow: /auth/
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /api/
+
+User-agent: Googlebot-News
+Allow: /
+Disallow: /api/
+
+# -----------------------------------------------
+# 3. GOOGLE AI CRAWLERS — Gemini / AI Overviews
+# -----------------------------------------------
+# Google-Extended is used for Google Gemini training
+# and AI Overviews. Allowing it maximises the chance
+# that Rentiers Pro content appears in AI answers.
+User-agent: Google-Extended
+Allow: /
+Allow: /blog/
+Allow: /content/
+Allow: /glossar/
+Allow: /faq/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /investor/
+Disallow: /auth/
+
+# -----------------------------------------------
+# 4. OPENAI — ChatGPT Search & GPT training
+# -----------------------------------------------
+# GPTBot: OpenAI's primary training crawler
+# OAI-SearchBot: ChatGPT Search (Bing-backed) crawler
+# Allow blog and all public pages for maximum AI citation.
+User-agent: GPTBot
+Allow: /
+Allow: /blog/
+Allow: /content/
+Allow: /glossar/
+Allow: /faq/
+Allow: /rentiers-zinsindex/
+Allow: /partner-banken/
+Allow: /kalkulator/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /investor/
+Disallow: /auth/
+
+User-agent: OAI-SearchBot
+Allow: /
+Allow: /blog/
+Allow: /content/
+Allow: /glossar/
+Allow: /faq/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /investor/
+Disallow: /auth/
+
+# -----------------------------------------------
+# 5. ANTHROPIC — Claude AI
+# -----------------------------------------------
+# ClaudeBot: Anthropic's web crawler for Claude models
+# anthropic-ai: Alternative user-agent string used by Anthropic
+User-agent: ClaudeBot
+Allow: /
+Allow: /blog/
+Allow: /content/
+Allow: /glossar/
+Allow: /faq/
+Allow: /rentiers-zinsindex/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /investor/
+Disallow: /auth/
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /blog/
+Allow: /content/
+Allow: /glossar/
+Allow: /faq/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /investor/
+Disallow: /auth/
+
+# -----------------------------------------------
+# 6. PERPLEXITY AI
+# -----------------------------------------------
+# PerplexityBot: Perplexity's crawler for real-time AI answers
+# This is a high-priority crawler for GEO (Generative Engine
+# Optimisation) — Perplexity cites sources directly.
+User-agent: PerplexityBot
+Allow: /
+Allow: /blog/
+Allow: /content/
+Allow: /glossar/
+Allow: /faq/
+Allow: /rentiers-zinsindex/
+Allow: /partner-banken/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /investor/
+Disallow: /auth/
+
+# -----------------------------------------------
+# 7. MICROSOFT / BING — including Copilot
+# -----------------------------------------------
+# Bingbot: Standard Bing search
+# msnbot: Legacy Microsoft bot
+# BingPreview: Bing page preview
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /investor/
+Disallow: /auth/
+
+User-agent: msnbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /investor/
+
+User-agent: BingPreview
+Allow: /
+Disallow: /api/
+
+# -----------------------------------------------
+# 8. META AI (Llama)
+# -----------------------------------------------
+# FacebookBot: Meta's crawler (also used for Llama training)
+User-agent: FacebookBot
+Allow: /
+Allow: /blog/
+Allow: /content/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /investor/
+
+# -----------------------------------------------
+# 9. APPLE / DUCKDUCKGO / YANDEX
+# -----------------------------------------------
+User-agent: Applebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /investor/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /investor/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /investor/
+
+# -----------------------------------------------
+# 10. SOCIAL MEDIA PREVIEW CRAWLERS
+# -----------------------------------------------
+# These crawlers generate link previews on social platforms.
+User-agent: Twitterbot
+Allow: /
+Disallow: /api/
+Disallow: /investor/
+
+User-agent: LinkedInBot
+Allow: /
+Disallow: /api/
+Disallow: /investor/
+
+User-agent: WhatsApp
+Allow: /
+Disallow: /api/
+
+User-agent: Slackbot
+Allow: /
+Disallow: /api/
+
+User-agent: TelegramBot
+Allow: /
+Disallow: /api/
+
+# -----------------------------------------------
+# 11. BLOCKED BOTS (aggressive / non-transparent)
+# -----------------------------------------------
+# Bytespider: ByteDance/TikTok — often aggressive, minimal
+#   benefit for Rentiers' B2C EU audience.
+User-agent: Bytespider
+Disallow: /
+
+# CCBot: Common Crawl — large-scale scraper used for
+#   LLM training without source attribution. Block to
+#   prevent bulk scraping.
+User-agent: CCBot
+Disallow: /
+
+# SemrushBot, AhrefsBot, MJ12bot: SEO tool crawlers.
+# Allow only homepage and blog (to appear in SEO tools'
+# indexes), block deeper scraping.
+User-agent: SemrushBot
+Allow: /
+Allow: /blog/
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Allow: /
+Allow: /blog/
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+# -----------------------------------------------
+# 12. SITEMAP DECLARATION
+# -----------------------------------------------
 Sitemap: https://rentierspro.com/sitemap.xml
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /blog/
+
+User-agent: Claude-Web
+Allow: /
+Allow: /blog/

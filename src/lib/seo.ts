@@ -81,15 +81,19 @@ export function faqSchema(faqs: Array<{ question: string; answer: string }>) {
   };
 }
 
-export function articleSchema(post: {
-  title: string;
-  description: string;
-  datePublished: string;
-  dateModified: string;
-  author: { name: string; role: string };
-  slug: string;
-  coverImage?: string;
-}) {
+export function articleSchema(
+  post: {
+    title: string;
+    description: string;
+    datePublished: string;
+    dateModified: string;
+    author: { name: string; role: string };
+    slug: string;
+    coverImage?: string;
+    wordCount?: number;
+  },
+  lang: 'de' | 'en' = 'de',
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -105,6 +109,8 @@ export function articleSchema(post: {
     },
     url: `${BASE_URL}/blog/${post.slug}`,
     image: post.coverImage || `${BASE_URL}/og-default.png`,
+    ...(post.wordCount ? { wordCount: post.wordCount } : {}),
+    inLanguage: lang === 'de' ? 'de-DE' : 'en-GB',
   };
 }
 

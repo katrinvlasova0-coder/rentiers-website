@@ -64,8 +64,10 @@ export default async function BlogPostPage({
     { name: de.meta.title, href: `/blog/${slug}` },
   ];
 
+  const deWordCount = de.content.split(/\s+/).filter(Boolean).length;
+
   const schemas = [
-    articleSchema(de.meta),
+    articleSchema({ ...de.meta, wordCount: deWordCount }, 'de'),
     breadcrumbSchema(breadcrumbs),
     ...(de.meta.faq && de.meta.faq.length > 0 ? [faqSchema(de.meta.faq)] : []),
   ];

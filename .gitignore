@@ -32,6 +32,12 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!content-factory/.env.example
+
+# content factory
+content-factory/node_modules
+content-factory/logs/*.json
+!content-factory/logs/.gitkeep
 
 # vercel
 .vercel
