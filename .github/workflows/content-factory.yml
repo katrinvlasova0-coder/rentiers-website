@@ -1,0 +1,74 @@
+name: Content Factory — Scheduled Generation
+
+on:
+  schedule:
+    - cron: '0 8 * * 1,3,5'
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Number of articles to generate'
+        default: '2'
+      mock:
+        description: 'Use mock generator (no Claude API)'
+        type: boolean
+        default: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: cd content-factory && npm install
+
+      - name: Initialize content factory
+        run: cd content-factory && npm run init
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          SITE_BASE_URL: https://rentierspro.com
+          CONTENT_DIR: ../content/blog
+          SITE_PUBLIC_DIR: ../public
+
+      - name: Run integration test
+        run: cd content-factory && npm run test
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+          FROM_EMAIL: content@rentiers.pro
+          SITE_BASE_URL: https://rentierspro.com
+          CONTENT_DIR: ../content/blog
+          SITE_PUBLIC_DIR: ../public
+
+      - name: Generate articles batch (mock if no Anthropic key)
+        run: |
+          cd content-factory
+          MOCK_FLAG=""
+          if [ "${{ github.event.inputs.mock }}" = "true" ] || [ -z "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
+            MOCK_FLAG="--mock"
+            echo "Using mock generator (no Claude API)"
+          fi
+          npm run batch -- --count ${{ github.event.inputs.count || '1' }} $MOCK_FLAG --commit
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+          FROM_EMAIL: content@rentiers.pro
+          SITE_BASE_URL: https://rentierspro.com
+          CONTENT_DIR: ../content/blog
+          SITE_PUBLIC_DIR: ../public
+
+      - name: Push generated articles
+        run: |
+          git config user.name "Content Factory Bot"
+          git config user.email "bot@rentiers.pro"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,47 @@
+name: Notify Client on New Article
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/blog/**.mdx'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect new articles
+        id: detect
+        run: |
+          NEW_FILES=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'content/blog/*.mdx' | tr '\n' ' ')
+          echo "new_files=$NEW_FILES" >> $GITHUB_OUTPUT
+          if [ -n "$NEW_FILES" ]; then
+            echo "has_new=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_new=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send notification email
+        if: steps.detect.outputs.has_new == 'true'
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+        run: |
+          for FILE in ${{ steps.detect.outputs.new_files }}; do
+            [ -z "$FILE" ] && continue
+            SLUG=$(basename "$FILE" .mdx)
+            TITLE=$(grep '^title:' "$FILE" | head -1 | sed 's/^title: //' | tr -d '"')
+            curl -s -X POST https://api.resend.com/emails \
+              -H "Authorization: Bearer $RESEND_API_KEY" \
+              -H "Content-Type: application/json" \
+              -d "{
+                \"from\": \"content@rentiers.pro\",
+                \"to\": \"$NOTIFY_EMAIL\",
+                \"subject\": \"✅ Neue Artikel veröffentlicht: $TITLE\",
+                \"html\": \"<p>Artikel <strong>$TITLE</strong> wurde veröffentlicht.<br><a href='https://rentierspro.com/blog/$SLUG'>Jetzt lesen →</a></p>\"
+              }"
+          done

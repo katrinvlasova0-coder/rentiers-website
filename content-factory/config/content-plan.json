@@ -1,0 +1,1557 @@
+[
+  {
+    "id": 1,
+    "cluster": "Einlagenarbitrage",
+    "slug": "einlagenarbitrage-leitfaden-2026",
+    "titleDe": "Was ist Einlagenarbitrage? Der vollständige Leitfaden 2026",
+    "titleEn": "What is Deposit Arbitrage? The Complete Guide 2026",
+    "keywordDe": "einlagenarbitrage",
+    "searchVolDe": 1600,
+    "kd": 28,
+    "keywordEn": "deposit arbitrage",
+    "searchVolEn": 2900,
+    "lsiKeywords": [
+      "wie funktioniert einlagenarbitrage",
+      "deposit arbitrage legal",
+      "auslandszinsen 2026"
+    ],
+    "format": "Pillar Guide",
+    "targetLength": 3000,
+    "taSegments": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-01",
+    "language": "DE+EN",
+    "category": "Einlagenarbitrage",
+    "status": "published",
+    "unsplashQuery": "banking finance international"
+  },
+  {
+    "id": 2,
+    "cluster": "Einlagenarbitrage",
+    "slug": "einlagenarbitrage-legal-2026",
+    "titleDe": "Ist Einlagenarbitrage legal? Was Anleger wissen müssen",
+    "titleEn": "Is Deposit Arbitrage Legal? What EU Investors Need to Know",
+    "keywordDe": "einlagenarbitrage legal",
+    "searchVolDe": 480,
+    "kd": 22,
+    "keywordEn": "is deposit arbitrage legal",
+    "searchVolEn": 720,
+    "lsiKeywords": [
+      "steuer auf auslandszinsen",
+      "einlagenarbitrage risiko",
+      "auslandskonto legal"
+    ],
+    "format": "FAQ-Artikel",
+    "targetLength": 1333,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-08",
+    "language": "DE+EN",
+    "category": "Einlagenarbitrage",
+    "status": "published",
+    "unsplashQuery": "banking finance international"
+  },
+  {
+    "id": 3,
+    "cluster": "Einlagenarbitrage",
+    "slug": "sparkonto-inflation-zinsen-2026",
+    "titleDe": "Warum Ihr Sparkonto Ihr Feind ist: Die Inflation-Zinsen-Lücke 2026",
+    "titleEn": "Why Your Savings Account Is Your Enemy: The Inflation-Rate Gap 2026",
+    "keywordDe": "sparkonto zinsen 2026",
+    "searchVolDe": 8100,
+    "kd": 18,
+    "keywordEn": "savings account vs inflation 2026",
+    "searchVolEn": 12100,
+    "lsiKeywords": [
+      "inflationsschutz geld",
+      "reale rendite",
+      "kaufkraft schützen"
+    ],
+    "format": "Meinungsartikel",
+    "targetLength": 1000,
+    "taSegments": [
+      "1",
+      "6"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-15",
+    "language": "DE+EN",
+    "category": "Einlagenarbitrage",
+    "status": "pending",
+    "unsplashQuery": "banking finance international"
+  },
+  {
+    "id": 4,
+    "cluster": "Einlagenarbitrage",
+    "slug": "festgeld-etf-vergleich-2026",
+    "titleDe": "Deposit Arbitrage vs. ETF-Sparplan: Ein ehrlicher Vergleich",
+    "titleEn": "Deposit Arbitrage vs. ETF Savings Plan: An Honest Comparison",
+    "keywordDe": "festgeld vs etf vergleich",
+    "searchVolDe": 2400,
+    "kd": 31,
+    "keywordEn": "bank deposits vs etf comparison",
+    "searchVolEn": 3600,
+    "lsiKeywords": [
+      "festgeld oder etf",
+      "sichere geldanlage",
+      "rendite vergleich"
+    ],
+    "format": "Vergleich",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "2",
+      "6"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-22",
+    "language": "DE+EN",
+    "category": "Einlagenarbitrage",
+    "status": "pending",
+    "unsplashQuery": "banking finance international"
+  },
+  {
+    "id": 5,
+    "cluster": "Einlagenarbitrage",
+    "slug": "wie-funktioniert-festgeld-ausland-2026",
+    "titleDe": "Wie funktioniert Einlagenarbitrage? Schritt-für-Schritt erklärt",
+    "titleEn": "How Does Deposit Arbitrage Work? Step-by-Step Explained",
+    "keywordDe": "wie funktioniert festgeld ausland",
+    "searchVolDe": 880,
+    "kd": 24,
+    "keywordEn": "how does deposit arbitrage work",
+    "searchVolEn": 1300,
+    "lsiKeywords": [
+      "auslandsbank konto eröffnen",
+      "festgeld ausland sicher",
+      "zinsdifferenz nutzen"
+    ],
+    "format": "Explainer",
+    "targetLength": 2000,
+    "taSegments": [
+      "1",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-03-01",
+    "language": "DE+EN",
+    "category": "Einlagenarbitrage",
+    "status": "pending",
+    "unsplashQuery": "banking finance international"
+  },
+  {
+    "id": 6,
+    "cluster": "Einlagenarbitrage",
+    "slug": "abgeltungsteuer-auslandszinsen-2026",
+    "titleDe": "Abgeltungsteuer auf Auslandszinsen: So erklären Sie es richtig",
+    "titleEn": "Capital Gains Tax on Foreign Interest: What You Need to Declare",
+    "keywordDe": "abgeltungsteuer auslandszinsen",
+    "searchVolDe": 2900,
+    "kd": 35,
+    "keywordEn": "foreign interest income tax germany",
+    "searchVolEn": 1200,
+    "lsiKeywords": [
+      "steuer auslandskonto",
+      "zinsen aus dem ausland versteuern",
+      "elster auslandszinsen"
+    ],
+    "format": "Steuer-Guide",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-03-15",
+    "language": "DE+EN",
+    "category": "Einlagenarbitrage",
+    "status": "pending",
+    "unsplashQuery": "banking finance international"
+  },
+  {
+    "id": 7,
+    "cluster": "Einlagenarbitrage",
+    "slug": "zinsen-schwellenlaender-banken-2026",
+    "titleDe": "Warum zahlen Banken in Schwellenmärkten mehr Zinsen?",
+    "titleEn": "Why Do Emerging Market Banks Pay Higher Interest Rates?",
+    "keywordDe": "zinsen schwellenländer banken",
+    "searchVolDe": 390,
+    "kd": 19,
+    "keywordEn": "why emerging market banks higher rates",
+    "searchVolEn": 590,
+    "lsiKeywords": [
+      "hochzinsland",
+      "emerging market banking",
+      "zinsdifferenz ursache"
+    ],
+    "format": "Explainer",
+    "targetLength": 1167,
+    "taSegments": [
+      "1",
+      "4"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-04-01",
+    "language": "DE+EN",
+    "category": "Einlagenarbitrage",
+    "status": "pending",
+    "unsplashQuery": "banking finance international"
+  },
+  {
+    "id": 8,
+    "cluster": "Einlagenarbitrage",
+    "slug": "crs-fatca-auslandskonto-2026",
+    "titleDe": "CRS & FATCA: Was internationale Einlagen für Ihre Steuererklärung bedeuten",
+    "titleEn": "CRS & FATCA: What International Deposits Mean for Your Tax Return",
+    "keywordDe": "crs fatca auslandskonto",
+    "searchVolDe": 720,
+    "kd": 38,
+    "keywordEn": "crs fatca foreign bank account reporting",
+    "searchVolEn": 890,
+    "lsiKeywords": [
+      "gemeinsamer meldestandard",
+      "automatischer informationsaustausch",
+      "steuerpflicht auslandskonto"
+    ],
+    "format": "Guide",
+    "targetLength": 1333,
+    "taSegments": [
+      "2",
+      "3",
+      "4"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-04-15",
+    "language": "DE+EN",
+    "category": "Einlagenarbitrage",
+    "status": "pending",
+    "unsplashQuery": "banking finance international"
+  },
+  {
+    "id": 9,
+    "cluster": "Einlagenarbitrage",
+    "slug": "geldanlage-anfaenger-ausland-2026",
+    "titleDe": "Einlagenarbitrage für Anfänger: Einstieg mit €10.000",
+    "titleEn": "Deposit Arbitrage for Beginners: Getting Started with €10,000",
+    "keywordDe": "geldanlage anfänger ausland",
+    "searchVolDe": 1600,
+    "kd": 21,
+    "keywordEn": "deposit arbitrage for beginners 10000",
+    "searchVolEn": 840,
+    "lsiKeywords": [
+      "erstanlage auslandsbank",
+      "wie starte ich mit festgeld ausland",
+      "10000 euro anlegen 2026"
+    ],
+    "format": "Beginner Guide",
+    "targetLength": 1833,
+    "taSegments": [
+      "1",
+      "6"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-05-01",
+    "language": "DE+EN",
+    "category": "Einlagenarbitrage",
+    "status": "pending",
+    "unsplashQuery": "banking finance international"
+  },
+  {
+    "id": 10,
+    "cluster": "Страновые гиды",
+    "slug": "georgien-bankzinsen-2026",
+    "titleDe": "Georgien Bankeinlagen 2026: TBC Bank & Bank of Georgia im Vergleich",
+    "titleEn": "Georgia Bank Deposits 2026: TBC Bank & Bank of Georgia Compared",
+    "keywordDe": "georgien bankzinsen 2026",
+    "searchVolDe": 1300,
+    "kd": 22,
+    "keywordEn": "georgia bank deposits 2026",
+    "searchVolEn": 2400,
+    "lsiKeywords": [
+      "tbc bank zinsen",
+      "bank of georgia festgeld",
+      "tiflis konto eröffnen"
+    ],
+    "format": "Country Guide",
+    "targetLength": 2333,
+    "taSegments": [
+      "1",
+      "2",
+      "4"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-01",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "pending",
+    "unsplashQuery": "tbilisi georgia finance"
+  },
+  {
+    "id": 11,
+    "cluster": "Страновые гиды",
+    "slug": "armenien-bankzinsen-2026",
+    "titleDe": "Armenien als Anlagestandort 2026: Banken, Zinsen, Garantien",
+    "titleEn": "Armenia as an Investment Destination 2026: Banks & Rates Guide",
+    "keywordDe": "armenien bankzinsen",
+    "searchVolDe": 590,
+    "kd": 18,
+    "keywordEn": "armenia bank deposits foreigners",
+    "searchVolEn": 1100,
+    "lsiKeywords": [
+      "ameriabank zinsen",
+      "armenien einlagengarantie",
+      "eriwan konto öffnen"
+    ],
+    "format": "Country Guide",
+    "targetLength": 2167,
+    "taSegments": [
+      "1",
+      "2",
+      "4"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-08",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "published",
+    "unsplashQuery": "tbilisi georgia finance"
+  },
+  {
+    "id": 12,
+    "cluster": "Страновые гиды",
+    "slug": "israel-festgeld-zinsen-2026",
+    "titleDe": "Israel Festgeld für Nicht-Israelis: Der vollständige Guide 2026",
+    "titleEn": "Israel Fixed-Term Deposits for Non-Israelis: Complete Guide 2026",
+    "keywordDe": "israel festgeld zinsen",
+    "searchVolDe": 480,
+    "kd": 24,
+    "keywordEn": "israel bank account non residents",
+    "searchVolEn": 1800,
+    "lsiKeywords": [
+      "bank hapoalim zinsen",
+      "israel deposit guarantee",
+      "tel aviv konto ausländer"
+    ],
+    "format": "Country Guide",
+    "targetLength": 2000,
+    "taSegments": [
+      "2",
+      "4"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-15",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "pending",
+    "unsplashQuery": "tbilisi georgia finance"
+  },
+  {
+    "id": 13,
+    "cluster": "Страновые гиды",
+    "slug": "serbien-festgeld-zinsen-2026",
+    "titleDe": "Serbien Festgeld 2026: EU-Kandidat mit hohen Zinsen",
+    "titleEn": "Serbia Fixed Deposits 2026: EU Candidate with High Interest Rates",
+    "keywordDe": "serbien festgeld zinsen",
+    "searchVolDe": 290,
+    "kd": 16,
+    "keywordEn": "serbia bank deposits foreigners 2026",
+    "searchVolEn": 540,
+    "lsiKeywords": [
+      "banka intesa serbien",
+      "serbien einlagengarantie",
+      "belgrad konto ausländer"
+    ],
+    "format": "Country Guide",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-03-01",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "pending",
+    "unsplashQuery": "tbilisi georgia finance"
+  },
+  {
+    "id": 14,
+    "cluster": "Страновые гиды",
+    "slug": "tuerkei-bankzinsen-2026",
+    "titleDe": "Türkei Einlagen 2026: 50% Zinsen & Währungsrisiko erklärt",
+    "titleEn": "Turkey Deposits 2026: 50% Rates & Currency Risk Explained",
+    "keywordDe": "türkei bankzinsen 2026",
+    "searchVolDe": 880,
+    "kd": 29,
+    "keywordEn": "turkey bank interest rates 2026",
+    "searchVolEn": 2200,
+    "lsiKeywords": [
+      "türkische lira hedging",
+      "try eur absicherung",
+      "istanbul konto ausländer"
+    ],
+    "format": "Country Guide",
+    "targetLength": 2000,
+    "taSegments": [
+      "2",
+      "4"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-03-08",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "pending",
+    "unsplashQuery": "tbilisi georgia finance"
+  },
+  {
+    "id": 15,
+    "cluster": "Страновые гиды",
+    "slug": "kasachstan-geldanlage-2026",
+    "titleDe": "Kasachstan für europäische Anleger: Bankzinsen 2026",
+    "titleEn": "Kazakhstan for European Investors: Bank Rates & Regulation 2026",
+    "keywordDe": "kasachstan geldanlage",
+    "searchVolDe": 210,
+    "kd": 14,
+    "keywordEn": "kazakhstan bank deposits europeans",
+    "searchVolEn": 390,
+    "lsiKeywords": [
+      "halyk bank zinsen",
+      "kasachstan einlagengarantie",
+      "almaty konto ausländer"
+    ],
+    "format": "Country Guide",
+    "targetLength": 1667,
+    "taSegments": [
+      "2",
+      "4"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-04-01",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "pending",
+    "unsplashQuery": "tbilisi georgia finance"
+  },
+  {
+    "id": 16,
+    "cluster": "Страновые гиды",
+    "slug": "usbekistan-bankzinsen-2026",
+    "titleDe": "Usbekistan Bankzinsen 2026: Hochzinsopportunität im Aufwind",
+    "titleEn": "Uzbekistan Bank Rates 2026: The Underrated High-Yield Opportunity",
+    "keywordDe": "usbekistan bankzinsen",
+    "searchVolDe": 90,
+    "kd": 11,
+    "keywordEn": "uzbekistan bank deposits 2026",
+    "searchVolEn": 210,
+    "lsiKeywords": [
+      "taschkent bank",
+      "usbekistan wirtschaft 2026",
+      "zentralasien geldanlage"
+    ],
+    "format": "Country Guide",
+    "targetLength": 1500,
+    "taSegments": [
+      "2",
+      "4"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-05-01",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "pending",
+    "unsplashQuery": "tbilisi georgia finance"
+  },
+  {
+    "id": 17,
+    "cluster": "Страновые гиды",
+    "slug": "vietnam-bankzinsen-auslaender-2026",
+    "titleDe": "Vietnam Banking 2026: Asien-Alternative für risikobewusste Anleger",
+    "titleEn": "Vietnam Banking 2026: Asian Deposit Alternative for Investors",
+    "keywordDe": "vietnam bankzinsen ausländer",
+    "searchVolDe": 140,
+    "kd": 13,
+    "keywordEn": "vietnam bank account foreigners 2026",
+    "searchVolEn": 480,
+    "lsiKeywords": [
+      "vietcombank zinsen",
+      "vietnam einlage sicherheit",
+      "ho chi minh city konto"
+    ],
+    "format": "Country Guide",
+    "targetLength": 1500,
+    "taSegments": [
+      "4"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-06-01",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "pending",
+    "unsplashQuery": "tbilisi georgia finance"
+  },
+  {
+    "id": 18,
+    "cluster": "Страновые гиды",
+    "slug": "festgeld-ausland-laender-vergleich-2026",
+    "titleDe": "Einlagenarbitrage Länder-Ranking 2026: Rendite, Garantie, Risiko",
+    "titleEn": "Deposit Arbitrage Country Ranking 2026: Yield, Guarantee, Risk",
+    "keywordDe": "festgeld ausland länder vergleich 2026",
+    "searchVolDe": 2100,
+    "kd": 27,
+    "keywordEn": "best countries bank deposits 2026",
+    "searchVolEn": 4400,
+    "lsiKeywords": [
+      "höchste bankzinsen weltweit",
+      "einlagenarbitrage länder 2026",
+      "sichere hochzinsländer"
+    ],
+    "format": "Rangliste",
+    "targetLength": 2167,
+    "taSegments": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-15",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "pending",
+    "unsplashQuery": "tbilisi georgia finance"
+  },
+  {
+    "id": 19,
+    "cluster": "Страновые гиды",
+    "slug": "einlagengarantie-laender-tabelle-2026",
+    "titleDe": "Staatliche Einlagengarantien weltweit: Vollständige Ländertabelle 2026",
+    "titleEn": "State Deposit Guarantees Worldwide: Complete Country Table 2026",
+    "keywordDe": "einlagengarantie länder tabelle",
+    "searchVolDe": 1600,
+    "kd": 33,
+    "keywordEn": "deposit insurance by country 2026",
+    "searchVolEn": 3600,
+    "lsiKeywords": [
+      "einlagensicherung international",
+      "staatliche garantie auslandskonto",
+      "deposit protection table"
+    ],
+    "format": "Datentabelle",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-01",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "pending",
+    "unsplashQuery": "tbilisi georgia finance"
+  },
+  {
+    "id": 20,
+    "cluster": "Пассивный доход",
+    "slug": "von-zinsen-leben-kapital-2026",
+    "titleDe": "Von Zinsen leben 2026: Wie viel Kapital brauchen Sie wirklich?",
+    "titleEn": "Living Off Interest 2026: How Much Capital Do You Actually Need?",
+    "keywordDe": "von zinsen leben kapital",
+    "searchVolDe": 5400,
+    "kd": 29,
+    "keywordEn": "living off interest income how much capital",
+    "searchVolEn": 8100,
+    "lsiKeywords": [
+      "rentier werden",
+      "wie viel kapital für passives einkommen",
+      "zinseinkommen berechnen"
+    ],
+    "format": "Kalkulator-Artikel",
+    "targetLength": 2333,
+    "taSegments": [
+      "1",
+      "3",
+      "6"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-01",
+    "language": "DE+EN",
+    "category": "Passives Einkommen",
+    "status": "pending",
+    "unsplashQuery": "passive income financial freedom"
+  },
+  {
+    "id": 21,
+    "cluster": "Пассивный доход",
+    "slug": "fire-bewegung-deutschland-2026",
+    "titleDe": "FIRE auf Europäisch: Mit Bankzinsen früher in Rente gehen",
+    "titleEn": "European FIRE: Retire Earlier with Bank Interest Income",
+    "keywordDe": "fire bewegung deutschland 2026",
+    "searchVolDe": 4400,
+    "kd": 34,
+    "keywordEn": "fire movement europe bank interest",
+    "searchVolEn": 8100,
+    "lsiKeywords": [
+      "frührentner werden",
+      "finanzielle freiheit banking",
+      "fire rechner europa"
+    ],
+    "format": "FIRE Guide",
+    "targetLength": 2500,
+    "taSegments": [
+      "1",
+      "6"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-15",
+    "language": "DE+EN",
+    "category": "Passives Einkommen",
+    "status": "pending",
+    "unsplashQuery": "passive income financial freedom"
+  },
+  {
+    "id": 22,
+    "cluster": "Пассивный доход",
+    "slug": "rente-mit-50-kapital-plan-2026",
+    "titleDe": "Rentier werden mit 50: Ein realistischer Kapitalplan",
+    "titleEn": "Becoming Financially Independent at 50: A Realistic Capital Plan",
+    "keywordDe": "rente mit 50 kapital plan",
+    "searchVolDe": 3600,
+    "kd": 31,
+    "keywordEn": "financial independence 50 capital plan",
+    "searchVolEn": 5400,
+    "lsiKeywords": [
+      "frühpension deutschland",
+      "rentier mit 50",
+      "vermögen aufbauen 50 jahre"
+    ],
+    "format": "Planungsartikel",
+    "targetLength": 2000,
+    "taSegments": [
+      "1",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-03-01",
+    "language": "DE+EN",
+    "category": "Passives Einkommen",
+    "status": "pending",
+    "unsplashQuery": "passive income financial freedom"
+  },
+  {
+    "id": 23,
+    "cluster": "Пассивный доход",
+    "slug": "passives-einkommen-25000-euro-2026",
+    "titleDe": "Passives Einkommen ab €25.000: Drei realistische Szenarien 2026",
+    "titleEn": "Passive Income from €25,000: Three Realistic Scenarios 2026",
+    "keywordDe": "passives einkommen 25000 euro",
+    "searchVolDe": 3200,
+    "kd": 26,
+    "keywordEn": "passive income from 25000 euros bank",
+    "searchVolEn": 4900,
+    "lsiKeywords": [
+      "25000 euro anlegen zinsen",
+      "monatliches einkommen zinsen",
+      "passiv einkommen bank 2026"
+    ],
+    "format": "Szenarioartikel",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-04-01",
+    "language": "DE+EN",
+    "category": "Passives Einkommen",
+    "status": "pending",
+    "unsplashQuery": "passive income financial freedom"
+  },
+  {
+    "id": 24,
+    "cluster": "Пассивный доход",
+    "slug": "rente-aufbessern-zinsen-ausland-2026",
+    "titleDe": "Rente aufbessern mit Auslandszinsen: Leitfaden für 55+",
+    "titleEn": "Supplement Your Pension with Foreign Bank Interest: Guide for 55+",
+    "keywordDe": "rente aufbessern zinsen ausland",
+    "searchVolDe": 2200,
+    "kd": 22,
+    "keywordEn": "supplement pension foreign bank interest",
+    "searchVolEn": 3300,
+    "lsiKeywords": [
+      "zusatzrente deutschland",
+      "altersvorsorge auslandseinlagen",
+      "sicher anlegen ab 55"
+    ],
+    "format": "Senior Guide",
+    "targetLength": 2000,
+    "taSegments": [
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-04-15",
+    "language": "DE+EN",
+    "category": "Passives Einkommen",
+    "status": "pending",
+    "unsplashQuery": "passive income financial freedom"
+  },
+  {
+    "id": 25,
+    "cluster": "Пассивный доход",
+    "slug": "finanzielle-unabhaengigkeit-etf-2026",
+    "titleDe": "Finanzielle Unabhängigkeit: Warum ETFs allein nicht reichen",
+    "titleEn": "Financial Independence: Why ETFs Alone Are Not Enough",
+    "keywordDe": "finanzielle unabhängigkeit etf",
+    "searchVolDe": 4100,
+    "kd": 37,
+    "keywordEn": "financial independence why etfs not enough",
+    "searchVolEn": 6600,
+    "lsiKeywords": [
+      "etf rendite vs bankzinsen",
+      "diversifikation geldanlage",
+      "etf ergänzen"
+    ],
+    "format": "Meinungsartikel",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "6"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-05-01",
+    "language": "DE+EN",
+    "category": "Passives Einkommen",
+    "status": "pending",
+    "unsplashQuery": "passive income financial freedom"
+  },
+  {
+    "id": 26,
+    "cluster": "Пассивный доход",
+    "slug": "digital-nomad-geldanlage-ausland-2026",
+    "titleDe": "Digital Nomad & Bankzinsen: Globale Strategie für Freiberufler",
+    "titleEn": "Digital Nomad & Bank Interest: Global Strategy for Freelancers",
+    "keywordDe": "digital nomad geldanlage ausland",
+    "searchVolDe": 1200,
+    "kd": 28,
+    "keywordEn": "digital nomad bank interest income",
+    "searchVolEn": 2400,
+    "lsiKeywords": [
+      "freiberufler geldanlage 2026",
+      "nomad banking auslandskonto",
+      "selbstständig anlegen"
+    ],
+    "format": "Lifestyle-Artikel",
+    "targetLength": 1500,
+    "taSegments": [
+      "2",
+      "6"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-05-15",
+    "language": "DE+EN",
+    "category": "Passives Einkommen",
+    "status": "pending",
+    "unsplashQuery": "passive income financial freedom"
+  },
+  {
+    "id": 27,
+    "cluster": "Пассивный доход",
+    "slug": "monatliches-einkommen-aus-zinsen-2026",
+    "titleDe": "Monatliches Einkommen durch Zinsen: Schritt-für-Schritt-Plan",
+    "titleEn": "Monthly Income from Interest: Step-by-Step Plan",
+    "keywordDe": "monatliches einkommen aus zinsen",
+    "searchVolDe": 3800,
+    "kd": 24,
+    "keywordEn": "monthly income from bank interest",
+    "searchVolEn": 5900,
+    "lsiKeywords": [
+      "monatliche zinsauszahlung",
+      "wie bekomme ich monatlich zinsen",
+      "festgeld monatliche auszahlung"
+    ],
+    "format": "Howto",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "3"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-06-01",
+    "language": "DE+EN",
+    "category": "Passives Einkommen",
+    "status": "pending",
+    "unsplashQuery": "passive income financial freedom"
+  },
+  {
+    "id": 28,
+    "cluster": "Сравнения",
+    "slug": "raisin-alternative-2026",
+    "titleDe": "Raisin vs. Rentiers 2026: Welche Plattform passt zu wem?",
+    "titleEn": "Raisin vs. Rentiers 2026: Which Platform Is Right for You?",
+    "keywordDe": "raisin alternative 2026",
+    "searchVolDe": 2400,
+    "kd": 39,
+    "keywordEn": "raisin vs deposit arbitrage platform",
+    "searchVolEn": 1800,
+    "lsiKeywords": [
+      "weltsparen vs rentiers",
+      "festgeld plattform vergleich",
+      "beste zinsplattform"
+    ],
+    "format": "Plattformvergleich",
+    "targetLength": 2000,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-15",
+    "language": "DE+EN",
+    "category": "Vergleiche",
+    "status": "pending",
+    "unsplashQuery": "financial comparison investment"
+  },
+  {
+    "id": 29,
+    "cluster": "Сравнения",
+    "slug": "trade-republic-zinsen-vergleich-2026",
+    "titleDe": "Trade Republic Zinsen vs. Rentiers: Direktvergleich 2026",
+    "titleEn": "Trade Republic Interest vs. Rentiers: Direct Comparison 2026",
+    "keywordDe": "trade republic zinsen vergleich",
+    "searchVolDe": 3600,
+    "kd": 41,
+    "keywordEn": "trade republic interest rate comparison",
+    "searchVolEn": 4400,
+    "lsiKeywords": [
+      "trade republic 4 prozent",
+      "trade republic festgeld",
+      "neobank zinsen vergleich"
+    ],
+    "format": "Vergleich",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "6"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-01",
+    "language": "DE+EN",
+    "category": "Vergleiche",
+    "status": "pending",
+    "unsplashQuery": "financial comparison investment"
+  },
+  {
+    "id": 30,
+    "cluster": "Сравнения",
+    "slug": "weltsparen-alternative-2026",
+    "titleDe": "Weltsparen Alternative 2026: Neue Plattformen im Vergleich",
+    "titleEn": "Weltsparen Alternative 2026: New Platforms Compared",
+    "keywordDe": "weltsparen alternative",
+    "searchVolDe": 2100,
+    "kd": 38,
+    "keywordEn": "weltsparen alternative 2026",
+    "searchVolEn": 1600,
+    "lsiKeywords": [
+      "zinspilot alternative",
+      "savedo alternative",
+      "festgeld plattform 2026"
+    ],
+    "format": "Vergleich",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-08",
+    "language": "DE+EN",
+    "category": "Vergleiche",
+    "status": "published",
+    "unsplashQuery": "financial comparison investment"
+  },
+  {
+    "id": 31,
+    "cluster": "Сравнения",
+    "slug": "p2p-lending-vs-festgeld-2026",
+    "titleDe": "P2P-Lending vs. Bankeinlagen 2026: Warum Banken wieder gewinnen",
+    "titleEn": "P2P Lending vs. Bank Deposits 2026: Why Banks Are Winning Again",
+    "keywordDe": "p2p lending vs festgeld 2026",
+    "searchVolDe": 1800,
+    "kd": 33,
+    "keywordEn": "p2p lending vs bank deposits 2026",
+    "searchVolEn": 2900,
+    "lsiKeywords": [
+      "mintos vs festgeld",
+      "bondora sicher",
+      "p2p risiko vs bankgarantie"
+    ],
+    "format": "Vergleich",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "2",
+      "6"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-03-01",
+    "language": "DE+EN",
+    "category": "Vergleiche",
+    "status": "pending",
+    "unsplashQuery": "financial comparison investment"
+  },
+  {
+    "id": 32,
+    "cluster": "Сравнения",
+    "slug": "defi-rendite-vs-bank-2026",
+    "titleDe": "DeFi Yields vs. staatlich garantierte Einlagen: Risikoanalyse",
+    "titleEn": "DeFi Yields vs. State-Guaranteed Deposits: Risk Analysis 2026",
+    "keywordDe": "defi rendite vs bank 2026",
+    "searchVolDe": 1400,
+    "kd": 44,
+    "keywordEn": "defi yields vs bank deposits risk",
+    "searchVolEn": 2200,
+    "lsiKeywords": [
+      "krypto zinsen sicher",
+      "stable coin rendite vs bank",
+      "blockchain banking 2026"
+    ],
+    "format": "Analyse",
+    "targetLength": 1500,
+    "taSegments": [
+      "4",
+      "6"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-03-15",
+    "language": "DE+EN",
+    "category": "Vergleiche",
+    "status": "pending",
+    "unsplashQuery": "financial comparison investment"
+  },
+  {
+    "id": 33,
+    "cluster": "Сравнения",
+    "slug": "beste-festgeld-zinsen-2026",
+    "titleDe": "Beste Festgeld-Zinsen 2026 Deutschland vs. Ausland",
+    "titleEn": "Best Fixed Deposit Rates 2026: Germany vs. International",
+    "keywordDe": "beste festgeld zinsen 2026",
+    "searchVolDe": 12100,
+    "kd": 47,
+    "keywordEn": "best fixed deposit rates 2026 europe",
+    "searchVolEn": 18000,
+    "lsiKeywords": [
+      "höchste festgeldzinsen",
+      "festgeld vergleich 2026",
+      "wo gibt es die besten zinsen"
+    ],
+    "format": "Rangliste",
+    "targetLength": 2167,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-01",
+    "language": "DE+EN",
+    "category": "Vergleiche",
+    "status": "pending",
+    "unsplashQuery": "financial comparison investment"
+  },
+  {
+    "id": 34,
+    "cluster": "Сравнения",
+    "slug": "krypto-staking-vs-bank-2026",
+    "titleDe": "Staking vs. Bankzinsen: Was ist sicherer in 2026?",
+    "titleEn": "Crypto Staking vs. Bank Interest: What's Safer in 2026?",
+    "keywordDe": "krypto staking vs bank",
+    "searchVolDe": 2100,
+    "kd": 36,
+    "keywordEn": "crypto staking vs bank interest 2026",
+    "searchVolEn": 3600,
+    "lsiKeywords": [
+      "eth staking rendite",
+      "staking risiko",
+      "krypto alternative bank 2026"
+    ],
+    "format": "Vergleich",
+    "targetLength": 1333,
+    "taSegments": [
+      "6"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-04-01",
+    "language": "DE+EN",
+    "category": "Vergleiche",
+    "status": "pending",
+    "unsplashQuery": "financial comparison investment"
+  },
+  {
+    "id": 35,
+    "cluster": "Сравнения",
+    "slug": "immobilien-vs-festgeld-2026",
+    "titleDe": "Immobilien vs. Einlagenarbitrage: Wohin mit €100.000 in 2026?",
+    "titleEn": "Real Estate vs. Deposit Arbitrage: Where to Put €100,000 in 2026?",
+    "keywordDe": "immobilien vs festgeld 2026",
+    "searchVolDe": 4400,
+    "kd": 42,
+    "keywordEn": "real estate vs bank deposits 100000",
+    "searchVolEn": 5400,
+    "lsiKeywords": [
+      "100000 euro anlegen 2026",
+      "immobilien rendite vergleich",
+      "sichere geldanlage 100k"
+    ],
+    "format": "Vergleich",
+    "targetLength": 2000,
+    "taSegments": [
+      "1",
+      "2",
+      "4"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-04-15",
+    "language": "DE+EN",
+    "category": "Vergleiche",
+    "status": "pending",
+    "unsplashQuery": "financial comparison investment"
+  },
+  {
+    "id": 36,
+    "cluster": "Безопасность",
+    "slug": "einlagengarantie-weltweit-tabelle-2026",
+    "titleDe": "Einlagengarantie weltweit 2026: Vollständige Länder-Tabelle",
+    "titleEn": "Deposit Insurance Worldwide 2026: Complete Country Table",
+    "keywordDe": "einlagengarantie weltweit tabelle",
+    "searchVolDe": 1600,
+    "kd": 30,
+    "keywordEn": "deposit insurance by country 2026 table",
+    "searchVolEn": 2900,
+    "lsiKeywords": [
+      "einlagensicherung ausland",
+      "staatliche garantie bank",
+      "bis zu welcher summe garantiert"
+    ],
+    "format": "Datentabelle",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-15",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "bank security financial regulation"
+  },
+  {
+    "id": 37,
+    "cluster": "Безопасность",
+    "slug": "bank-insolvenz-einlagen-2026",
+    "titleDe": "Was passiert mit meinen Einlagen, wenn eine Bank pleitegeht?",
+    "titleEn": "What Happens to My Deposits If a Bank Goes Bankrupt?",
+    "keywordDe": "bank insolvenz einlagen",
+    "searchVolDe": 3800,
+    "kd": 27,
+    "keywordEn": "bank bankruptcy what happens deposits",
+    "searchVolEn": 5400,
+    "lsiKeywords": [
+      "bankpleite einlagensicherung",
+      "bank geht pleite was passiert",
+      "einlagensicherung deckel"
+    ],
+    "format": "FAQ-Artikel",
+    "targetLength": 1333,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-01",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "bank security financial regulation"
+  },
+  {
+    "id": 38,
+    "cluster": "Безопасность",
+    "slug": "waehrungsrisiko-absichern-auslandskonto-2026",
+    "titleDe": "Währungsrisiko hedgen: Strategien für Auslandseinlagen 2026",
+    "titleEn": "Currency Risk Hedging: Strategies for Foreign Deposits 2026",
+    "keywordDe": "währungsrisiko absichern auslandskonto",
+    "searchVolDe": 1100,
+    "kd": 33,
+    "keywordEn": "currency risk hedging bank deposits 2026",
+    "searchVolEn": 1800,
+    "lsiKeywords": [
+      "try eur hedging",
+      "devisentermingeschäft",
+      "fremdwährungseinlage absichern"
+    ],
+    "format": "Strategie-Guide",
+    "targetLength": 1833,
+    "taSegments": [
+      "2",
+      "4",
+      "5"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-08",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "bank security financial regulation"
+  },
+  {
+    "id": 39,
+    "cluster": "Безопасность",
+    "slug": "doppelbesteuerungsabkommen-deutschland-2026",
+    "titleDe": "Doppelbesteuerungsabkommen 2026: Welche Länder schützen Anleger?",
+    "titleEn": "Double Taxation Agreements 2026: Which Countries Protect Investors?",
+    "keywordDe": "doppelbesteuerungsabkommen deutschland",
+    "searchVolDe": 2900,
+    "kd": 39,
+    "keywordEn": "double taxation agreement 2026 germany",
+    "searchVolEn": 2200,
+    "lsiKeywords": [
+      "dba deutschland georgien",
+      "dba deutschland armenien",
+      "steuern auslandsbank dba"
+    ],
+    "format": "Steuer-Guide",
+    "targetLength": 1667,
+    "taSegments": [
+      "2",
+      "3",
+      "4"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-03-01",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "bank security financial regulation"
+  },
+  {
+    "id": 40,
+    "cluster": "Безопасность",
+    "slug": "ki-portfolio-monitoring-bank-2026",
+    "titleDe": "KI-Risikomonitoring: Wie Rentiers Ihr Portfolio automatisch schützt",
+    "titleEn": "AI Risk Monitoring: How Rentiers Automatically Protects Your Portfolio",
+    "keywordDe": "ki portfolio monitoring bank",
+    "searchVolDe": 480,
+    "kd": 18,
+    "keywordEn": "ai portfolio risk monitoring fintech",
+    "searchVolEn": 890,
+    "lsiKeywords": [
+      "automatisches risikomonitoring",
+      "ki geldanlage",
+      "algorithmus einlagenschutz"
+    ],
+    "format": "Produkt-Feature",
+    "targetLength": 1167,
+    "taSegments": [
+      "2",
+      "4",
+      "5"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-03-15",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "bank security financial regulation"
+  },
+  {
+    "id": 41,
+    "cluster": "Безопасность",
+    "slug": "msb-lizenz-fincen-deutschland-2026",
+    "titleDe": "MSB-Lizenz: Warum FinCEN & FINTRAC wichtiger sind als Bankenlizenz",
+    "titleEn": "MSB License: Why FinCEN & FINTRAC Matter More Than a Banking License",
+    "keywordDe": "msb lizenz fincen deutschland",
+    "searchVolDe": 290,
+    "kd": 21,
+    "keywordEn": "msb license fincen banking regulation",
+    "searchVolEn": 480,
+    "lsiKeywords": [
+      "money services business lizenz",
+      "fintrac regulierung",
+      "msb vs banklizenz"
+    ],
+    "format": "Trust-Artikel",
+    "targetLength": 1333,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-04-01",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "bank security financial regulation"
+  },
+  {
+    "id": 42,
+    "cluster": "Безопасность",
+    "slug": "sicherheit-rendite-risiko-geldanlage-2026",
+    "titleDe": "Sicherheit vs. Rendite: Wie viel Risiko ist bei Bankeinlagen vertretbar?",
+    "titleEn": "Safety vs. Return: How Much Risk Is Acceptable for Bank Deposits?",
+    "keywordDe": "sicherheit rendite risiko geldanlage",
+    "searchVolDe": 3200,
+    "kd": 35,
+    "keywordEn": "bank deposit safety vs return tradeoff",
+    "searchVolEn": 4400,
+    "lsiKeywords": [
+      "risikoprofil geldanlage",
+      "risikoklasse bank",
+      "wieviel risiko ist ok"
+    ],
+    "format": "Meinungsartikel",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "3",
+      "4"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-04-15",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "bank security financial regulation"
+  },
+  {
+    "id": 43,
+    "cluster": "Безопасность",
+    "slug": "datenschutz-auslandskonto-dsgvo-2026",
+    "titleDe": "GDPR & Datenschutz: Was internationale Banken über Sie speichern",
+    "titleEn": "GDPR & Data Privacy: What International Banks Store About You",
+    "keywordDe": "datenschutz auslandskonto dsgvo",
+    "searchVolDe": 880,
+    "kd": 25,
+    "keywordEn": "gdpr foreign bank account data privacy",
+    "searchVolEn": 1200,
+    "lsiKeywords": [
+      "dsgvo bankdaten ausland",
+      "datenschutz internationale bank",
+      "kundendaten schutz"
+    ],
+    "format": "Compliance-Guide",
+    "targetLength": 1167,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-05-01",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "bank security financial regulation"
+  },
+  {
+    "id": 44,
+    "cluster": "Безопасность",
+    "slug": "geldwaeschegesetz-auslandskonto-2026",
+    "titleDe": "AML bei Auslandseinlagen: Was Sie für die Kontoeröffnung vorbereiten",
+    "titleEn": "AML for Foreign Deposits: What to Prepare for Account Opening",
+    "keywordDe": "geldwäschegesetz auslandskonto",
+    "searchVolDe": 720,
+    "kd": 28,
+    "keywordEn": "aml foreign bank account opening documents",
+    "searchVolEn": 980,
+    "lsiKeywords": [
+      "kontoeröffnung ausland dokumente",
+      "aml check bank",
+      "geldwäsche compliance einlage"
+    ],
+    "format": "Howto",
+    "targetLength": 1167,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-05-15",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "bank security financial regulation"
+  },
+  {
+    "id": 45,
+    "cluster": "B2B",
+    "slug": "betriebsvermoegen-anlegen-gmbh-2026",
+    "titleDe": "Betriebsvermögen anlegen 2026: Idle Cash für GmbH & AG",
+    "titleEn": "Investing Business Assets 2026: Idle Cash for GmbH & AG",
+    "keywordDe": "betriebsvermögen anlegen gmbh",
+    "searchVolDe": 1800,
+    "kd": 29,
+    "keywordEn": "corporate idle cash investment gmbh 2026",
+    "searchVolEn": 1400,
+    "lsiKeywords": [
+      "gmbh geld anlegen",
+      "betriebliches kapital zinsen",
+      "unternehmensliquidität anlegen"
+    ],
+    "format": "B2B Guide",
+    "targetLength": 2000,
+    "taSegments": [
+      "5"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-01",
+    "language": "DE+EN",
+    "category": "B2B",
+    "status": "pending",
+    "unsplashQuery": "corporate finance business banking"
+  },
+  {
+    "id": 46,
+    "cluster": "B2B",
+    "slug": "firmenkonto-zinsen-2026",
+    "titleDe": "Unternehmensreserven: Mehr als 0% auf dem Firmenkonto verdienen",
+    "titleEn": "Corporate Reserves: Earning More Than 0% on Your Business Account",
+    "keywordDe": "firmenkonto zinsen 2026",
+    "searchVolDe": 2400,
+    "kd": 33,
+    "keywordEn": "business account interest rate higher 2026",
+    "searchVolEn": 1800,
+    "lsiKeywords": [
+      "gewerbliches konto zinsen",
+      "unternehmenskonto rendite",
+      "mehr zinsen firmenkonto"
+    ],
+    "format": "B2B Guide",
+    "targetLength": 1667,
+    "taSegments": [
+      "5"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-08",
+    "language": "DE+EN",
+    "category": "B2B",
+    "status": "pending",
+    "unsplashQuery": "corporate finance business banking"
+  },
+  {
+    "id": 47,
+    "cluster": "B2B",
+    "slug": "freiberufler-geldanlage-2026",
+    "titleDe": "Kapitalanlage für Freiberufler und Solo-Selbstständige 2026",
+    "titleEn": "Investment Strategies for Freelancers and Self-Employed 2026",
+    "keywordDe": "freiberufler geldanlage 2026",
+    "searchVolDe": 2200,
+    "kd": 28,
+    "keywordEn": "freelancer investment strategies germany 2026",
+    "searchVolEn": 2900,
+    "lsiKeywords": [
+      "selbstständige geldanlage",
+      "solo-unternehmer kapital anlegen",
+      "freiberufler festgeld"
+    ],
+    "format": "B2B Guide",
+    "targetLength": 1667,
+    "taSegments": [
+      "2",
+      "5"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-03-01",
+    "language": "DE+EN",
+    "category": "B2B",
+    "status": "pending",
+    "unsplashQuery": "corporate finance business banking"
+  },
+  {
+    "id": 48,
+    "cluster": "B2B",
+    "slug": "family-office-strategie-alternativen-2026",
+    "titleDe": "Family Office Strategien: EM-Deposits als Alternative zu Anleihen",
+    "titleEn": "Family Office Strategies: EM Deposits as a Bond Alternative",
+    "keywordDe": "family office strategie alternativen 2026",
+    "searchVolDe": 590,
+    "kd": 22,
+    "keywordEn": "family office em deposits bond alternative",
+    "searchVolEn": 840,
+    "lsiKeywords": [
+      "family office geldanlage",
+      "anleihenalternative 2026",
+      "em deposits hnwi"
+    ],
+    "format": "Strategie",
+    "targetLength": 1833,
+    "taSegments": [
+      "4",
+      "5"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-04-01",
+    "language": "DE+EN",
+    "category": "B2B",
+    "status": "pending",
+    "unsplashQuery": "corporate finance business banking"
+  },
+  {
+    "id": 49,
+    "cluster": "B2B",
+    "slug": "liquiditaetsmanagement-kmu-anlage-2026",
+    "titleDe": "Liquiditätsmanagement für KMU: Kurzfristige Einlagen optimal nutzen",
+    "titleEn": "Liquidity Management for SMEs: Maximizing Short-Term Deposits",
+    "keywordDe": "liquiditätsmanagement kmu anlage",
+    "searchVolDe": 480,
+    "kd": 19,
+    "keywordEn": "liquidity management sme deposits 2026",
+    "searchVolEn": 720,
+    "lsiKeywords": [
+      "kmu liquiditätsreserve",
+      "betriebliches liquiditätsmanagement",
+      "kmu kapital kurzfristig"
+    ],
+    "format": "B2B Guide",
+    "targetLength": 1500,
+    "taSegments": [
+      "5"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-04-15",
+    "language": "DE+EN",
+    "category": "B2B",
+    "status": "pending",
+    "unsplashQuery": "corporate finance business banking"
+  },
+  {
+    "id": 50,
+    "cluster": "RU/CIS",
+    "slug": "depozitnyj-arbitrazh-relokaciya-2026",
+    "titleDe": "Депозитный арбитраж для релокантов: 15% годовых живя в Европе",
+    "titleEn": "Deposit Arbitrage for Expats: 15% Annual Returns While in Europe",
+    "keywordDe": "депозитный арбитраж релокация",
+    "searchVolDe": 1200,
+    "kd": 18,
+    "keywordEn": "deposit arbitrage expat russia europe",
+    "searchVolEn": 980,
+    "lsiKeywords": [
+      "куда вложить деньги релоканту",
+      "процентный доход в европе",
+      "банки грузии для россиян"
+    ],
+    "format": "RU Guide",
+    "targetLength": 2000,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-01",
+    "language": "RU",
+    "category": "RU/CIS",
+    "status": "pending",
+    "unsplashQuery": "expat europe banking"
+  },
+  {
+    "id": 51,
+    "cluster": "RU/CIS",
+    "slug": "banki-gruzii-rossiyanam-2026",
+    "titleDe": "Банки Грузии для граждан России и СНГ: гайд 2026",
+    "titleEn": "Georgian Banks for Russian & CIS Citizens: 2026 Guide",
+    "keywordDe": "банки грузии россиянам 2026",
+    "searchVolDe": 4800,
+    "kd": 24,
+    "keywordEn": "georgia bank account russian citizens 2026",
+    "searchVolEn": 3600,
+    "lsiKeywords": [
+      "тбк банк тбилиси",
+      "банк грузии открыть счет",
+      "грузия для релокантов"
+    ],
+    "format": "RU Country Guide",
+    "targetLength": 2167,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-08",
+    "language": "RU",
+    "category": "RU/CIS",
+    "status": "pending",
+    "unsplashQuery": "expat europe banking"
+  },
+  {
+    "id": 52,
+    "cluster": "RU/CIS",
+    "slug": "tureckaya-lira-depozit-hedzhirovanie-2026",
+    "titleDe": "TRY-депозиты с хеджированием: реальная доходность в евро",
+    "titleEn": "Hedged TRY Deposits: Real EUR-Equivalent Yield Explained",
+    "keywordDe": "турецкая лира депозит хеджирование",
+    "searchVolDe": 480,
+    "kd": 16,
+    "keywordEn": "try deposits hedged eur yield",
+    "searchVolEn": 720,
+    "lsiKeywords": [
+      "хеджирование валютного риска",
+      "турция депозиты евро",
+      "try eur конвертация"
+    ],
+    "format": "RU Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "2",
+      "4"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-03-01",
+    "language": "RU",
+    "category": "RU/CIS",
+    "status": "pending",
+    "unsplashQuery": "expat europe banking"
+  },
+  {
+    "id": 53,
+    "cluster": "RU/CIS",
+    "slug": "kak-otkryt-schyot-rentiers-2026",
+    "titleDe": "Как открыть счёт через Rentiers из Германии, Израиля, Грузии",
+    "titleEn": "How to Open an Account via Rentiers from Germany, Israel, Georgia",
+    "keywordDe": "как открыть счёт rentiers",
+    "searchVolDe": 890,
+    "kd": 14,
+    "keywordEn": "how to open rentiers account abroad",
+    "searchVolEn": 660,
+    "lsiKeywords": [
+      "rentiers регистрация",
+      "открыть вклад за рубежом онлайн",
+      "онлайн депозит нерезидент"
+    ],
+    "format": "RU Howto",
+    "targetLength": 1333,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-03-15",
+    "language": "RU",
+    "category": "RU/CIS",
+    "status": "pending",
+    "unsplashQuery": "expat europe banking"
+  }
+]

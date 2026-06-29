@@ -1,0 +1,20 @@
+{
+  "stats": {
+    "wordCountDe": 1923,
+    "wordCountEn": 1884,
+    "totalWords": 3807,
+    "readTimeDe": "10 min read",
+    "readTimeEn": "10 min read",
+    "keywordDensity": 1.6640665626625066,
+    "fleschEstimate": 69,
+    "imageCount": 4,
+    "tableCount": 1,
+    "faqCount": 14,
+    "internalLinks": 3,
+    "externalLinks": 11
+  },
+  "warnings": [
+    "⚠️ description Länge: 102 Zeichen (Ziel: 150–160)"
+  ],
+  "mock": true
+}

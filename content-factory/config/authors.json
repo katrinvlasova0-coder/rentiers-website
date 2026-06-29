@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Dr. Stefan Kaufmann",
+    "role": "Finanzanalyst, Rentiers Pro",
+    "expertise": ["Einlagenarbitrage", "Festgeld", "B2B", "Länder-Guides", "Vergleiche"]
+  },
+  {
+    "name": "Elena Marchetti",
+    "role": "Senior Investment Strategist, Rentiers Pro",
+    "expertise": ["Passive Income", "FIRE", "Country Guides", "Passives Einkommen", "Lifestyle"]
+  },
+  {
+    "name": "Michael Weber",
+    "role": "Steuer- und Compliance-Experte, Rentiers Pro",
+    "expertise": ["Steuern", "Recht", "Sicherheit", "AML", "B2B", "Compliance"]
+  }
+]
