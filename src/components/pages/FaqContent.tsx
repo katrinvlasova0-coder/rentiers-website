@@ -44,7 +44,7 @@ export default function FaqContent() {
                       <h3 className="font-bold text-base mb-2" style={{ color: 'var(--color-dark)' }}>
                         {item.q}
                       </h3>
-                      <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
+                      <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: 'var(--color-text-secondary)' }}>
                         {item.a}
                       </p>
                     </div>

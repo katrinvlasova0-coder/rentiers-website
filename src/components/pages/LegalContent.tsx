@@ -2,7 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 
-type LegalKey = 'privacy' | 'terms';
+type LegalKey = 'privacy' | 'terms' | 'impressum';
 
 export default function LegalContent({ page }: { page: LegalKey }) {
   const { p } = useLanguage();
@@ -28,7 +28,7 @@ export default function LegalContent({ page }: { page: LegalKey }) {
               <h2 className="text-base font-bold mb-2" style={{ color: 'var(--color-dark)' }}>
                 {section.title}
               </h2>
-              <p>{section.content}</p>
+              <p className="whitespace-pre-line">{section.content}</p>
             </div>
           ))}
         </div>

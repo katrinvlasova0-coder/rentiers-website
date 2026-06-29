@@ -56,6 +56,15 @@ export default function AboutContent() {
           </div>
 
           <div className="mb-16">
+            <h2 className="text-xl font-extrabold mb-4" style={{ color: 'var(--color-dark)' }}>
+              {c.msbTitle}
+            </h2>
+            <p className="text-base leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
+              {c.msbExplanation}
+            </p>
+          </div>
+
+          <div className="mb-16">
             <h2 className="text-2xl font-extrabold mb-6" style={{ color: 'var(--color-dark)' }}>
               {c.valuesTitle}
             </h2>

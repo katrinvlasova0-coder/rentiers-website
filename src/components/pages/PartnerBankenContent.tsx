@@ -57,12 +57,47 @@ export default function PartnerBankenContent() {
 
       <section className="py-20" style={{ background: 'var(--color-bg-light)' }}>
         <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-2xl md:text-3xl font-extrabold mb-3 text-center" style={{ color: 'var(--color-dark)' }}>
+            {c.yieldTitle}
+          </h2>
+          <p className="text-sm text-center mb-8 max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
+            {c.yieldSubtitle}
+          </p>
+          <div className="overflow-x-auto rounded-2xl border bg-white" style={{ borderColor: 'var(--color-border)' }}>
+            <table className="w-full text-sm">
+              <thead>
+                <tr style={{ background: 'var(--color-dark)', color: 'white' }}>
+                  {c.yieldHeaders.map((h) => (
+                    <th key={h} className="px-4 py-3 text-left font-semibold">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {c.yieldData.map((row) => (
+                  <tr key={row.country} className="border-t" style={{ borderColor: 'var(--color-border)' }}>
+                    <td className="px-4 py-3 font-medium" style={{ color: 'var(--color-dark)' }}>{row.country}</td>
+                    <td className="px-4 py-3" style={{ color: 'var(--color-text-secondary)' }}>{row.cbRate}</td>
+                    <td className="px-4 py-3" style={{ color: 'var(--color-primary)' }}>{row.depositRate}</td>
+                    <td className="px-4 py-3" style={{ color: 'var(--color-text-secondary)' }}>{row.source}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-center mt-4" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
+            {c.yieldNote}
+          </p>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6">
           <h2 className="text-2xl md:text-3xl font-extrabold mb-10 text-center" style={{ color: 'var(--color-dark)' }}>
             {c.criteriaTitle}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {c.criteria.map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl p-6 shadow-sm">
+              <div key={item.title} className="rounded-2xl p-6 shadow-sm" style={{ background: 'var(--color-bg-light)' }}>
                 <div className="text-3xl mb-4">{item.icon}</div>
                 <h3 className="font-bold mb-2" style={{ color: 'var(--color-dark)' }}>{item.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>

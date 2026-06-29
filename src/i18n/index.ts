@@ -14,6 +14,7 @@ const de = {
     about: 'Über uns',
     faq: 'FAQ',
     blog: 'Blog',
+    impressum: 'Impressum',
     login: 'Anmelden',
     cta: 'Konto eröffnen',
   },
@@ -60,7 +61,7 @@ const de = {
   portfolios: {
     heading: 'Drei Portfolios für jeden Anlegertyp',
     subheading: 'Von konservativ bis renditeoptimiert — mit staatlichen Einlagengarantien, AI-überwacht.',
-    conservative: { name: 'Rentiers Konservativ', badge: '12% p.a.', desc: 'Einlagen bei großen internationalen Banken in Ländern mit stabilen Volkswirtschaften, bewertet mit mind. B+ (S&P).', minDeposit: '€25.000', duration: '60–120 Monate', payment: 'Vierteljährlich' },
+    conservative: { name: 'Rentiers Konservativ', badge: '12% p.a.', desc: 'Einlagen bei großen internationalen Banken in Ländern mit stabilen Volkswirtschaften, bewertet mit mind. B+ (S&P).', minDeposit: '€25.000', minDepositNote: 'Konservative Märkte zahlen niedrigere Zinsen — ein höheres Mindestkapital stellt sicher, dass sich die Verwaltungskosten für Sie rechnen.', duration: '60–120 Monate', payment: 'Vierteljährlich' },
     balanced: { name: 'Rentiers Ausgewogen', badge: '16% p.a.', desc: 'Ausgewogene Mischung aus stabilen und wachstumsstarken Märkten. Höhere Rendite bei moderatem Risiko.', minDeposit: '€10.000', duration: '36–120 Monate', payment: 'Vierteljährlich' },
     highyield: { name: 'Rentiers High-Yield', badge: '20% p.a.', desc: 'Maximale Rendite durch Emerging-Market-Einlagen mit staatlicher Garantie. Für renditeorientierte Anleger.', minDeposit: '€5.000', duration: '36–120 Monate', payment: 'Vierteljährlich' },
     cta: 'Portfolio wählen',
@@ -164,6 +165,8 @@ const de = {
     copyright: '© 2025 Rentiers. Alle Rechte vorbehalten.',
     privacy: 'Datenschutzrichtlinie',
     terms: 'Geschäftsbedingungen',
+    impressum: 'Impressum',
+    phone: '',
     nav: [
       { label: 'Partner-Banken', href: '/partner-banken' },
       { label: 'Kalkulator', href: '/kalkulator' },
@@ -189,6 +192,7 @@ const en = {
     about: 'About Us',
     faq: 'FAQ',
     blog: 'Blog',
+    impressum: 'Legal Notice',
     login: 'Log In',
     cta: 'Open Account',
   },
@@ -235,7 +239,7 @@ const en = {
   portfolios: {
     heading: 'Three portfolios for every investor',
     subheading: 'From conservative to yield-optimized — with government deposit guarantees, AI-monitored.',
-    conservative: { name: 'Rentiers Conservative', badge: '12% p.a.', desc: 'Deposits at major international banks in countries with stable economies, rated at least B+ (S&P).', minDeposit: '€25,000', duration: '60–120 months', payment: 'Quarterly' },
+    conservative: { name: 'Rentiers Conservative', badge: '12% p.a.', desc: 'Deposits at major international banks in countries with stable economies, rated at least B+ (S&P).', minDeposit: '€25,000', minDepositNote: 'Conservative markets pay lower interest rates — a higher minimum deposit ensures management costs remain worthwhile for you.', duration: '60–120 months', payment: 'Quarterly' },
     balanced: { name: 'Rentiers Balanced', badge: '16% p.a.', desc: 'Balanced mix of stable and high-growth markets. Higher returns at moderate risk.', minDeposit: '€10,000', duration: '36–120 months', payment: 'Quarterly' },
     highyield: { name: 'Rentiers High-Yield', badge: '20% p.a.', desc: 'Maximum returns through emerging market deposits with government guarantees. For yield-oriented investors.', minDeposit: '€5,000', duration: '36–120 months', payment: 'Quarterly' },
     cta: 'Choose Portfolio',
@@ -339,6 +343,8 @@ const en = {
     copyright: '© 2025 Rentiers. All rights reserved.',
     privacy: 'Privacy Policy',
     terms: 'Terms & Conditions',
+    impressum: 'Legal Notice',
+    phone: '',
     nav: [
       { label: 'Partner Banks', href: '/partner-banken' },
       { label: 'Calculator', href: '/kalkulator' },

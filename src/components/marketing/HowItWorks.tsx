@@ -1,22 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-const stepImages = [
-  {
-    src: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=320&fit=crop&q=80',
-    alt: 'Identity verification',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=320&fit=crop&q=80',
-    alt: 'Investment portfolio',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=320&fit=crop&q=80',
-    alt: 'Receiving interest',
-  },
-];
+import { stepIllustrations } from '@/components/marketing/StepIllustrations';
 
 export default function HowItWorks() {
   const { t } = useLanguage();
@@ -40,14 +25,12 @@ export default function HowItWorks() {
         <div className="grid md:grid-cols-3 gap-8">
           {hw.steps.map((step, i) => (
             <div key={step.num} className="flex flex-col rounded-2xl overflow-hidden border shadow-sm" style={{ borderColor: 'var(--color-border)', background: 'white' }}>
-              {/* Step image */}
+              {/* Step illustration */}
               <div className="relative w-full h-44 overflow-hidden">
-                <Image
-                  src={stepImages[i].src}
-                  alt={stepImages[i].alt}
-                  fill
-                  className="object-cover"
-                />
+                {(() => {
+                  const Illustration = stepIllustrations[i];
+                  return <Illustration className="w-full h-full" />;
+                })()}
                 {/* Step number badge */}
                 <div
                   className="absolute top-3 left-3 w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-extrabold shadow-lg"

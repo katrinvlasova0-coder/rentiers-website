@@ -84,21 +84,27 @@ export default function PortfoliosSection() {
 
                   <div className="space-y-3 mb-6">
                     {[
-                      { label: t.portfolios.minDepositLabel, value: p.minDeposit },
+                      { label: t.portfolios.minDepositLabel, value: p.minDeposit, note: 'minDepositNote' in p ? p.minDepositNote : undefined },
                       { label: t.portfolios.durationLabel, value: p.duration },
                       { label: t.portfolios.paymentLabel, value: p.payment },
                     ].map((row) => (
-                      <div
-                        key={row.label}
-                        className="flex justify-between items-center py-2 border-b"
-                        style={{ borderColor: 'var(--color-border)' }}
-                      >
-                        <span className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-                          {row.label}
-                        </span>
-                        <span className="text-sm font-semibold" style={{ color: 'var(--color-dark)' }}>
-                          {row.value}
-                        </span>
+                      <div key={row.label}>
+                        <div
+                          className="flex justify-between items-center py-2 border-b"
+                          style={{ borderColor: 'var(--color-border)' }}
+                        >
+                          <span className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+                            {row.label}
+                          </span>
+                          <span className="text-sm font-semibold" style={{ color: 'var(--color-dark)' }}>
+                            {row.value}
+                          </span>
+                        </div>
+                        {row.note && (
+                          <p className="text-xs mt-1 leading-relaxed" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
+                            * {row.note}
+                          </p>
+                        )}
                       </div>
                     ))}
                   </div>

@@ -9,7 +9,7 @@ export const strings = {
       'Rentiers ist die erste digitale Plattform für Einlagenarbitrage. Erzielen Sie 12–20% Jahresrendite durch Einlagen bei internationalen Banken mit staatlichen Garantien.',
     company: 'Rentiers Global Corp. (USA) · Rentiers Global Inc. (Canada)',
     address: '',
-    phone: '+49 (0) 69 1234 5678',
+    phone: '',
     handelsregister: '',
     founders: '',
     licenseUS: 'Money Services Business — regulated by FinCEN (U.S. Department of the Treasury)',

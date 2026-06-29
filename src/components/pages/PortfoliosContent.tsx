@@ -74,7 +74,7 @@ export default function PortfoliosContent() {
                   <div className="p-6 bg-white">
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       {[
-                        { label: c.cardLabels.minDeposit, value: portfolio.minDeposit },
+                        { label: c.cardLabels.minDeposit, value: portfolio.minDeposit, note: 'minDepositNote' in portfolio ? portfolio.minDepositNote : undefined },
                         { label: c.cardLabels.duration, value: portfolio.duration },
                         { label: c.cardLabels.payment, value: portfolio.payment },
                         { label: c.cardLabels.minRating, value: portfolio.minRating },
@@ -82,6 +82,11 @@ export default function PortfoliosContent() {
                         <div key={row.label} className="rounded-xl p-3" style={{ background: 'var(--color-bg-light)' }}>
                           <p className="text-xs mb-1" style={{ color: 'var(--color-text-secondary)' }}>{row.label}</p>
                           <p className="font-bold text-sm" style={{ color: 'var(--color-dark)' }}>{row.value}</p>
+                          {row.note && (
+                            <p className="text-[10px] mt-1 leading-snug" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
+                              * {row.note}
+                            </p>
+                          )}
                         </div>
                       ))}
                     </div>

@@ -59,6 +59,7 @@ export default function Footer() {
               <li>Rentiers Global Corp. (USA)</li>
               <li>Rentiers Global Inc. (Canada)</li>
               <li>info@rentierspro.com</li>
+              {t.footer.phone && <li>{t.footer.phone}</li>}
             </ul>
           </div>
 
@@ -104,6 +105,8 @@ export default function Footer() {
             <Link href="/datenschutz" className="hover:opacity-70">{t.footer.privacy}</Link>
             <span>•</span>
             <Link href="/agb" className="hover:opacity-70">{t.footer.terms}</Link>
+            <span>•</span>
+            <Link href="/impressum" className="hover:opacity-70">{t.footer.impressum}</Link>
           </div>
         </div>
       </div>

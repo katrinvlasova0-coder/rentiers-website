@@ -23,6 +23,7 @@ export default function Header() {
     { label: t.nav.calculator, href: '/kalkulator' },
     { label: t.nav.partnerBanks, href: '/partner-banken' },
     { label: t.nav.faq, href: '/faq' },
+    { label: t.nav.impressum, href: '/impressum' },
     { label: t.nav.blog, href: '/blog' },
   ];
 

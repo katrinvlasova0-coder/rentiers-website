@@ -146,7 +146,7 @@ export default function HeroHome() {
                   <div className="rounded-2xl p-4 mb-4"
                        style={{ background: 'var(--color-bg-light)' }}>
                     <p className="text-xs mb-1" style={{ color: 'var(--color-text-secondary)' }}>Kontostand</p>
-                    <p className="text-2xl font-bold mb-2" style={{ color: 'var(--color-dark)' }}>€ 0,00</p>
+                    <p className="text-2xl font-bold mb-2" style={{ color: 'var(--color-dark)' }}>€ 24.680,00</p>
                     <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>IBAN</p>
                     <p className="text-xs font-mono" style={{ color: 'var(--color-dark)' }}>DE89 3704 0044 0532</p>
                     <div className="mt-2 px-2 py-1 rounded text-xs font-medium inline-block"
@@ -155,10 +155,20 @@ export default function HeroHome() {
                     </div>
                   </div>
 
-                  {/* Deposit button */}
-                  <button className="w-full py-3 rounded-2xl text-white text-sm font-semibold mb-4"
-                          style={{ background: 'var(--color-dark)' }}>
-                    + Einzahlen
+                  {/* Action buttons */}
+                  <div className="flex gap-2 mb-2">
+                    <button className="flex-1 py-2.5 rounded-xl text-white text-xs font-semibold"
+                            style={{ background: 'var(--color-dark)' }}>
+                      + Einzahlen
+                    </button>
+                    <button className="flex-1 py-2.5 rounded-xl text-xs font-semibold border"
+                            style={{ borderColor: 'var(--color-border)', color: 'var(--color-dark)' }}>
+                      ↗ Ausgeben
+                    </button>
+                  </div>
+                  <button className="w-full py-2 rounded-xl text-xs font-semibold mb-4"
+                          style={{ background: 'var(--color-bg-light)', color: 'var(--color-primary)' }}>
+                    ↺ Reinvestieren
                   </button>
 
                   {/* Transactions */}

@@ -24,6 +24,18 @@ export const pageContent = {
         { icon: '✓', title: 'Staatliche Einlagengarantie', desc: 'Das Partnerland muss über ein funktionierendes staatliches Einlagengarantiesystem verfügen, das Kundeneinlagen absichert.' },
         { icon: 'AI', title: 'Kontinuierliches Monitoring', desc: 'Unser KI-System überprüft täglich alle Partnerbanken. Bei Verschlechterung des Ratings wird die Einlage automatisch umgeschichtet.' },
       ],
+      yieldTitle: 'Historische Referenzwerte nach Land',
+      yieldSubtitle: 'Durchschnittliche Zentralbank- und Einlagenzinsen (2023) — öffentliche Quellen der jeweiligen Zentralbanken.',
+      yieldHeaders: ['Land', 'Ø Leitzins 2023', 'Ø Einlagenzins', 'Quelle'],
+      yieldData: [
+        { country: 'Georgien', cbRate: '10,25%', depositRate: '11–14%', source: 'Nationalbank Georgiens' },
+        { country: 'Armenien', cbRate: '9,25%', depositRate: '10–12%', source: 'Zentralbank Armeniens' },
+        { country: 'Israel', cbRate: '4,75%', depositRate: '6–8%', source: 'Bank of Israel' },
+        { country: 'Türkei', cbRate: '42,5%', depositRate: '45–55%', source: 'TCMB' },
+        { country: 'Kasachstan', cbRate: '16%', depositRate: '14–17%', source: 'Nationalbank Kasachstan' },
+        { country: 'Usbekistan', cbRate: '14%', depositRate: '16–20%', source: 'Zentralbank Usbekistan' },
+      ],
+      yieldNote: 'Vergangene Werte sind keine Garantie für zukünftige Renditen. Aktuelle Konditionen variieren je nach Partnerbank und Laufzeit.',
     },
     calculator: {
       heroTitle: 'Renditenkalkulator',
@@ -73,7 +85,7 @@ export const pageContent = {
             { q: 'Wann und wie werden Zinsen ausgezahlt?', a: 'Zinsen werden vierteljährlich ausgezahlt — also alle 3 Monate. Die Auszahlung erfolgt direkt auf Ihre Rentiers Mastercard (ausgestellt von Wallester). Von dort können Sie das Geld ausgeben oder auf Ihr Bankkonto überweisen.' },
             { q: 'Kann ich Zinsen reinvestieren?', a: 'Ja. In den Portfolio-Einstellungen können Sie die automatische Reinvestition aktivieren. Reinvestierte Zinsen werden beim nächsten Verteilungszyklus auf Partnerbanken angelegt und erhöhen Ihren Gesamtkapitalstock.' },
             { q: 'Welches Portfolio ist für mich geeignet?', a: 'Das Konservativ-Portfolio (12%) eignet sich für risikoscheue Anleger mit einem Kapital ab €25.000. Das Ausgewogene Portfolio (16%) ist das beliebteste und kombiniert gute Rendite mit moderatem Risiko (ab €10.000). Das High-Yield-Portfolio (20%) ist für renditeorientierte Anleger gedacht (ab €5.000).' },
-            { q: 'Wie verdient Rentiers Geld?', a: 'Rentiers arbeitet nach einem Agenturmodell: Wir erhalten 25% des Bruttoertrags Ihrer Einlage als Servicegebühr. Diese Gebühr ist bereits in der angezeigten Rendite eingerechnet. Beispiel: Zahlt eine Partnerbank 15% Jahreszins, erhalten Sie 11,25% netto. Es gibt keine zusätzlichen Gebühren für Eröffnung, Verwaltung oder Auszahlung.' },
+            { q: 'Wie verdient Rentiers Geld?', a: 'Rentiers arbeitet nach einem Agenturmodell: Wir erhalten 25% des Bruttoertrags Ihrer Einlage als Servicegebühr. Diese Gebühr ist bereits in der angezeigten Rendite eingerechnet. Es gibt keine zusätzlichen Gebühren für Eröffnung, Verwaltung oder Auszahlung.\n\nFormel ohne Hedging:\nNettorendite = Bankzins × 0,75\nBeispiel: Bank zahlt 15% → Sie erhalten 11,25%\n\nFormel mit Währungshedging (optional):\nNettorendite = (Bankzins − Hedging-Kosten) × 0,75\nBeispiel: TRY-Einlage 50%, Hedging-Kosten 25% → (50% − 25%) × 0,75 = 18,75% EUR-Nettorendite' },
             { q: 'Was ist das Währungsrisiko und wie schützt mich Rentiers?', a: 'Einlagen in Lokalwährung (z.B. Türkische Lira, Georgischer Lari) unterliegen Wechselkursschwankungen. Rentiers bietet optional ein Währungshedging gegen EUR an: Für jede Währung gibt es einen individuellen Hedging-Satz, der von der Bruttorendite abgezogen wird und eine stabile EUR-Nettorendite sicherstellt. Einlagen in USD oder EUR tragen kein Währungsrisiko.' },
           ],
         },
@@ -118,12 +130,16 @@ export const pageContent = {
       companyRows: [
         { label: 'Unternehmen (USA)', value: 'Rentiers Global Corp.' },
         { label: 'Regulierung USA', value: 'Money Services Business (MSB) — FinCEN, U.S. Department of the Treasury' },
+        { label: 'FinCEN MSB Registration No.', value: '[wird vom Kunden nachgereicht]' },
         { label: 'Unternehmen (Kanada)', value: 'Rentiers Global Inc.' },
         { label: 'Regulierung Kanada', value: 'MSB — FINTRAC & Bank of Canada (Registry of Payment Service Providers)' },
+        { label: 'FINTRAC MSB Registration No.', value: '[wird vom Kunden nachgereicht]' },
         { label: 'Lizenztyp', value: 'Money Services Business (MSB)' },
         { label: 'Gegründet', value: '2023' },
         { label: 'Kontakt', value: 'info@rentierspro.com' },
       ],
+      msbTitle: 'Was bedeutet MSB für europäische Anleger?',
+      msbExplanation: 'MSB steht für Money Services Business — eine in den USA und Kanada regulierte Kategorie für Zahlungs- und Geldtransferdienstleister. MSB-Lizenzen werden von europäischen Banken und Zahlungsinstituten anerkannt. Sie ermöglichen Rentiers, in EUR zu operieren und europäische Kunden zu bedienen. Das Vertrauen in Ihre Einlagen liegt bei den Partnerbanken — die vollständig von lokalen Zentralbanken lizenziert und der staatlichen Einlagensicherung unterstellt sind.',
       valuesTitle: 'Unsere Werte',
       values: [
         { title: 'Transparenz', desc: 'Keine versteckten Gebühren. Alle Kosten sind in der Rendite eingerechnet. Sie sehen genau, wo Ihr Geld liegt.' },
@@ -229,6 +245,7 @@ export const pageContent = {
           icon: 'S',
           badge: 'Am sichersten',
           minDeposit: '€25.000',
+          minDepositNote: 'Konservative Märkte zahlen niedrigere Zinsen — ein höheres Mindestkapital stellt sicher, dass sich die Verwaltungskosten für Sie rechnen.',
           duration: '60–120 Monate',
           payment: 'Vierteljährlich',
           minRating: 'B+ (S&P)',
@@ -322,6 +339,28 @@ export const pageContent = {
         { title: '§10 Änderungen der AGB', content: 'Rentiers kann diese AGB mit 30 Tagen Frist ändern. Nutzer werden per E-Mail informiert.' },
       ],
     },
+    impressum: {
+      title: 'Impressum',
+      updated: 'Stand: Juni 2026 | Rentiers Global',
+      sections: [
+        {
+          title: 'Rentiers Global Corp.',
+          content: 'Money Services Business (MSB)\nReguliert durch FinCEN, U.S. Department of the Treasury\nMSB Registration No.: [wird vom Kunden nachgereicht]',
+        },
+        {
+          title: 'Rentiers Global Inc.',
+          content: 'Money Services Business (MSB)\nReguliert durch FINTRAC und Bank of Canada\n(Registry of Payment Service Providers)\nMSB Registration No.: [wird vom Kunden nachgereicht]',
+        },
+        {
+          title: 'Warum reicht eine MSB-Lizenz für europäische Kunden?',
+          content: 'MSB-Lizenzen werden von europäischen Banken und Zahlungsdienstleistern anerkannt. Sie ermöglichen Rentiers, EUR-Konten zu halten und mit europäischen Kunden zu arbeiten. Rentiers ist eine Technologieplattform — kein Kreditinstitut. Das regulatorische Vertrauen liegt bei den Partnerbanken, die vollständig von lokalen Zentralbanken lizenziert sind.',
+        },
+        {
+          title: 'Kontakt',
+          content: 'info@rentierspro.com',
+        },
+      ],
+    },
   },
   en: {
     partnerBanken: {
@@ -348,6 +387,18 @@ export const pageContent = {
         { icon: '✓', title: 'Government Deposit Guarantee', desc: 'The partner country must have a functioning state deposit guarantee system that protects customer deposits.' },
         { icon: 'AI', title: 'Continuous Monitoring', desc: 'Our AI system reviews all partner banks daily. If ratings deteriorate, deposits are automatically reallocated.' },
       ],
+      yieldTitle: 'Historical Reference Rates by Country',
+      yieldSubtitle: 'Average central bank and deposit rates (2023) — from public sources of the respective central banks.',
+      yieldHeaders: ['Country', 'Avg. Policy Rate 2023', 'Avg. Deposit Rate', 'Source'],
+      yieldData: [
+        { country: 'Georgia', cbRate: '10.25%', depositRate: '11–14%', source: 'National Bank of Georgia' },
+        { country: 'Armenia', cbRate: '9.25%', depositRate: '10–12%', source: 'Central Bank of Armenia' },
+        { country: 'Israel', cbRate: '4.75%', depositRate: '6–8%', source: 'Bank of Israel' },
+        { country: 'Turkey', cbRate: '42.5%', depositRate: '45–55%', source: 'TCMB' },
+        { country: 'Kazakhstan', cbRate: '16%', depositRate: '14–17%', source: 'National Bank of Kazakhstan' },
+        { country: 'Uzbekistan', cbRate: '14%', depositRate: '16–20%', source: 'Central Bank of Uzbekistan' },
+      ],
+      yieldNote: 'Past values are not a guarantee of future returns. Current terms vary by partner bank and term.',
     },
     calculator: {
       heroTitle: 'Return Calculator',
@@ -397,7 +448,7 @@ export const pageContent = {
             { q: 'When and how are interest payments made?', a: 'Interest is paid quarterly — every 3 months. Payments go directly to your Rentiers Mastercard. From there you can spend or transfer to your bank account.' },
             { q: 'Can I reinvest interest?', a: 'Yes. In portfolio settings you can enable automatic reinvestment. Reinvested interest is allocated to partner banks in the next distribution cycle.' },
             { q: 'Which portfolio is right for me?', a: 'Conservative (12%) suits risk-averse investors from €25,000. Balanced (16%) is the most popular from €10,000. High-Yield (20%) is for yield-oriented investors from €5,000.' },
-            { q: 'How does Rentiers make money?', a: "Rentiers operates on an agency model: we receive 25% of your deposit's gross return as a service fee. This fee is already factored into the displayed yield. Example: if a partner bank pays 15% annual interest, you receive 11.25% net. There are no additional fees for account opening, management, or payouts." },
+            { q: 'How does Rentiers make money?', a: "Rentiers operates on an agency model: we receive 25% of your deposit's gross return as a service fee. This fee is already factored into the displayed yield. There are no additional fees for account opening, management, or payouts.\n\nFormula without hedging:\nNet return = Bank rate × 0.75\nExample: Bank pays 15% → you receive 11.25%\n\nFormula with currency hedging (optional):\nNet return = (Bank rate − Hedging cost) × 0.75\nExample: TRY deposit 50%, hedging cost 25% → (50% − 25%) × 0.75 = 18.75% EUR net return" },
             { q: 'What is currency risk and how does Rentiers protect me?', a: 'Deposits in local currencies (e.g. Turkish Lira, Georgian Lari) are subject to exchange rate fluctuations. Rentiers offers optional currency hedging against EUR: each currency has an individual hedging rate, which is deducted from the gross yield to deliver a stable EUR net return. Deposits in USD or EUR carry no currency risk.' },
           ],
         },
@@ -442,12 +493,16 @@ export const pageContent = {
       companyRows: [
         { label: 'Company (USA)', value: 'Rentiers Global Corp.' },
         { label: 'US Regulation', value: 'Money Services Business (MSB) — FinCEN, U.S. Department of the Treasury' },
+        { label: 'FinCEN MSB Registration No.', value: '[pending from client]' },
         { label: 'Company (Canada)', value: 'Rentiers Global Inc.' },
         { label: 'Canadian Regulation', value: 'MSB — FINTRAC & Bank of Canada (Registry of Payment Service Providers)' },
+        { label: 'FINTRAC MSB Registration No.', value: '[pending from client]' },
         { label: 'License Type', value: 'Money Services Business (MSB)' },
         { label: 'Founded', value: '2023' },
         { label: 'Contact', value: 'info@rentierspro.com' },
       ],
+      msbTitle: 'What does MSB mean for European investors?',
+      msbExplanation: 'MSB stands for Money Services Business — a category regulated in the USA and Canada for payment and money transfer services. MSB licenses are recognized by European banks and payment institutions. They enable Rentiers to operate in EUR and serve European customers. Trust in your deposits lies with partner banks — fully licensed by local central banks and covered by state deposit insurance.',
       valuesTitle: 'Our Values',
       values: [
         { title: 'Transparency', desc: 'No hidden fees. All costs are included in the return. You see exactly where your money is held.' },
@@ -553,6 +608,7 @@ export const pageContent = {
           icon: 'S',
           badge: 'Safest',
           minDeposit: '€25,000',
+          minDepositNote: 'Conservative markets pay lower interest rates — a higher minimum deposit ensures management costs remain worthwhile for you.',
           duration: '60–120 months',
           payment: 'Quarterly',
           minRating: 'B+ (S&P)',
@@ -644,6 +700,28 @@ export const pageContent = {
         { title: '§8 Termination', content: 'Users may terminate their account after the agreed term or per portfolio conditions. Active deposits are settled per portfolio conditions.' },
         { title: '§9 Applicable Law', content: 'The law of the jurisdiction of the relevant Rentiers entity (USA or Canada) applies, subject to mandatory consumer protection rules in the user\'s country of residence.' },
         { title: '§10 Changes to Terms', content: 'Rentiers may amend these Terms with 30 days notice. Users are informed by email.' },
+      ],
+    },
+    impressum: {
+      title: 'Legal Notice',
+      updated: 'Last updated: June 2026 | Rentiers Global',
+      sections: [
+        {
+          title: 'Rentiers Global Corp.',
+          content: 'Money Services Business (MSB)\nRegulated by FinCEN, U.S. Department of the Treasury\nMSB Registration No.: [pending from client]',
+        },
+        {
+          title: 'Rentiers Global Inc.',
+          content: 'Money Services Business (MSB)\nRegulated by FINTRAC and Bank of Canada\n(Registry of Payment Service Providers)\nMSB Registration No.: [pending from client]',
+        },
+        {
+          title: 'Why is an MSB license sufficient for European customers?',
+          content: 'MSB licenses are recognized by European banks and payment service providers. They enable Rentiers to hold EUR accounts and work with European customers. Rentiers is a technology platform — not a credit institution. Regulatory trust lies with partner banks, which are fully licensed by local central banks.',
+        },
+        {
+          title: 'Contact',
+          content: 'info@rentierspro.com',
+        },
       ],
     },
   },
