@@ -93,6 +93,37 @@
     "completedAt": "2026-02-08"
   },
   {
+    "id": 19,
+    "cluster": "Страновые гиды",
+    "slug": "einlagengarantie-laender-tabelle-2026",
+    "titleDe": "Staatliche Einlagengarantien weltweit: Vollständige Ländertabelle 2026",
+    "titleEn": "State Deposit Guarantees Worldwide: Complete Country Table 2026",
+    "keywordDe": "einlagengarantie länder tabelle",
+    "searchVolDe": 1600,
+    "kd": 33,
+    "keywordEn": "deposit insurance by country 2026",
+    "searchVolEn": 3600,
+    "lsiKeywords": [
+      "einlagensicherung international",
+      "staatliche garantie auslandskonto",
+      "deposit protection table"
+    ],
+    "format": "Datentabelle",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-01",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "completed",
+    "unsplashQuery": "tbilisi georgia finance",
+    "completedAt": "2026-01-01"
+  },
+  {
     "id": 30,
     "cluster": "Сравнения",
     "slug": "weltsparen-alternative-2026",
@@ -123,23 +154,23 @@
     "completedAt": "2026-02-08"
   },
   {
-    "id": 19,
-    "cluster": "Страновые гиды",
-    "slug": "einlagengarantie-laender-tabelle-2026",
-    "titleDe": "Staatliche Einlagengarantien weltweit: Vollständige Ländertabelle 2026",
-    "titleEn": "State Deposit Guarantees Worldwide: Complete Country Table 2026",
-    "keywordDe": "einlagengarantie länder tabelle",
-    "searchVolDe": 1600,
-    "kd": 33,
-    "keywordEn": "deposit insurance by country 2026",
-    "searchVolEn": 3600,
+    "id": 33,
+    "cluster": "Сравнения",
+    "slug": "beste-festgeld-zinsen-2026",
+    "titleDe": "Beste Festgeld-Zinsen 2026 Deutschland vs. Ausland",
+    "titleEn": "Best Fixed Deposit Rates 2026: Germany vs. International",
+    "keywordDe": "beste festgeld zinsen 2026",
+    "searchVolDe": 12100,
+    "kd": 47,
+    "keywordEn": "best fixed deposit rates 2026 europe",
+    "searchVolEn": 18000,
     "lsiKeywords": [
-      "einlagensicherung international",
-      "staatliche garantie auslandskonto",
-      "deposit protection table"
+      "höchste festgeldzinsen",
+      "festgeld vergleich 2026",
+      "wo gibt es die besten zinsen"
     ],
-    "format": "Datentabelle",
-    "targetLength": 1667,
+    "format": "Rangliste",
+    "targetLength": 2167,
     "taSegments": [
       "1",
       "2",
@@ -148,9 +179,9 @@
     "priority": "high",
     "plannedDate": "2026-01-01",
     "language": "DE+EN",
-    "category": "Länder-Guides",
+    "category": "Vergleiche",
     "status": "completed",
-    "unsplashQuery": "tbilisi georgia finance",
-    "completedAt": "2026-06-29T19:30:18.317Z"
+    "unsplashQuery": "financial comparison investment",
+    "completedAt": "2026-06-30T12:54:05.398Z"
   }
 ]
