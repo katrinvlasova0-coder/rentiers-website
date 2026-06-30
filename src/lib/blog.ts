@@ -120,11 +120,17 @@ export async function getAllPosts(): Promise<BlogPostMeta[]> {
   );
 }
 
-const EN_SEPARATOR = '\n---en---\n';
 
 function splitLocalizedContent(rawContent: string): { de: string; en?: string } {
-  const parts = rawContent.split(EN_SEPARATOR);
-  return { de: parts[0].trim(), en: parts[1]?.trim() };
+  // Accept ---en--- with or without surrounding newlines (content-factory / manual edits)
+  const marker = /(?:^|\n)---en---(?:\n|$)/m;
+  const match = rawContent.match(marker);
+  if (!match || match.index === undefined) {
+    return { de: rawContent.trim() };
+  }
+  const de = rawContent.slice(0, match.index).trim();
+  const en = rawContent.slice(match.index + match[0].length).trim();
+  return { de, en: en || undefined };
 }
 
 export function localizePost(

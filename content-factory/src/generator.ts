@@ -71,7 +71,7 @@ export async function generateArticle(
   if (useMock) {
     console.log(`🧪 Mock generation (no Claude API): ${req.slug}...`);
     const articleContent = generateMockArticle(req, images);
-    return finalizeArticle(req, articleContent, { mock: true });
+    return finalizeArticle(req, articleContent, { mock: true, minWordCount: 600 });
   }
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -111,9 +111,9 @@ export async function generateArticle(
 function finalizeArticle(
   req: ArticleRequest,
   articleContent: string,
-  meta: { mock: boolean },
+  meta: { mock: boolean; minWordCount?: number },
 ): string {
-  const minWordCount = getMinWordCount(req.format);
+  const minWordCount = meta.minWordCount ?? getMinWordCount(req.format);
   const validation = validateArticle(articleContent, req.keywordDe, minWordCount);
 
   if (!validation.valid) {

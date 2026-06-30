@@ -12,7 +12,7 @@ Autonomous TypeScript tool for generating Rentiers Pro blog articles from the co
 - Optional Resend email notifications
 - GitHub Actions scheduled batch generation
 
-## Quick Start
+> **⚠️ Mock mode** (`--mock`) is for **pipeline testing only** — not production-quality content. Use Claude API (`ANTHROPIC_API_KEY`) for real articles.
 
 ```bash
 cd content-factory
