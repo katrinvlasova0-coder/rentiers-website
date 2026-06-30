@@ -16,6 +16,11 @@ on:
 permissions:
   contents: write
 
+# Prevent parallel runs racing on the same branch push
+concurrency:
+  group: content-factory-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -96,4 +101,10 @@ jobs:
             exit 1
           fi
           git commit -m "feat(blog): content factory generated articles"
+          git fetch origin ${{ github.ref_name }}
+          if ! git pull --rebase origin ${{ github.ref_name }}; then
+            echo "::error::Rebase failed — main changed during generation. Aborting."
+            git rebase --abort || true
+            exit 1
+          fi
           git push origin HEAD:${{ github.ref_name }}
