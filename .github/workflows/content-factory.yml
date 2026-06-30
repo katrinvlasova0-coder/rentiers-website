@@ -19,6 +19,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 # Prevent parallel runs racing on the same branch push
 concurrency:
@@ -151,6 +152,14 @@ jobs:
             exit 1
           fi
           git push origin HEAD:${{ github.ref_name }}
+
+      - name: Trigger GitHub Pages deploy
+        if: steps.gen.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Triggering deploy workflow (GITHUB_TOKEN pushes do not auto-trigger deploy.yml)..."
+          gh workflow run deploy.yml --ref "${{ github.ref_name }}"
 
       - name: Skip summary
         if: steps.gen.outputs.run != 'true'
