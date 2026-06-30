@@ -10,6 +10,7 @@ export const FORBIDDEN_PATTERNS = {
   imageJsx: /<Image[\s/>]/,
   keyTakeaways: /<KeyTakeaways/,
   callout: /<Callout/,
+  mockAbsatzFiller: /Absatz \d+ vertieft/i,
 } as const;
 
 export const FORBIDDEN_PATTERN_MESSAGES: Record<keyof typeof FORBIDDEN_PATTERNS, string> = {
@@ -23,4 +24,5 @@ export const FORBIDDEN_PATTERN_MESSAGES: Record<keyof typeof FORBIDDEN_PATTERNS,
   imageJsx: '<Image /> JSX — nur ![alt](url) erlaubt',
   keyTakeaways: '<KeyTakeaways> Komponente — verboten',
   callout: '<Callout> Komponente — verboten',
+  mockAbsatzFiller: 'Mock-Kopierpaste (Absatz N vertieft) — Artikel ungültig',
 };

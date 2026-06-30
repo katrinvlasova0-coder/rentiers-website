@@ -440,6 +440,36 @@
     "unsplashQuery": "tbilisi georgia finance"
   },
   {
+    "id": 19,
+    "cluster": "Страновые гиды",
+    "slug": "einlagengarantie-laender-tabelle-2026",
+    "titleDe": "Staatliche Einlagengarantien weltweit: Vollständige Ländertabelle 2026",
+    "titleEn": "State Deposit Guarantees Worldwide: Complete Country Table 2026",
+    "keywordDe": "einlagengarantie länder tabelle",
+    "searchVolDe": 1600,
+    "kd": 33,
+    "keywordEn": "deposit insurance by country 2026",
+    "searchVolEn": 3600,
+    "lsiKeywords": [
+      "einlagensicherung international",
+      "staatliche garantie auslandskonto",
+      "deposit protection table"
+    ],
+    "format": "Datentabelle",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-01",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "pending",
+    "unsplashQuery": "tbilisi georgia finance"
+  },
+  {
     "id": 20,
     "cluster": "Пассивный доход",
     "slug": "von-zinsen-leben-kapital-2026",
@@ -784,6 +814,36 @@
     ],
     "priority": "medium",
     "plannedDate": "2026-03-15",
+    "language": "DE+EN",
+    "category": "Vergleiche",
+    "status": "pending",
+    "unsplashQuery": "financial comparison investment"
+  },
+  {
+    "id": 33,
+    "cluster": "Сравнения",
+    "slug": "beste-festgeld-zinsen-2026",
+    "titleDe": "Beste Festgeld-Zinsen 2026 Deutschland vs. Ausland",
+    "titleEn": "Best Fixed Deposit Rates 2026: Germany vs. International",
+    "keywordDe": "beste festgeld zinsen 2026",
+    "searchVolDe": 12100,
+    "kd": 47,
+    "keywordEn": "best fixed deposit rates 2026 europe",
+    "searchVolEn": 18000,
+    "lsiKeywords": [
+      "höchste festgeldzinsen",
+      "festgeld vergleich 2026",
+      "wo gibt es die besten zinsen"
+    ],
+    "format": "Rangliste",
+    "targetLength": 2167,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-01",
     "language": "DE+EN",
     "category": "Vergleiche",
     "status": "pending",

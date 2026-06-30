@@ -52,6 +52,60 @@ function countKeywordOccurrences(text: string, keyword: string): number {
   return words.filter((w) => w.replace(/[^\wäöüß-]/g, '') === kw).length;
 }
 
+function extractParagraphs(body: string): string[] {
+  return body
+    .split(/\n\n+/)
+    .map((p) => p.trim())
+    .filter(
+      (p) =>
+        p.length > 80 &&
+        !p.startsWith('!') &&
+        !p.startsWith('|') &&
+        !p.startsWith('#') &&
+        !p.startsWith('*') &&
+        !p.startsWith('-'),
+    );
+}
+
+function detectCopyPaste(body: string, label: string): string[] {
+  const errors: string[] = [];
+
+  if (FORBIDDEN_PATTERNS.mockAbsatzFiller.test(body)) {
+    errors.push(`❌ ${label}: Mock-Kopierpaste (Absatz N vertieft) — Artikel verwerfen`);
+  }
+
+  const paragraphs = extractParagraphs(body);
+  const seen = new Map<string, number>();
+
+  for (const paragraph of paragraphs) {
+    const normalized = paragraph.replace(/\s+/g, ' ').toLowerCase();
+    const count = (seen.get(normalized) ?? 0) + 1;
+    seen.set(normalized, count);
+
+    if (count >= 2) {
+      errors.push(
+        `❌ ${label}: identischer Absatz ${count}x — "${paragraph.slice(0, 72)}…"`,
+      );
+      break;
+    }
+  }
+
+  const repeatedOpeners = paragraphs
+    .map((p) => p.slice(0, 120).replace(/\s+/g, ' '))
+    .filter((opener) => opener.length >= 60);
+  const openerCounts = new Map<string, number>();
+  for (const opener of repeatedOpeners) {
+    const count = (openerCounts.get(opener) ?? 0) + 1;
+    openerCounts.set(opener, count);
+    if (count >= 3) {
+      errors.push(`❌ ${label}: gleicher Absatzanfang ${count}x wiederholt — Kopierpaste`);
+      break;
+    }
+  }
+
+  return errors;
+}
+
 export function validateArticle(
   content: string,
   keyword: string,
@@ -86,6 +140,12 @@ export function validateArticle(
   if (FORBIDDEN_PATTERNS.yamlBlockTags.test(content)) {
     warnings.push('⚠️ YAML-Block-Array für tags gefunden — bitte zu Inline-Array konvertieren');
   }
+  if (FORBIDDEN_PATTERNS.mockAbsatzFiller.test(content)) {
+    errors.push('❌ Mock-Kopierpaste (Absatz N vertieft) im Artikel — Veröffentlichung blockiert');
+  }
+
+  errors.push(...detectCopyPaste(deBody, 'DE'));
+  errors.push(...detectCopyPaste(enBody, 'EN'));
 
   const hasEnSection = content.includes('---en---') && enBody.length > 500;
   if (!hasEnSection) {

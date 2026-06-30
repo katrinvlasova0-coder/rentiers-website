@@ -9,9 +9,13 @@ on:
         description: 'Number of articles to generate'
         default: '1'
       mock:
-        description: 'Use mock generator (no Claude API)'
+        description: 'Use mock generator (pipeline test only — not for production)'
         type: boolean
-        default: true
+        default: false
+      publish_mock:
+        description: 'Commit mock articles to main (requires mock=true; no Claude API needed)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -36,6 +40,42 @@ jobs:
 
       - name: Install dependencies
         run: cd content-factory && npm install
+
+      - name: Decide generation mode
+        id: gen
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          HAS_ANTHROPIC="false"
+          if [ -n "$ANTHROPIC_API_KEY" ]; then
+            HAS_ANTHROPIC="true"
+          fi
+
+          INPUT_MOCK="${{ github.event.inputs.mock }}"
+          PUBLISH_MOCK="${{ github.event.inputs.publish_mock }}"
+          IS_SCHEDULE="${{ github.event_name == 'schedule' }}"
+
+          if [ "$HAS_ANTHROPIC" = "true" ]; then
+            echo "mode=claude" >> "$GITHUB_OUTPUT"
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "✅ Claude API available — real article generation"
+          elif [ "$IS_SCHEDULE" = "true" ]; then
+            echo "mode=skip" >> "$GITHUB_OUTPUT"
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "⏭️ Scheduled run skipped: ANTHROPIC_API_KEY not set (mock articles are not published automatically)"
+          elif [ "$INPUT_MOCK" = "true" ] && [ "$PUBLISH_MOCK" = "true" ]; then
+            echo "mode=mock" >> "$GITHUB_OUTPUT"
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "🧪 Manual mock publish enabled (test content only)"
+          elif [ "$INPUT_MOCK" = "true" ]; then
+            echo "mode=test-only" >> "$GITHUB_OUTPUT"
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "🧪 Mock selected but publish_mock=false — only integration test will run"
+          else
+            echo "mode=skip" >> "$GITHUB_OUTPUT"
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "⏭️ No ANTHROPIC_API_KEY and mock not enabled — generation skipped"
+          fi
 
       - name: Initialize content factory
         run: cd content-factory && npm run init
@@ -64,15 +104,16 @@ jobs:
           CONTENT_DIR: ../content/blog
           SITE_PUBLIC_DIR: ../public
 
-      - name: Generate articles batch (mock if no Anthropic key)
+      - name: Generate articles batch
+        if: steps.gen.outputs.run == 'true'
         run: |
           cd content-factory
-          MOCK_FLAG="--mock"
-          if [ "${{ github.event.inputs.mock }}" != "true" ] && [ -n "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
-            MOCK_FLAG=""
-            echo "Using Claude API"
+          MOCK_FLAG=""
+          if [ "${{ steps.gen.outputs.mode }}" = "mock" ]; then
+            MOCK_FLAG="--mock"
+            echo "Using mock generator (explicit publish_mock)"
           else
-            echo "Using mock generator (no Claude API)"
+            echo "Using Claude API"
           fi
           npm run batch -- -n ${{ github.event.inputs.count || '1' }} $MOCK_FLAG
         env:
@@ -86,12 +127,14 @@ jobs:
           SITE_PUBLIC_DIR: ../public
 
       - name: Show generated files
+        if: steps.gen.outputs.run == 'true'
         run: |
           echo "=== New/updated blog files ==="
           git status --short content/blog/ public/sitemap.xml content-factory/queue/ || true
           ls -la content/blog/*.mdx | tail -5 || true
 
       - name: Commit and push generated articles
+        if: steps.gen.outputs.run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -108,3 +151,9 @@ jobs:
             exit 1
           fi
           git push origin HEAD:${{ github.ref_name }}
+
+      - name: Skip summary
+        if: steps.gen.outputs.run != 'true'
+        run: |
+          echo "Generation skipped (${{ steps.gen.outputs.mode }})."
+          echo "Add ANTHROPIC_API_KEY for real articles, or run manually with mock=true + publish_mock=true to test the pipeline."
