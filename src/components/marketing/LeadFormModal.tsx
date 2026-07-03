@@ -3,6 +3,7 @@
 import { useEffect, useState, FormEvent } from 'react';
 import { X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { submitLead } from '@/lib/submitLead';
 
 interface Props {
   open: boolean;
@@ -86,27 +87,22 @@ export default function LeadFormModal({ open, onClose }: Props) {
 
     setSubmitting(true);
     try {
-      await fetch('https://formsubmit.co/ajax/info@rentierspro.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name: form.name.trim(),
-          email: form.email.trim(),
-          phone: form.phone.trim(),
-          message: form.message.trim(),
-          _subject: 'New Rentiers Pro lead',
-          _template: 'table',
-        }),
+      await submitLead({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
       });
-
-      const stored = JSON.parse(localStorage.getItem('rentiers-leads') || '[]');
-      stored.push({ ...form, submittedAt: new Date().toISOString() });
-      localStorage.setItem('rentiers-leads', JSON.stringify(stored));
 
       setSubmitted(true);
       setForm({ name: '', email: '', phone: '', message: '' });
     } catch {
-      setErrors({ message: 'Something went wrong. Please try again or email info@rentierspro.com.' });
+      setErrors({
+        message:
+          lang === 'de'
+            ? 'Senden fehlgeschlagen. Bitte erneut versuchen oder info@rentierspro.com schreiben.'
+            : 'Something went wrong. Please try again or email info@rentierspro.com.',
+      });
     } finally {
       setSubmitting(false);
     }
