@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">LUXCAR — Verdienen Sie mit geleasten Luxusautos ab 100% Jahreszins</title>
+<meta name="description" content="Leasen Sie ein Luxusauto, bleiben Sie Eigentümer und verdienen Sie mit LUXCAR in Genf, Cannes, Monte Carlo oder Dubai. Teil des Rentiers Ökosystems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#5555F0;
+  --primary-glow:rgba(85,85,240,.4);
+  --bg:#0B0E24;
+  --bg-2:#10132C;
+  --panel:rgba(255,255,255,.045);
+  --panel-border:rgba(255,255,255,.09);
+  --ink:#E9EAF5;
+  --ink-dim:rgba(233,234,245,.55);
+  --ink-faint:rgba(233,234,245,.35);
+  --gold:#C6A768;
+  --radius:22px;
+  --radius-sm:16px;
+  --pill:999px;
+  --shadow-card:0 20px 50px -20px rgba(0,0,0,.6);
+  --shadow-card-hover:0 26px 60px -14px rgba(0,0,0,.65), 0 0 0 1px rgba(198,167,104,.3);
+  --shadow-btn:0 10px 28px -8px rgba(85,85,240,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden;position:relative;}
+body::before{content:"";position:fixed;top:-20%;right:-10%;width:60vw;height:60vw;max-width:900px;max-height:900px;background:radial-gradient(circle,rgba(85,85,240,.22) 0%,transparent 70%);pointer-events:none;z-index:0;}
+body::after{content:"";position:fixed;bottom:-20%;left:-15%;width:55vw;height:55vw;max-width:800px;max-height:800px;background:radial-gradient(circle,rgba(198,167,104,.14) 0%,transparent 70%);pointer-events:none;z-index:0;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+img{max-width:100%;display:block;}
+.icon{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+.section{padding:100px 0;position:relative;z-index:1;}
+@media(min-width:1024px){.section{padding:150px 0;}}
+.section-2{background:rgba(255,255,255,.015);border-top:1px solid var(--panel-border);border-bottom:1px solid var(--panel-border);}
+
+.eco-bar{background:#070919;color:rgba(233,234,245,.55);font-size:11.5px;text-align:center;padding:9px 16px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--panel-border);display:flex;align-items:center;justify-content:center;gap:8px;position:relative;z-index:2;}
+.eco-bar a{color:var(--gold);font-weight:600;}
+.eco-mark{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--gold));color:#0B0E24;font-size:9.5px;font-weight:800;}
+
+header{position:fixed;top:33px;left:0;right:0;z-index:50;transition:all .4s ease;border-bottom:1px solid transparent;}
+header.scrolled{background:rgba(11,14,36,.9);backdrop-filter:blur(18px);border-bottom-color:var(--panel-border);box-shadow:0 12px 40px -16px rgba(0,0,0,.5);}
+.nav-wrap{max-width:1200px;margin:0 auto;padding:0 24px;height:84px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-weight:800;font-size:21px;letter-spacing:.24em;color:var(--ink);}
+.logo span{color:var(--gold);}
+.nav-links{display:none;gap:34px;align-items:center;}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--ink-dim);transition:color .3s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta-wrap{display:none;align-items:center;gap:12px;}
+.lang-toggle{font-size:11px;font-weight:700;letter-spacing:.06em;padding:9px 16px;border:1px solid var(--panel-border);color:var(--ink-dim);border-radius:var(--pill);transition:all .25s ease;}
+.lang-toggle:hover{border-color:var(--gold);color:var(--gold);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;padding:16px 30px;border-radius:var(--pill);transition:all .3s ease;white-space:nowrap;}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:var(--shadow-btn);}
+.btn-primary:hover{background:#4646d6;box-shadow:0 14px 34px -6px rgba(85,85,240,.7);transform:translateY(-2px);}
+.btn-outline{border:1px solid var(--panel-border);color:var(--ink);}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px);}
+.btn-gold-outline{border:1px solid rgba(198,167,104,.5);color:var(--gold);}
+.btn-gold-outline:hover{background:var(--gold);color:#0B0E24;transform:translateY(-2px);}
+.btn-sm{padding:11px 22px;font-size:11px;}
+.btn-block{width:100%;}
+.menu-toggle{display:flex;color:var(--ink);}
+.mobile-lang{display:flex;align-items:center;gap:10px;}
+@media(min-width:900px){
+  .nav-links{display:flex;}
+  .nav-cta-wrap{display:flex;}
+  .menu-toggle{display:none;}
+  .mobile-lang{display:none;}
+}
+.mobile-menu{display:none;background:var(--bg-2);border-top:1px solid var(--panel-border);padding:18px 24px 30px;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:13px 0;font-size:14px;color:var(--ink-dim);border-bottom:1px solid var(--panel-border);}
+
+.eyebrow{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:inline-flex;align-items:center;gap:8px;}
+.eyebrow::before{content:"";width:16px;height:1px;background:var(--gold);}
+
+[data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+[data-reveal].is-visible{opacity:1;transform:translateY(0);}
+
+/* Hero — split with ticket card, no full-bleed photo */
+.hero{position:relative;padding-top:168px;padding-bottom:70px;}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:56px;align-items:center;}
+@media(min-width:1024px){.hero-grid{grid-template-columns:1.1fr .9fr;gap:64px;}}
+.hero h1{font-size:clamp(32px,5.4vw,58px);font-weight:700;line-height:1.1;letter-spacing:-.01em;color:var(--ink);margin-bottom:24px;}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero p.sub{font-size:17.5px;color:var(--ink-dim);font-weight:300;max-width:520px;margin-bottom:36px;line-height:1.75;}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;}
+
+.ticket{background:var(--panel);backdrop-filter:blur(20px);border:1px solid var(--panel-border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);max-width:420px;margin:0 auto;}
+.ticket-photo{position:relative;aspect-ratio:16/11;overflow:hidden;}
+.ticket-photo img{width:100%;height:100%;object-fit:cover;}
+.ticket-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(11,14,36,.85),transparent 55%);}
+.ticket-photo .tag{position:absolute;bottom:14px;left:18px;color:var(--gold);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
+.ticket-body{padding:24px 26px 28px;}
+.ticket-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--panel-border);}
+.ticket-row:last-of-type{border-bottom:none;}
+.ticket-label{font-size:11.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.08em;}
+.ticket-value{font-size:14.5px;font-weight:600;color:var(--ink);}
+.ticket-value.accent{color:var(--gold);}
+.ticket-cta{margin-top:18px;}
+
+.stat-pills{margin-top:80px;display:flex;flex-wrap:wrap;gap:14px;}
+.stat-pills>div{flex:1 1 200px;background:rgba(255,255,255,.04);border:1px solid var(--panel-border);border-radius:var(--pill);padding:18px 28px;display:flex;align-items:baseline;gap:10px;box-shadow:var(--shadow-card);}
+.stat-pills .v{font-size:22px;font-weight:700;color:var(--gold);}
+.stat-pills .l{font-size:11.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.1em;}
+
+/* Quiz */
+.quiz-wrap{max-width:700px;margin:0 auto;}
+.quiz-head{text-align:center;margin-bottom:44px;}
+.quiz-head h2{font-size:clamp(28px,3.6vw,40px);font-weight:700;color:var(--ink);margin:4px 0 12px;}
+.quiz-head p{color:var(--ink-dim);font-size:16px;font-weight:300;}
+.progress-dots{display:flex;justify-content:center;gap:10px;margin-bottom:40px;}
+.progress-dots span{width:34px;height:5px;border-radius:99px;background:var(--panel-border);transition:all .4s ease;}
+.progress-dots span.done{background:var(--gold);}
+.progress-dots span.active{background:var(--primary);width:48px;}
+.quiz-card{background:var(--panel);backdrop-filter:blur(24px);border:1px solid var(--panel-border);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow-card);}
+@media(min-width:768px){.quiz-card{padding:56px;}}
+.q-label{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.q-title{font-size:23px;font-weight:400;color:var(--ink);margin-bottom:34px;}
+.q-options{display:grid;gap:10px;}
+.q-opt{text-align:left;padding:17px 22px;border:1px solid var(--panel-border);font-size:14.5px;color:rgba(233,234,245,.75);transition:all .3s;border-radius:var(--pill);}
+.q-opt:hover{border-color:rgba(198,167,104,.4);background:rgba(255,255,255,.03);color:var(--ink);}
+.q-opt.selected{border-color:var(--gold);background:rgba(198,167,104,.08);color:var(--ink);box-shadow:0 6px 18px -6px rgba(198,167,104,.35);}
+.q-back{margin-top:26px;display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-faint);}
+.q-back:hover{color:var(--ink-dim);}
+.field{width:100%;height:56px;padding:0 22px;background:rgba(255,255,255,.03);border:1px solid var(--panel-border);color:var(--ink);font-size:14.5px;font-family:inherit;margin-bottom:14px;transition:all .2s;border-radius:var(--pill);}
+.field:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,167,104,.15);}
+.field::placeholder{color:var(--ink-faint);}
+.quiz-footer{display:flex;align-items:center;justify-content:space-between;margin-top:24px;flex-wrap:wrap;gap:16px;}
+.step-pane{display:none;}
+.step-pane.active{display:block;animation:fadein .45s ease;}
+@keyframes fadein{from{opacity:0;transform:translateX(18px);}to{opacity:1;transform:translateX(0);}}
+.success-panel{text-align:center;padding:16px 0;}
+.success-icon{width:80px;height:80px;border-radius:50%;background:rgba(198,167,104,.1);border:1px solid rgba(198,167,104,.35);display:flex;align-items:center;justify-content:center;margin:0 auto 28px;color:var(--gold);box-shadow:0 10px 30px -8px rgba(198,167,104,.4);}
+.success-icon .icon{width:32px;height:32px;}
+.success-panel h3{font-size:28px;font-weight:700;color:var(--ink);margin-bottom:12px;}
+.success-panel p{color:var(--ink-dim);font-size:16px;font-weight:300;}
+
+/* About — mirrored, medallion stat */
+.about-grid{display:grid;grid-template-columns:1fr;gap:60px;align-items:center;}
+@media(min-width:1024px){.about-grid{grid-template-columns:.85fr 1.15fr;gap:88px;}}
+.about-photo-wrap{position:relative;order:1;}
+@media(min-width:1024px){.about-photo-wrap{order:0;}}
+.about-photo{aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow-card);}
+.about-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.9);}
+.medallion{position:absolute;top:-18px;right:-18px;width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#7a4fd6 60%,var(--gold));display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 18px 40px -10px rgba(85,85,240,.55);border:4px solid var(--bg);}
+.medallion .num{font-size:30px;font-weight:800;color:#fff;line-height:1;}
+.medallion .lbl{font-size:8.5px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.85);margin-top:2px;text-align:center;padding:0 8px;}
+.about-copy h2{font-size:clamp(28px,3.8vw,44px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:26px;}
+.about-copy p{color:var(--ink-dim);font-size:16.5px;font-weight:300;line-height:1.85;margin-bottom:20px;}
+
+.head{display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;max-width:640px;margin:0 auto 68px;}
+.head h2{font-size:clamp(28px,3.8vw,42px);font-weight:700;color:var(--ink);}
+
+/* Strengths — bento grid */
+.strengths-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+@media(max-width:900px){.strengths-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.strengths-grid{grid-template-columns:1fr;}}
+.s-card{background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);padding:32px 30px;transition:all .35s ease;box-shadow:var(--shadow-card);}
+.s-card:hover{background:rgba(255,255,255,.06);transform:translateY(-4px);box-shadow:var(--shadow-card-hover);}
+.s-card.big{grid-column:span 2;}
+@media(max-width:560px){.s-card.big{grid-column:span 1;}}
+.s-icon{color:rgba(198,167,104,.65);margin-bottom:22px;transition:color .4s;}
+.s-icon .icon{width:26px;height:26px;}
+.s-card:hover .s-icon{color:var(--gold);}
+.s-stat{font-size:27px;font-weight:700;color:var(--gold);line-height:1;}
+.s-card.big .s-stat{font-size:34px;}
+.s-stat-label{font-size:10.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.12em;margin:8px 0 20px;}
+.s-card h3{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:10px;}
+.s-card p{font-size:13.5px;color:var(--ink-dim);line-height:1.65;font-weight:300;}
+
+/* Programs — horizontal split cards */
+.programs-list{display:flex;flex-direction:column;gap:24px;}
+.p-card{display:grid;grid-template-columns:1fr;background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);transition:box-shadow .3s,transform .3s;}
+@media(min-width:860px){.p-card{grid-template-columns:.85fr 1.15fr;}}
+.p-card:hover{box-shadow:var(--shadow-card-hover);transform:translateY(-3px);}
+.p-photo{position:relative;overflow:hidden;min-height:240px;}
+.p-photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease;filter:saturate(.85);}
+.p-card:hover .p-photo img{transform:scale(1.06);}
+.p-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(11,14,36,.5),transparent 60%);}
+@media(min-width:860px){.p-photo::after{background:linear-gradient(to right,rgba(11,14,36,.15),transparent 40%);}}
+.p-photo .tag{position:absolute;bottom:16px;left:24px;color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;}
+.p-body{padding:36px;}
+@media(min-width:768px){.p-body{padding:44px;}}
+.p-body h3{font-size:24px;font-weight:400;color:var(--ink);margin-bottom:12px;}
+.p-body>p{font-size:14px;color:var(--ink-dim);font-weight:300;line-height:1.75;margin-bottom:28px;}
+.p-stats{display:flex;flex-wrap:wrap;gap:28px;padding-top:24px;border-top:1px solid var(--panel-border);margin-bottom:28px;}
+.p-stats .v{font-size:24px;font-weight:700;color:var(--ink);}
+.p-stats .v.accent{color:var(--gold);}
+.p-stats .l{font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.1em;margin-top:5px;}
+.p-cta{display:inline-flex;}
+
+/* Contact */
+.contact-box{max-width:660px;margin:0 auto;text-align:center;}
+.contact-box .head{margin-bottom:48px;}
+.contact-form-grid{display:grid;grid-template-columns:1fr;gap:14px;text-align:left;}
+@media(min-width:640px){.contact-form-grid{grid-template-columns:1fr 1fr;}}
+.contact-form-grid .full{grid-column:1/-1;}
+
+/* Process — left-rail linear stepper */
+.stepper{max-width:820px;margin:0 auto;position:relative;padding-left:56px;}
+.stepper::before{content:"";position:absolute;left:19px;top:10px;bottom:10px;width:1px;background:var(--panel-border);}
+.st-item{position:relative;padding-bottom:44px;}
+.st-item:last-child{padding-bottom:0;}
+.st-num{position:absolute;left:-56px;top:0;width:40px;height:40px;border-radius:50%;background:var(--bg-2);border:1px solid var(--panel-border);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--gold);}
+.st-item.done .st-num{background:linear-gradient(135deg,var(--primary),var(--gold));color:#0B0E24;border:none;}
+.st-card{background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius-sm);padding:26px 30px;transition:border-color .3s;}
+.st-card:hover{border-color:rgba(198,167,104,.4);}
+.st-card h3{font-size:17px;font-weight:500;color:var(--ink);margin-bottom:8px;}
+.st-card p{font-size:13.5px;color:var(--ink-dim);font-weight:300;line-height:1.65;}
+
+/* Testimonials — scroll-snap carousel */
+.testi-scroll{display:flex;justify-content:center;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;padding-left:24px;padding-right:24px;scrollbar-width:thin;}
+.testi-scroll::-webkit-scrollbar{height:6px;}
+.testi-scroll::-webkit-scrollbar-thumb{background:var(--panel-border);border-radius:99px;}
+.testi-card{scroll-snap-align:start;flex:0 0 clamp(280px,80vw,380px);background:var(--panel);border:1px solid var(--panel-border);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:30px;display:flex;flex-direction:column;}
+.testi-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;}
+.testi-name{display:flex;align-items:center;gap:7px;font-weight:500;color:var(--ink);font-size:15px;}
+.testi-name .icon{width:13px;height:13px;color:var(--gold);}
+.testi-info{font-size:12px;color:var(--ink-faint);margin-top:3px;}
+.testi-fin{display:grid;grid-template-columns:1fr 1fr;gap:14px;background:rgba(255,255,255,.03);border:1px solid var(--panel-border);border-radius:var(--radius-sm);padding:18px;margin-bottom:24px;}
+.testi-fin .l{font-size:9.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;}
+.testi-fin .v{font-size:15px;font-weight:600;color:var(--ink);}
+.testi-fin .v.accent{color:var(--gold);}
+.testi-fin .v.small{font-size:12px;font-weight:400;color:var(--ink-dim);}
+.testi-quote{font-size:13px;color:var(--ink-dim);font-weight:300;line-height:1.75;flex:1;}
+.scroll-hint{text-align:center;font-size:11.5px;color:var(--ink-faint);margin-top:18px;letter-spacing:.06em;text-transform:uppercase;}
+
+/* Footer */
+footer{background:#070919;color:var(--ink-dim);padding-top:90px;border-top:1px solid var(--panel-border);position:relative;z-index:1;}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:52px;padding-bottom:60px;border-bottom:1px solid var(--panel-border);}
+@media(min-width:1024px){.footer-grid{grid-template-columns:1.3fr 1fr 1fr;gap:70px;}}
+.footer-brand{font-size:19px;font-weight:800;letter-spacing:.22em;color:var(--ink);margin-bottom:16px;}
+.footer-brand span{color:var(--gold);}
+.footer-desc{font-size:13.5px;line-height:1.8;max-width:320px;font-weight:300;}
+.footer-title{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-faint);margin-bottom:22px;}
+.footer-links a{display:block;font-size:14px;padding:6px 0;font-weight:300;transition:color .3s;}
+.footer-links a:hover{color:var(--gold);}
+.social-row{display:flex;gap:10px;margin-bottom:20px;}
+.social-row a{width:42px;height:42px;border:1px solid var(--panel-border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ink-dim);transition:all .3s;}
+.social-row a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+.footer-contact a{display:block;font-size:14px;padding:4px 0;font-weight:300;}
+.footer-contact a:hover{color:var(--gold);}
+.footer-bottom{padding:28px 0 44px;display:flex;flex-direction:column;gap:14px;font-size:11.5px;color:var(--ink-faint);}
+@media(min-width:768px){.footer-bottom{flex-direction:row;justify-content:space-between;}}
+.footer-bottom .legal{display:flex;gap:22px;}
+.footer-eco{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-faint);margin-top:10px;}
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><polyline points="3 17 9.5 10.5 13.5 14.5 21 6"/><polyline points="14 6 21 6 21 13"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c0-3.6 2.5-6 5.5-6s5.5 2.4 5.5 6"/><circle cx="17.5" cy="9" r="2.4"/><path d="M15.5 14.2c2.6.3 4.5 2.3 4.5 5.3"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3.3 9h17.4M3.3 15h17.4"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16V11.5l1.8-4.4A2 2 0 0 1 7.6 6h8.8a2 2 0 0 1 1.8 1.1L20 11.5V16"/><rect x="2.5" y="13.5" width="19" height="5.5" rx="1.5"/><circle cx="7" cy="19.5" r="1.6"/><circle cx="17" cy="19.5" r="1.6"/></symbol>
+  <symbol id="i-dollar" viewBox="0 0 24 24"><line x1="12" y1="2.5" x2="12" y2="21.5"/><path d="M16.5 6.8c0-1.6-2-2.8-4.5-2.8s-4.5 1.2-4.5 3c0 4.4 9 2 9 6.4 0 1.8-2 3-4.5 3s-4.5-1.2-4.5-2.8"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24"><path d="M7 8c-2.2 0-4 1.8-4 4v4h6v-6H7c0-1.1.9-2 2-2z"/><path d="M17 8c-2.2 0-4 1.8-4 4v4h6v-6h-2c0-1.1.9-2 2-2z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5l8 3v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10v-6l8-3z"/><path d="M8.8 12.2l2.2 2.2 4.2-4.6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v3c0 1.1-.9 2-2 2C10.9 19.5 4.5 13.1 4.5 5.5c0-1.1.9-2 2-2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 7 8.5-7"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 1 3.2 6.4L4 19.5l1.1-3A8 8 0 0 1 4 12z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3L3 10.5l7 2.7L18.5 6 12.7 14l2.8 7L21 3z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="4 12.5 9.5 18 20 6"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><line x1="20" y1="12" x2="5" y2="12"/><polyline points="10 6 4 12 10 18"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3.5" y1="6.5" x2="20.5" y2="6.5"/><line x1="3.5" y1="12" x2="20.5" y2="12"/><line x1="3.5" y1="17.5" x2="20.5" y2="17.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></symbol>
+</svg>
+
+<div class="eco-bar">
+  <span class="eco-mark">R</span> <span data-i18n="ecoText">Teil des</span>&nbsp;<a href="https://rentiers.net/" target="_blank" rel="noopener">Rentiers Ökosystems</a>
+</div>
+
+<header id="header">
+  <div class="nav-wrap">
+    <a href="#" class="logo">LUX<span>CAR</span></a>
+    <nav class="nav-links">
+      <a href="#programme" data-i18n="navPrograms">Programme</a>
+      <a href="#staerken" data-i18n="navStrengths">Stärken</a>
+      <a href="#prozess" data-i18n="navHowItWorks">So funktioniert es</a>
+      <a href="#bewertungen" data-i18n="navReviews">Bewertungen</a>
+    </nav>
+    <div class="nav-cta-wrap">
+      <button class="lang-toggle" data-lang-toggle>EN</button>
+      <a href="#beratung" class="btn btn-primary btn-sm" data-i18n="navCta">Beratung anfordern</a>
+    </div>
+    <div class="mobile-lang">
+      <button class="lang-toggle" data-lang-toggle>EN</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü">
+        <svg class="icon" style="width:22px;height:22px" id="menuIcon"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#programme" data-i18n="navPrograms">Programme</a>
+    <a href="#staerken" data-i18n="navStrengths">Stärken</a>
+    <a href="#prozess" data-i18n="navHowItWorks">So funktioniert es</a>
+    <a href="#bewertungen" data-i18n="navReviews">Bewertungen</a>
+    <a href="#beratung" class="btn btn-primary btn-block" style="margin-top:16px" data-i18n="navCta">Beratung anfordern</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div data-reveal>
+        <span class="eyebrow" data-i18n="heroBadge">Investitionsprogramm</span>
+        <h1><span data-i18n="heroTitle">Verdienen Sie mit geleasten Luxusautos ab </span><em data-i18n="heroTitleHighlight">100%</em><span data-i18n="heroTitleEnd"> Jahreszins</span></h1>
+        <p class="sub" data-i18n="heroSubtitle">Hohe Rendite bei minimaler Anfangsinvestition. Leasen Sie ein Luxusauto, bleiben Sie Eigentümer und verdienen Sie mit LUXCAR in Genf, Cannes, Monte Carlo oder Dubai.</p>
+        <div class="hero-ctas">
+          <a href="#beratung" class="btn btn-primary" data-i18n="heroCta1">Beratung in 15 Minuten</a>
+          <a href="#programme" class="btn btn-outline" data-i18n="heroCta2">Programme ansehen</a>
+        </div>
+      </div>
+      <div data-reveal>
+        <div class="ticket">
+          <div class="ticket-photo">
+            <img src="https://images.unsplash.com/photo-1567818735868-e71b99932e29?w=800&q=80&auto=format&fit=crop" alt="Luxusfahrzeug im LUXCAR Vermietungsprogramm">
+            <span class="tag">LUXCAR · Monte Carlo</span>
+          </div>
+          <div class="ticket-body">
+            <div class="ticket-row"><span class="ticket-label">Fahrzeug</span><span class="ticket-value">Mercedes G-Klasse</span></div>
+            <div class="ticket-row"><span class="ticket-label">Rendite p.a.</span><span class="ticket-value accent">100%</span></div>
+            <div class="ticket-row"><span class="ticket-label">Laufzeit</span><span class="ticket-value">48–72 Monate</span></div>
+            <a href="#beratung" class="btn btn-primary btn-block ticket-cta" data-i18n="heroCta1">Beratung in 15 Minuten</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stat-pills" data-reveal>
+      <div><span class="v">100%+</span><span class="l" data-i18n="heroStat1Label">Jahresrendite</span></div>
+      <div><span class="v">15+</span><span class="l" data-i18n="heroStat2Label">Jahre Erfahrung</span></div>
+      <div><span class="v" data-i18n="heroStat3Value">3.000+</span><span class="l" data-i18n="heroStat3Label">Luxusautos</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="beratung">
+  <div class="container">
+    <div class="quiz-wrap">
+      <div class="quiz-head" data-reveal>
+        <span class="eyebrow" data-i18n="consultBadge">Fachkundige Beratung</span>
+        <h2 data-i18n="consultTitle">Beantworten Sie 4 einfache Fragen</h2>
+        <p data-i18n="consultSubtitle">und erhalten Sie in 15 Minuten eine fachkundige Beratung</p>
+      </div>
+
+      <div class="progress-dots" id="progressDots">
+        <span class="active"></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="quiz-card" data-reveal>
+        <form id="quizForm">
+          <div class="step-pane active" data-step="0">
+            <p class="q-label" data-i18n="q1Label">Frage 1 von 4</p>
+            <h3 class="q-title" data-i18n="q1Question">Wie hoch ist Ihre geplante Anfangsinvestition?</h3>
+            <div class="q-options">
+              <button type="button" class="q-opt" data-i18n="q1Opt1">Bis 20.000 €</button>
+              <button type="button" class="q-opt" data-i18n="q1Opt2">20.000 – 50.000 €</button>
+              <button type="button" class="q-opt" data-i18n="q1Opt3">50.000 – 100.000 €</button>
+              <button type="button" class="q-opt" data-i18n="q1Opt4">Über 100.000 €</button>
+            </div>
+          </div>
+          <div class="step-pane" data-step="1">
+            <p class="q-label" data-i18n="q2Label">Frage 2 von 4</p>
+            <h3 class="q-title" data-i18n="q2Question">Welches Programm interessiert Sie?</h3>
+            <div class="q-options">
+              <button type="button" class="q-opt" data-i18n="q2Opt1">LUXCAR — Premium-Vermietung</button>
+              <button type="button" class="q-opt" data-i18n="q2Opt2">TAXCAR — Taxi &amp; Mietwagen</button>
+              <button type="button" class="q-opt" data-i18n="q2Opt3">Beide Programme</button>
+            </div>
+            <button type="button" class="q-back" data-back><svg class="icon" style="width:13px;height:13px"><use href="#i-arrow-left"/></svg><span data-i18n="consultBack">Zurück</span></button>
+          </div>
+          <div class="step-pane" data-step="2">
+            <p class="q-label" data-i18n="q3Label">Frage 3 von 4</p>
+            <h3 class="q-title" data-i18n="q3Question">Welche Fahrzeugmarke bevorzugen Sie?</h3>
+            <div class="q-options">
+              <button type="button" class="q-opt" data-i18n="q3Opt1">Mercedes-Benz</button>
+              <button type="button" class="q-opt" data-i18n="q3Opt2">BMW</button>
+              <button type="button" class="q-opt" data-i18n="q3Opt3">Bentley</button>
+              <button type="button" class="q-opt" data-i18n="q3Opt4">Porsche</button>
+              <button type="button" class="q-opt" data-i18n="q3Opt5">Lexus</button>
+              <button type="button" class="q-opt" data-i18n="q3Opt6">Andere</button>
+            </div>
+            <button type="button" class="q-back" data-back><svg class="icon" style="width:13px;height:13px"><use href="#i-arrow-left"/></svg><span data-i18n="consultBack">Zurück</span></button>
+          </div>
+          <div class="step-pane" data-step="3">
+            <p class="q-label" data-i18n="q4Label">Frage 4 von 4</p>
+            <h3 class="q-title" data-i18n="q4Question">Wann möchten Sie starten?</h3>
+            <div class="q-options">
+              <button type="button" class="q-opt" data-i18n="q4Opt1">Sofort</button>
+              <button type="button" class="q-opt" data-i18n="q4Opt2">In 1–3 Monaten</button>
+              <button type="button" class="q-opt" data-i18n="q4Opt3">In 3–6 Monaten</button>
+              <button type="button" class="q-opt" data-i18n="q4Opt4">Nur Informationen sammeln</button>
+            </div>
+            <button type="button" class="q-back" data-back><svg class="icon" style="width:13px;height:13px"><use href="#i-arrow-left"/></svg><span data-i18n="consultBack">Zurück</span></button>
+          </div>
+          <div class="step-pane" data-step="4">
+            <p class="q-label" data-i18n="consultContactLabel">Letzter Schritt</p>
+            <h3 class="q-title" data-i18n="consultContactTitle">Ihre Kontaktdaten</h3>
+            <input type="text" class="field" placeholder="Ihr Name" data-i18n-ph="consultNamePh">
+            <input type="email" class="field" id="quizEmail" placeholder="E-Mail-Adresse *" required data-i18n-ph="consultEmailPh">
+            <input type="tel" class="field" placeholder="Telefonnummer" data-i18n-ph="consultPhonePh">
+            <div class="quiz-footer">
+              <button type="button" class="q-back" data-back><svg class="icon" style="width:13px;height:13px"><use href="#i-arrow-left"/></svg><span data-i18n="consultBack">Zurück</span></button>
+              <button type="submit" class="btn btn-primary" data-i18n="consultSubmit">Beratung anfordern</button>
+            </div>
+          </div>
+          <div class="step-pane" data-step="5">
+            <div class="success-panel">
+              <div class="success-icon"><svg class="icon"><use href="#i-check"/></svg></div>
+              <h3 data-i18n="consultSuccessTitle">Vielen Dank!</h3>
+              <p data-i18n="consultSuccessDesc">Ein Berater wird sich innerhalb von 15 Minuten mit Ihnen in Verbindung setzen.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-2">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-wrap" data-reveal>
+        <div class="about-photo">
+          <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80&auto=format&fit=crop" alt="Luxuriöses Lederinterieur eines Premiumfahrzeugs">
+        </div>
+        <div class="medallion">
+          <span class="num" data-i18n="aboutStatValue">15</span>
+          <span class="lbl" data-i18n="aboutStatLabel">Jahre Erfahrung</span>
+        </div>
+      </div>
+      <div class="about-copy" data-reveal>
+        <span class="eyebrow" data-i18n="aboutBadge">Seit 2009</span>
+        <h2 data-i18n="aboutTitle">Unser Geschäft sind die Autos Ihrer Träume</h2>
+        <p data-i18n="aboutP1">Premium-Autos sind mehr als nur ein Fortbewegungsmittel — sie sind eine Denkweise, ein Lebensstil, die Zugehörigkeit zu einem bestimmten elitären Club, einer Gemeinschaft.</p>
+        <p data-i18n="aboutP2">Seit 15 Jahren helfen wir Unternehmen und Privatpersonen dabei, ihre Traumautos zu fahren. Wie wir alle wissen, sind Träume teuer, deshalb bezahlen unsere Kunden uns gut für die Verwirklichung ihrer Träume und ermöglichen uns, unseren Partnern und Investoren damit gute Gewinne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="staerken">
+  <div class="container">
+    <div class="head" data-reveal>
+      <span class="eyebrow" data-i18n="strengthsBadge">Warum LUXCAR</span>
+      <h2 data-i18n="strengthsTitle">Unsere Stärken</h2>
+    </div>
+    <div class="strengths-grid">
+      <div class="s-card big" data-reveal><div class="s-icon"><svg class="icon"><use href="#i-clock"/></svg></div><p class="s-stat" data-i18n="s1Stat">3.000+</p><p class="s-stat-label" data-i18n="s1StatLabel">Fahrzeuge</p><h3 data-i18n="s1Title">15 Jahre praktische Erfahrung</h3><p data-i18n="s1Desc">In 15 Jahren haben wir mehr als 3.000 Luxusautos gekauft und in die Vermietung aufgenommen.</p></div>
+      <div class="s-card" data-reveal><div class="s-icon"><svg class="icon"><use href="#i-trend"/></svg></div><p class="s-stat" data-i18n="s2Stat">40–50%</p><p class="s-stat-label" data-i18n="s2StatLabel">Jährliches Wachstum</p><h3 data-i18n="s2Title">Stabiler und wachsender Markt</h3><p data-i18n="s2Desc">40–50 % jährlicher Anstieg der Kundenaufträge für Miet- und Transportdienstleistungen.</p></div>
+      <div class="s-card" data-reveal><div class="s-icon"><svg class="icon"><use href="#i-users"/></svg></div><p class="s-stat" data-i18n="s3Stat">25–30%</p><p class="s-stat-label" data-i18n="s3StatLabel">Rabatt</p><h3 data-i18n="s3Title">Stabile Beziehungen zu Herstellern</h3><p data-i18n="s3Desc">Ihre Fahrzeuge werden mit einem Rabatt von 25–30 % auf den Marktpreis erworben.</p></div>
+      <div class="s-card" data-reveal><div class="s-icon"><svg class="icon"><use href="#i-globe"/></svg></div><p class="s-stat" data-i18n="s4Stat">4</p><p class="s-stat-label" data-i18n="s4StatLabel">Standorte weltweit</p><h3 data-i18n="s4Title">Eigene Vermietungs-Infrastruktur</h3><p data-i18n="s4Desc">Ihre Fahrzeuge werden an Autovermietungen weltweit geliefert, wo sie weiterhin Gewinne erzielen.</p></div>
+      <div class="s-card" data-reveal><div class="s-icon"><svg class="icon"><use href="#i-car"/></svg></div><p class="s-stat" data-i18n="s5Stat">3+</p><p class="s-stat-label" data-i18n="s5StatLabel">Taxi-Plattformen</p><h3 data-i18n="s5Title">Eigene Taxi-Infrastruktur</h3><p data-i18n="s5Desc">Ihre Fahrzeuge erzielen hohe Gewinne bei Uber, Get Taxi, Wheely und anderen Taxidiensten.</p></div>
+      <div class="s-card big" data-reveal><div class="s-icon"><svg class="icon"><use href="#i-dollar"/></svg></div><p class="s-stat" data-i18n="s6Stat">100%</p><p class="s-stat-label" data-i18n="s6StatLabel">Restwert-Optimierung</p><h3 data-i18n="s6Title">Weltweiter Fahrzeugverkauf</h3><p data-i18n="s6Desc">Ihre Fahrzeuge werden nach ihrem Einsatz in der Vermietung oder als Taxi zu Höchstpreisen verkauft.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-2" id="programme">
+  <div class="container">
+    <div class="head" data-reveal>
+      <span class="eyebrow" data-i18n="programsBadge">Investitionsprogramme</span>
+      <h2 data-i18n="programsTitle">Wählen Sie Ihr Programm</h2>
+    </div>
+    <div class="programs-list">
+      <div class="p-card" data-reveal>
+        <div class="p-photo">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=80&auto=format&fit=crop" alt="Mercedes G-Klasse in Monte Carlo">
+          <span class="tag" data-i18n="luxTag">Premium-Vermietung</span>
+        </div>
+        <div class="p-body">
+          <h3 data-i18n="luxTitle">Programm 1. LUXCAR</h3>
+          <p data-i18n="luxDesc">Erwerb von Fahrzeugen der Premiummarken im Rahmen von Leasing- oder Finanzierungsprogrammen für deren weitere Nutzung in Mietwagenflotten an exklusiven Urlaubsorten weltweit.</p>
+          <div class="p-stats">
+            <div><p class="v accent">100%</p><p class="l" data-i18n="luxStat1Label">Rendite p.a.</p></div>
+            <div><p class="v">48–72</p><p class="l" data-i18n="luxStat2Label">Monate Laufzeit</p></div>
+            <div><p class="v">Q4</p><p class="l" data-i18n="luxStat3Label">Ausschüttung</p></div>
+          </div>
+          <a href="#beratung" class="btn btn-primary p-cta" data-i18n="luxCta">Programm wählen</a>
+        </div>
+      </div>
+      <div class="p-card" data-reveal>
+        <div class="p-photo">
+          <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=900&q=80&auto=format&fit=crop" alt="Mercedes S-Klasse in einer europäischen Stadt">
+          <span class="tag" data-i18n="taxTag">Taxi &amp; Mietwagen</span>
+        </div>
+        <div class="p-body">
+          <h3 data-i18n="taxTitle">Programm 2. TAXCAR</h3>
+          <p data-i18n="taxDesc">Erwerb von Fahrzeugen beliebter Marken im Rahmen eines Leasing- oder Finanzierungsprogramms zur weiteren Nutzung in Mietwagen- oder Taxidiensten in europäischen Großstädten.</p>
+          <div class="p-stats">
+            <div><p class="v accent">50%</p><p class="l" data-i18n="taxStat1Label">Rendite p.a.</p></div>
+            <div><p class="v">24–60</p><p class="l" data-i18n="taxStat2Label">Monate Laufzeit</p></div>
+            <div><p class="v">Q4</p><p class="l" data-i18n="taxStat3Label">Ausschüttung</p></div>
+          </div>
+          <a href="#beratung" class="btn btn-gold-outline p-cta" data-i18n="taxCta">Programm wählen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kontakt">
+  <div class="container">
+    <div class="contact-box">
+      <div class="head" data-reveal>
+        <span class="eyebrow" data-i18n="contactBadge">Detaillierte Präsentation</span>
+        <h2 data-i18n="contactTitle">Fordern Sie unsere Präsentation an</h2>
+        <p style="color:var(--ink-dim);font-size:16px;font-weight:300;margin-top:12px" data-i18n="contactSubtitle">Geben Sie Ihre Kontaktdaten ein, und wir senden Ihnen eine detaillierte Präsentation zu.</p>
+      </div>
+      <div id="contactFormWrap" data-reveal>
+        <form id="presentForm" class="contact-form-grid">
+          <input type="text" class="field" placeholder="Ihr Name" data-i18n-ph="contactNamePh">
+          <input type="email" class="field" id="presentEmail" placeholder="E-Mail-Adresse *" required data-i18n-ph="contactEmailPh">
+          <input type="tel" class="field" placeholder="Telefonnummer" data-i18n-ph="contactPhonePh">
+          <input type="text" class="field" placeholder="Unternehmen" data-i18n-ph="contactCompanyPh">
+          <div class="full">
+            <button type="submit" class="btn btn-primary btn-block" data-i18n="contactSubmit">Präsentation anfordern</button>
+          </div>
+        </form>
+        <div id="presentSuccess" style="display:none" class="success-panel">
+          <div class="success-icon"><svg class="icon"><use href="#i-check"/></svg></div>
+          <p style="font-size:16px;color:var(--ink);font-weight:400" data-i18n="contactSuccess">Vielen Dank! Die Präsentation wird in Kürze an Ihre E-Mail gesendet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-2" id="prozess">
+  <div class="container">
+    <div class="head" data-reveal>
+      <span class="eyebrow" data-i18n="processBadge">Der Prozess</span>
+      <h2 data-i18n="processTitle">So funktioniert es</h2>
+    </div>
+    <div class="stepper">
+      <div class="st-item done" data-reveal><div class="st-num">01</div><div class="st-card"><h3 data-i18n="pr1Title">Voraussetzung prüfen</h3><p data-i18n="pr1Desc">Sie haben ein Unternehmen mit einer Bonität, die für die Genehmigung des Erwerbs von Fahrzeugen im Rahmen eines Leasing- oder Kreditvertrags ausreichend ist.</p></div></div>
+      <div class="st-item done" data-reveal><div class="st-num">02</div><div class="st-card"><h3 data-i18n="pr2Title">Anfrage senden</h3><p data-i18n="pr2Desc">Senden Sie eine Anfrage mit der Bestätigung Ihrer Bereitschaft zur Teilnahme am Programm. Ein Berater wird sich mit Ihnen in Verbindung setzen.</p></div></div>
+      <div class="st-item" data-reveal><div class="st-num">03</div><div class="st-card"><h3 data-i18n="pr3Title">Programm &amp; Fahrzeug wählen</h3><p data-i18n="pr3Desc">Wählen Sie gemeinsam mit dem Berater die Marke und das Modell des Fahrzeugs sowie die Art der Nutzung: Premium-Vermietung, Standard-Vermietung oder Taxi.</p></div></div>
+      <div class="st-item" data-reveal><div class="st-num">04</div><div class="st-card"><h3 data-i18n="pr4Title">Vertrag unterzeichnen</h3><p data-i18n="pr4Desc">Unterzeichnen Sie einen Standard-Untermiet- oder Unterleasingvertrag mit LUXCAR mit Sicherheitsgarantien und Ihrer Rentabilität.</p></div></div>
+      <div class="st-item" data-reveal><div class="st-num">05</div><div class="st-card"><h3 data-i18n="pr5Title">Fahrzeug erwerben</h3><p data-i18n="pr5Desc">Wenden Sie sich an Ihre Leasinggesellschaft, erwerben Sie das vereinbarte Fahrzeug und versichern Sie es.</p></div></div>
+      <div class="st-item" data-reveal><div class="st-num">06</div><div class="st-card"><h3 data-i18n="pr6Title">Gewinne erzielen</h3><p data-i18n="pr6Desc">Übergeben Sie das Fahrzeug an das vereinbarte LUXCAR-Programm und beginnen Sie, mit seinem Betrieb Gewinne zu erzielen!</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="bewertungen">
+  <div class="container">
+    <div class="head" data-reveal>
+      <span class="eyebrow" data-i18n="testiBadge">Erfolgsgeschichten</span>
+      <h2 data-i18n="testiTitle">Partner-Bewertungen</h2>
+    </div>
+  </div>
+  <div class="testi-scroll" data-reveal>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div><div class="testi-name" data-i18n="t1Name">Klaus Treuer <svg class="icon"><use href="#i-shield"/></svg></div><p class="testi-info" data-i18n="t1Info">49 Jahre, Hamburg</p></div>
+          <svg class="icon" style="width:24px;height:24px;color:rgba(198,167,104,.25)"><use href="#i-quote"/></svg>
+        </div>
+        <div class="testi-fin">
+          <div><p class="l" data-i18n="testiInvestLabel">Investition</p><p class="v" data-i18n="t1Investment">118.000 €</p></div>
+          <div><p class="l" data-i18n="testiProfitLabel">Gewinn</p><p class="v accent" data-i18n="t1Profit">234.000 €</p></div>
+          <div><p class="l" data-i18n="testiPeriodLabel">Zeitraum</p><p class="v small" data-i18n="t1Period">5 Jahre</p></div>
+          <div><p class="l" data-i18n="testiProgramLabel">Programm</p><p class="v small">UBER / Dubai</p></div>
+        </div>
+        <p class="testi-quote" data-i18n="t1Quote">„Ich habe 2020 zum ersten Mal mit LUXCAR in den Kauf von drei Lexus-Fahrzeugen für das UBER-Programm in Dubai investiert. Seit fünf Jahren sind die von mir gekauften Fahrzeuge nun im Einsatz und bringen mir einen stabilen Gewinn. In den letzten fünf Jahren habe ich einen Gewinn von 234.000 Euro erzielt und beabsichtige, weiterhin mit LUXCAR zu investieren!"</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div><div class="testi-name" data-i18n="t2Name">Marcus Meisner <svg class="icon"><use href="#i-shield"/></svg></div><p class="testi-info" data-i18n="t2Info">54 Jahre, Köln</p></div>
+          <svg class="icon" style="width:24px;height:24px;color:rgba(198,167,104,.25)"><use href="#i-quote"/></svg>
+        </div>
+        <div class="testi-fin">
+          <div><p class="l" data-i18n="testiInvestLabel">Investition</p><p class="v" data-i18n="t2Investment">17.000 €</p></div>
+          <div><p class="l" data-i18n="testiProfitLabel">Gewinn</p><p class="v accent" data-i18n="t2Profit">129.000 €</p></div>
+          <div><p class="l" data-i18n="testiPeriodLabel">Zeitraum</p><p class="v small" data-i18n="t2Period">3 Jahre</p></div>
+          <div><p class="l" data-i18n="testiProgramLabel">Programm</p><p class="v small">Mercedes G-Klasse / Monte Carlo</p></div>
+        </div>
+        <p class="testi-quote" data-i18n="t2Quote">„Ich habe 17.000 Euro in einen Leasingvertrag für den Kauf eines Mercedes G-Klasse im Jahr 2020 investiert. Ich habe meine Investition vollständig zurückerhalten und darüber hinaus einen Gewinn von 129.000 Euro über einen Zeitraum von drei Jahren erzielt. Im Jahr 2026 plane ich, fünf weitere Luxusautos für LUXCAR zu kaufen."</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div><div class="testi-name" data-i18n="t3Name">Klaus Dressen <svg class="icon"><use href="#i-shield"/></svg></div><p class="testi-info" data-i18n="t3Info">69 Jahre, Berlin</p></div>
+          <svg class="icon" style="width:24px;height:24px;color:rgba(198,167,104,.25)"><use href="#i-quote"/></svg>
+        </div>
+        <div class="testi-fin">
+          <div><p class="l" data-i18n="testiInvestLabel">Investition</p><p class="v" data-i18n="t3Investment">70.000 €</p></div>
+          <div><p class="l" data-i18n="testiProfitLabel">Gewinn</p><p class="v accent" data-i18n="t3Profit">70.000 € / Jahr</p></div>
+          <div><p class="l" data-i18n="testiPeriodLabel">Zeitraum</p><p class="v small" data-i18n="t3Period">6 Jahre</p></div>
+          <div><p class="l" data-i18n="testiProgramLabel">Programm</p><p class="v small">Bentley Flying Spur / Dubai</p></div>
+        </div>
+        <p class="testi-quote" data-i18n="t3Quote">„Auf Vorschlag von LUXCAR habe ich 2021 70.000 Euro in den Kauf eines Bentley Flying Spur für die Vermietung in den Emiraten investiert. Seit sechs Jahren erhalte ich jährlich Dividenden in Höhe von 70.000 Euro und fliege manchmal nach Dubai, um kostenlos mit dem Auto zu fahren. Das ist doppeltes Vergnügen!"</p>
+      </div>
+  </div>
+  <div class="container"><p class="scroll-hint">← swipe →</p></div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">LUX<span>CAR</span></p>
+        <p class="footer-desc" data-i18n="footerDesc">Verdienen Sie mit geleasten Luxusautos ab 100% Jahreszins. Hohe Rendite bei minimaler Anfangsinvestition.</p>
+        <div class="footer-eco"><span class="eco-mark">R</span> <span data-i18n="footerEco">Teil des Rentiers Ökosystems</span></div>
+      </div>
+      <div>
+        <p class="footer-title" data-i18n="footerNavTitle">Navigation</p>
+        <div class="footer-links">
+          <a href="#programme" data-i18n="footerNavLink1">Programme</a>
+          <a href="#staerken" data-i18n="footerNavLink2">Unsere Stärken</a>
+          <a href="#prozess" data-i18n="footerNavLink3">So funktioniert es</a>
+          <a href="#bewertungen" data-i18n="footerNavLink4">Bewertungen</a>
+          <a href="#beratung" data-i18n="footerNavLink5">Beratung anfordern</a>
+          <a href="#kontakt" data-i18n="footerNavLink6">Präsentation anfordern</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-title" data-i18n="footerContactTitle">Kontakt</p>
+        <div class="social-row">
+          <a href="https://wa.me/493012345678" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon"><use href="#i-chat"/></svg></a>
+          <a href="https://t.me/luxcar" target="_blank" rel="noopener" aria-label="Telegram"><svg class="icon"><use href="#i-send"/></svg></a>
+          <a href="tel:+493012345678" aria-label="Telefon"><svg class="icon"><use href="#i-phone"/></svg></a>
+          <a href="mailto:info@luxcar.com" aria-label="E-Mail"><svg class="icon"><use href="#i-mail"/></svg></a>
+        </div>
+        <div class="footer-contact">
+          <a href="tel:+493012345678">+49 30 12345678</a>
+          <a href="mailto:info@luxcar.com">info@luxcar.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footerCopyright">© 2026 LUXCAR. Alle Rechte vorbehalten.</p>
+      <div class="legal">
+        <a href="#" data-i18n="footerLegal1">Impressum</a>
+        <a href="#" data-i18n="footerLegal2">Datenschutz</a>
+        <a href="#" data-i18n="footerLegal3">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuIcon = document.getElementById('menuIcon');
+menuToggle.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  menuIcon.innerHTML = isOpen ? '<use href="#i-x"/>' : '<use href="#i-menu"/>';
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mobileMenu.classList.remove('open');
+  menuIcon.innerHTML = '<use href="#i-menu"/>';
+}));
+
+const revealEls = document.querySelectorAll('[data-reveal]');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+revealEls.forEach(el => io.observe(el));
+
+(function(){
+  const form = document.getElementById('quizForm');
+  const panes = Array.from(form.querySelectorAll('.step-pane'));
+  const dots = Array.from(document.getElementById('progressDots').children);
+  let step = 0;
+  function show(idx){
+    panes.forEach(p => p.classList.remove('active'));
+    panes[idx].classList.add('active');
+    dots.forEach((d,i) => {
+      d.classList.toggle('active', i === Math.min(idx,4));
+      d.classList.toggle('done', i < idx);
+    });
+  }
+  show(0);
+  form.querySelectorAll('.q-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pane = btn.closest('.step-pane');
+      pane.querySelectorAll('.q-opt').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      setTimeout(() => { step++; show(step); }, 280);
+    });
+  });
+  form.querySelectorAll('[data-back]').forEach(btn => {
+    btn.addEventListener('click', () => { if(step>0){ step--; show(step); } });
+  });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('quizEmail');
+    if(!email.value) { email.focus(); return; }
+    step++; show(step);
+  });
+})();
+
+(function(){
+  const form = document.getElementById('presentForm');
+  const success = document.getElementById('presentSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('presentEmail');
+    if(!email.value){ email.focus(); return; }
+    form.style.display = 'none';
+    success.style.display = 'block';
+  });
+})();
+
+/* ---------- i18n ---------- */
+const I18N = {
+  de: {
+    ecoText:"Teil des", pageTitle:"LUXCAR — Verdienen Sie mit geleasten Luxusautos ab 100% Jahreszins",
+    navPrograms:"Programme", navStrengths:"Stärken", navHowItWorks:"So funktioniert es", navReviews:"Bewertungen", navCta:"BERATUNG ANFORDERN",
+    heroBadge:"Investitionsprogramm", heroTitle:"Verdienen Sie mit geleasten Luxusautos ab ", heroTitleHighlight:"100%", heroTitleEnd:" Jahreszins",
+    heroSubtitle:"Hohe Rendite bei minimaler Anfangsinvestition. Leasen Sie ein Luxusauto, bleiben Sie Eigentümer und verdienen Sie mit LUXCAR in Genf, Cannes, Monte Carlo oder Dubai.",
+    heroCta1:"BERATUNG IN 15 MINUTEN", heroCta2:"PROGRAMME ANSEHEN",
+    heroStat1Label:"Jahresrendite", heroStat2Label:"Jahre Erfahrung", heroStat3Value:"3.000+", heroStat3Label:"Luxusautos",
+    consultBadge:"Fachkundige Beratung", consultTitle:"Beantworten Sie 4 einfache Fragen", consultSubtitle:"und erhalten Sie in 15 Minuten eine fachkundige Beratung",
+    q1Label:"Frage 1 von 4", q1Question:"Wie hoch ist Ihre geplante Anfangsinvestition?", q1Opt1:"Bis 20.000 €", q1Opt2:"20.000 – 50.000 €", q1Opt3:"50.000 – 100.000 €", q1Opt4:"Über 100.000 €",
+    q2Label:"Frage 2 von 4", q2Question:"Welches Programm interessiert Sie?", q2Opt1:"LUXCAR — Premium-Vermietung", q2Opt2:"TAXCAR — Taxi & Mietwagen", q2Opt3:"Beide Programme",
+    q3Label:"Frage 3 von 4", q3Question:"Welche Fahrzeugmarke bevorzugen Sie?", q3Opt1:"Mercedes-Benz", q3Opt2:"BMW", q3Opt3:"Bentley", q3Opt4:"Porsche", q3Opt5:"Lexus", q3Opt6:"Andere",
+    q4Label:"Frage 4 von 4", q4Question:"Wann möchten Sie starten?", q4Opt1:"Sofort", q4Opt2:"In 1–3 Monaten", q4Opt3:"In 3–6 Monaten", q4Opt4:"Nur Informationen sammeln",
+    consultBack:"Zurück", consultContactLabel:"Letzter Schritt", consultContactTitle:"Ihre Kontaktdaten",
+    consultNamePh:"Ihr Name", consultEmailPh:"E-Mail-Adresse *", consultPhonePh:"Telefonnummer", consultSubmit:"BERATUNG ANFORDERN",
+    consultSuccessTitle:"Vielen Dank!", consultSuccessDesc:"Ein Berater wird sich innerhalb von 15 Minuten mit Ihnen in Verbindung setzen.",
+    aboutBadge:"Seit 2009", aboutTitle:"Unser Geschäft sind die Autos Ihrer Träume",
+    aboutP1:"Premium-Autos sind mehr als nur ein Fortbewegungsmittel — sie sind eine Denkweise, ein Lebensstil, die Zugehörigkeit zu einem bestimmten elitären Club, einer Gemeinschaft.",
+    aboutP2:"Seit 15 Jahren helfen wir Unternehmen und Privatpersonen dabei, ihre Traumautos zu fahren. Wie wir alle wissen, sind Träume teuer, deshalb bezahlen unsere Kunden uns gut für die Verwirklichung ihrer Träume und ermöglichen uns, unseren Partnern und Investoren damit gute Gewinne.",
+    aboutStatValue:"15", aboutStatLabel:"Jahre Erfahrung",
+    strengthsBadge:"Warum LUXCAR", strengthsTitle:"Unsere Stärken",
+    s1Stat:"3.000+", s1StatLabel:"Fahrzeuge", s1Title:"15 Jahre praktische Erfahrung", s1Desc:"In 15 Jahren haben wir mehr als 3.000 Luxusautos gekauft und in die Vermietung aufgenommen.",
+    s2Stat:"40–50%", s2StatLabel:"Jährliches Wachstum", s2Title:"Stabiler und wachsender Markt", s2Desc:"40–50 % jährlicher Anstieg der Kundenaufträge für Miet- und Transportdienstleistungen.",
+    s3Stat:"25–30%", s3StatLabel:"Rabatt", s3Title:"Stabile Beziehungen zu Herstellern", s3Desc:"Ihre Fahrzeuge werden mit einem Rabatt von 25–30 % auf den Marktpreis erworben.",
+    s4Stat:"4", s4StatLabel:"Standorte weltweit", s4Title:"Eigene Vermietungs-Infrastruktur", s4Desc:"Ihre Fahrzeuge werden an Autovermietungen weltweit geliefert, wo sie weiterhin Gewinne erzielen.",
+    s5Stat:"3+", s5StatLabel:"Taxi-Plattformen", s5Title:"Eigene Taxi-Infrastruktur", s5Desc:"Ihre Fahrzeuge erzielen hohe Gewinne bei Uber, Get Taxi, Wheely und anderen Taxidiensten.",
+    s6Stat:"100%", s6StatLabel:"Restwert-Optimierung", s6Title:"Weltweiter Fahrzeugverkauf", s6Desc:"Ihre Fahrzeuge werden nach ihrem Einsatz in der Vermietung oder als Taxi zu Höchstpreisen verkauft.",
+    programsBadge:"Investitionsprogramme", programsTitle:"Wählen Sie Ihr Programm",
+    luxTag:"Premium-Vermietung", luxTitle:"Programm 1. LUXCAR", luxDesc:"Erwerb von Fahrzeugen der Premiummarken im Rahmen von Leasing- oder Finanzierungsprogrammen für deren weitere Nutzung in Mietwagenflotten an exklusiven Urlaubsorten weltweit.",
+    luxStat1Label:"Rendite p.a.", luxStat2Label:"Monate Laufzeit", luxStat3Label:"Ausschüttung", luxCta:"PROGRAMM WÄHLEN",
+    taxTag:"Taxi & Mietwagen", taxTitle:"Programm 2. TAXCAR", taxDesc:"Erwerb von Fahrzeugen beliebter Marken im Rahmen eines Leasing- oder Finanzierungsprogramms zur weiteren Nutzung in Mietwagen- oder Taxidiensten in europäischen Großstädten.",
+    taxStat1Label:"Rendite p.a.", taxStat2Label:"Monate Laufzeit", taxStat3Label:"Ausschüttung", taxCta:"PROGRAMM WÄHLEN",
+    contactBadge:"Detaillierte Präsentation", contactTitle:"Fordern Sie unsere Präsentation an", contactSubtitle:"Geben Sie Ihre Kontaktdaten ein, und wir senden Ihnen eine detaillierte Präsentation zu.",
+    contactNamePh:"Ihr Name", contactEmailPh:"E-Mail-Adresse *", contactPhonePh:"Telefonnummer", contactCompanyPh:"Unternehmen",
+    contactSubmit:"PRÄSENTATION ANFORDERN", contactSuccess:"Vielen Dank! Die Präsentation wird in Kürze an Ihre E-Mail gesendet.",
+    processBadge:"Der Prozess", processTitle:"So funktioniert es",
+    pr1Title:"Voraussetzung prüfen", pr1Desc:"Sie haben ein Unternehmen mit einer Bonität, die für die Genehmigung des Erwerbs von Fahrzeugen im Rahmen eines Leasing- oder Kreditvertrags ausreichend ist.",
+    pr2Title:"Anfrage senden", pr2Desc:"Senden Sie eine Anfrage mit der Bestätigung Ihrer Bereitschaft zur Teilnahme am Programm. Ein Berater wird sich mit Ihnen in Verbindung setzen.",
+    pr3Title:"Programm & Fahrzeug wählen", pr3Desc:"Wählen Sie gemeinsam mit dem Berater die Marke und das Modell des Fahrzeugs sowie die Art der Nutzung: Premium-Vermietung, Standard-Vermietung oder Taxi.",
+    pr4Title:"Vertrag unterzeichnen", pr4Desc:"Unterzeichnen Sie einen Standard-Untermiet- oder Unterleasingvertrag mit LUXCAR mit Sicherheitsgarantien und Ihrer Rentabilität.",
+    pr5Title:"Fahrzeug erwerben", pr5Desc:"Wenden Sie sich an Ihre Leasinggesellschaft, erwerben Sie das vereinbarte Fahrzeug und versichern Sie es.",
+    pr6Title:"Gewinne erzielen", pr6Desc:"Übergeben Sie das Fahrzeug an das vereinbarte LUXCAR-Programm und beginnen Sie, mit seinem Betrieb Gewinne zu erzielen!",
+    testiBadge:"Erfolgsgeschichten", testiTitle:"Partner-Bewertungen",
+    testiInvestLabel:"Investition", testiProfitLabel:"Gewinn", testiPeriodLabel:"Zeitraum", testiProgramLabel:"Programm",
+    t1Name:"Klaus Treuer", t1Info:"49 Jahre, Hamburg", t1Investment:"118.000 €", t1Profit:"234.000 €", t1Period:"5 Jahre",
+    t1Quote:"„Ich habe 2020 zum ersten Mal mit LUXCAR in den Kauf von drei Lexus-Fahrzeugen für das UBER-Programm in Dubai investiert. Seit fünf Jahren sind die von mir gekauften Fahrzeuge nun im Einsatz und bringen mir einen stabilen Gewinn. In den letzten fünf Jahren habe ich einen Gewinn von 234.000 Euro erzielt und beabsichtige, weiterhin mit LUXCAR zu investieren!“",
+    t2Name:"Marcus Meisner", t2Info:"54 Jahre, Köln", t2Investment:"17.000 €", t2Profit:"129.000 €", t2Period:"3 Jahre",
+    t2Quote:"„Ich habe 17.000 Euro in einen Leasingvertrag für den Kauf eines Mercedes G-Klasse im Jahr 2020 investiert. Ich habe meine Investition vollständig zurückerhalten und darüber hinaus einen Gewinn von 129.000 Euro über einen Zeitraum von drei Jahren erzielt. Im Jahr 2026 plane ich, fünf weitere Luxusautos für LUXCAR zu kaufen.“",
+    t3Name:"Klaus Dressen", t3Info:"69 Jahre, Berlin", t3Investment:"70.000 €", t3Profit:"70.000 € / Jahr", t3Period:"6 Jahre",
+    t3Quote:"„Auf Vorschlag von LUXCAR habe ich 2021 70.000 Euro in den Kauf eines Bentley Flying Spur für die Vermietung in den Emiraten investiert. Seit sechs Jahren erhalte ich jährlich Dividenden in Höhe von 70.000 Euro und fliege manchmal nach Dubai, um kostenlos mit dem Auto zu fahren. Das ist doppeltes Vergnügen!“",
+    footerDesc:"Verdienen Sie mit geleasten Luxusautos ab 100% Jahreszins. Hohe Rendite bei minimaler Anfangsinvestition.",
+    footerEco:"Teil des Rentiers Ökosystems", footerNavTitle:"Navigation",
+    footerNavLink1:"Programme", footerNavLink2:"Unsere Stärken", footerNavLink3:"So funktioniert es", footerNavLink4:"Bewertungen", footerNavLink5:"Beratung anfordern", footerNavLink6:"Präsentation anfordern",
+    footerContactTitle:"Kontakt", footerCopyright:"© 2026 LUXCAR. Alle Rechte vorbehalten.",
+    footerLegal1:"Impressum", footerLegal2:"Datenschutz", footerLegal3:"AGB"
+  },
+  en: {
+    ecoText:"Part of", pageTitle:"LUXCAR — Earn up to 100% annual return on leased luxury cars",
+    navPrograms:"Programs", navStrengths:"Strengths", navHowItWorks:"How It Works", navReviews:"Reviews", navCta:"REQUEST CONSULTATION",
+    heroBadge:"Investment Program", heroTitle:"Earn up to ", heroTitleHighlight:"100%", heroTitleEnd:" annual return on leased luxury cars",
+    heroSubtitle:"High returns with minimal initial investment. Lease a luxury car, retain ownership, and earn with LUXCAR in Geneva, Cannes, Monte Carlo, or Dubai.",
+    heroCta1:"CONSULTATION IN 15 MINUTES", heroCta2:"VIEW PROGRAMS",
+    heroStat1Label:"Annual return", heroStat2Label:"Years of experience", heroStat3Value:"3,000+", heroStat3Label:"Luxury cars",
+    consultBadge:"Expert Consultation", consultTitle:"Answer 4 simple questions", consultSubtitle:"and get expert advice in 15 minutes",
+    q1Label:"Question 1 of 4", q1Question:"How much is your planned initial investment?", q1Opt1:"Up to €20,000", q1Opt2:"€20,000 – €50,000", q1Opt3:"€50,000 – €100,000", q1Opt4:"Over €100,000",
+    q2Label:"Question 2 of 4", q2Question:"Which program interests you?", q2Opt1:"LUXCAR — Premium Rental", q2Opt2:"TAXCAR — Taxi & Chauffeur", q2Opt3:"Both Programs",
+    q3Label:"Question 3 of 4", q3Question:"Which car brand do you prefer?", q3Opt1:"Mercedes-Benz", q3Opt2:"BMW", q3Opt3:"Bentley", q3Opt4:"Porsche", q3Opt5:"Lexus", q3Opt6:"Other",
+    q4Label:"Question 4 of 4", q4Question:"When would you like to start?", q4Opt1:"Immediately", q4Opt2:"In 1–3 months", q4Opt3:"In 3–6 months", q4Opt4:"Just gathering information",
+    consultBack:"Back", consultContactLabel:"Last Step", consultContactTitle:"Your contact details",
+    consultNamePh:"Your name", consultEmailPh:"Email address *", consultPhonePh:"Phone number", consultSubmit:"REQUEST CONSULTATION",
+    consultSuccessTitle:"Thank you!", consultSuccessDesc:"An advisor will contact you within 15 minutes.",
+    aboutBadge:"Since 2009", aboutTitle:"Our business is the cars of your dreams",
+    aboutP1:"Premium cars are more than just a means of transportation — they are a mindset, a lifestyle, belonging to a certain elite club, a community.",
+    aboutP2:"For 15 years, we have been helping businesses and individuals drive their dream cars. As we all know, dreams are expensive, which is why our clients pay us well to make their dreams come true, allowing us to generate good profits for our partners and investors.",
+    aboutStatValue:"15", aboutStatLabel:"Years of experience",
+    strengthsBadge:"Why LUXCAR", strengthsTitle:"Our Strengths",
+    s1Stat:"3,000+", s1StatLabel:"Vehicles", s1Title:"15 years of practical experience", s1Desc:"In 15 years, we have purchased and placed more than 3,000 luxury cars into rental operations.",
+    s2Stat:"40–50%", s2StatLabel:"Annual growth", s2Title:"Stable and growing market", s2Desc:"40–50% annual increase in customer orders for rental and transport services.",
+    s3Stat:"25–30%", s3StatLabel:"Discount", s3Title:"Stable relationships with manufacturers", s3Desc:"Your vehicles are acquired at a 25–30% discount on the market price.",
+    s4Stat:"4", s4StatLabel:"Locations worldwide", s4Title:"Own rental infrastructure", s4Desc:"Your vehicles are delivered to car rentals worldwide, where they continue to generate profits.",
+    s5Stat:"3+", s5StatLabel:"Taxi platforms", s5Title:"Own taxi infrastructure", s5Desc:"Your vehicles generate high profits with Uber, Get Taxi, Wheely, and other taxi services.",
+    s6Stat:"100%", s6StatLabel:"Residual value optimization", s6Title:"Worldwide vehicle sales", s6Desc:"Your vehicles are sold at top prices after their use in rental or taxi operations.",
+    programsBadge:"Investment Programs", programsTitle:"Choose Your Program",
+    luxTag:"Premium Rental", luxTitle:"Program 1. LUXCAR", luxDesc:"Acquisition of premium brand vehicles under leasing or financing programs for their further use in rental car fleets at exclusive resorts worldwide.",
+    luxStat1Label:"Return p.a.", luxStat2Label:"Months duration", luxStat3Label:"Distribution", luxCta:"CHOOSE PROGRAM",
+    taxTag:"Taxi & Chauffeur", taxTitle:"Program 2. TAXCAR", taxDesc:"Acquisition of popular brand vehicles under a leasing or financing program for further use in chauffeur or taxi services in major European cities.",
+    taxStat1Label:"Return p.a.", taxStat2Label:"Months duration", taxStat3Label:"Distribution", taxCta:"CHOOSE PROGRAM",
+    contactBadge:"Detailed Presentation", contactTitle:"Request our presentation", contactSubtitle:"Enter your contact details and we will send you a detailed presentation.",
+    contactNamePh:"Your name", contactEmailPh:"Email address *", contactPhonePh:"Phone number", contactCompanyPh:"Company",
+    contactSubmit:"REQUEST PRESENTATION", contactSuccess:"Thank you! The presentation will be sent to your email shortly.",
+    processBadge:"The Process", processTitle:"How It Works",
+    pr1Title:"Check requirements", pr1Desc:"You have a company with a credit rating sufficient to approve the acquisition of vehicles under a leasing or credit agreement.",
+    pr2Title:"Send inquiry", pr2Desc:"Send an inquiry confirming your readiness to participate in the program. An advisor will contact you.",
+    pr3Title:"Choose program & vehicle", pr3Desc:"Together with the advisor, choose the brand and model of the vehicle and the type of use: premium rental, standard rental, or taxi.",
+    pr4Title:"Sign contract", pr4Desc:"Sign a standard sub-lease or sub-leasing agreement with LUXCAR with security guarantees and your profitability.",
+    pr5Title:"Acquire vehicle", pr5Desc:"Contact your leasing company, acquire the agreed vehicle, and insure it.",
+    pr6Title:"Generate profits", pr6Desc:"Hand over the vehicle to the agreed LUXCAR program and start generating profits from its operation!",
+    testiBadge:"Success Stories", testiTitle:"Partner Reviews",
+    testiInvestLabel:"Investment", testiProfitLabel:"Profit", testiPeriodLabel:"Period", testiProgramLabel:"Program",
+    t1Name:"Klaus Treuer", t1Info:"49 years, Hamburg", t1Investment:"€118,000", t1Profit:"€234,000", t1Period:"5 years",
+    t1Quote:"“In 2020, I invested with LUXCAR for the first time in the purchase of three Lexus vehicles for the UBER program in Dubai. For five years now, the vehicles I purchased have been in operation and bring me a stable profit. Over the past five years, I have generated a profit of €234,000 and intend to continue investing with LUXCAR!”",
+    t2Name:"Marcus Meisner", t2Info:"54 years, Cologne", t2Investment:"€17,000", t2Profit:"€129,000", t2Period:"3 years",
+    t2Quote:"“I invested €17,000 in a leasing contract for the purchase of a Mercedes G-Class in 2020. I have fully recovered my investment and, in addition, generated a profit of €129,000 over a period of three years. In 2026, I plan to buy five more luxury cars for LUXCAR.”",
+    t3Name:"Klaus Dressen", t3Info:"69 years, Berlin", t3Investment:"€70,000", t3Profit:"€70,000 / year", t3Period:"6 years",
+    t3Quote:"“On LUXCAR's recommendation, I invested €70,000 in 2021 in the purchase of a Bentley Flying Spur for rental in the Emirates. For six years, I have been receiving annual dividends of €70,000 and sometimes fly to Dubai to drive the car for free. It's double the pleasure!”",
+    footerDesc:"Earn up to 100% annual return on leased luxury cars. High returns with minimal initial investment.",
+    footerEco:"Part of the Rentiers Ecosystem", footerNavTitle:"Navigation",
+    footerNavLink1:"Programs", footerNavLink2:"Our Strengths", footerNavLink3:"How It Works", footerNavLink4:"Reviews", footerNavLink5:"Request Consultation", footerNavLink6:"Request Presentation",
+    footerContactTitle:"Contact", footerCopyright:"© 2026 LUXCAR. All rights reserved.",
+    footerLegal1:"Imprint", footerLegal2:"Privacy Policy", footerLegal3:"Terms"
+  }
+};
+
+let currentLang = 'de';
+function applyLang(lang){
+  currentLang = lang;
+  const dict = I18N[lang];
+  document.documentElement.lang = lang;
+  document.title = dict.pageTitle;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+  });
+  document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
+    btn.textContent = lang === 'de' ? 'EN' : 'DE';
+  });
+}
+document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(currentLang === 'de' ? 'en' : 'de'));
+});
+applyLang('de');
+</script>
+</body>
+</html>
