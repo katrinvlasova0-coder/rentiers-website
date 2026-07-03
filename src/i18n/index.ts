@@ -31,6 +31,15 @@ const de = {
     statCountries: '20+', statCountriesLabel: 'Länder',
     statGuarantee: '20+', statGuaranteeLabel: 'Länder mit Einlagengarantie',
   },
+  luxcar: {
+    badge: 'Teil des Rentiers Ökosystems',
+    title: 'Verdienen Sie mit geleasten Luxusautos',
+    highlight: 'ab 100% Jahreszins',
+    desc: 'Premium-Fahrzeuge in Genf, Cannes, Monte Carlo oder Dubai — hohe Rendite bei minimaler Anfangsinvestition.',
+    cta: 'LUXCAR entdecken',
+    tagline: 'Luxusauto-Investition',
+    imageAlt: 'Schwarzes Luxusauto — LUXCAR Investitionsprogramm',
+  },
   problem: {
     heading: 'Warum Ihr Erspartes auf dem Konto verliert',
     subheading: 'Während Ihr Geld bei einer deutschen Bank 0–2% einbringt, fressen Inflation und Lebenshaltungskosten Ihre Kaufkraft auf.',
@@ -208,6 +217,15 @@ const en = {
     statBanks: '50+', statBanksLabel: 'Partner Banks',
     statCountries: '20+', statCountriesLabel: 'Countries',
     statGuarantee: '20+', statGuaranteeLabel: 'Countries with Deposit Guarantees',
+  },
+  luxcar: {
+    badge: 'Part of the Rentiers Ecosystem',
+    title: 'Earn with leased luxury cars',
+    highlight: 'from 100% annual return',
+    desc: 'Premium vehicles in Geneva, Cannes, Monte Carlo or Dubai — high returns with a minimal initial investment.',
+    cta: 'Discover LUXCAR',
+    tagline: 'Luxury Car Investment',
+    imageAlt: 'Black luxury car — LUXCAR investment programme',
   },
   problem: {
     heading: 'Why your savings are losing value',

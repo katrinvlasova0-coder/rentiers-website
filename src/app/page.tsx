@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import HeroHome from '@/components/marketing/HeroHome';
+import LuxcarBanner from '@/components/marketing/LuxcarBanner';
 import ProblemSection from '@/components/marketing/ProblemSection';
 import HowItWorks from '@/components/marketing/HowItWorks';
 import PortfoliosSection from '@/components/marketing/PortfoliosSection';
@@ -21,6 +22,7 @@ export default function HomePage() {
   return (
     <>
       <HeroHome />
+      <LuxcarBanner />
       <ProblemSection />
       <HowItWorks />
       <PortfoliosSection />
