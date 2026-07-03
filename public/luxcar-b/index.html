@@ -7,7 +7,7 @@
 <meta name="description" content="Leasen Sie ein Luxusauto, bleiben Sie Eigentümer und verdienen Sie mit LUXCAR in Genf, Cannes, Monte Carlo oder Dubai. Teil des Rentiers Ökosystems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="icon" href="/luxcar-favicon.svg" type="image/svg+xml">
 <style>
 :root{
@@ -48,7 +48,7 @@ img{max-width:100%;display:block;}
 header{position:relative;top:0;left:0;right:0;z-index:50;transition:all .4s ease;border-bottom:1px solid transparent;}
 header.scrolled{background:rgba(14,17,48,.92);backdrop-filter:blur(18px);border-bottom-color:var(--panel-border);box-shadow:0 12px 40px -16px rgba(0,0,0,.5);}
 .nav-wrap{max-width:1200px;margin:0 auto;padding:0 24px;height:84px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-weight:700;font-size:20px;letter-spacing:.28em;color:var(--ink);}
+.logo{font-weight:900;font-size:22px;letter-spacing:.28em;color:var(--ink);}
 .logo span{color:var(--gold);}
 .nav-links{display:none;gap:36px;align-items:center;}
 .nav-links a{font-size:13px;font-weight:400;letter-spacing:.05em;color:var(--ink-dim);transition:color .3s;}
@@ -155,7 +155,7 @@ header.scrolled{background:rgba(14,17,48,.92);backdrop-filter:blur(18px);border-
 .s-icon{color:rgba(198,167,104,.65);margin-bottom:24px;transition:color .4s;}
 .s-icon .icon{width:26px;height:26px;}
 .s-card:hover .s-icon{color:var(--gold);}
-.s-stat{font-size:clamp(44px,5.2vw,64px);font-weight:900;color:#F0D89A;line-height:1;letter-spacing:-.03em;text-shadow:0 0 18px rgba(214,184,122,.85),0 0 42px rgba(198,167,104,.55),0 2px 8px rgba(0,0,0,.35);}
+.s-stat{font-family:Inter,system-ui,sans-serif;font-size:clamp(58px,7.5vw,96px);font-weight:900;font-synthesis:none;color:#F5E4B8;line-height:1;letter-spacing:-.04em;text-shadow:0 0 22px rgba(214,184,122,.9),0 0 48px rgba(198,167,104,.6),0 3px 10px rgba(0,0,0,.4);}
 .s-stat-label{font-size:10.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.14em;margin:10px 0 22px;}
 .s-card h3{font-size:16.5px;font-weight:500;color:var(--ink);margin-bottom:10px;}
 .s-card p{font-size:13.5px;color:var(--ink-dim);line-height:1.65;font-weight:300;}
@@ -224,7 +224,7 @@ header.scrolled{background:rgba(14,17,48,.92);backdrop-filter:blur(18px);border-
 footer{background:#080A1F;color:var(--ink-dim);padding-top:90px;border-top:1px solid var(--panel-border);}
 .footer-grid{display:grid;grid-template-columns:1fr;gap:52px;padding-bottom:60px;border-bottom:1px solid var(--panel-border);}
 @media(min-width:1024px){.footer-grid{grid-template-columns:1.3fr 1fr 1fr;gap:70px;}}
-.footer-brand{font-size:19px;font-weight:700;letter-spacing:.28em;color:var(--ink);margin-bottom:16px;}
+.footer-brand{font-size:20px;font-weight:900;letter-spacing:.28em;color:var(--ink);margin-bottom:16px;}
 .footer-brand span{color:var(--gold);}
 .footer-desc{font-size:13.5px;line-height:1.8;max-width:320px;font-weight:300;}
 .footer-title{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-faint);margin-bottom:22px;}
@@ -380,9 +380,9 @@ footer{background:#080A1F;color:var(--ink-dim);padding-top:90px;border-top:1px s
           <div class="step-pane" data-step="4">
             <p class="q-label" data-i18n="consultContactLabel">Letzter Schritt</p>
             <h3 class="q-title" data-i18n="consultContactTitle">Ihre Kontaktdaten</h3>
-            <input type="text" class="field" placeholder="Ihr Name" data-i18n-ph="consultNamePh">
+            <input type="text" class="field" id="quizName" placeholder="Ihr Name" data-i18n-ph="consultNamePh">
             <input type="email" class="field" id="quizEmail" placeholder="E-Mail-Adresse *" required data-i18n-ph="consultEmailPh">
-            <input type="tel" class="field" placeholder="Telefonnummer" data-i18n-ph="consultPhonePh">
+            <input type="tel" class="field" id="quizPhone" placeholder="Telefonnummer" data-i18n-ph="consultPhonePh">
             <div class="quiz-footer">
               <button type="button" class="q-back" data-back><svg class="icon" style="width:13px;height:13px"><use href="#i-arrow-left"/></svg><span data-i18n="consultBack">Zurück</span></button>
               <button type="submit" class="btn btn-primary" data-i18n="consultSubmit">Beratung anfordern</button>
@@ -493,10 +493,10 @@ footer{background:#080A1F;color:var(--ink-dim);padding-top:90px;border-top:1px s
       </div>
       <div id="contactFormWrap" data-reveal>
         <form id="presentForm" class="contact-form-grid">
-          <input type="text" class="field" placeholder="Ihr Name" data-i18n-ph="contactNamePh">
+          <input type="text" class="field" id="presentName" placeholder="Ihr Name" data-i18n-ph="contactNamePh">
           <input type="email" class="field" id="presentEmail" placeholder="E-Mail-Adresse *" required data-i18n-ph="contactEmailPh">
-          <input type="tel" class="field" placeholder="Telefonnummer" data-i18n-ph="contactPhonePh">
-          <input type="text" class="field" placeholder="Unternehmen" data-i18n-ph="contactCompanyPh">
+          <input type="tel" class="field" id="presentPhone" placeholder="Telefonnummer" data-i18n-ph="contactPhonePh">
+          <input type="text" class="field" id="presentCompany" placeholder="Unternehmen" data-i18n-ph="contactCompanyPh">
           <div class="full">
             <button type="submit" class="btn btn-primary btn-block" data-i18n="contactSubmit">Präsentation anfordern</button>
           </div>
@@ -648,6 +648,7 @@ footer{background:#080A1F;color:var(--ink-dim);padding-top:90px;border-top:1px s
   </div>
 </footer>
 
+<script src="/luxcar-leads.js" data-luxcar-variant="b"></script>
 <script>
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
@@ -693,23 +694,63 @@ revealEls.forEach(el => io.observe(el));
   form.querySelectorAll('[data-back]').forEach(btn => {
     btn.addEventListener('click', () => { if(step>0){ step--; show(step); } });
   });
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('quizEmail');
+    const nameEl = document.getElementById('quizName');
+    const phoneEl = document.getElementById('quizPhone');
     if(!email.value) { email.focus(); return; }
-    step++; show(step);
+    const submitBtn = form.querySelector('[type="submit"]');
+    const quizLabels = ['Investment', 'Programm', 'Marke', 'Start'];
+    const answers = panes.slice(0, 4).map((pane, i) => {
+      const sel = pane.querySelector('.q-opt.selected');
+      return sel ? quizLabels[i] + ': ' + sel.textContent.trim() : null;
+    }).filter(Boolean).join('; ');
+    if (submitBtn) submitBtn.disabled = true;
+    try {
+      await window.submitLuxcarLead({
+        name: nameEl ? nameEl.value : '',
+        email: email.value,
+        phone: phoneEl ? phoneEl.value : '',
+        message: answers,
+        formType: 'quiz',
+      });
+      step++; show(step);
+    } catch (err) {
+      console.error(err);
+      alert(currentLang === 'en' ? 'Submission failed. Please try again.' : 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.');
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 })();
 
 (function(){
   const form = document.getElementById('presentForm');
   const success = document.getElementById('presentSuccess');
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('presentEmail');
+    const nameEl = document.getElementById('presentName');
+    const phoneEl = document.getElementById('presentPhone');
+    const companyEl = document.getElementById('presentCompany');
     if(!email.value){ email.focus(); return; }
-    form.style.display = 'none';
-    success.style.display = 'block';
+    const submitBtn = form.querySelector('[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+    try {
+      await window.submitLuxcarLead({
+        name: nameEl ? nameEl.value : '',
+        email: email.value,
+        phone: phoneEl ? phoneEl.value : '',
+        message: companyEl && companyEl.value ? 'Unternehmen: ' + companyEl.value : '',
+        formType: 'presentation',
+      });
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } catch (err) {
+      console.error(err);
+      alert(currentLang === 'en' ? 'Submission failed. Please try again.' : 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.');
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 })();
 

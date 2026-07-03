@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1072 1072" role="img" aria-label="LUXCAR">
   <title>LUXCAR</title>
+  <rect width="1072" height="1072" rx="214" fill="#0B0E24"/>
   <defs>
-    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F2E4BC"/>
-      <stop offset="45%" stop-color="#D4B87A"/>
-      <stop offset="100%" stop-color="#9A7B3F"/>
+    <linearGradient id="car" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A5A5FA"/>
+      <stop offset="100%" stop-color="#3B3BE8"/>
     </linearGradient>
   </defs>
-  <g transform="translate(0,1072) scale(0.1,-0.1)" fill="url(#gold)" stroke="none">
+  <g transform="translate(0,1072) scale(0.1,-0.1)" fill="url(#car)" stroke="none">
     <path d="M5045 7618 c-796 -17 -1538 -132 -1935 -300 -303 -128 -465 -266
 -768 -656 l-173 -223 17 -27 c30 -46 356 -366 408 -400 55 -36 134 -67 192
 -77 33 -5 30 -2 -26 21 -78 32 -125 63 -113 75 18 18 568 98 978 143 557 61
