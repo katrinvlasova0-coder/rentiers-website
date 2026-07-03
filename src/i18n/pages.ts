@@ -345,11 +345,11 @@ export const pageContent = {
       sections: [
         {
           title: 'Rentiers Global Corp.',
-          content: 'Money Services Business (MSB)\nReguliert durch FinCEN, U.S. Department of the Treasury\nMSB Registration No.: [wird vom Kunden nachgereicht]',
+          content: 'Money Services Business (MSB)\nReguliert durch FinCEN, U.S. Department of the Treasury',
         },
         {
           title: 'Rentiers Global Inc.',
-          content: 'Money Services Business (MSB)\nReguliert durch FINTRAC und Bank of Canada\n(Registry of Payment Service Providers)\nMSB Registration No.: [wird vom Kunden nachgereicht]',
+          content: 'Money Services Business (MSB)\nReguliert durch FINTRAC und Bank of Canada\n(Registry of Payment Service Providers)',
         },
         {
           title: 'Warum reicht eine MSB-Lizenz für europäische Kunden?',
@@ -708,11 +708,11 @@ export const pageContent = {
       sections: [
         {
           title: 'Rentiers Global Corp.',
-          content: 'Money Services Business (MSB)\nRegulated by FinCEN, U.S. Department of the Treasury\nMSB Registration No.: [pending from client]',
+          content: 'Money Services Business (MSB)\nRegulated by FinCEN, U.S. Department of the Treasury',
         },
         {
           title: 'Rentiers Global Inc.',
-          content: 'Money Services Business (MSB)\nRegulated by FINTRAC and Bank of Canada\n(Registry of Payment Service Providers)\nMSB Registration No.: [pending from client]',
+          content: 'Money Services Business (MSB)\nRegulated by FINTRAC and Bank of Canada\n(Registry of Payment Service Providers)',
         },
         {
           title: 'Why is an MSB license sufficient for European customers?',

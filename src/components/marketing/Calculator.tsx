@@ -16,7 +16,12 @@ function formatNum(n: number, locale: string) {
   return new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
 }
 
-export default function Calculator() {
+type CalculatorProps = {
+  showHeader?: boolean;
+  compact?: boolean;
+};
+
+export default function Calculator({ showHeader = true, compact = false }: CalculatorProps) {
   const { t, lang } = useLanguage();
   const c = t.calculator;
   const locale = lang === 'de' ? 'de-DE' : 'en-US';
@@ -54,19 +59,25 @@ export default function Calculator() {
   ];
 
   return (
-    <section id="kalkulator" className="py-20" style={{ background: 'var(--color-bg-light)' }}>
+    <section
+      id="kalkulator"
+      className={compact ? 'pt-4 pb-16' : 'py-20'}
+      style={{ background: 'var(--color-bg-light)' }}
+    >
       <div className="max-w-[1200px] mx-auto px-6">
-        <div className="text-center mb-12 max-w-2xl mx-auto">
-          <h2
-            className="text-3xl md:text-4xl font-extrabold mb-4"
-            style={{ color: 'var(--color-dark)' }}
-          >
-            {c.heading}
-          </h2>
-          <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
-            {c.subheading}
-          </p>
-        </div>
+        {showHeader && (
+          <div className="text-center mb-12 max-w-2xl mx-auto">
+            <h2
+              className="text-3xl md:text-4xl font-extrabold mb-4"
+              style={{ color: 'var(--color-dark)' }}
+            >
+              {c.heading}
+            </h2>
+            <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+              {c.subheading}
+            </p>
+          </div>
+        )}
 
         <div className="max-w-3xl mx-auto">
           <div

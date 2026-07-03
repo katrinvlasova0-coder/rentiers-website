@@ -153,7 +153,7 @@ export default function HeroHome() {
                     height={14}
                     className="shrink-0 rounded-sm"
                   />
-                  <span className="text-white/80 text-xs truncate">rentiers.pro</span>
+                  <span className="text-white/80 text-xs truncate">rentiers.net</span>
                 </div>
                 {/* App content */}
                 <div className="bg-white mx-0 p-4 min-h-64">

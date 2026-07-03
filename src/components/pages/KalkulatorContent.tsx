@@ -11,7 +11,7 @@ export default function KalkulatorContent() {
   return (
     <>
       <section
-        className="pt-24 pb-8"
+        className="pt-24 pb-4"
         style={{ background: 'linear-gradient(135deg, #F2F2FA 0%, #EDEDFC 100%)' }}
       >
         <div className="max-w-[1200px] mx-auto px-6 text-center">
@@ -23,7 +23,7 @@ export default function KalkulatorContent() {
           </p>
         </div>
       </section>
-      <Calculator />
+      <Calculator showHeader={false} compact />
       <CtaBanner />
     </>
   );
