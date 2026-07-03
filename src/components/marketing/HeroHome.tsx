@@ -48,21 +48,6 @@ export default function HeroHome() {
           <div
             className={`relative transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            {/* R watermark behind headline — desktop only */}
-            <div
-              className="hidden md:block absolute -left-16 lg:-left-24 -top-10 pointer-events-none select-none opacity-[0.08] z-0"
-              aria-hidden="true"
-            >
-              <Image
-                src="/rentiers_icon.svg"
-                alt=""
-                width={420}
-                height={420}
-                className="object-contain"
-                priority
-              />
-            </div>
-
             <div className="relative z-10">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
@@ -129,9 +114,24 @@ export default function HeroHome() {
             className={`flex justify-center lg:justify-end transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             <div className="relative">
+              {/* R watermark behind mockups — desktop only */}
+              <div
+                className="hidden md:block absolute -right-8 lg:-right-20 top-1/2 -translate-y-1/2 pointer-events-none select-none opacity-[0.08] z-0"
+                aria-hidden="true"
+              >
+                <Image
+                  src="/rentiers_icon.svg"
+                  alt=""
+                  width={400}
+                  height={400}
+                  className="object-contain"
+                  priority
+                />
+              </div>
+
               {/* Phone mockup */}
               <div
-                className="w-64 rounded-3xl overflow-hidden shadow-2xl border border-white/80"
+                className="relative z-10 w-64 rounded-3xl overflow-hidden shadow-2xl border border-white/80"
                 style={{ background: 'var(--color-dark)' }}
               >
                 {/* Status bar */}
@@ -253,7 +253,7 @@ export default function HeroHome() {
 
               {/* Floating calculator card */}
               <div
-                className="absolute -left-20 top-24 w-52 rounded-2xl p-4 shadow-xl border border-white/80"
+                className="absolute -left-20 top-24 z-10 w-52 rounded-2xl p-4 shadow-xl border border-white/80"
                 style={{ background: 'white' }}
               >
                 <p className="text-xs font-medium mb-3" style={{ color: 'var(--color-dark)' }}>

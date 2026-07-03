@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="/luxcar-favicon.svg" type="image/svg+xml">
 <style>
 :root{
   --primary:#5555F0;
@@ -39,11 +40,12 @@ img{max-width:100%;display:block;}
 @media(min-width:1024px){.section{padding:150px 0;}}
 .section-2{background:var(--bg-2);}
 
+.top-shell{position:sticky;top:0;z-index:50;}
 .eco-bar{background:#080A1F;color:rgba(233,234,245,.55);font-size:11.5px;text-align:center;padding:9px 16px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--panel-border);display:flex;align-items:center;justify-content:center;gap:8px;}
 .eco-bar a{color:var(--gold);font-weight:600;}
 .eco-mark{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:5px;background:linear-gradient(135deg,var(--primary),var(--gold));color:#0E1130;font-size:9.5px;font-weight:800;letter-spacing:0;}
 
-header{position:fixed;top:33px;left:0;right:0;z-index:50;transition:all .4s ease;border-bottom:1px solid transparent;}
+header{position:relative;top:0;left:0;right:0;z-index:50;transition:all .4s ease;border-bottom:1px solid transparent;}
 header.scrolled{background:rgba(14,17,48,.92);backdrop-filter:blur(18px);border-bottom-color:var(--panel-border);box-shadow:0 12px 40px -16px rgba(0,0,0,.5);}
 .nav-wrap{max-width:1200px;margin:0 auto;padding:0 24px;height:84px;display:flex;align-items:center;justify-content:space-between;}
 .logo{font-weight:700;font-size:20px;letter-spacing:.28em;color:var(--ink);}
@@ -64,13 +66,13 @@ header.scrolled{background:rgba(14,17,48,.92);backdrop-filter:blur(18px);border-
 .btn-sm{padding:11px 20px;font-size:11px;}
 .btn-block{width:100%;}
 .menu-toggle{display:flex;color:var(--ink);}
+.mobile-lang{display:flex;align-items:center;gap:10px;}
 @media(min-width:900px){
   .nav-links{display:flex;}
   .nav-cta-wrap{display:flex;}
   .menu-toggle{display:none;}
   .mobile-lang{display:none;}
 }
-.mobile-lang{display:flex;}
 .mobile-menu{display:none;background:var(--bg-2);border-top:1px solid var(--panel-border);padding:18px 24px 30px;}
 .mobile-menu.open{display:block;}
 .mobile-menu a{display:block;padding:13px 0;font-size:14px;color:var(--ink-dim);border-bottom:1px solid var(--panel-border);}
@@ -153,7 +155,7 @@ header.scrolled{background:rgba(14,17,48,.92);backdrop-filter:blur(18px);border-
 .s-icon{color:rgba(198,167,104,.65);margin-bottom:24px;transition:color .4s;}
 .s-icon .icon{width:26px;height:26px;}
 .s-card:hover .s-icon{color:var(--gold);}
-.s-stat{font-size:28px;font-weight:700;color:var(--gold);line-height:1;}
+.s-stat{font-size:clamp(38px,4.5vw,52px);font-weight:800;color:var(--gold);line-height:1;letter-spacing:-.03em;text-shadow:0 4px 28px rgba(198,167,104,.35);}
 .s-stat-label{font-size:10.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.14em;margin:8px 0 22px;}
 .s-card h3{font-size:16.5px;font-weight:500;color:var(--ink);margin-bottom:10px;}
 .s-card p{font-size:13.5px;color:var(--ink-dim);line-height:1.65;font-weight:300;}
@@ -261,6 +263,7 @@ footer{background:#080A1F;color:var(--ink-dim);padding-top:90px;border-top:1px s
   <symbol id="i-x" viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></symbol>
 </svg>
 
+<div class="top-shell">
 <div class="eco-bar">
   <span class="eco-mark">R</span> <span data-i18n="ecoText">Teil des</span>&nbsp;<a href="https://rentiers.net/" target="_blank" rel="noopener">Rentiers Ökosystems</a>
 </div>
@@ -293,6 +296,7 @@ footer{background:#080A1F;color:var(--ink-dim);padding-top:90px;border-top:1px s
     <a href="#beratung" class="btn btn-primary btn-block" style="margin-top:16px" data-i18n="navCta">Beratung anfordern</a>
   </div>
 </header>
+</div>
 
 <section class="hero">
   <div class="hero-bg">
