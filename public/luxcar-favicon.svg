@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1072 1072" role="img" aria-label="LUXCAR">
   <title>LUXCAR</title>
-  <rect width="1072" height="1072" rx="214" fill="#0B0E24"/>
   <defs>
     <linearGradient id="car" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#A5A5FA"/>
