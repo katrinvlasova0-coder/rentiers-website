@@ -59,11 +59,21 @@ export default function HowItWorksContent() {
                 </div>
 
                 <div className={idx % 2 === 1 ? 'lg:order-1' : ''}>
-                  <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[16/10]">
+                  <div
+                    className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[16/10] ring-1 ring-black/10"
+                    style={{ background: '#0B1A33' }}
+                  >
                     {(() => {
                       const Illustration = stepIllustrations[idx];
                       return <Illustration className="w-full h-full" />;
                     })()}
+                    <div
+                      className="pointer-events-none absolute inset-0 rounded-3xl"
+                      style={{
+                        boxShadow: 'inset 0 -40px 48px -16px rgba(0,0,0,0.4)',
+                      }}
+                      aria-hidden
+                    />
                     <div
                       className="absolute top-4 left-4 w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-extrabold shadow-lg"
                       style={{ background: step.color }}

@@ -25,12 +25,22 @@ export default function HowItWorks() {
         <div className="grid md:grid-cols-3 gap-8">
           {hw.steps.map((step, i) => (
             <div key={step.num} className="flex flex-col rounded-2xl overflow-hidden border shadow-sm" style={{ borderColor: 'var(--color-border)', background: 'white' }}>
-              {/* Step illustration */}
-              <div className="relative w-full h-44 overflow-hidden">
+              {/* Platform screenshot */}
+              <div
+                className="relative w-full h-56 overflow-hidden"
+                style={{ background: '#0B1A33' }}
+              >
                 {(() => {
                   const Illustration = stepIllustrations[i];
                   return <Illustration className="w-full h-full" />;
                 })()}
+                <div
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    boxShadow: 'inset 0 -24px 32px -12px rgba(0,0,0,0.35)',
+                  }}
+                  aria-hidden
+                />
                 {/* Step number badge */}
                 <div
                   className="absolute top-3 left-3 w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-extrabold shadow-lg"
