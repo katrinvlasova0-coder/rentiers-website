@@ -38,9 +38,9 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2 shrink-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={assetPath('/rentiers_logo.png')}
+            src={assetPath('/rentiers_logo.svg')}
             alt="Rentiers"
-            className="h-8 w-auto object-contain"
+            className="h-8 w-auto object-contain object-left"
           />
         </Link>
 

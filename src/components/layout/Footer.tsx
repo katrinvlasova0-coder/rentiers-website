@@ -24,9 +24,9 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={assetPath('/rentiers_logo.png')}
+                src={assetPath('/rentiers_logo.svg')}
                 alt="Rentiers"
-                className="h-7 w-auto object-contain"
+                className="h-7 w-auto object-contain object-left"
               />
             </div>
             <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--color-text-secondary)' }}>
