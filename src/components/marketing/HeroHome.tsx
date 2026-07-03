@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Lock, Wifi, Battery, Home, BarChart2, Zap, Building2, Menu } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -45,63 +46,80 @@ export default function HeroHome() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left — Copy */}
           <div
-            className={`transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`relative transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
-                 style={{ background: 'rgba(59,59,232,0.1)', color: 'var(--color-primary)' }}>
-              <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--color-primary)' }} />
-              {t.hero.badge}
-            </div>
-
-            {/* H1 */}
-            <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4"
-              style={{ color: 'var(--color-dark)' }}
+            {/* R watermark behind headline — desktop only */}
+            <div
+              className="hidden md:block absolute -left-16 lg:-left-24 -top-10 pointer-events-none select-none opacity-[0.08] z-0"
+              aria-hidden="true"
             >
-              {t.hero.h1Line1}
-              <br />
-              <span style={{ color: 'var(--color-primary)' }}>{t.hero.h1Line2}</span>
-            </h1>
-
-            <p className="text-lg mb-8 max-w-lg" style={{ color: 'var(--color-text-secondary)' }}>
-              {t.hero.subtitle}
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
-              <LeadButton
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
-                style={{ background: 'var(--color-primary)' }}
-              >
-                {t.hero.ctaPrimary}
-                <span>→</span>
-              </LeadButton>
-              <Link
-                href="#kalkulator"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold border-2 hover:bg-white/50 transition-all"
-                style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
-              >
-                {t.hero.ctaSecondary}
-              </Link>
+              <Image
+                src="/rentiers_icon.svg"
+                alt=""
+                width={420}
+                height={420}
+                className="object-contain"
+                priority
+              />
             </div>
 
-            {/* Trust line */}
-            <div className="space-y-2">
-              <div className="flex items-center gap-1.5 text-xs" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
-                <Lock className="w-3 h-3 shrink-0" />
-                <span>{t.hero.trustLine}</span>
+            <div className="relative z-10">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
+                   style={{ background: 'rgba(59,59,232,0.1)', color: 'var(--color-primary)' }}>
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--color-primary)' }} />
+                {t.hero.badge}
               </div>
-              <div className="flex flex-wrap gap-2">
-                {['FinCEN', 'FINTRAC', 'CRS-compliant', 'AES-256', 'GDPR'].map((badge) => (
-                  <span
-                    key={badge}
-                    className="px-2 py-0.5 rounded text-[10px] font-semibold"
-                    style={{ background: 'rgba(59,59,232,0.08)', color: 'var(--color-primary)' }}
-                  >
-                    {badge}
-                  </span>
-                ))}
+
+              {/* H1 */}
+              <h1
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4"
+                style={{ color: 'var(--color-dark)' }}
+              >
+                {t.hero.h1Line1}
+                <br />
+                <span style={{ color: 'var(--color-primary)' }}>{t.hero.h1Line2}</span>
+              </h1>
+
+              <p className="text-lg mb-8 max-w-lg" style={{ color: 'var(--color-text-secondary)' }}>
+                {t.hero.subtitle}
+              </p>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-3 mb-8">
+                <LeadButton
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+                  style={{ background: 'var(--color-primary)' }}
+                >
+                  {t.hero.ctaPrimary}
+                  <span>→</span>
+                </LeadButton>
+                <Link
+                  href="#kalkulator"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold border-2 hover:bg-white/50 transition-all"
+                  style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+                >
+                  {t.hero.ctaSecondary}
+                </Link>
+              </div>
+
+              {/* Trust line */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-1.5 text-xs" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
+                  <Lock className="w-3 h-3 shrink-0" />
+                  <span>{t.hero.trustLine}</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {['FinCEN', 'FINTRAC', 'CRS-compliant', 'AES-256', 'GDPR'].map((badge) => (
+                    <span
+                      key={badge}
+                      className="px-2 py-0.5 rounded text-[10px] font-semibold"
+                      style={{ background: 'rgba(59,59,232,0.08)', color: 'var(--color-primary)' }}
+                    >
+                      {badge}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -127,15 +145,32 @@ export default function HeroHome() {
                 {/* Browser bar */}
                 <div className="mx-4 mb-3 px-3 py-1.5 rounded-lg flex items-center gap-2"
                      style={{ background: 'rgba(255,255,255,0.1)' }}>
-                  <Lock className="w-3 h-3 text-white/60" />
-                  <span className="text-white/80 text-xs">Rentierspro.com/</span>
+                  <Lock className="w-3 h-3 text-white/60 shrink-0" />
+                  <Image
+                    src="/favicon.svg"
+                    alt=""
+                    width={14}
+                    height={14}
+                    className="shrink-0 rounded-sm"
+                  />
+                  <span className="text-white/80 text-xs truncate">rentiers.pro</span>
                 </div>
                 {/* App content */}
                 <div className="bg-white mx-0 p-4 min-h-64">
                   {/* Welcome */}
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold"
-                         style={{ background: 'var(--color-primary)' }}>A</div>
+                    <div
+                      className="w-9 h-9 rounded-full flex items-center justify-center overflow-hidden shrink-0"
+                      style={{ background: 'var(--color-bg-light)' }}
+                    >
+                      <Image
+                        src="/rentiers_icon.svg"
+                        alt="Rentiers"
+                        width={28}
+                        height={28}
+                        className="object-contain"
+                      />
+                    </div>
                     <div>
                       <p className="text-xs font-semibold" style={{ color: 'var(--color-dark)' }}>Willkommen zurück!</p>
                       <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>Ariel Kharan</p>
@@ -149,8 +184,17 @@ export default function HeroHome() {
                     <p className="text-2xl font-bold mb-2" style={{ color: 'var(--color-dark)' }}>€ 24.680,00</p>
                     <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>IBAN</p>
                     <p className="text-xs font-mono" style={{ color: 'var(--color-dark)' }}>DE89 3704 0044 0532</p>
-                    <div className="mt-2 px-2 py-1 rounded text-xs font-medium inline-block"
-                         style={{ background: 'var(--color-primary)', color: 'white' }}>
+                    <div
+                      className="mt-2 px-2 py-1 rounded text-xs font-medium inline-flex items-center gap-1.5"
+                      style={{ background: 'var(--color-primary)', color: 'white' }}
+                    >
+                      <Image
+                        src="/favicon.svg"
+                        alt=""
+                        width={12}
+                        height={12}
+                        className="rounded-sm shrink-0"
+                      />
                       Rentiers Kart
                     </div>
                   </div>
