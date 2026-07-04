@@ -29,7 +29,7 @@ export default function HeroHome() {
 
   return (
     <section
-      className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24"
+      className="relative overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16 md:pt-28 md:pb-24"
       style={{ background: 'linear-gradient(135deg, #F2F2FA 0%, #EDEDFC 50%, #F7F7FF 100%)' }}
     >
       {/* Decorative blobs */}
@@ -42,8 +42,8 @@ export default function HeroHome() {
         style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }}
       />
 
-      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left — Copy */}
           <div
             className={`relative transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
@@ -86,9 +86,9 @@ export default function HeroHome() {
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-3 mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 mb-8 w-full">
                 <LeadButton
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-center shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
                   style={{ background: 'var(--color-primary)' }}
                 >
                   {t.hero.ctaPrimary}
@@ -96,7 +96,7 @@ export default function HeroHome() {
                 </LeadButton>
                 <Link
                   href="#kalkulator"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold border-2 hover:bg-white/50 transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-center border-2 hover:bg-white/50 transition-all"
                   style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
                 >
                   {t.hero.ctaSecondary}
@@ -126,12 +126,12 @@ export default function HeroHome() {
 
           {/* Right — App mockup */}
           <div
-            className={`flex justify-center lg:justify-end transition-all duration-700 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`flex justify-center lg:justify-end transition-all duration-700 delay-200 overflow-hidden ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            <div className="relative">
+            <div className="relative max-w-full">
               {/* Phone mockup */}
               <div
-                className="relative z-10 w-64 rounded-3xl overflow-hidden shadow-2xl border border-white/80"
+                className="relative z-10 w-56 sm:w-64 mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/80"
                 style={{ background: 'var(--color-dark)' }}
               >
                 {/* Status bar */}
@@ -251,9 +251,9 @@ export default function HeroHome() {
                 </div>
               </div>
 
-              {/* Floating calculator card */}
+              {/* Floating calculator card — desktop only */}
               <div
-                className="absolute -left-20 top-24 z-10 w-52 rounded-2xl p-4 shadow-xl border border-white/80"
+                className="hidden lg:block absolute -left-20 top-24 z-10 w-52 rounded-2xl p-4 shadow-xl border border-white/80"
                 style={{ background: 'white' }}
               >
                 <p className="text-xs font-medium mb-3" style={{ color: 'var(--color-dark)' }}>
@@ -294,7 +294,7 @@ export default function HeroHome() {
 
         {/* Stats bar */}
         <div
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 p-6 rounded-2xl border border-white/80 shadow-sm"
+          className="mt-10 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 p-4 md:p-6 rounded-2xl border border-white/80 shadow-sm"
           style={{ background: 'rgba(255,255,255,0.8)' }}
         >
           {stats.map((stat) => (

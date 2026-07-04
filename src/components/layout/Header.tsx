@@ -135,7 +135,7 @@ export default function Header() {
             </Link>
           ))}
           <LeadButton
-            className="mt-2 w-full text-center text-sm font-semibold px-5 py-3 rounded-xl text-white"
+            className="mt-2 w-full inline-flex items-center justify-center text-center text-sm font-semibold px-5 py-3 rounded-xl text-white"
             style={{ background: 'var(--color-primary)' }}
             onClick={() => setMenuOpen(false)}
           >

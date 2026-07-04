@@ -16,8 +16,8 @@ export default function ProblemSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section className="py-14 md:py-20 bg-white">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 max-w-2xl mx-auto">
           <h2
             className="text-3xl md:text-4xl font-extrabold mb-4"
