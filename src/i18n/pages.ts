@@ -66,6 +66,19 @@ export const pageContent = {
       searchButton: 'Suchen',
       home: 'Startseite',
       blog: 'Blog',
+      consultPopup: {
+        title: 'Interessieren Sie sich für Investitionen?',
+        subtitle:
+          'Schreiben Sie uns — wir beraten Sie, welche Rendite Sie aus Ihren Vermögenswerten erzielen können: Immobilien, Fahrzeuge, Einlagen und mehr.',
+        emailPlaceholder: 'Ihre E-Mail',
+        submit: 'Senden',
+        sending: '…',
+        thanks: 'Danke! Wir melden uns in Kürze bei Ihnen.',
+        close: 'Schließen',
+        errEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+        errSubmit: 'Senden fehlgeschlagen. Bitte erneut versuchen.',
+        leadMessage: 'Blog-Beratungsanfrage (E-Mail-Popup)',
+      },
     },
     leadForm: {
       title: 'Kontakt aufnehmen',
@@ -482,6 +495,19 @@ export const pageContent = {
       searchButton: 'Search',
       home: 'Home',
       blog: 'Blog',
+      consultPopup: {
+        title: 'Interested in investments?',
+        subtitle:
+          'Get in touch — we will advise you on how to get more from your assets: property, vehicles, deposits, and more.',
+        emailPlaceholder: 'Your email',
+        submit: 'Send',
+        sending: '…',
+        thanks: 'Thank you! We will be in touch shortly.',
+        close: 'Close',
+        errEmail: 'Please enter a valid email address.',
+        errSubmit: 'Something went wrong. Please try again.',
+        leadMessage: 'Blog consultation request (email popup)',
+      },
     },
     leadForm: {
       title: 'Get in touch',

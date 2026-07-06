@@ -14,6 +14,7 @@ import { getAuthorBio } from '@/lib/author-bios';
 import { markdownToHtml } from '@/lib/markdown';
 import { slugify } from '@/lib/slugify';
 import { ymGoal } from '@/lib/metrika';
+import BlogConsultPopup from '@/components/blog/BlogConsultPopup';
 
 interface LocalizedPost {
   meta: BlogPostMeta;
@@ -55,6 +56,7 @@ export default function BlogPostContent({
 
   return (
     <article className="pt-24 pb-20">
+      <BlogConsultPopup slug={meta.slug} />
       {meta.coverImage && (
         <div className="relative h-72 md:h-[28rem] mb-0">
           <Image src={meta.coverImage} alt={meta.title} fill className="object-cover" priority />
