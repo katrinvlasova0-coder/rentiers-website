@@ -93,7 +93,7 @@ export async function generateArticle(
   console.log(`🤖 Generating article: ${req.slug}...`);
 
   const message = await client.messages.create({
-    model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-20250514',
+    model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-5',
     max_tokens: 16000,
     system: SYSTEM_PROMPT,
     messages: [{ role: 'user', content: userPrompt }],
