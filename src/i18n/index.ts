@@ -198,6 +198,7 @@ const de = {
     privacy: 'Datenschutzrichtlinie',
     terms: 'Geschäftsbedingungen',
     impressum: 'Impressum',
+    askUs: 'Anfrage stellen',
     phone: '',
     nav: [
       { label: 'Partner-Banken', href: '/partner-banken' },
@@ -408,6 +409,7 @@ const en = {
     privacy: 'Privacy Policy',
     terms: 'Terms & Conditions',
     impressum: 'Legal Notice',
+    askUs: 'Ask us',
     phone: '',
     nav: [
       { label: 'Partner Banks', href: '/partner-banken' },

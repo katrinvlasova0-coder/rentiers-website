@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { CONTACT_EMAIL, OG_IMAGE, SITE_NAME, SITE_URL, SOCIAL_LINKS } from '@/constants/site';
+import { OG_IMAGE, SITE_NAME, SITE_URL, SOCIAL_LINKS } from '@/constants/site';
 
 interface MetadataArgs {
   title: string;
@@ -76,8 +76,8 @@ export function organizationSchema() {
       'Digitale Plattform für Einlagenarbitrage — Technologieplattform, kein Kreditinstitut. MSB-lizenziert bei FinCEN und FINTRAC.',
     contactPoint: {
       '@type': 'ContactPoint',
-      email: CONTACT_EMAIL,
       contactType: 'customer service',
+      url: `${SITE_URL}/kontakt`,
       availableLanguage: ['German', 'English'],
     },
     sameAs: Object.values(SOCIAL_LINKS),

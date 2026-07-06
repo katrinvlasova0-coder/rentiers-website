@@ -47,9 +47,18 @@ export default function AboutContent() {
                   <p className="text-xs font-medium mb-1" style={{ color: 'var(--color-text-secondary)' }}>
                     {row.label}
                   </p>
-                  <p className="text-sm font-semibold" style={{ color: 'var(--color-dark)' }}>
-                    {row.value}
-                  </p>
+                  {'contact' in row && row.contact ? (
+                    <LeadButton
+                      className="text-sm font-semibold hover:underline"
+                      style={{ color: 'var(--color-primary)' }}
+                    >
+                      {p.leadForm.askUs}
+                    </LeadButton>
+                  ) : (
+                    <p className="text-sm font-semibold" style={{ color: 'var(--color-dark)' }}>
+                      {row.value}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>

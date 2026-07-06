@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { assetPath } from '@/lib/basePath';
 import { SOCIAL_LINKS } from '@/constants/site';
+import LeadButton from '@/components/ui/LeadButton';
 
 const socialLinks = [
   {
@@ -91,8 +92,15 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
               <li>Rentiers Global Corp. (USA)</li>
               <li>Rentiers Global Inc. (Canada)</li>
-              <li>info@rentierspro.com</li>
               {t.footer.phone && <li>{t.footer.phone}</li>}
+              <li>
+                <LeadButton
+                  className="text-sm font-semibold hover:underline"
+                  style={{ color: 'var(--color-primary)' }}
+                >
+                  {t.footer.askUs}
+                </LeadButton>
+              </li>
             </ul>
           </div>
 

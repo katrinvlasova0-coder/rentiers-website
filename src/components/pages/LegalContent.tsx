@@ -1,6 +1,7 @@
 'use client';
 
 import { useLanguage } from '@/contexts/LanguageContext';
+import LeadButton from '@/components/ui/LeadButton';
 
 type LegalKey = 'privacy' | 'terms' | 'impressum';
 
@@ -28,7 +29,16 @@ export default function LegalContent({ page }: { page: LegalKey }) {
               <h2 className="text-base font-bold mb-2" style={{ color: 'var(--color-dark)' }}>
                 {section.title}
               </h2>
-              <p className="whitespace-pre-line">{section.content}</p>
+              {'contact' in section && section.contact ? (
+                <LeadButton
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white text-sm"
+                  style={{ background: 'var(--color-primary)' }}
+                >
+                  {p.leadForm.askUs}
+                </LeadButton>
+              ) : (
+                <p className="whitespace-pre-line">{section.content}</p>
+              )}
             </div>
           ))}
         </div>
