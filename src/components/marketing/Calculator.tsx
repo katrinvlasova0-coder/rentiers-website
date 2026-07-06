@@ -1,13 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LeadButton from '@/components/ui/LeadButton';
+import { useScrollGoal } from '@/hooks/useScrollGoal';
+import { ymGoal } from '@/lib/metrika';
 
 const RATES: Record<string, number> = {
   conservative: 0.12,
   balanced: 0.16,
   highyield: 0.20,
+};
+
+const YIELD_GOALS: Record<string, string> = {
+  conservative: '12',
+  balanced: '16',
+  highyield: '20',
 };
 
 type PaymentFreq = 'monthly' | 'quarterly' | 'annual';
@@ -25,6 +33,9 @@ export default function Calculator({ showHeader = true, compact = false }: Calcu
   const { t, lang } = useLanguage();
   const c = t.calculator;
   const locale = lang === 'de' ? 'de-DE' : 'en-US';
+  const sectionRef = useScrollGoal('scroll_to_calculator');
+  const amountTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const termTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [amount, setAmount] = useState(50000);
   const [months, setMonths] = useState(60);
@@ -58,8 +69,23 @@ export default function Calculator({ showHeader = true, compact = false }: Calcu
     { value: 'annual', label: c.freqAnnual },
   ];
 
+  const trackAmount = (value: number) => {
+    if (amountTimer.current) clearTimeout(amountTimer.current);
+    amountTimer.current = setTimeout(() => {
+      ymGoal('calculator_amount_changed', { amount: value });
+    }, 500);
+  };
+
+  const trackTerm = (value: number) => {
+    if (termTimer.current) clearTimeout(termTimer.current);
+    termTimer.current = setTimeout(() => {
+      ymGoal('calculator_term_changed', { term: value });
+    }, 500);
+  };
+
   return (
     <section
+      ref={sectionRef}
       id="kalkulator"
       className={compact ? 'pt-4 pb-16' : 'py-20'}
       style={{ background: 'var(--color-bg-light)' }}
@@ -100,7 +126,10 @@ export default function Calculator({ showHeader = true, compact = false }: Calcu
                     {(Object.keys(RATES) as Array<keyof typeof RATES>).map((key) => (
                       <button
                         key={key}
-                        onClick={() => setPortfolio(key as 'conservative' | 'balanced' | 'highyield')}
+                        onClick={() => {
+                          setPortfolio(key as 'conservative' | 'balanced' | 'highyield');
+                          ymGoal('calculator_yield_selected', { yield: YIELD_GOALS[key] });
+                        }}
                         className="py-2 px-2 rounded-xl text-xs font-semibold border-2 transition-all"
                         style={{
                           borderColor: portfolio === key ? 'var(--color-primary)' : 'var(--color-border)',
@@ -126,7 +155,10 @@ export default function Calculator({ showHeader = true, compact = false }: Calcu
                     {freqOptions.map((opt) => (
                       <button
                         key={opt.value}
-                        onClick={() => setPaymentFreq(opt.value)}
+                        onClick={() => {
+                          setPaymentFreq(opt.value);
+                          ymGoal('calculator_payout_changed', { period: opt.value });
+                        }}
                         className="py-2 px-2 rounded-xl text-xs font-semibold border-2 transition-all"
                         style={{
                           borderColor: paymentFreq === opt.value ? 'var(--color-primary)' : 'var(--color-border)',
@@ -154,7 +186,11 @@ export default function Calculator({ showHeader = true, compact = false }: Calcu
                     max={500000}
                     step={1000}
                     value={amount}
-                    onChange={(e) => setAmount(Number(e.target.value))}
+                    onChange={(e) => {
+                      const value = Number(e.target.value);
+                      setAmount(value);
+                      trackAmount(value);
+                    }}
                     className="w-full h-2 rounded-full appearance-none cursor-pointer"
                     style={{
                       background: `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${((amount - 5000) / (500000 - 5000)) * 100}%, var(--color-bg-light) ${((amount - 5000) / (500000 - 5000)) * 100}%, var(--color-bg-light) 100%)`,
@@ -181,7 +217,11 @@ export default function Calculator({ showHeader = true, compact = false }: Calcu
                     max={120}
                     step={6}
                     value={months}
-                    onChange={(e) => setMonths(Number(e.target.value))}
+                    onChange={(e) => {
+                      const value = Number(e.target.value);
+                      setMonths(value);
+                      trackTerm(value);
+                    }}
                     className="w-full h-2 rounded-full appearance-none cursor-pointer"
                     style={{
                       background: `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${((months - 12) / (120 - 12)) * 100}%, var(--color-bg-light) ${((months - 12) / (120 - 12)) * 100}%, var(--color-bg-light) 100%)`,
@@ -249,6 +289,13 @@ export default function Calculator({ showHeader = true, compact = false }: Calcu
                 <LeadButton
                   className="block w-full text-center py-3.5 rounded-xl font-semibold text-white mt-2 hover:opacity-90 transition-opacity"
                   style={{ background: 'var(--color-dark)' }}
+                  metrikaGoal="calculator_cta_click"
+                  metrikaParams={{
+                    amount,
+                    term: months,
+                    yield: YIELD_GOALS[portfolio],
+                  }}
+                  formSource="register"
                 >
                   {c.cta} →
                 </LeadButton>

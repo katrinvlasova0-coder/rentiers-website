@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { LeadFormProvider } from "@/contexts/LeadFormContext";
 import { assetPath } from "@/lib/basePath";
 import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/constants/site";
+import YandexMetrika from "@/components/analytics/YandexMetrika";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -57,6 +58,7 @@ export default function RootLayout({
   return (
     <html lang="de" className="h-full">
       <body className="min-h-full flex flex-col antialiased">
+        <YandexMetrika />
         <LanguageProvider>
           <LeadFormProvider>
             <HtmlLang />

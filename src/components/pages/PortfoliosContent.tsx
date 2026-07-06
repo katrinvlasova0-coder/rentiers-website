@@ -59,6 +59,9 @@ export default function PortfoliosContent() {
                 <LeadButton
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
                   style={{ background: portfolio.gradient }}
+                  metrikaGoal="portfolio_select"
+                  metrikaParams={{ portfolio: portfolio.slug }}
+                  formSource="register"
                 >
                   {portfolio.name} {c.chooseButton}
                 </LeadButton>

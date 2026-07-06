@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Lock, Wifi, Battery, Home, BarChart2, Zap, Building2, Menu } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LeadButton from '@/components/ui/LeadButton';
+import { ymGoal } from '@/lib/metrika';
 
 export default function HeroHome() {
   const [mounted, setMounted] = useState(false);
@@ -77,12 +78,15 @@ export default function HeroHome() {
                 <LeadButton
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-center shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
                   style={{ background: 'var(--color-primary)' }}
+                  metrikaGoal="cta_register_hero"
+                  formSource="register"
                 >
                   {t.hero.ctaPrimary}
                   <span>→</span>
                 </LeadButton>
                 <Link
                   href="#kalkulator"
+                  onClick={() => ymGoal('cta_calculator_hero')}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-center border-2 hover:bg-white/50 transition-all"
                   style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
                 >

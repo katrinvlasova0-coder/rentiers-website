@@ -1,13 +1,17 @@
 'use client';
 
-import { useEffect, useState, FormEvent } from 'react';
+import { useEffect, useRef, useState, FormEvent } from 'react';
 import { X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import type { LeadFormSource } from '@/contexts/LeadFormContext';
 import { submitLead } from '@/lib/submitLead';
+import { ymGoal } from '@/lib/metrika';
+import { useFormAbandonTracking } from '@/hooks/useFormAbandonTracking';
 
 interface Props {
   open: boolean;
   onClose: () => void;
+  formSource: LeadFormSource;
 }
 
 interface FormData {
@@ -27,13 +31,33 @@ interface FormErrors {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[+]?[\d\s()-]{6,20}$/;
 
-export default function LeadFormModal({ open, onClose }: Props) {
+const SUCCESS_GOALS: Record<LeadFormSource, string> = {
+  contact: 'form_contact_submitted',
+  register: 'form_register_success',
+  b2b: 'form_b2b_submitted',
+  login: 'form_login_success',
+};
+
+export default function LeadFormModal({ open, onClose, formSource }: Props) {
   const { p } = useLanguage();
   const lf = p.leadForm;
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+  const startedTracked = useRef(false);
   const [form, setForm] = useState<FormData>({ name: '', email: '', phone: '', message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
+
+  const filledFields = (['name', 'email', 'phone', 'message'] as const).filter((key) =>
+    form[key].trim(),
+  );
+
+  useFormAbandonTracking({
+    formName: formSource,
+    hasStarted,
+    isSubmitted: submitted,
+    filledFields: [...filledFields],
+  });
 
   useEffect(() => {
     if (!open) return;
@@ -53,10 +77,26 @@ export default function LeadFormModal({ open, onClose }: Props) {
       setSubmitted(false);
       setErrors({});
       setSubmitting(false);
+      setHasStarted(false);
+      startedTracked.current = false;
+      setForm({ name: '', email: '', phone: '', message: '' });
     }
   }, [open]);
 
   if (!open) return null;
+
+  const trackStarted = () => {
+    if (startedTracked.current) return;
+    startedTracked.current = true;
+    setHasStarted(true);
+    ymGoal(`form_${formSource}_started`);
+  };
+
+  const trackFieldAbandon = (field: string, value: string) => {
+    if (!value.trim()) {
+      ymGoal('form_field_abandoned', { form: formSource, field });
+    }
+  };
 
   const validate = (data: FormData): FormErrors => {
     const next: FormErrors = {};
@@ -82,9 +122,12 @@ export default function LeadFormModal({ open, onClose }: Props) {
         message: form.message,
       });
 
+      ymGoal(SUCCESS_GOALS[formSource]);
       setSubmitted(true);
       setForm({ name: '', email: '', phone: '', message: '' });
-    } catch {
+    } catch (err) {
+      const message = err instanceof Error ? err.message : lf.errSubmit;
+      ymGoal(`form_${formSource}_error`, { error: message });
       setErrors({ message: lf.errSubmit });
     } finally {
       setSubmitting(false);
@@ -163,6 +206,8 @@ export default function LeadFormModal({ open, onClose }: Props) {
                   autoComplete="name"
                   className={fieldClass(!!errors.name)}
                   value={form.name}
+                  onFocus={trackStarted}
+                  onBlur={(e) => trackFieldAbandon('name', e.target.value)}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                 />
                 {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
@@ -178,6 +223,8 @@ export default function LeadFormModal({ open, onClose }: Props) {
                   autoComplete="email"
                   className={fieldClass(!!errors.email)}
                   value={form.email}
+                  onFocus={trackStarted}
+                  onBlur={(e) => trackFieldAbandon('email', e.target.value)}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                 />
                 {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
@@ -193,6 +240,8 @@ export default function LeadFormModal({ open, onClose }: Props) {
                   autoComplete="tel"
                   className={fieldClass(!!errors.phone)}
                   value={form.phone}
+                  onFocus={trackStarted}
+                  onBlur={(e) => trackFieldAbandon('phone', e.target.value)}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 />
                 {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
@@ -207,6 +256,8 @@ export default function LeadFormModal({ open, onClose }: Props) {
                   rows={4}
                   className={`${fieldClass(!!errors.message)} resize-none`}
                   value={form.message}
+                  onFocus={trackStarted}
+                  onBlur={(e) => trackFieldAbandon('message', e.target.value)}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                 />
                 {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message}</p>}

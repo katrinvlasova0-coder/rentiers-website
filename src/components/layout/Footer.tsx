@@ -5,6 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { assetPath } from '@/lib/basePath';
 import { SOCIAL_LINKS } from '@/constants/site';
 import LeadButton from '@/components/ui/LeadButton';
+import { ymGoal } from '@/lib/metrika';
 
 const socialLinks = [
   {
@@ -97,6 +98,7 @@ export default function Footer() {
                 <LeadButton
                   className="text-sm font-semibold hover:underline"
                   style={{ color: 'var(--color-primary)' }}
+                  formSource="contact"
                 >
                   {t.footer.askUs}
                 </LeadButton>
@@ -143,11 +145,11 @@ export default function Footer() {
              style={{ color: 'var(--color-text-secondary)' }}>
           <span>{t.footer.copyright}</span>
           <div className="flex gap-4">
-            <Link href="/datenschutz" className="hover:opacity-70">{t.footer.privacy}</Link>
+            <Link href="/datenschutz" className="hover:opacity-70" onClick={() => ymGoal('footer_datenschutz_click')}>{t.footer.privacy}</Link>
             <span>•</span>
-            <Link href="/agb" className="hover:opacity-70">{t.footer.terms}</Link>
+            <Link href="/agb" className="hover:opacity-70" onClick={() => ymGoal('footer_terms_click')}>{t.footer.terms}</Link>
             <span>•</span>
-            <Link href="/impressum" className="hover:opacity-70">{t.footer.impressum}</Link>
+            <Link href="/impressum" className="hover:opacity-70" onClick={() => ymGoal('footer_impressum_click')}>{t.footer.impressum}</Link>
           </div>
         </div>
       </div>

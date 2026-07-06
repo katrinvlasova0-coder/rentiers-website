@@ -55,6 +55,8 @@ export default function B2BSection() {
           <LeadButton
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
             style={{ background: 'var(--color-primary)' }}
+            metrikaGoal="cta_b2b"
+            formSource="b2b"
           >
             {b.cta}
             <span>→</span>

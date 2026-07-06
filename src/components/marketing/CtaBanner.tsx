@@ -47,6 +47,8 @@ export default function CtaBanner() {
             <LeadButton
               className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-lg text-white shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all"
               style={{ background: 'var(--color-primary)' }}
+              metrikaGoal="cta_register_bottom"
+              formSource="register"
             >
               {t.cta.button}
               <span>→</span>

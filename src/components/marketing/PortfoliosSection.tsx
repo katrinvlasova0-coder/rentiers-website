@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { Shield, Scale, TrendingUp } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useScrollGoal } from '@/hooks/useScrollGoal';
+import { ymGoal } from '@/lib/metrika';
 
 const portfolioIcons = [Shield, Scale, TrendingUp];
 const gradients = [
@@ -13,8 +15,11 @@ const gradients = [
 const badges = ['Am sichersten', 'Beliebtestes Portfolio', 'Höchste Rendite'];
 const badgesEn = ['Safest', 'Most Popular', 'Highest Return'];
 
+const portfolioSlugs = ['konservativ', 'ausgewogen', 'high-yield'];
+
 export default function PortfoliosSection() {
   const { t, lang } = useLanguage();
+  const sectionRef = useScrollGoal('scroll_to_portfolios');
 
   const portfolioData = [
     {
@@ -35,7 +40,7 @@ export default function PortfoliosSection() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section ref={sectionRef} className="py-20 bg-white">
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="text-center mb-14 max-w-2xl mx-auto">
           <h2
@@ -111,6 +116,7 @@ export default function PortfoliosSection() {
 
                   <Link
                     href="/portfolios"
+                    onClick={() => ymGoal('portfolio_select', { portfolio: portfolioSlugs[i] })}
                     className="block w-full text-center py-3 rounded-xl font-semibold text-white transition-all hover:opacity-90 hover:-translate-y-0.5"
                     style={{ background: p.gradient }}
                   >

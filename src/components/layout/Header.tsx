@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LeadButton from '@/components/ui/LeadButton';
 import { assetPath } from '@/lib/basePath';
+import { ymGoal } from '@/lib/metrika';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -62,7 +63,10 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-3">
           {/* Language toggle */}
           <button
-            onClick={toggle}
+            onClick={() => {
+              ymGoal('language_switch', { to: lang === 'de' ? 'en' : 'de' });
+              toggle();
+            }}
             className="text-xs font-semibold px-3 py-1.5 rounded-lg border transition-all hover:shadow-sm"
             style={{
               borderColor: 'var(--color-border)',
@@ -77,12 +81,16 @@ export default function Header() {
           <LeadButton
             className="text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-100"
             style={{ color: 'var(--color-text-secondary)' }}
+            metrikaGoal="cta_login"
+            formSource="login"
           >
             {t.nav.login}
           </LeadButton>
           <LeadButton
             className="text-sm font-semibold px-5 py-2.5 rounded-xl text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
             style={{ background: 'var(--color-primary)' }}
+            metrikaGoal="cta_register_navbar"
+            formSource="register"
           >
             {t.nav.cta}
           </LeadButton>
@@ -92,7 +100,10 @@ export default function Header() {
         <div className="lg:hidden flex items-center gap-2">
           {/* Mobile language toggle */}
           <button
-            onClick={toggle}
+            onClick={() => {
+              ymGoal('language_switch', { to: lang === 'de' ? 'en' : 'de' });
+              toggle();
+            }}
             className="text-xs font-semibold px-2.5 py-1 rounded-lg border"
             style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}
           >
@@ -138,6 +149,8 @@ export default function Header() {
             className="mt-2 w-full inline-flex items-center justify-center text-center text-sm font-semibold px-5 py-3 rounded-xl text-white"
             style={{ background: 'var(--color-primary)' }}
             onClick={() => setMenuOpen(false)}
+            metrikaGoal="cta_register_navbar"
+            formSource="register"
           >
             {t.nav.cta}
           </LeadButton>

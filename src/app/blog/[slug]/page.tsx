@@ -5,6 +5,7 @@ import { pickReadMorePosts, categorySlug } from '@/lib/blog-shared';
 import { articleSchema, faqSchema, breadcrumbSchema, createMetadata } from '@/lib/seo';
 import JsonLd from '@/components/layout/JsonLd';
 import BlogPostContent from '@/components/pages/BlogPostContent';
+import BlogArticleTracker from '@/components/analytics/BlogArticleTracker';
 
 export async function generateStaticParams() {
   const slugs = await getAllPostSlugs();
@@ -69,6 +70,7 @@ export default async function BlogPostPage({
 
   return (
     <>
+      <BlogArticleTracker slug={slug} />
       <JsonLd data={schemas} />
       <BlogPostContent de={de} en={en} readMore={readMore} />
     </>

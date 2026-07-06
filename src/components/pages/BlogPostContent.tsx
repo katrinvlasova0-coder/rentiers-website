@@ -13,6 +13,7 @@ import {
 import { getAuthorBio } from '@/lib/author-bios';
 import { markdownToHtml } from '@/lib/markdown';
 import { slugify } from '@/lib/slugify';
+import { ymGoal } from '@/lib/metrika';
 
 interface LocalizedPost {
   meta: BlogPostMeta;
@@ -37,6 +38,10 @@ export default function BlogPostContent({
   const dateLocale = lang === 'en' ? 'en-GB' : 'de-DE';
 
   const authorBio = getAuthorBio(meta.author.name, lang);
+
+  const trackBlogCta = (ctaText: string) => {
+    ymGoal('blog_cta_click', { slug: meta.slug, cta_text: ctaText });
+  };
 
   const breadcrumbs = [
     { name: labels.home, href: '/' },
@@ -252,10 +257,11 @@ export default function BlogPostContent({
         </div>
       )}
 
-      <div className="max-w-[720px] mx-auto px-6 mt-12">
+      <div className="max-w-[720px] mx-auto px-6 mt-12" id="blog-read-marker">
         <div className="flex flex-wrap gap-3 justify-center mb-6">
           <Link
             href="/portfolios"
+            onClick={() => trackBlogCta('portfolios')}
             className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
             style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
           >
@@ -263,6 +269,7 @@ export default function BlogPostContent({
           </Link>
           <Link
             href="/kalkulator"
+            onClick={() => trackBlogCta('kalkulator')}
             className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
             style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
           >
@@ -270,6 +277,7 @@ export default function BlogPostContent({
           </Link>
           <Link
             href="/einlagenarbitrage"
+            onClick={() => trackBlogCta('einlagenarbitrage')}
             className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
             style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
           >
@@ -285,6 +293,9 @@ export default function BlogPostContent({
           <LeadButton
             className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-xl font-semibold text-sm hover:shadow-md transition-all"
             style={{ color: 'var(--color-primary)' }}
+            metrikaGoal="blog_cta_click"
+            metrikaParams={{ slug: meta.slug, cta_text: 'lead_form' }}
+            formSource="register"
           >
             {labels.ctaButton}
           </LeadButton>
