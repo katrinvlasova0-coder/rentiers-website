@@ -13,32 +13,27 @@ const ASSET_IMAGES = [
   {
     src: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=240&q=80&auto=format&fit=crop',
     alt: 'Real estate',
-    size: 'w-14 h-14',
-    position: 'top-3 left-4',
+    className: 'w-12 h-12 -rotate-6',
   },
   {
     src: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=200&q=80&auto=format&fit=crop',
     alt: 'Luxury car',
-    size: 'w-11 h-11',
-    position: 'top-8 right-6',
+    className: 'w-10 h-10 rotate-3 mt-3',
   },
   {
     src: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=220&q=80&auto=format&fit=crop',
     alt: 'Yacht',
-    size: 'w-16 h-16',
-    position: 'bottom-16 left-8',
+    className: 'w-14 h-14 -rotate-2',
   },
   {
     src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&q=80&auto=format&fit=crop',
     alt: 'Bank building',
-    size: 'w-10 h-10',
-    position: 'bottom-20 right-10',
+    className: 'w-9 h-9 rotate-6 mt-4',
   },
   {
     src: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=180&q=80&auto=format&fit=crop',
     alt: 'Property',
-    size: 'w-9 h-9',
-    position: 'top-1/2 right-3 -translate-y-1/2',
+    className: 'w-11 h-11 -rotate-3 mt-1',
   },
 ] as const;
 
@@ -128,33 +123,36 @@ export default function BlogConsultPopup({ slug }: Props) {
       aria-labelledby="blog-consult-title"
     >
       <div
-        className="relative overflow-hidden rounded-2xl shadow-2xl border"
-        style={{
-          borderColor: 'var(--color-border)',
-          background: 'linear-gradient(145deg, #ffffff 0%, #f6f7ff 55%, #eef0ff 100%)',
-        }}
+        className="relative overflow-hidden rounded-2xl shadow-2xl border bg-white"
+        style={{ borderColor: 'var(--color-border)' }}
       >
-        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-          {ASSET_IMAGES.map((item) => (
-            <div
-              key={item.alt}
-              className={`absolute ${item.position} ${item.size} relative rounded-xl overflow-hidden shadow-md ring-2 ring-white/80 opacity-90`}
-            >
-              <Image src={item.src} alt="" fill className="object-cover" sizes="64px" />
-            </div>
-          ))}
-        </div>
-
         <button
           type="button"
           onClick={handleClose}
-          className="absolute top-3 right-3 z-10 p-1.5 rounded-lg bg-white/80 hover:bg-white shadow-sm transition-colors"
+          className="absolute top-3 right-3 z-10 p-1.5 rounded-lg bg-white/90 hover:bg-white shadow-sm transition-colors"
           aria-label={copy.close}
         >
           <X className="w-4 h-4" style={{ color: 'var(--color-text-secondary)' }} />
         </button>
 
-        <div className="relative z-[1] p-5 pt-6">
+        <div
+          className="flex items-end justify-center gap-1.5 px-6 pt-5 pb-3"
+          style={{
+            background: 'linear-gradient(180deg, #eef0ff 0%, #f8f9ff 70%, #ffffff 100%)',
+          }}
+          aria-hidden="true"
+        >
+          {ASSET_IMAGES.map((item) => (
+            <div
+              key={item.alt}
+              className={`relative shrink-0 rounded-xl overflow-hidden shadow-md ring-2 ring-white ${item.className}`}
+            >
+              <Image src={item.src} alt="" width={56} height={56} className="object-cover w-full h-full" />
+            </div>
+          ))}
+        </div>
+
+        <div className="px-5 pb-5">
           {submitted ? (
             <div className="text-center py-4 px-2">
               <div
@@ -189,7 +187,7 @@ export default function BlogConsultPopup({ slug }: Props) {
                     if (error) setError('');
                   }}
                   placeholder={copy.emailPlaceholder}
-                  className="flex-1 min-w-0 px-3 py-2.5 rounded-xl border text-sm outline-none transition-colors focus:border-[var(--color-primary)]"
+                  className="flex-1 min-w-0 px-3 py-2.5 rounded-xl border text-sm outline-none transition-colors focus:border-[var(--color-primary)] bg-white"
                   style={{ borderColor: error ? '#f87171' : 'var(--color-border)' }}
                   autoComplete="email"
                   disabled={submitting}
