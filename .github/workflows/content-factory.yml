@@ -2,7 +2,7 @@ name: Content Factory — Scheduled Generation
 
 on:
   schedule:
-    # Daily at 08:00 UTC (12:00 Dubai / UTC+4). GitHub cron uses UTC only.
+    # 08:00 UTC daily trigger; generation runs every other day (see Decide generation mode).
     - cron: '0 8 * * *'
   workflow_dispatch:
     inputs:
@@ -36,13 +36,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - uses: actions/setup-node@v6
-        with:
-          node-version: '24'
-
-      - name: Install dependencies
-        run: cd content-factory && npm install
-
       - name: Decide generation mode
         id: gen
         env:
@@ -56,6 +49,20 @@ jobs:
           INPUT_MOCK="${{ github.event.inputs.mock }}"
           PUBLISH_MOCK="${{ github.event.inputs.publish_mock }}"
           IS_SCHEDULE="${{ github.event_name == 'schedule' }}"
+
+          # Every other day on schedule (anchor: 2026-07-06 = first publish day).
+          # Manual workflow_dispatch always runs when API key is set.
+          if [ "$IS_SCHEDULE" = "true" ]; then
+            ANCHOR_DAY=$(( $(date -u -d "2026-07-06" +%s) / 86400 ))
+            TODAY_DAY=$(( $(date -u +%s) / 86400 ))
+            if [ $(( (TODAY_DAY - ANCHOR_DAY) % 2 )) -ne 0 ]; then
+              echo "mode=skip-eod" >> "$GITHUB_OUTPUT"
+              echo "run=false" >> "$GITHUB_OUTPUT"
+              echo "⏭️ Every-other-day schedule: no article today (next run tomorrow 08:00 UTC)"
+              exit 0
+            fi
+            echo "📅 Every-other-day schedule: publish day"
+          fi
 
           if [ "$HAS_ANTHROPIC" = "true" ]; then
             echo "mode=claude" >> "$GITHUB_OUTPUT"
@@ -79,7 +86,17 @@ jobs:
             echo "⏭️ No ANTHROPIC_API_KEY and mock not enabled — generation skipped"
           fi
 
+      - uses: actions/setup-node@v6
+        if: steps.gen.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
+        with:
+          node-version: '24'
+
+      - name: Install dependencies
+        if: steps.gen.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
+        run: cd content-factory && npm install
+
       - name: Initialize content factory
+        if: steps.gen.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
         run: cd content-factory && npm run init
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -90,6 +107,7 @@ jobs:
           SITE_PUBLIC_DIR: ../public
 
       - name: Show queue before generation
+        if: steps.gen.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
         run: |
           cd content-factory
           npm run queue:list

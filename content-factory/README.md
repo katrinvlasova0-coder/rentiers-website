@@ -84,7 +84,7 @@ npx xlsx-cli "../Rentiers_Контент-план_2026.xlsx" --sheet-index 2 --j
 
 ## GitHub Actions
 
-1. **content-factory.yml** — daily 08:00 UTC: 1 article from queue → commit → deploy (requires `ANTHROPIC_API_KEY`)
+1. **content-factory.yml** — every other day at 08:00 UTC: 1 article from queue → commit → deploy (requires `ANTHROPIC_API_KEY`)
 2. **notify-on-publish.yml** — Email on new `.mdx` push to `main`
 
 Add secrets: `ANTHROPIC_API_KEY`, `UNSPLASH_ACCESS_KEY`, `RESEND_API_KEY`, `NOTIFY_EMAIL`
