@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllPostSlugs, getPostBySlug, getAllPosts } from '@/lib/blog';
+import { pickReadMorePosts, categorySlug } from '@/lib/blog-shared';
 import { articleSchema, faqSchema, breadcrumbSchema } from '@/lib/seo';
 import JsonLd from '@/components/layout/JsonLd';
 import BlogPostContent from '@/components/pages/BlogPostContent';
@@ -53,14 +54,12 @@ export default async function BlogPostPage({
   }
 
   const allPosts = await getAllPosts();
-  const related = allPosts
-    .filter((p) => p.slug !== slug && p.category === de.meta.category)
-    .slice(0, 5);
+  const readMore = pickReadMorePosts(allPosts, slug, de.meta.category, 4);
 
   const breadcrumbs = [
     { name: 'Home', href: '/' },
     { name: 'Blog', href: '/blog' },
-    { name: de.meta.category, href: `/blog?category=${de.meta.category}` },
+    { name: de.meta.category, href: `/blog?category=${categorySlug(de.meta.category)}` },
     { name: de.meta.title, href: `/blog/${slug}` },
   ];
 
@@ -75,7 +74,7 @@ export default async function BlogPostPage({
   return (
     <>
       <JsonLd data={schemas} />
-      <BlogPostContent de={de} en={en} related={related} />
+      <BlogPostContent de={de} en={en} readMore={readMore} />
     </>
   );
 }

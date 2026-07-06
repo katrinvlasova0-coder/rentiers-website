@@ -4,7 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LeadButton from '@/components/ui/LeadButton';
-import { localizeBlogMeta, type BlogPostMeta } from '@/lib/blog-shared';
+import {
+  categorySlug,
+  getLocalizedCategory,
+  localizeBlogMeta,
+  type BlogPostMeta,
+} from '@/lib/blog-shared';
 import { markdownToHtml } from '@/lib/markdown';
 import { slugify } from '@/lib/slugify';
 
@@ -16,22 +21,27 @@ interface LocalizedPost {
 export default function BlogPostContent({
   de,
   en,
-  related,
+  readMore,
 }: {
   de: LocalizedPost;
   en: LocalizedPost;
-  related: BlogPostMeta[];
+  readMore: BlogPostMeta[];
 }) {
   const { lang, p } = useLanguage();
   const labels = p.blog;
   const active = lang === 'en' ? en : de;
-  const meta = active.meta;
+  const rawMeta = active.meta;
+  const meta = localizeBlogMeta(rawMeta, lang);
+  const canonicalCategory = de.meta.category;
   const dateLocale = lang === 'en' ? 'en-GB' : 'de-DE';
 
   const breadcrumbs = [
     { name: labels.home, href: '/' },
     { name: labels.blog, href: '/blog' },
-    { name: meta.category, href: `/blog?category=${encodeURIComponent(meta.category)}` },
+    {
+      name: meta.category,
+      href: `/blog?category=${encodeURIComponent(categorySlug(canonicalCategory))}`,
+    },
     { name: meta.title, href: `/blog/${meta.slug}` },
   ];
 
@@ -65,14 +75,14 @@ export default function BlogPostContent({
 
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <Link
-              href={`/blog?category=${encodeURIComponent(meta.category)}`}
+              href={`/blog?category=${encodeURIComponent(categorySlug(canonicalCategory))}`}
               className="text-xs font-semibold px-3 py-1 rounded-full hover:opacity-80 transition-opacity"
               style={{ background: 'var(--color-primary-light)', color: 'var(--color-primary)' }}
             >
               {meta.category}
             </Link>
             <span className="text-xs" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
-              {meta.readTime} {labels.readTime}
+              {rawMeta.readTime} {labels.readTime}
             </span>
           </div>
 
@@ -173,30 +183,60 @@ export default function BlogPostContent({
         )}
       </div>
 
-      {related.length > 0 && (
+      {readMore.length > 0 && (
         <div className="max-w-[1200px] mx-auto px-6 mt-16">
-          <h2 className="text-xl font-extrabold mb-6" style={{ color: 'var(--color-dark)' }}>
-            {labels.relatedTitle}
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {related.map((post) => {
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
+            <h2 className="text-xl font-extrabold" style={{ color: 'var(--color-dark)' }}>
+              {labels.readMoreTitle}
+            </h2>
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all hover:shadow-sm"
+              style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+            >
+              {labels.allArticles}
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {readMore.map((post) => {
               const relatedMeta = localizeBlogMeta(post, lang);
               return (
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="block rounded-2xl p-5 border hover:shadow-md transition-all bg-white"
+                  className="group block rounded-2xl overflow-hidden border hover:shadow-md transition-all bg-white"
                   style={{ borderColor: 'var(--color-border)' }}
                 >
-                  <span className="text-xs font-medium" style={{ color: 'var(--color-primary)' }}>
-                    {relatedMeta.category}
-                  </span>
-                  <p className="font-bold text-sm mt-1 mb-2 line-clamp-2" style={{ color: 'var(--color-dark)' }}>
-                    {relatedMeta.title}
-                  </p>
-                  <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
-                    {post.readTime} {labels.readTime} →
-                  </p>
+                  {post.coverImage ? (
+                    <div className="relative h-32 overflow-hidden">
+                      <Image
+                        src={post.coverImage}
+                        alt={relatedMeta.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="h-32 flex items-center justify-center"
+                      style={{ background: 'var(--color-primary-light)' }}
+                    >
+                      <span className="text-2xl font-extrabold" style={{ color: 'var(--color-primary)', opacity: 0.35 }}>
+                        R
+                      </span>
+                    </div>
+                  )}
+                  <div className="p-4">
+                    <span className="text-xs font-medium" style={{ color: 'var(--color-primary)' }}>
+                      {getLocalizedCategory(post.category, post.categoryEn, lang)}
+                    </span>
+                    <p className="font-bold text-sm mt-1 mb-2 line-clamp-2" style={{ color: 'var(--color-dark)' }}>
+                      {relatedMeta.title}
+                    </p>
+                    <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
+                      {post.readTime} {labels.readTime} →
+                    </p>
+                  </div>
                 </Link>
               );
             })}

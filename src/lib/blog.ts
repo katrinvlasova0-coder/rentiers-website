@@ -7,7 +7,7 @@ import {
 } from '@/lib/blog-shared';
 
 export type { BlogLang, BlogPostMeta } from '@/lib/blog-shared';
-export { CATEGORY_LABELS, localizeBlogMeta } from '@/lib/blog-shared';
+export { CATEGORY_LABELS, localizeBlogMeta, pickReadMorePosts, categorySlug } from '@/lib/blog-shared';
 
 const BLOG_DIR = path.join(process.cwd(), 'content/blog');
 

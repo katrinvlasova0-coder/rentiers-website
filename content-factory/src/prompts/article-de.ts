@@ -1,4 +1,5 @@
 import type { ArticleRequest } from './types';
+import { clusterTagDe, clusterTagEn } from '../config/cluster-tags';
 
 export function buildArticlePrompt(
   req: ArticleRequest,
@@ -63,7 +64,8 @@ category: "${req.category}"
 readTime: "[X min]"
 coverImage: "${coverUrl}"
 featured: false
-tags: ["${req.keywordDe}", "${req.cluster}", "Rentiers", "2026"]
+tags: ["${req.keywordDe}", "${clusterTagDe(req.cluster)}", "Rentiers", "2026"]
+tagsEn: ["${req.keywordEn}", "${clusterTagEn(req.cluster)}", "Rentiers", "2026"]
 faq:
   - question: "..."
     answer: "..."

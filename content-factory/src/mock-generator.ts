@@ -1,4 +1,5 @@
 import type { ArticleRequest } from './prompts/types';
+import { clusterTagDe, clusterTagEn } from '../config/cluster-tags';
 import { getInternalLinks } from './queue';
 import type { UnsplashImage } from './images';
 
@@ -230,7 +231,8 @@ category: "${req.category}"
 readTime: 12
 coverImage: "${cover}"
 featured: false
-tags: ["${req.keywordDe}", "${req.cluster}", "Rentiers", "2026"]
+tags: ["${req.keywordDe}", "${clusterTagDe(req.cluster)}", "Rentiers", "2026"]
+tagsEn: ["${req.keywordEn}", "${clusterTagEn(req.cluster)}", "Rentiers", "2026"]
 ${buildFrontmatterFaq(req)}
 ---
 

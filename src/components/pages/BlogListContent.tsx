@@ -2,19 +2,35 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useCallback, useMemo, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { localizeBlogMeta, type BlogPostMeta } from '@/lib/blog-shared';
+import {
+  categorySlug,
+  collectCategories,
+  collectUniqueTags,
+  getLocalizedCategory,
+  localizeBlogMeta,
+  localizeTags,
+  type BlogPostMeta,
+} from '@/lib/blog-shared';
 import { slugify } from '@/lib/slugify';
 
-function postMatchesTag(post: BlogPostMeta, tagSlug: string): boolean {
-  const allTags = [...(post.tags ?? []), ...(post.tagsEn ?? [])];
-  return allTags.some((t) => slugify(t) === tagSlug);
+function postMatchesTag(post: BlogPostMeta, tagSlug: string, lang: 'de' | 'en'): boolean {
+  const tags = localizeTags(post.tags, post.tagsEn, lang);
+  return tags.some((t) => slugify(t) === tagSlug);
 }
 
-function postMatchesCategory(post: BlogPostMeta, category: string, lang: 'de' | 'en'): boolean {
-  const localized = localizeBlogMeta(post, lang);
-  return localized.category === category || post.category === category;
+function postMatchesCategory(post: BlogPostMeta, categorySlugFilter: string): boolean {
+  return categorySlug(post.category) === categorySlugFilter;
+}
+
+function postMatchesQuery(post: BlogPostMeta, query: string, lang: 'de' | 'en'): boolean {
+  const meta = localizeBlogMeta(post, lang);
+  const haystack = [meta.title, meta.description, meta.category, ...(meta.tags ?? [])]
+    .join(' ')
+    .toLowerCase();
+  return haystack.includes(query.toLowerCase());
 }
 
 function BlogCard({ post, lang }: { post: BlogPostMeta; lang: 'de' | 'en' }) {
@@ -77,29 +93,67 @@ function BlogCard({ post, lang }: { post: BlogPostMeta; lang: 'de' | 'en' }) {
 }
 
 export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
+  const router = useRouter();
   const { lang, p } = useLanguage();
   const labels = p.blog;
   const searchParams = useSearchParams();
+
   const tagFilter = searchParams.get('tag');
   const categoryFilter = searchParams.get('category');
+  const queryFilter = searchParams.get('q')?.trim() ?? '';
+
+  const [searchInput, setSearchInput] = useState(queryFilter);
+
+  const categories = useMemo(() => collectCategories(posts, lang), [posts, lang]);
+  const allTags = useMemo(() => collectUniqueTags(posts, lang).slice(0, 16), [posts, lang]);
+
+  const pushFilters = useCallback(
+    (next: { tag?: string | null; category?: string | null; q?: string | null }) => {
+      const params = new URLSearchParams(searchParams.toString());
+      const setOrDelete = (key: string, value: string | null | undefined) => {
+        if (value) params.set(key, value);
+        else params.delete(key);
+      };
+      if ('tag' in next) setOrDelete('tag', next.tag);
+      if ('category' in next) setOrDelete('category', next.category);
+      if ('q' in next) setOrDelete('q', next.q);
+      const qs = params.toString();
+      router.push(qs ? `/blog?${qs}` : '/blog');
+    },
+    [router, searchParams],
+  );
 
   let filtered = posts;
   if (tagFilter) {
-    filtered = filtered.filter((post) => postMatchesTag(post, tagFilter));
+    filtered = filtered.filter((post) => postMatchesTag(post, tagFilter, lang));
   }
   if (categoryFilter) {
-    filtered = filtered.filter((post) => postMatchesCategory(post, categoryFilter, lang));
+    filtered = filtered.filter((post) => postMatchesCategory(post, categoryFilter));
+  }
+  if (queryFilter) {
+    filtered = filtered.filter((post) => postMatchesQuery(post, queryFilter, lang));
   }
 
-  const tagMatchPost = tagFilter ? posts.find((p) => postMatchesTag(p, tagFilter)) : undefined;
-  const activeTagLabel = tagFilter
-    ? (tagMatchPost
-        ? localizeBlogMeta(tagMatchPost, lang).tags?.find((t) => slugify(t) === tagFilter)
-        : undefined) ?? tagFilter
+  const activeCategoryLabel = categoryFilter
+    ? categories.find((c) => categorySlug(c.key) === categoryFilter)?.label ?? categoryFilter
     : null;
 
-  const featured = !tagFilter && !categoryFilter ? filtered.find((post) => post.featured) : undefined;
+  const activeTagLabel = tagFilter
+    ? allTags.find((t) => slugify(t) === tagFilter) ??
+      posts
+        .flatMap((p) => localizeTags(p.tags, p.tagsEn, lang))
+        .find((t) => slugify(t) === tagFilter) ??
+      tagFilter
+    : null;
+
+  const hasFilters = Boolean(tagFilter || categoryFilter || queryFilter);
+  const featured = !hasFilters ? filtered.find((post) => post.featured) : undefined;
   const rest = filtered.filter((post) => post !== featured);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    pushFilters({ q: searchInput.trim() || null });
+  };
 
   return (
     <>
@@ -119,20 +173,101 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
 
       <section className="py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6">
-          {(tagFilter || categoryFilter) && (
+          <div className="mb-10 space-y-6">
+            <form onSubmit={handleSearchSubmit} className="flex flex-col sm:flex-row gap-3">
+              <input
+                type="search"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                placeholder={labels.searchPlaceholder}
+                className="flex-1 px-4 py-3 rounded-xl border text-sm outline-none focus:border-[var(--color-primary)]"
+                style={{ borderColor: 'var(--color-border)' }}
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 rounded-xl font-semibold text-white text-sm"
+                style={{ background: 'var(--color-primary)' }}
+              >
+                {labels.searchButton}
+              </button>
+            </form>
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--color-text-secondary)' }}>
+                {labels.filterCategory}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {categories.map(({ key, label }) => {
+                  const slug = categorySlug(key);
+                  const active = categoryFilter === slug;
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => pushFilters({ category: active ? null : slug })}
+                      className="text-sm px-3 py-1.5 rounded-full border transition-all"
+                      style={{
+                        background: active ? 'var(--color-primary)' : 'var(--color-bg-light)',
+                        color: active ? 'white' : 'var(--color-primary)',
+                        borderColor: active ? 'var(--color-primary)' : 'var(--color-border)',
+                      }}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--color-text-secondary)' }}>
+                {labels.tagsTitle}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {allTags.map((tag) => {
+                  const slug = slugify(tag);
+                  const active = tagFilter === slug;
+                  return (
+                    <button
+                      key={slug}
+                      type="button"
+                      onClick={() => pushFilters({ tag: active ? null : slug })}
+                      className="text-sm px-3 py-1.5 rounded-full border transition-all"
+                      style={{
+                        background: active ? 'var(--color-primary-light)' : 'white',
+                        color: 'var(--color-primary)',
+                        borderColor: active ? 'var(--color-primary)' : 'var(--color-border)',
+                      }}
+                    >
+                      {tag}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {hasFilters && (
             <div
               className="mb-8 flex flex-wrap items-center justify-between gap-3 rounded-xl px-4 py-3 border"
               style={{ background: 'var(--color-bg-light)', borderColor: 'var(--color-border)' }}
             >
               <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+                {queryFilter && (
+                  <>
+                    {labels.filterKeyword}: <strong style={{ color: 'var(--color-dark)' }}>{queryFilter}</strong>
+                    {(tagFilter || categoryFilter) && ' · '}
+                  </>
+                )}
                 {tagFilter && (
                   <>
                     {labels.filterTag}: <strong style={{ color: 'var(--color-dark)' }}>{activeTagLabel}</strong>
+                    {categoryFilter && ' · '}
                   </>
                 )}
                 {categoryFilter && (
                   <>
-                    {labels.filterCategory}: <strong style={{ color: 'var(--color-dark)' }}>{categoryFilter}</strong>
+                    {labels.filterCategory}: <strong style={{ color: 'var(--color-dark)' }}>{activeCategoryLabel}</strong>
                   </>
                 )}
                 {' · '}

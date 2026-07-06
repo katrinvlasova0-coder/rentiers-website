@@ -7,18 +7,19 @@ import { Lock, Wifi, Battery, Home, BarChart2, Zap, Building2, Menu } from 'luci
 import { useLanguage } from '@/contexts/LanguageContext';
 import LeadButton from '@/components/ui/LeadButton';
 
-const phoneNavItems = [
-  { Icon: Home, label: 'Home' },
-  { Icon: BarChart2, label: 'Portfolio' },
-  { Icon: Zap, label: 'Produkte' },
-  { Icon: Building2, label: 'Banken' },
-  { Icon: Menu, label: 'Menu' },
-];
-
 export default function HeroHome() {
   const [mounted, setMounted] = useState(false);
   const { t } = useLanguage();
+  const ph = t.hero.phone;
   useEffect(() => { setMounted(true); }, []);
+
+  const phoneNavItems = [
+    { Icon: Home, label: ph.navHome },
+    { Icon: BarChart2, label: ph.navPortfolio },
+    { Icon: Zap, label: ph.navProducts },
+    { Icon: Building2, label: ph.navBanks },
+    { Icon: Menu, label: ph.navMenu },
+  ];
 
   const stats = [
     { value: t.hero.statReturns, label: t.hero.statReturnsLabel },
@@ -32,7 +33,6 @@ export default function HeroHome() {
       className="relative overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16 md:pt-28 md:pb-24"
       style={{ background: 'linear-gradient(135deg, #F2F2FA 0%, #EDEDFC 50%, #F7F7FF 100%)' }}
     >
-      {/* Decorative blobs */}
       <div
         className="absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-30 blur-3xl pointer-events-none"
         style={{ background: 'radial-gradient(circle, #3B3BE8 0%, transparent 70%)' }}
@@ -44,38 +44,26 @@ export default function HeroHome() {
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left — Copy */}
           <div
             className={`relative transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            {/* R watermark behind headline — desktop only */}
             <div
               className="hidden md:block absolute -left-16 lg:-left-24 -top-10 pointer-events-none select-none opacity-[0.08] z-0"
               aria-hidden="true"
             >
-              <Image
-                src="/rentiers_icon.svg"
-                alt=""
-                width={420}
-                height={420}
-                className="object-contain"
-                priority
-              />
+              <Image src="/rentiers_icon.svg" alt="" width={420} height={420} className="object-contain" priority />
             </div>
 
             <div className="relative z-10">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
-                   style={{ background: 'rgba(59,59,232,0.1)', color: 'var(--color-primary)' }}>
+              <div
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6"
+                style={{ background: 'rgba(59,59,232,0.1)', color: 'var(--color-primary)' }}
+              >
                 <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--color-primary)' }} />
                 {t.hero.badge}
               </div>
 
-              {/* H1 */}
-              <h1
-                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4"
-                style={{ color: 'var(--color-dark)' }}
-              >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4" style={{ color: 'var(--color-dark)' }}>
                 {t.hero.h1Line1}
                 <br />
                 <span style={{ color: 'var(--color-primary)' }}>{t.hero.h1Line2}</span>
@@ -85,7 +73,6 @@ export default function HeroHome() {
                 {t.hero.subtitle}
               </p>
 
-              {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3 mb-8 w-full">
                 <LeadButton
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-center shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
@@ -103,7 +90,6 @@ export default function HeroHome() {
                 </Link>
               </div>
 
-              {/* Trust line */}
               <div className="space-y-2">
                 <div className="flex items-center gap-1.5 text-xs" style={{ color: 'var(--color-text-muted, #9CA3AF)' }}>
                   <Lock className="w-3 h-3 shrink-0" />
@@ -124,17 +110,14 @@ export default function HeroHome() {
             </div>
           </div>
 
-          {/* Right — App mockup */}
           <div
             className={`flex justify-center lg:justify-end transition-all duration-700 delay-200 overflow-hidden ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             <div className="relative max-w-full">
-              {/* Phone mockup */}
               <div
                 className="relative z-10 w-56 sm:w-64 mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/80"
                 style={{ background: 'var(--color-dark)' }}
               >
-                {/* Status bar */}
                 <div className="flex items-center justify-between px-5 pt-4 pb-2">
                   <span className="text-white text-xs font-medium">14:37</span>
                   <div className="flex items-center gap-1.5">
@@ -142,102 +125,94 @@ export default function HeroHome() {
                     <Battery className="w-3 h-3 text-white/70" />
                   </div>
                 </div>
-                {/* Browser bar */}
-                <div className="mx-4 mb-3 px-3 py-1.5 rounded-lg flex items-center gap-2"
-                     style={{ background: 'rgba(255,255,255,0.1)' }}>
+                <div
+                  className="mx-4 mb-3 px-3 py-1.5 rounded-lg flex items-center gap-2"
+                  style={{ background: 'rgba(255,255,255,0.1)' }}
+                >
                   <Lock className="w-3 h-3 text-white/60 shrink-0" />
-                  <Image
-                    src="/favicon.svg"
-                    alt=""
-                    width={14}
-                    height={14}
-                    className="shrink-0 rounded-sm"
-                  />
+                  <Image src="/favicon.svg" alt="" width={14} height={14} className="shrink-0 rounded-sm" />
                   <span className="text-white/80 text-xs truncate">rentiers.net</span>
                 </div>
-                {/* App content */}
                 <div className="bg-white mx-0 p-4 min-h-64">
-                  {/* Welcome */}
                   <div className="flex items-center gap-3 mb-4">
                     <div
                       className="w-9 h-9 rounded-full flex items-center justify-center overflow-hidden shrink-0"
                       style={{ background: 'var(--color-bg-light)' }}
                     >
-                      <Image
-                        src="/rentiers_icon.svg"
-                        alt="Rentiers"
-                        width={28}
-                        height={28}
-                        className="object-contain"
-                      />
+                      <Image src="/rentiers_icon.svg" alt="Rentiers" width={28} height={28} className="object-contain" />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold" style={{ color: 'var(--color-dark)' }}>Willkommen zurück!</p>
+                      <p className="text-xs font-semibold" style={{ color: 'var(--color-dark)' }}>{ph.welcome}</p>
                       <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>Ariel Kharan</p>
                     </div>
                   </div>
 
-                  {/* Balance card */}
-                  <div className="rounded-2xl p-4 mb-4"
-                       style={{ background: 'var(--color-bg-light)' }}>
-                    <p className="text-xs mb-1" style={{ color: 'var(--color-text-secondary)' }}>Kontostand</p>
+                  <div className="rounded-2xl p-4 mb-4" style={{ background: 'var(--color-bg-light)' }}>
+                    <p className="text-xs mb-1" style={{ color: 'var(--color-text-secondary)' }}>{ph.balance}</p>
                     <p className="text-2xl font-bold mb-2" style={{ color: 'var(--color-dark)' }}>€ 24.680,00</p>
-                    <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>IBAN</p>
+                    <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>{ph.iban}</p>
                     <p className="text-xs font-mono" style={{ color: 'var(--color-dark)' }}>DE89 3704 0044 0532</p>
                     <div
                       className="mt-2 px-2 py-1 rounded text-xs font-medium inline-flex items-center gap-1.5"
                       style={{ background: 'var(--color-primary)', color: 'white' }}
                     >
-                      <Image
-                        src="/favicon.svg"
-                        alt=""
-                        width={12}
-                        height={12}
-                        className="rounded-sm shrink-0"
-                      />
-                      Rentiers Kart
+                      <Image src="/favicon.svg" alt="" width={12} height={12} className="rounded-sm shrink-0" />
+                      {ph.card}
                     </div>
                   </div>
 
-                  {/* Action buttons */}
                   <div className="flex gap-2 mb-2">
-                    <button className="flex-1 py-2.5 rounded-xl text-white text-xs font-semibold"
-                            style={{ background: 'var(--color-dark)' }}>
-                      + Einzahlen
+                    <button
+                      type="button"
+                      className="flex-1 py-2.5 rounded-xl text-white text-xs font-semibold"
+                      style={{ background: 'var(--color-dark)' }}
+                    >
+                      {ph.deposit}
                     </button>
-                    <button className="flex-1 py-2.5 rounded-xl text-xs font-semibold border"
-                            style={{ borderColor: 'var(--color-border)', color: 'var(--color-dark)' }}>
-                      ↗ Ausgeben
+                    <button
+                      type="button"
+                      className="flex-1 py-2.5 rounded-xl text-xs font-semibold border"
+                      style={{ borderColor: 'var(--color-border)', color: 'var(--color-dark)' }}
+                    >
+                      {ph.spend}
                     </button>
                   </div>
-                  <button className="w-full py-2 rounded-xl text-xs font-semibold mb-4"
-                          style={{ background: 'var(--color-bg-light)', color: 'var(--color-primary)' }}>
-                    ↺ Reinvestieren
+                  <button
+                    type="button"
+                    className="w-full py-2 rounded-xl text-xs font-semibold mb-4"
+                    style={{ background: 'var(--color-bg-light)', color: 'var(--color-primary)' }}
+                  >
+                    {ph.reinvest}
                   </button>
 
-                  {/* Transactions */}
-                  <p className="text-xs font-semibold mb-2" style={{ color: 'var(--color-dark)' }}>Letzte Transaktionen</p>
+                  <p className="text-xs font-semibold mb-2" style={{ color: 'var(--color-dark)' }}>{ph.transactions}</p>
                   {[
-                    { label: 'Deposit via Debit Card', date: '23.12.2025', amount: '+ €25.000', positive: true },
-                    { label: 'Deposit via Bank Transfer', date: '16.10.2025', amount: '+ €7.500', positive: true },
+                    { label: ph.txCard, date: '23.12.2025', amount: '+ €25.000', positive: true },
+                    { label: ph.txTransfer, date: '16.10.2025', amount: '+ €7.500', positive: true },
                   ].map((tx) => (
-                    <div key={tx.label + tx.date} className="flex items-center justify-between py-2 border-b last:border-0"
-                         style={{ borderColor: 'var(--color-border)' }}>
+                    <div
+                      key={tx.label + tx.date}
+                      className="flex items-center justify-between py-2 border-b last:border-0"
+                      style={{ borderColor: 'var(--color-border)' }}
+                    >
                       <div>
                         <p className="text-xs font-medium" style={{ color: 'var(--color-dark)' }}>{tx.label}</p>
                         <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>{tx.date}</p>
                       </div>
-                      <span className="text-xs font-semibold"
-                            style={{ color: tx.positive ? 'var(--color-success)' : 'var(--color-warning)' }}>
+                      <span
+                        className="text-xs font-semibold"
+                        style={{ color: tx.positive ? 'var(--color-success)' : 'var(--color-warning)' }}
+                      >
                         {tx.amount}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                {/* Bottom nav */}
-                <div className="bg-white border-t flex justify-around px-2 py-2"
-                     style={{ borderColor: 'var(--color-border)' }}>
+                <div
+                  className="bg-white border-t flex justify-around px-2 py-2"
+                  style={{ borderColor: 'var(--color-border)' }}
+                >
                   {phoneNavItems.map(({ Icon, label }, idx) => (
                     <span
                       key={label}
@@ -251,17 +226,16 @@ export default function HeroHome() {
                 </div>
               </div>
 
-              {/* Floating calculator card — desktop only */}
               <div
                 className="hidden lg:block absolute -left-20 top-24 z-10 w-52 rounded-2xl p-4 shadow-xl border border-white/80"
                 style={{ background: 'white' }}
               >
                 <p className="text-xs font-medium mb-3" style={{ color: 'var(--color-dark)' }}>
-                  Bitte Anlagebetrag und Laufzeit eingeben
+                  {ph.calcHint}
                 </p>
                 <div className="mb-2">
                   <div className="flex justify-between text-xs mb-1">
-                    <span style={{ color: 'var(--color-text-secondary)' }}>Einlagebetrag</span>
+                    <span style={{ color: 'var(--color-text-secondary)' }}>{ph.amount}</span>
                     <span className="font-semibold" style={{ color: 'var(--color-dark)' }}>50.000 €</span>
                   </div>
                   <div className="h-1.5 rounded-full" style={{ background: 'var(--color-bg-light)' }}>
@@ -270,8 +244,8 @@ export default function HeroHome() {
                 </div>
                 <div className="mb-3">
                   <div className="flex justify-between text-xs mb-1">
-                    <span style={{ color: 'var(--color-text-secondary)' }}>Laufzeit</span>
-                    <span className="font-semibold" style={{ color: 'var(--color-dark)' }}>60 Monate</span>
+                    <span style={{ color: 'var(--color-text-secondary)' }}>{ph.term}</span>
+                    <span className="font-semibold" style={{ color: 'var(--color-dark)' }}>60 {ph.months}</span>
                   </div>
                   <div className="h-1.5 rounded-full" style={{ background: 'var(--color-bg-light)' }}>
                     <div className="h-1.5 rounded-full w-1/2" style={{ background: 'var(--color-primary)' }} />
@@ -279,11 +253,13 @@ export default function HeroHome() {
                 </div>
                 <div className="space-y-2">
                   <div className="rounded-lg p-2" style={{ background: 'var(--color-bg-light)' }}>
-                    <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>Monatliches Einkommen</p>
+                    <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>{ph.monthlyIncome}</p>
                     <p className="font-bold text-sm" style={{ color: 'var(--color-dark)' }}>500,00 €</p>
                   </div>
                   <div className="rounded-lg p-2" style={{ background: 'var(--color-bg-light)' }}>
-                    <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>Gesamtertrag nach 60 Monate</p>
+                    <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
+                      {ph.totalReturn} 60 {ph.months}
+                    </p>
                     <p className="font-bold text-sm" style={{ color: 'var(--color-dark)' }}>30.000,00 €</p>
                   </div>
                 </div>
@@ -292,7 +268,6 @@ export default function HeroHome() {
           </div>
         </div>
 
-        {/* Stats bar */}
         <div
           className="mt-10 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 p-4 md:p-6 rounded-2xl border border-white/80 shadow-sm"
           style={{ background: 'rgba(255,255,255,0.8)' }}

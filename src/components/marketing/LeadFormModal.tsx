@@ -27,25 +27,9 @@ interface FormErrors {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[+]?[\d\s()-]{6,20}$/;
 
-function validate(data: FormData): FormErrors {
-  const errors: FormErrors = {};
-  if (!data.name.trim() || data.name.trim().length < 2) {
-    errors.name = 'Please enter your full name (at least 2 characters).';
-  }
-  if (!data.email.trim() || !EMAIL_RE.test(data.email.trim())) {
-    errors.email = 'Please enter a valid email address.';
-  }
-  if (!data.phone.trim() || !PHONE_RE.test(data.phone.trim())) {
-    errors.phone = 'Please enter a valid phone number.';
-  }
-  if (!data.message.trim() || data.message.trim().length < 10) {
-    errors.message = 'Please describe your request (at least 10 characters).';
-  }
-  return errors;
-}
-
 export default function LeadFormModal({ open, onClose }: Props) {
-  const { lang } = useLanguage();
+  const { p } = useLanguage();
+  const lf = p.leadForm;
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState<FormData>({ name: '', email: '', phone: '', message: '' });
@@ -74,10 +58,14 @@ export default function LeadFormModal({ open, onClose }: Props) {
 
   if (!open) return null;
 
-  const thankYou =
-    lang === 'de'
-      ? 'Vielen Dank! Wir melden uns innerhalb von 1 Werktag bei Ihnen.'
-      : 'Thank you! We will get back to you within 1 business day.';
+  const validate = (data: FormData): FormErrors => {
+    const next: FormErrors = {};
+    if (!data.name.trim() || data.name.trim().length < 2) next.name = lf.errName;
+    if (!data.email.trim() || !EMAIL_RE.test(data.email.trim())) next.email = lf.errEmail;
+    if (!data.phone.trim() || !PHONE_RE.test(data.phone.trim())) next.phone = lf.errPhone;
+    if (!data.message.trim() || data.message.trim().length < 10) next.message = lf.errMessage;
+    return next;
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -97,12 +85,7 @@ export default function LeadFormModal({ open, onClose }: Props) {
       setSubmitted(true);
       setForm({ name: '', email: '', phone: '', message: '' });
     } catch {
-      setErrors({
-        message:
-          lang === 'de'
-            ? 'Senden fehlgeschlagen. Bitte erneut versuchen oder info@rentierspro.com schreiben.'
-            : 'Something went wrong. Please try again or email info@rentierspro.com.',
-      });
+      setErrors({ message: lf.errSubmit });
     } finally {
       setSubmitting(false);
     }
@@ -119,7 +102,7 @@ export default function LeadFormModal({ open, onClose }: Props) {
         type="button"
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={onClose}
-        aria-label="Close"
+        aria-label={lf.close}
       />
       <div
         className="relative w-full max-w-md rounded-2xl shadow-2xl p-6 md:p-8 max-h-[90vh] overflow-y-auto"
@@ -132,7 +115,7 @@ export default function LeadFormModal({ open, onClose }: Props) {
           type="button"
           onClick={onClose}
           className="absolute top-4 right-4 p-1 rounded-lg hover:bg-gray-100"
-          aria-label="Close"
+          aria-label={lf.close}
         >
           <X className="w-5 h-5" style={{ color: 'var(--color-text-secondary)' }} />
         </button>
@@ -146,10 +129,10 @@ export default function LeadFormModal({ open, onClose }: Props) {
               ✓
             </div>
             <h2 id="lead-form-title" className="text-xl font-bold mb-3" style={{ color: 'var(--color-dark)' }}>
-              {lang === 'de' ? 'Anfrage erhalten' : 'Request received'}
+              {lf.received}
             </h2>
             <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--color-text-secondary)' }}>
-              {thankYou}
+              {lf.thankYou}
             </p>
             <button
               type="button"
@@ -157,22 +140,22 @@ export default function LeadFormModal({ open, onClose }: Props) {
               className="px-6 py-3 rounded-xl font-semibold text-white"
               style={{ background: 'var(--color-primary)' }}
             >
-              {lang === 'de' ? 'Schließen' : 'Close'}
+              {lf.close}
             </button>
           </div>
         ) : (
           <>
             <h2 id="lead-form-title" className="text-xl font-bold mb-1 pr-8" style={{ color: 'var(--color-dark)' }}>
-              Get in touch
+              {lf.title}
             </h2>
             <p className="text-sm mb-6" style={{ color: 'var(--color-text-secondary)' }}>
-              Leave your details and we will contact you shortly.
+              {lf.subtitle}
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4" noValidate>
               <div>
                 <label htmlFor="lead-name" className="block text-xs font-medium mb-1.5" style={{ color: 'var(--color-text-secondary)' }}>
-                  Full name *
+                  {lf.name}
                 </label>
                 <input
                   id="lead-name"
@@ -187,7 +170,7 @@ export default function LeadFormModal({ open, onClose }: Props) {
 
               <div>
                 <label htmlFor="lead-email" className="block text-xs font-medium mb-1.5" style={{ color: 'var(--color-text-secondary)' }}>
-                  Email *
+                  {lf.email}
                 </label>
                 <input
                   id="lead-email"
@@ -202,7 +185,7 @@ export default function LeadFormModal({ open, onClose }: Props) {
 
               <div>
                 <label htmlFor="lead-phone" className="block text-xs font-medium mb-1.5" style={{ color: 'var(--color-text-secondary)' }}>
-                  Phone *
+                  {lf.phone}
                 </label>
                 <input
                   id="lead-phone"
@@ -217,7 +200,7 @@ export default function LeadFormModal({ open, onClose }: Props) {
 
               <div>
                 <label htmlFor="lead-message" className="block text-xs font-medium mb-1.5" style={{ color: 'var(--color-text-secondary)' }}>
-                  Your request *
+                  {lf.message}
                 </label>
                 <textarea
                   id="lead-message"
@@ -235,7 +218,7 @@ export default function LeadFormModal({ open, onClose }: Props) {
                 className="w-full py-3.5 rounded-xl font-semibold text-white disabled:opacity-60"
                 style={{ background: 'var(--color-primary)' }}
               >
-                {submitting ? 'Sending…' : 'Submit request'}
+                {submitting ? lf.sending : lf.submit}
               </button>
             </form>
           </>
