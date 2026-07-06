@@ -7,7 +7,7 @@ function getSitemapPath(): string {
 }
 
 function getBaseUrl(): string {
-  return process.env.SITE_BASE_URL || 'https://rentierspro.com';
+  return process.env.SITE_BASE_URL || 'https://rentiers.net';
 }
 
 interface SitemapEntry {

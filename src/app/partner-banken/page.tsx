@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import PartnerBankenContent from '@/components/pages/PartnerBankenContent';
+import { createMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: 'Partner-Banken — Rentiers Pro | Internationale Bankpartner',
   description:
     'Rentiers arbeitet mit geprüften Partnerbanken in über 20 Ländern zusammen. Täglich KI-überwacht, mit staatlichen Einlagengarantien im jeweiligen Land.',
-  alternates: { canonical: 'https://rentierspro.com/partner-banken' },
-};
+  path: '/partner-banken',
+});
 
 export default function PartnerBankenPage() {
   return <PartnerBankenContent />;

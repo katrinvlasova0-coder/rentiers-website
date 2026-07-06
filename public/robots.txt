@@ -261,7 +261,7 @@ Disallow: /
 # -----------------------------------------------
 # 12. SITEMAP DECLARATION
 # -----------------------------------------------
-Sitemap: https://rentierspro.com/sitemap.xml
+Sitemap: https://rentiers.net/sitemap.xml
 
 User-agent: ChatGPT-User
 Allow: /

@@ -10,17 +10,36 @@ import BankLogos from '@/components/marketing/BankLogos';
 import FeaturesGrid from '@/components/marketing/FeaturesGrid';
 import TestimonialsSection from '@/components/marketing/TestimonialsSection';
 import CtaBanner from '@/components/marketing/CtaBanner';
+import JsonLd from '@/components/layout/JsonLd';
+import {
+  createMetadata,
+  definedTermSchema,
+  financialProductSchemas,
+  organizationSchema,
+  websiteSchema,
+} from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: 'Rentiers Pro — Bis zu 20% Jahresrendite auf Bankeinlagen | Festgeld weltweit',
   description:
     'Rentiers bündelt Bankeinlagen weltweit und liefert 12–20% Jahresrendite mit staatlichen Einlagengarantien. Einfach anlegen, Zinsen empfangen. Jetzt kostenlos starten.',
-  alternates: { canonical: 'https://rentierspro.com' },
-};
+  path: '/',
+});
+
+const einlagenarbitrageDefinition =
+  'Einlagenarbitrage bezeichnet die Strategie, Kapital in Ländern anzulegen, die regulierte Bankzinsen von 10–25% p.a. bieten — deutlich mehr als die 0,5–3%, die deutsche Banken heute zahlen.';
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd
+        data={[
+          organizationSchema(),
+          websiteSchema(),
+          ...financialProductSchemas(),
+          definedTermSchema('Einlagenarbitrage', einlagenarbitrageDefinition),
+        ]}
+      />
       <HeroHome />
       <LuxcarBanner />
       <ProblemSection />

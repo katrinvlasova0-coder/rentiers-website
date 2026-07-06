@@ -85,6 +85,36 @@ export const pageContent = {
       errSubmit: 'Senden fehlgeschlagen. Bitte erneut versuchen oder info@rentierspro.com schreiben.',
       thankYou: 'Vielen Dank! Wir melden uns innerhalb von 1 Werktag bei Ihnen.',
     },
+    kontakt: {
+      heroTitle: 'Kontakt',
+      heroSubtitle: 'Fragen zu Rentiers Pro, Portfolios oder Ihrem Konto? Wir antworten innerhalb eines Werktags.',
+      emailLabel: 'E-Mail',
+      email: 'info@rentierspro.com',
+      formTitle: 'Nachricht senden',
+      formSubtitle: 'Beschreiben Sie Ihr Anliegen — unser Team meldet sich persönlich bei Ihnen.',
+      cta: 'Anfrage senden →',
+    },
+    einlagenarbitrage: {
+      heroTitle: 'Einlagenarbitrage erklärt',
+      heroSubtitle: 'Der vollständige Leitfaden: Definition, Funktionsweise, Risiken und Beispiele für Privatanleger.',
+      definitionTitle: 'Was ist Einlagenarbitrage?',
+      definition:
+        'Einlagenarbitrage bezeichnet die Strategie, Kapital in Ländern anzulegen, die regulierte Bankzinsen von 10–25% p.a. bieten — deutlich mehr als die 0,5–3%, die deutsche Banken heute zahlen. Anleger nutzen Zinsdifferenzen zwischen Heimat- und Zielmarkt, ohne Kredite oder Derivate.',
+      howTitle: 'Wie funktioniert Einlagenarbitrage?',
+      howPoints: [
+        'Kapital wird bei regulierten Partnerbanken in Schwellenländern als Festgeld oder Tagesgeld angelegt.',
+        'Staatliche Einlagengarantien des Ziellandes schützen Einlagen bis zu länderspezifischen Limits.',
+        'Die Zinsdifferenz zum Heimatmarkt bildet die Renditequelle — abzüglich Währungs- und Länderrisiko.',
+        'Plattformen wie Rentiers Pro übernehmen Bankauswahl, Compliance, Monitoring und Auszahlung.',
+      ],
+      risksTitle: 'Risiken im Überblick',
+      risksText:
+        'Währungsrisiko, Länderrisiko und abweichende Einlagensicherungslimits sind die zentralen Faktoren. Professionelles Monitoring und Diversifikation über mehrere Banken und Länder sind entscheidend.',
+      linksTitle: 'Weiterführend',
+      fullGuide: 'Vollständiger Blog-Leitfaden →',
+      portfolios: 'Portfolios vergleichen →',
+      calculator: 'Rendite berechnen →',
+    },
     faq: {
       heroTitle: 'Häufige Fragen',
       heroSubtitle: 'Alles, was Sie über Rentiers wissen müssen — transparent und vollständig erklärt.',
@@ -470,6 +500,36 @@ export const pageContent = {
       errMessage: 'Please describe your request (at least 10 characters).',
       errSubmit: 'Something went wrong. Please try again or email info@rentierspro.com.',
       thankYou: 'Thank you! We will get back to you within 1 business day.',
+    },
+    kontakt: {
+      heroTitle: 'Contact',
+      heroSubtitle: 'Questions about Rentiers Pro, portfolios, or your account? We reply within one business day.',
+      emailLabel: 'Email',
+      email: 'info@rentierspro.com',
+      formTitle: 'Send a message',
+      formSubtitle: 'Describe your request — our team will get back to you personally.',
+      cta: 'Submit request →',
+    },
+    einlagenarbitrage: {
+      heroTitle: 'Deposit arbitrage explained',
+      heroSubtitle: 'The complete guide: definition, how it works, risks, and examples for private investors.',
+      definitionTitle: 'What is deposit arbitrage?',
+      definition:
+        'Deposit arbitrage is the strategy of placing capital in countries where regulated banks pay 10–25% p.a. — far above the 0.5–3% typical in Germany. Investors capture interest-rate differentials without leverage or derivatives.',
+      howTitle: 'How does deposit arbitrage work?',
+      howPoints: [
+        'Capital is placed with regulated partner banks in emerging markets as fixed or demand deposits.',
+        'State deposit guarantee schemes in the target country protect deposits up to country-specific limits.',
+        'The spread versus your home market is the return source — net of currency and country risk.',
+        'Platforms like Rentiers Pro handle bank selection, compliance, monitoring, and payouts.',
+      ],
+      risksTitle: 'Key risks',
+      risksText:
+        'Currency risk, country risk, and different deposit insurance limits are central. Professional monitoring and diversification across banks and countries are essential.',
+      linksTitle: 'Learn more',
+      fullGuide: 'Full blog guide →',
+      portfolios: 'Compare portfolios →',
+      calculator: 'Calculate returns →',
     },
     faq: {
       heroTitle: 'Frequently Asked Questions',

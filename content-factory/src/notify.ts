@@ -25,7 +25,7 @@ export async function sendArticleNotification(
     return;
   }
 
-  const baseUrl = process.env.SITE_BASE_URL || 'https://rentierspro.com';
+  const baseUrl = process.env.SITE_BASE_URL || 'https://rentiers.net';
   const articleUrl = `${baseUrl}/blog/${article.slug}`;
   const fromEmail = process.env.FROM_EMAIL || 'content@rentiers.pro';
 

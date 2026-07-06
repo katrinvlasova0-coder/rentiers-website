@@ -6,7 +6,7 @@ function getRobotsPath(): string {
 }
 
 function getBaseUrl(): string {
-  return process.env.SITE_BASE_URL || 'https://rentierspro.com';
+  return process.env.SITE_BASE_URL || 'https://rentiers.net';
 }
 
 const AI_BOTS = ['GPTBot', 'ChatGPT-User', 'Claude-Web', 'ClaudeBot', 'PerplexityBot'];

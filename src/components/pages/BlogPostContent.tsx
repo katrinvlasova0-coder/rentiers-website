@@ -10,6 +10,7 @@ import {
   localizeBlogMeta,
   type BlogPostMeta,
 } from '@/lib/blog-shared';
+import { getAuthorBio } from '@/lib/author-bios';
 import { markdownToHtml } from '@/lib/markdown';
 import { slugify } from '@/lib/slugify';
 
@@ -34,6 +35,8 @@ export default function BlogPostContent({
   const meta = localizeBlogMeta(rawMeta, lang);
   const canonicalCategory = de.meta.category;
   const dateLocale = lang === 'en' ? 'en-GB' : 'de-DE';
+
+  const authorBio = getAuthorBio(meta.author.name, lang);
 
   const breadcrumbs = [
     { name: labels.home, href: '/' },
@@ -97,7 +100,7 @@ export default function BlogPostContent({
             {meta.description}
           </p>
 
-          <div className="flex items-center gap-3 pt-5 border-t" style={{ borderColor: 'var(--color-border)' }}>
+          <div className="flex items-start gap-3 pt-5 border-t" style={{ borderColor: 'var(--color-border)' }}>
             <div
               className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold shrink-0"
               style={{ background: 'var(--color-primary)' }}
@@ -116,6 +119,11 @@ export default function BlogPostContent({
                   day: 'numeric',
                 })}
               </p>
+              {authorBio && (
+                <p className="text-xs mt-2 leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
+                  {authorBio}
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -245,6 +253,29 @@ export default function BlogPostContent({
       )}
 
       <div className="max-w-[720px] mx-auto px-6 mt-12">
+        <div className="flex flex-wrap gap-3 justify-center mb-6">
+          <Link
+            href="/portfolios"
+            className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
+            style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+          >
+            {lang === 'de' ? 'Portfolios vergleichen →' : 'Compare portfolios →'}
+          </Link>
+          <Link
+            href="/kalkulator"
+            className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
+            style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+          >
+            {lang === 'de' ? 'Rendite berechnen →' : 'Calculate returns →'}
+          </Link>
+          <Link
+            href="/einlagenarbitrage"
+            className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
+            style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+          >
+            {lang === 'de' ? 'Einlagenarbitrage erklärt →' : 'Deposit arbitrage guide →'}
+          </Link>
+        </div>
         <div
           className="rounded-2xl p-8 text-center"
           style={{ background: 'linear-gradient(135deg, var(--color-primary) 0%, #5B5BF0 100%)' }}

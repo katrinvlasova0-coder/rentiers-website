@@ -1,20 +1,16 @@
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 import { getAllPosts } from '@/lib/blog';
 import BlogListContent from '@/components/pages/BlogListContent';
+import { createMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: 'Blog — Rentiers Pro | Festgeld, passive Einkommen, Einlagenarbitrage',
   description:
     'Expertenwissen zu Festgeld, passivem Einkommen, Einlagenarbitrage und globalen Bankzinsen. Tipps und Guides für Anleger.',
-  alternates: { canonical: 'https://rentierspro.com/blog' },
-};
+  path: '/blog',
+});
 
 export default async function BlogPage() {
   const posts = await getAllPosts();
-  return (
-    <Suspense>
-      <BlogListContent posts={posts} />
-    </Suspense>
-  );
+  return <BlogListContent posts={posts} />;
 }

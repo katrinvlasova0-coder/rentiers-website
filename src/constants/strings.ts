@@ -3,8 +3,8 @@ export const strings = {
   site: {
     name: 'Rentiers Pro',
     tagline: 'Bis zu 20% Jahresrendite auf Ihre Einlagen',
-    domain: 'rentierspro.com',
-    url: 'https://rentierspro.com',
+    domain: 'rentiers.net',
+    url: 'https://rentiers.net',
     description:
       'Rentiers ist die erste digitale Plattform für Einlagenarbitrage. Erzielen Sie 12–20% Jahresrendite durch Einlagen bei internationalen Banken mit staatlichen Garantien.',
     company: 'Rentiers Global Corp. (USA) · Rentiers Global Inc. (Canada)',

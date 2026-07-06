@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllPostSlugs, getPostBySlug, getAllPosts } from '@/lib/blog';
 import { pickReadMorePosts, categorySlug } from '@/lib/blog-shared';
-import { articleSchema, faqSchema, breadcrumbSchema } from '@/lib/seo';
+import { articleSchema, faqSchema, breadcrumbSchema, createMetadata } from '@/lib/seo';
 import JsonLd from '@/components/layout/JsonLd';
 import BlogPostContent from '@/components/pages/BlogPostContent';
 
@@ -19,19 +19,15 @@ export async function generateMetadata({
   const { slug } = await params;
   try {
     const { meta } = await getPostBySlug(slug);
-    return {
+    return createMetadata({
       title: meta.title,
       description: meta.description,
-      alternates: { canonical: `https://rentierspro.com/blog/${slug}` },
-      openGraph: {
-        title: meta.title,
-        description: meta.description,
-        type: 'article',
-        publishedTime: meta.datePublished,
-        modifiedTime: meta.dateModified,
-        images: meta.coverImage ? [{ url: meta.coverImage, width: 1200, height: 630 }] : [],
-      },
-    };
+      path: `/blog/${slug}`,
+      type: 'article',
+      ogImage: meta.coverImage,
+      publishedTime: meta.datePublished,
+      modifiedTime: meta.dateModified,
+    });
   } catch {
     return { title: 'Artikel nicht gefunden' };
   }

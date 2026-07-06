@@ -45,6 +45,49 @@ function renderLinks(text: string): string {
   });
 }
 
+const SOURCE_URLS: Record<string, string> = {
+  'Nationalbank Georgiens': 'https://nbg.gov.ge',
+  'nbg.gov.ge': 'https://nbg.gov.ge',
+  'Zentralbank Armeniens': 'https://www.cba.am',
+  'cba.am': 'https://www.cba.am',
+  Bundesbank: 'https://www.bundesbank.de',
+  'bundesbank.de': 'https://www.bundesbank.de',
+  EZB: 'https://www.ecb.europa.eu',
+  'ecb.europa.eu': 'https://www.ecb.europa.eu',
+  'IMF World Economic Outlook': 'https://www.imf.org/en/Publications/WEO',
+  'BIS-Statistiken': 'https://www.bis.org/statistics/',
+  'BIS Statistiken': 'https://www.bis.org/statistics/',
+  Weltbank: 'https://www.worldbank.org',
+};
+
+function linkifySources(text: string): string {
+  let result = text;
+
+  result = result.replace(
+    /\*?Quellen?:\s*([^*\n]+)\*?/gi,
+    (match, sourcesPart: string) => {
+      const linked = sourcesPart.replace(
+        /([A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß0-9.\- ]+?)\s*\(([^)]+)\)/g,
+        (_m: string, name: string, domain: string) => {
+          const url = domain.startsWith('http') ? domain : `https://${domain}`;
+          return `<a href="${url}" class="blog-link" target="_blank" rel="noopener noreferrer">${name.trim()}</a>`;
+        },
+      );
+      return `<p class="blog-source"><em>Quellen: ${linked}</em></p>`;
+    },
+  );
+
+  for (const [name, url] of Object.entries(SOURCE_URLS)) {
+    const re = new RegExp(`(?<![">/])\\b(${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\b(?![^<]*>)`, 'g');
+    result = result.replace(
+      re,
+      `<a href="${url}" class="blog-link" target="_blank" rel="noopener noreferrer">$1</a>`,
+    );
+  }
+
+  return result;
+}
+
 function buildTocNav(title: string, items: string[]): string {
   const list = items
     .map((item) => {
@@ -111,7 +154,8 @@ export function markdownToHtml(md: string, lang: 'de' | 'en' = 'de'): string {
     }
   }
 
-  return renderLinks(
+  return linkifySources(
+    renderLinks(
     segments
       .join('\n')
       .replace(/^#### (.+)$/gm, (_, title) => {
@@ -140,6 +184,7 @@ export function markdownToHtml(md: string, lang: 'de' | 'en' = 'de'): string {
         return `<${tag} class="blog-list">${cleaned}</${tag}>`;
       })
       .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="blog-img" loading="lazy" />')
-  )
-    .replace(/^(?!<|\s*$)(.+)$/gm, '<p class="blog-p">$1</p>');
+      .replace(/^(?!<|\s*$)(.+)$/gm, '<p class="blog-p">$1</p>'),
+    ),
+  );
 }

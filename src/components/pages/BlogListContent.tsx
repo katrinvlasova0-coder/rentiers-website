@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import {
   categorySlug,
@@ -96,20 +96,27 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
   const router = useRouter();
   const { lang, p } = useLanguage();
   const labels = p.blog;
-  const searchParams = useSearchParams();
 
-  const tagFilter = searchParams.get('tag');
-  const categoryFilter = searchParams.get('category');
-  const queryFilter = searchParams.get('q')?.trim() ?? '';
+  const [tagFilter, setTagFilter] = useState<string | null>(null);
+  const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
+  const [queryFilter, setQueryFilter] = useState('');
+  const [searchInput, setSearchInput] = useState('');
 
-  const [searchInput, setSearchInput] = useState(queryFilter);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setTagFilter(params.get('tag'));
+    setCategoryFilter(params.get('category'));
+    const q = params.get('q')?.trim() ?? '';
+    setQueryFilter(q);
+    setSearchInput(q);
+  }, []);
 
   const categories = useMemo(() => collectCategories(posts, lang), [posts, lang]);
   const allTags = useMemo(() => collectUniqueTags(posts, lang).slice(0, 16), [posts, lang]);
 
   const pushFilters = useCallback(
     (next: { tag?: string | null; category?: string | null; q?: string | null }) => {
-      const params = new URLSearchParams(searchParams.toString());
+      const params = new URLSearchParams(window.location.search);
       const setOrDelete = (key: string, value: string | null | undefined) => {
         if (value) params.set(key, value);
         else params.delete(key);
@@ -118,9 +125,16 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
       if ('category' in next) setOrDelete('category', next.category);
       if ('q' in next) setOrDelete('q', next.q);
       const qs = params.toString();
+      const nextTag = 'tag' in next ? (next.tag ?? null) : tagFilter;
+      const nextCategory = 'category' in next ? (next.category ?? null) : categoryFilter;
+      const nextQ = 'q' in next ? (next.q?.trim() ?? '') : queryFilter;
+      setTagFilter(nextTag);
+      setCategoryFilter(nextCategory);
+      setQueryFilter(nextQ);
+      if ('q' in next) setSearchInput(nextQ);
       router.push(qs ? `/blog?${qs}` : '/blog');
     },
-    [router, searchParams],
+    [router, tagFilter, categoryFilter, queryFilter],
   );
 
   let filtered = posts;
