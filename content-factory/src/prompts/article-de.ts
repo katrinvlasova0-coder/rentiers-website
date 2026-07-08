@@ -1,5 +1,5 @@
 import type { ArticleRequest } from './types';
-import { clusterTagDe, clusterTagEn } from '../config/cluster-tags';
+import { clusterTagDe, clusterTagEn } from '../../config/cluster-tags';
 
 export function buildArticlePrompt(
   req: ArticleRequest,
