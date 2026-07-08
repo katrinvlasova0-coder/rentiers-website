@@ -182,6 +182,38 @@
     "category": "Vergleiche",
     "status": "completed",
     "unsplashQuery": "financial comparison investment",
-    "completedAt": "2026-07-06T15:03:35.153Z"
+    "completedAt": "2026-01-01"
+  },
+  {
+    "id": 18,
+    "cluster": "Страновые гиды",
+    "slug": "festgeld-ausland-laender-vergleich-2026",
+    "titleDe": "Einlagenarbitrage Länder-Ranking 2026: Rendite, Garantie, Risiko",
+    "titleEn": "Deposit Arbitrage Country Ranking 2026: Yield, Guarantee, Risk",
+    "keywordDe": "festgeld ausland länder vergleich 2026",
+    "searchVolDe": 2100,
+    "kd": 27,
+    "keywordEn": "best countries bank deposits 2026",
+    "searchVolEn": 4400,
+    "lsiKeywords": [
+      "höchste bankzinsen weltweit",
+      "einlagenarbitrage länder 2026",
+      "sichere hochzinsländer"
+    ],
+    "format": "Rangliste",
+    "targetLength": 2167,
+    "taSegments": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-15",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "completed",
+    "unsplashQuery": "tbilisi georgia finance",
+    "completedAt": "2026-07-08T18:25:38.226Z"
   }
 ]
