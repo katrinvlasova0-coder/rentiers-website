@@ -5,6 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import LeadButton from '@/components/ui/LeadButton';
 import { useScrollGoal } from '@/hooks/useScrollGoal';
 import { ymGoal } from '@/lib/metrika';
+import { event } from '@/lib/fbpixel';
 
 const RATES: Record<string, number> = {
   conservative: 0.12,
@@ -296,6 +297,12 @@ export default function Calculator({ showHeader = true, compact = false }: Calcu
                     yield: YIELD_GOALS[portfolio],
                   }}
                   formSource="register"
+                  onClick={() => {
+                    event('InitiateCheckout', {
+                      currency: 'EUR',
+                      value: amount,
+                    });
+                  }}
                 >
                   {c.cta} →
                 </LeadButton>

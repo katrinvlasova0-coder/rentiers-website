@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import type { LeadFormSource } from '@/contexts/LeadFormContext';
 import { submitLead } from '@/lib/submitLead';
 import { ymGoal } from '@/lib/metrika';
+import { customEvent, event } from '@/lib/fbpixel';
 import { useFormAbandonTracking } from '@/hooks/useFormAbandonTracking';
 
 interface Props {
@@ -90,6 +91,7 @@ export default function LeadFormModal({ open, onClose, formSource }: Props) {
     startedTracked.current = true;
     setHasStarted(true);
     ymGoal(`form_${formSource}_started`);
+    customEvent('LeadFormStarted', { form_source: formSource });
   };
 
   const trackFieldAbandon = (field: string, value: string) => {
@@ -123,11 +125,19 @@ export default function LeadFormModal({ open, onClose, formSource }: Props) {
       });
 
       ymGoal(SUCCESS_GOALS[formSource]);
+      if (formSource === 'b2b') {
+        event('Lead', { content_name: 'B2B Inquiry', currency: 'EUR' });
+        customEvent('B2BFormSubmitted');
+      } else {
+        event('Lead', { content_name: 'Rentiers Registration', currency: 'EUR' });
+        customEvent('RegistrationCompleted', { form_source: formSource });
+      }
       setSubmitted(true);
       setForm({ name: '', email: '', phone: '', message: '' });
     } catch (err) {
       const message = err instanceof Error ? err.message : lf.errSubmit;
       ymGoal(`form_${formSource}_error`, { error: message });
+      customEvent('LeadFormError', { form_source: formSource, error: message });
       setErrors({ message: lf.errSubmit });
     } finally {
       setSubmitting(false);

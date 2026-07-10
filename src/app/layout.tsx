@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -9,6 +10,8 @@ import { LeadFormProvider } from "@/contexts/LeadFormContext";
 import { assetPath } from "@/lib/basePath";
 import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/constants/site";
 import YandexMetrika from "@/components/analytics/YandexMetrika";
+import FacebookPixel from "@/components/analytics/FacebookPixel";
+import FacebookPixelTracker from "@/components/analytics/FacebookPixelTracker";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -59,6 +62,10 @@ export default function RootLayout({
     <html lang="de" className="h-full">
       <body className="min-h-full flex flex-col antialiased">
         <YandexMetrika />
+        <FacebookPixel />
+        <Suspense fallback={null}>
+          <FacebookPixelTracker />
+        </Suspense>
         <LanguageProvider>
           <LeadFormProvider>
             <HtmlLang />
