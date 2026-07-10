@@ -60,7 +60,7 @@ Optional:
 
 - `UNSPLASH_ACCESS_KEY` — real images (fallback placeholders if missing)
 - `RESEND_API_KEY` + `NOTIFY_EMAIL` — email notifications
-- `SITE_BASE_URL` — default `https://rentierspro.com`
+- `SITE_BASE_URL` — default `https://rentiers.net`
 
 ## Content Plan
 

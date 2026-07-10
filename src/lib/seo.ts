@@ -19,8 +19,9 @@ function normalizePath(path: string): string {
 
 export function pageUrl(path: string): string {
   const normalized = normalizePath(path);
-  if (normalized === '/') return SITE_URL;
-  return `${SITE_URL}${normalized.slice(0, -1)}`;
+  if (normalized === '/') return `${SITE_URL}/`;
+  // Keep trailing slash to match next.config trailingSlash: true
+  return `${SITE_URL}${normalized}`;
 }
 
 export function createMetadata({

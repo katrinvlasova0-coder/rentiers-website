@@ -1,5 +1,5 @@
 # ============================================================
-# robots.txt — Rentiers Pro (rentierspro.com)
+# robots.txt — Rentiers Pro (rentiers.net)
 # Updated: 2026-06-20
 # ============================================================
 # Strategy: Allow all legitimate search & AI crawlers full

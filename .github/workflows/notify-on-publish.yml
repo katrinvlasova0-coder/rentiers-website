@@ -42,7 +42,7 @@ jobs:
                 \"from\": \"onboarding@resend.dev\",
                 \"to\": \"$NOTIFY_EMAIL\",
                 \"subject\": \"✅ Neue Artikel veröffentlicht: $TITLE\",
-                \"html\": \"<p>Artikel <strong>$TITLE</strong> wurde veröffentlicht.<br><a href='https://rentierspro.com/blog/$SLUG'>Jetzt lesen →</a></p>\"
+                \"html\": \"<p>Artikel <strong>$TITLE</strong> wurde veröffentlicht.<br><a href='https://rentiers.net/blog/$SLUG'>Jetzt lesen →</a></p>\"
               }")
             HTTP_CODE=$(echo "$RESPONSE" | tail -1)
             BODY=$(echo "$RESPONSE" | sed '$d')

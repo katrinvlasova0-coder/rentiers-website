@@ -25,18 +25,18 @@ export const metadata: Metadata = {
     title: "Rentiers Pro — Bis zu 20% Jahresrendite",
     description:
       "Globale Bankeinlagen mit staatlicher Garantie. 12–20% p.a. Einfach anlegen, Zinsen empfangen.",
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     siteName: SITE_NAME,
     locale: "de_DE",
     type: "website",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
   },
   alternates: {
-    canonical: SITE_URL,
+    canonical: `${SITE_URL}/`,
     languages: {
-      de: SITE_URL,
-      en: SITE_URL,
-      "x-default": SITE_URL,
+      de: `${SITE_URL}/`,
+      en: `${SITE_URL}/`,
+      "x-default": `${SITE_URL}/`,
     },
   },
   twitter: {
