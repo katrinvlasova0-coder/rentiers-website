@@ -93,6 +93,38 @@
     "completedAt": "2026-02-08"
   },
   {
+    "id": 18,
+    "cluster": "Страновые гиды",
+    "slug": "festgeld-ausland-laender-vergleich-2026",
+    "titleDe": "Einlagenarbitrage Länder-Ranking 2026: Rendite, Garantie, Risiko",
+    "titleEn": "Deposit Arbitrage Country Ranking 2026: Yield, Guarantee, Risk",
+    "keywordDe": "festgeld ausland länder vergleich 2026",
+    "searchVolDe": 2100,
+    "kd": 27,
+    "keywordEn": "best countries bank deposits 2026",
+    "searchVolEn": 4400,
+    "lsiKeywords": [
+      "höchste bankzinsen weltweit",
+      "einlagenarbitrage länder 2026",
+      "sichere hochzinsländer"
+    ],
+    "format": "Rangliste",
+    "targetLength": 2167,
+    "taSegments": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-15",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "completed",
+    "unsplashQuery": "tbilisi georgia finance",
+    "completedAt": "2026-01-15"
+  },
+  {
     "id": 19,
     "cluster": "Страновые гиды",
     "slug": "einlagengarantie-laender-tabelle-2026",
@@ -185,35 +217,34 @@
     "completedAt": "2026-01-01"
   },
   {
-    "id": 18,
-    "cluster": "Страновые гиды",
-    "slug": "festgeld-ausland-laender-vergleich-2026",
-    "titleDe": "Einlagenarbitrage Länder-Ranking 2026: Rendite, Garantie, Risiko",
-    "titleEn": "Deposit Arbitrage Country Ranking 2026: Yield, Guarantee, Risk",
-    "keywordDe": "festgeld ausland länder vergleich 2026",
-    "searchVolDe": 2100,
-    "kd": 27,
-    "keywordEn": "best countries bank deposits 2026",
-    "searchVolEn": 4400,
+    "id": 28,
+    "cluster": "Сравнения",
+    "slug": "raisin-alternative-2026",
+    "titleDe": "Raisin vs. Rentiers 2026: Welche Plattform passt zu wem?",
+    "titleEn": "Raisin vs. Rentiers 2026: Which Platform Is Right for You?",
+    "keywordDe": "raisin alternative 2026",
+    "searchVolDe": 2400,
+    "kd": 39,
+    "keywordEn": "raisin vs deposit arbitrage platform",
+    "searchVolEn": 1800,
     "lsiKeywords": [
-      "höchste bankzinsen weltweit",
-      "einlagenarbitrage länder 2026",
-      "sichere hochzinsländer"
+      "weltsparen vs rentiers",
+      "festgeld plattform vergleich",
+      "beste zinsplattform"
     ],
-    "format": "Rangliste",
-    "targetLength": 2167,
+    "format": "Plattformvergleich",
+    "targetLength": 2000,
     "taSegments": [
       "1",
       "2",
-      "3",
-      "4"
+      "3"
     ],
     "priority": "high",
     "plannedDate": "2026-01-15",
     "language": "DE+EN",
-    "category": "Länder-Guides",
+    "category": "Vergleiche",
     "status": "completed",
-    "unsplashQuery": "tbilisi georgia finance",
-    "completedAt": "2026-07-08T18:25:38.226Z"
+    "unsplashQuery": "financial comparison investment",
+    "completedAt": "2026-07-10T10:46:28.261Z"
   }
 ]

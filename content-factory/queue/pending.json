@@ -641,36 +641,6 @@
     "unsplashQuery": "passive income financial freedom"
   },
   {
-    "id": 28,
-    "cluster": "Сравнения",
-    "slug": "raisin-alternative-2026",
-    "titleDe": "Raisin vs. Rentiers 2026: Welche Plattform passt zu wem?",
-    "titleEn": "Raisin vs. Rentiers 2026: Which Platform Is Right for You?",
-    "keywordDe": "raisin alternative 2026",
-    "searchVolDe": 2400,
-    "kd": 39,
-    "keywordEn": "raisin vs deposit arbitrage platform",
-    "searchVolEn": 1800,
-    "lsiKeywords": [
-      "weltsparen vs rentiers",
-      "festgeld plattform vergleich",
-      "beste zinsplattform"
-    ],
-    "format": "Plattformvergleich",
-    "targetLength": 2000,
-    "taSegments": [
-      "1",
-      "2",
-      "3"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-01-15",
-    "language": "DE+EN",
-    "category": "Vergleiche",
-    "status": "pending",
-    "unsplashQuery": "financial comparison investment"
-  },
-  {
     "id": 29,
     "cluster": "Сравнения",
     "slug": "trade-republic-zinsen-vergleich-2026",
