@@ -787,37 +787,6 @@
     "unsplashQuery": "financial comparison investment"
   },
   {
-    "id": 36,
-    "cluster": "Безопасность",
-    "slug": "einlagengarantie-weltweit-tabelle-2026",
-    "titleDe": "Einlagengarantie weltweit 2026: Vollständige Länder-Tabelle",
-    "titleEn": "Deposit Insurance Worldwide 2026: Complete Country Table",
-    "keywordDe": "einlagengarantie weltweit tabelle",
-    "searchVolDe": 1600,
-    "kd": 30,
-    "keywordEn": "deposit insurance by country 2026 table",
-    "searchVolEn": 2900,
-    "lsiKeywords": [
-      "einlagensicherung ausland",
-      "staatliche garantie bank",
-      "bis zu welcher summe garantiert"
-    ],
-    "format": "Datentabelle",
-    "targetLength": 1667,
-    "taSegments": [
-      "1",
-      "2",
-      "3",
-      "4"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-01-15",
-    "language": "DE+EN",
-    "category": "Sicherheit",
-    "status": "pending",
-    "unsplashQuery": "bank security financial regulation"
-  },
-  {
     "id": 37,
     "cluster": "Безопасность",
     "slug": "bank-insolvenz-einlagen-2026",

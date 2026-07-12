@@ -156,6 +156,37 @@
     "completedAt": "2026-01-01"
   },
   {
+    "id": 28,
+    "cluster": "Сравнения",
+    "slug": "raisin-alternative-2026",
+    "titleDe": "Raisin vs. Rentiers 2026: Welche Plattform passt zu wem?",
+    "titleEn": "Raisin vs. Rentiers 2026: Which Platform Is Right for You?",
+    "keywordDe": "raisin alternative 2026",
+    "searchVolDe": 2400,
+    "kd": 39,
+    "keywordEn": "raisin vs deposit arbitrage platform",
+    "searchVolEn": 1800,
+    "lsiKeywords": [
+      "weltsparen vs rentiers",
+      "festgeld plattform vergleich",
+      "beste zinsplattform"
+    ],
+    "format": "Plattformvergleich",
+    "targetLength": 2000,
+    "taSegments": [
+      "1",
+      "2",
+      "3"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-01-15",
+    "language": "DE+EN",
+    "category": "Vergleiche",
+    "status": "completed",
+    "unsplashQuery": "financial comparison investment",
+    "completedAt": "2026-01-15"
+  },
+  {
     "id": 30,
     "cluster": "Сравнения",
     "slug": "weltsparen-alternative-2026",
@@ -217,34 +248,35 @@
     "completedAt": "2026-01-01"
   },
   {
-    "id": 28,
-    "cluster": "Сравнения",
-    "slug": "raisin-alternative-2026",
-    "titleDe": "Raisin vs. Rentiers 2026: Welche Plattform passt zu wem?",
-    "titleEn": "Raisin vs. Rentiers 2026: Which Platform Is Right for You?",
-    "keywordDe": "raisin alternative 2026",
-    "searchVolDe": 2400,
-    "kd": 39,
-    "keywordEn": "raisin vs deposit arbitrage platform",
-    "searchVolEn": 1800,
+    "id": 36,
+    "cluster": "Безопасность",
+    "slug": "einlagengarantie-weltweit-tabelle-2026",
+    "titleDe": "Einlagengarantie weltweit 2026: Vollständige Länder-Tabelle",
+    "titleEn": "Deposit Insurance Worldwide 2026: Complete Country Table",
+    "keywordDe": "einlagengarantie weltweit tabelle",
+    "searchVolDe": 1600,
+    "kd": 30,
+    "keywordEn": "deposit insurance by country 2026 table",
+    "searchVolEn": 2900,
     "lsiKeywords": [
-      "weltsparen vs rentiers",
-      "festgeld plattform vergleich",
-      "beste zinsplattform"
+      "einlagensicherung ausland",
+      "staatliche garantie bank",
+      "bis zu welcher summe garantiert"
     ],
-    "format": "Plattformvergleich",
-    "targetLength": 2000,
+    "format": "Datentabelle",
+    "targetLength": 1667,
     "taSegments": [
       "1",
       "2",
-      "3"
+      "3",
+      "4"
     ],
     "priority": "high",
     "plannedDate": "2026-01-15",
     "language": "DE+EN",
-    "category": "Vergleiche",
+    "category": "Sicherheit",
     "status": "completed",
-    "unsplashQuery": "financial comparison investment",
-    "completedAt": "2026-07-10T10:46:28.261Z"
+    "unsplashQuery": "bank security financial regulation",
+    "completedAt": "2026-07-12T09:45:14.522Z"
   }
 ]
