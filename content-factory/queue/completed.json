@@ -277,6 +277,37 @@
     "category": "Sicherheit",
     "status": "completed",
     "unsplashQuery": "bank security financial regulation",
-    "completedAt": "2026-07-12T09:45:14.522Z"
+    "completedAt": "2026-01-15"
+  },
+  {
+    "id": 10,
+    "cluster": "Страновые гиды",
+    "slug": "georgien-bankzinsen-2026",
+    "titleDe": "Georgien Bankeinlagen 2026: TBC Bank & Bank of Georgia im Vergleich",
+    "titleEn": "Georgia Bank Deposits 2026: TBC Bank & Bank of Georgia Compared",
+    "keywordDe": "georgien bankzinsen 2026",
+    "searchVolDe": 1300,
+    "kd": 22,
+    "keywordEn": "georgia bank deposits 2026",
+    "searchVolEn": 2400,
+    "lsiKeywords": [
+      "tbc bank zinsen",
+      "bank of georgia festgeld",
+      "tiflis konto eröffnen"
+    ],
+    "format": "Country Guide",
+    "targetLength": 2333,
+    "taSegments": [
+      "1",
+      "2",
+      "4"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-01",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "completed",
+    "unsplashQuery": "tbilisi georgia finance",
+    "completedAt": "2026-07-14T09:49:02.282Z"
   }
 ]
