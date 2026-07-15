@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="de" data-lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rentiers Business — Unternehmensreserven bis zu 20% anlegen</title>
+<meta name="description" content="Rentiers Business: Unternehmensreserven in regulierten Bankeinlagen weltweit anlegen. 12–20% p.a., staatliche Einlagengarantien, quartalsweise Zinszahlung. Ab €50.000.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#07101f;color:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(7,16,31,.9);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(79,200,232,.12)}
+.nav-w{max-width:1100px;margin:0 auto;padding:0 24px;
+  height:66px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo img{height:28px;filter:brightness(0) invert(1)}
+.nav-links{display:flex;gap:28px;font-size:14px;color:#94a3b8}
+.nav-links a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:10px}
+.lang-tog{display:flex;background:#0d1829;border:1px solid rgba(79,200,232,.2);
+  border-radius:20px;padding:2px;gap:2px}
+.lt{padding:3px 11px;border-radius:16px;font-size:12px;font-weight:600;
+  cursor:pointer;background:transparent;color:#64748b;border:none;transition:.15s}
+.lt.on{background:#4FC8E8;color:#07101f}
+.btn-login{padding:7px 16px;border-radius:7px;border:1px solid rgba(255,255,255,.15);
+  background:transparent;color:#fff;font-size:14px;font-weight:500;cursor:pointer;transition:.15s}
+.btn-login:hover{border-color:#4FC8E8;color:#4FC8E8}
+.btn-cta{padding:8px 18px;border-radius:7px;background:#4FC8E8;color:#07101f;
+  font-size:14px;font-weight:700;border:none;cursor:pointer;transition:.15s;white-space:nowrap}
+.btn-cta:hover{opacity:.88}
+
+/* ── HERO ── */
+.hero{padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse 1000px 600px at 60% 20%,rgba(29,78,216,.18),transparent);
+  pointer-events:none}
+.hero-w{max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:center}
+
+.hero-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.hero-eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#4FC8E8}
+.hero-eyebrow span{font-size:13px;font-weight:600;color:#4FC8E8;letter-spacing:.03em}
+
+h1{font-size:clamp(32px,4.5vw,52px);font-weight:800;line-height:1.1;
+  letter-spacing:-.03em;margin-bottom:20px}
+h1 em{font-style:normal;color:#4FC8E8}
+
+.hero-sub{font-size:17px;color:#94a3b8;line-height:1.75;max-width:500px;margin-bottom:32px}
+
+.hero-btns{display:flex;gap:12px;margin-bottom:32px}
+.btn-primary{display:inline-block;padding:13px 24px;border-radius:8px;
+  background:#4FC8E8;color:#07101f;font-size:15px;font-weight:700;
+  border:none;cursor:pointer;transition:.15s}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+.btn-ghost{display:inline-block;padding:13px 24px;border-radius:8px;
+  background:transparent;color:#fff;font-size:15px;font-weight:500;
+  border:1px solid rgba(255,255,255,.18);cursor:pointer;transition:.15s}
+.btn-ghost:hover{border-color:#4FC8E8;color:#4FC8E8}
+
+.trust-row{display:flex;flex-wrap:wrap;gap:6px}
+.trust-item{font-size:12px;color:#64748b;display:flex;align-items:center;gap:5px}
+.trust-item+.trust-item::before{content:'·';color:#334155}
+
+/* ── HERO MOCKUP ── */
+.mockup{background:#0d1829;border:1px solid rgba(79,200,232,.2);
+  border-radius:16px;padding:24px;font-size:13px;position:relative}
+.mock-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.mock-company{font-weight:700;font-size:15px}
+.mock-tag{font-size:11px;font-weight:600;color:#4FC8E8;background:rgba(79,200,232,.12);
+  border:1px solid rgba(79,200,232,.25);border-radius:10px;padding:2px 9px}
+.mock-balance{background:linear-gradient(135deg,rgba(29,78,216,.35),rgba(79,200,232,.2));
+  border:1px solid rgba(79,200,232,.25);border-radius:12px;padding:18px;margin-bottom:16px}
+.mock-balance-label{font-size:11px;color:#94a3b8;margin-bottom:4px}
+.mock-balance-val{font-size:28px;font-weight:800;color:#fff;margin-bottom:2px}
+.mock-balance-sub{font-size:11px;color:#4FC8E8}
+.mock-rows{display:flex;flex-direction:column;gap:1px;margin-bottom:16px}
+.mock-row{display:flex;justify-content:space-between;align-items:center;
+  padding:10px 12px;background:rgba(255,255,255,.03);border-radius:7px}
+.mock-row:first-child{border-radius:7px 7px 3px 3px}
+.mock-row:last-child{border-radius:3px 3px 7px 7px}
+.mock-row-label{color:#94a3b8;font-size:12px}
+.mock-row-val{font-weight:600;font-size:13px}
+.mock-row-val.up{color:#4FC8E8}
+.mock-payout{background:rgba(79,200,232,.08);border:1px solid rgba(79,200,232,.2);
+  border-radius:10px;padding:14px;display:flex;justify-content:space-between;align-items:center}
+.mock-payout-label{font-size:11px;color:#94a3b8;margin-bottom:2px}
+.mock-payout-val{font-size:18px;font-weight:700;color:#4FC8E8}
+.mock-payout-badge{font-size:11px;color:#22c55e;background:rgba(34,197,94,.1);
+  border:1px solid rgba(34,197,94,.2);border-radius:8px;padding:3px 9px;font-weight:600}
+
+/* ── HOW IT WORKS ── */
+.section{padding:80px 24px}
+.section-w{max-width:1100px;margin:0 auto}
+.section-head{margin-bottom:52px}
+.section-head h2{font-size:clamp(26px,3.5vw,40px);font-weight:800;
+  letter-spacing:-.025em;margin-bottom:12px}
+.section-head p{font-size:16px;color:#94a3b8;max-width:560px;line-height:1.7}
+
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(79,200,232,.1);border:1px solid rgba(79,200,232,.1);border-radius:14px;overflow:hidden}
+.step-item{padding:32px 28px;background:#07101f}
+.step-num{font-size:12px;font-weight:700;color:#4FC8E8;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:16px}
+.step-item h3{font-size:17px;font-weight:700;margin-bottom:10px}
+.step-item p{font-size:14px;color:#94a3b8;line-height:1.65}
+
+/* ── PORTFOLIOS ── */
+.bg-dark{background:#0a1422}
+.portfolios{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.port-card{background:#07101f;border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:28px;position:relative;transition:border-color .2s}
+.port-card:hover{border-color:rgba(79,200,232,.3)}
+.port-card.featured{border-color:rgba(79,200,232,.35)}
+.port-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:#64748b;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.port-label-featured{font-size:10px;font-weight:700;color:#4FC8E8;
+  background:rgba(79,200,232,.12);border:1px solid rgba(79,200,232,.25);
+  border-radius:8px;padding:2px 8px;letter-spacing:.05em;text-transform:uppercase}
+.port-rate{font-size:44px;font-weight:800;color:#4FC8E8;line-height:1;margin-bottom:4px}
+.port-rate span{font-size:18px;font-weight:500;color:#64748b}
+.port-name{font-size:18px;font-weight:700;margin-bottom:12px}
+.port-desc{font-size:13px;color:#94a3b8;line-height:1.6;margin-bottom:20px}
+.port-meta{border-top:1px solid rgba(255,255,255,.07);padding-top:16px;
+  display:flex;flex-direction:column;gap:7px}
+.port-meta-row{display:flex;justify-content:space-between;font-size:13px}
+.port-meta-key{color:#64748b}
+.port-meta-val{font-weight:600;color:#fff}
+.port-note{font-size:11px;color:#475569;margin-top:12px;line-height:1.5}
+
+/* ── CALCULATOR ── */
+.calc-layout{display:grid;grid-template-columns:1fr 400px;gap:48px;align-items:start}
+.calc-controls{display:flex;flex-direction:column;gap:24px}
+.ctrl-group{}
+.ctrl-label{font-size:13px;font-weight:600;color:#94a3b8;margin-bottom:8px;
+  display:flex;justify-content:space-between}
+.ctrl-label span:last-child{color:#4FC8E8;font-weight:700}
+input[type=range]{width:100%;-webkit-appearance:none;height:4px;border-radius:2px;
+  background:rgba(255,255,255,.1);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;
+  border-radius:50%;background:#4FC8E8;cursor:pointer;box-shadow:0 0 0 3px rgba(79,200,232,.2)}
+.rate-btns{display:flex;gap:8px}
+.rb{flex:1;padding:9px 8px;border-radius:8px;border:1px solid rgba(255,255,255,.1);
+  background:transparent;color:#94a3b8;font-size:13px;font-weight:600;
+  cursor:pointer;transition:.15s;font-family:inherit;line-height:1.3;text-align:center}
+.rb.on{background:#4FC8E8;border-color:#4FC8E8;color:#07101f}
+.range-bounds{display:flex;justify-content:space-between;font-size:11px;
+  color:#475569;margin-top:3px}
+
+.calc-result-card{background:#0d1829;border:1px solid rgba(79,200,232,.2);
+  border-radius:14px;padding:28px;position:sticky;top:90px}
+.calc-result-main{text-align:center;padding:20px 0 24px;
+  border-bottom:1px solid rgba(255,255,255,.07)}
+.calc-result-main-label{font-size:12px;color:#64748b;margin-bottom:4px}
+.calc-result-main-val{font-size:40px;font-weight:800;color:#4FC8E8;line-height:1;margin-bottom:2px}
+.calc-result-main-sub{font-size:12px;color:#64748b}
+.calc-rows{padding-top:16px;display:flex;flex-direction:column;gap:0}
+.calc-row{display:flex;justify-content:space-between;align-items:center;
+  padding:11px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.calc-row:last-child{border-bottom:none}
+.calc-row-label{font-size:13px;color:#64748b}
+.calc-row-val{font-size:15px;font-weight:700}
+.calc-cta{margin-top:20px}
+.calc-cta button{width:100%;padding:14px;border-radius:8px;
+  background:#4FC8E8;color:#07101f;font-size:15px;font-weight:700;
+  border:none;cursor:pointer;transition:.15s;font-family:inherit}
+.calc-cta button:hover{opacity:.88}
+.calc-disclaimer{font-size:11px;color:#475569;margin-top:12px;line-height:1.5;text-align:center}
+
+/* ── CONTACT ── */
+.contact-layout{display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:start}
+.contact-left h2{font-size:clamp(26px,3.5vw,40px);font-weight:800;
+  letter-spacing:-.025em;margin-bottom:14px}
+.contact-left p{font-size:16px;color:#94a3b8;line-height:1.7;margin-bottom:32px}
+.contact-list{display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
+.cl-item{display:flex;align-items:flex-start;gap:12px}
+.cl-check{width:20px;height:20px;border-radius:50%;flex-shrink:0;margin-top:2px;
+  background:rgba(79,200,232,.12);border:1px solid rgba(79,200,232,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:#4FC8E8;font-weight:700}
+.cl-text h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.cl-text p{font-size:13px;color:#64748b}
+.contact-meta{font-size:13px;color:#64748b;line-height:1.8}
+.contact-meta strong{color:#94a3b8;font-weight:600}
+
+.form-card{background:#0d1829;border:1px solid rgba(79,200,232,.2);
+  border-radius:14px;padding:32px}
+.form-card h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.form-card-sub{font-size:13px;color:#64748b;margin-bottom:24px}
+.fg{margin-bottom:14px}
+.fl{font-size:12px;font-weight:600;color:#64748b;margin-bottom:6px;display:block}
+.fi{width:100%;padding:11px 14px;border-radius:7px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  color:#fff;font-size:14px;font-family:inherit;outline:none;transition:border-color .15s}
+.fi:focus{border-color:rgba(79,200,232,.5)}
+.fi::placeholder{color:#334155}
+select.fi{cursor:pointer}
+textarea.fi{resize:vertical;min-height:72px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-submit{width:100%;padding:14px;border-radius:8px;
+  background:#4FC8E8;color:#07101f;font-size:15px;font-weight:700;
+  border:none;cursor:pointer;transition:.15s;font-family:inherit;margin-top:4px}
+.btn-submit:hover{opacity:.88}
+.form-legal{font-size:11px;color:#475569;text-align:center;margin-top:10px;line-height:1.5}
+
+.form-success{display:none;text-align:center;padding:40px 0}
+.form-success h3{font-size:20px;font-weight:700;margin-bottom:8px}
+.form-success p{font-size:14px;color:#94a3b8}
+.check-icon{width:52px;height:52px;border-radius:50%;background:rgba(34,197,94,.12);
+  border:1px solid rgba(34,197,94,.3);display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin:0 auto 16px}
+
+/* ── FOOTER ── */
+footer{background:#07101f;border-top:1px solid rgba(255,255,255,.07);padding:40px 24px 28px}
+.footer-w{max-width:1100px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px}
+.footer-logo img{height:24px;filter:brightness(0) invert(1);opacity:.5;margin-bottom:10px}
+.footer-copy{font-size:12px;color:#334155}
+.footer-legal{font-size:11px;color:#334155;max-width:600px;line-height:1.6}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:rgba(255,255,255,.06);margin:0}
+
+/* ── LANG ── */
+[data-de]{display:block}
+[data-en]{display:none}
+html[data-lang=en] [data-de]{display:none}
+html[data-lang=en] [data-en]{display:block}
+span[data-de]{display:inline}
+span[data-en]{display:none}
+html[data-lang=en] span[data-de]{display:none}
+html[data-lang=en] span[data-en]{display:inline}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero-w,.calc-layout,.contact-layout{grid-template-columns:1fr}
+  .mockup{display:none}
+  .portfolios,.steps-grid{grid-template-columns:1fr}
+  .steps-grid{background:transparent;border:none;gap:12px}
+  .step-item{border:1px solid rgba(79,200,232,.1);border-radius:12px}
+  .frow{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-w">
+    <a href="/" class="nav-logo">
+      <img src="/rentiers_logo.svg" alt="Rentiers">
+    </a>
+    <div class="nav-links">
+      <a href="/portfolios/"><span data-de>Portfolios</span><span data-en>Portfolios</span></a>
+      <a href="/kalkulator/"><span data-de>Kalkulator</span><span data-en>Calculator</span></a>
+      <a href="/partner-banken/"><span data-de>Partner-Banken</span><span data-en>Partner Banks</span></a>
+      <a href="/faq/">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-tog">
+        <button class="lt on" id="btn-de" onclick="setLang('de')">DE</button>
+        <button class="lt" id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="btn-login" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <span data-de>Anfragen</span><span data-en>Inquire</span>
+      </button>
+      <button class="btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <span data-de>B2B-Anfrage stellen</span><span data-en>Request B2B consultation</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-w">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <span>Rentiers Business</span>
+      </div>
+
+      <h1 data-de>Ihr Betriebs&shy;vermögen arbeitet für Sie — <em>12–20% p.a.,</em> weltweit, sicher.</h1>
+      <h1 data-en>Your corporate reserves work for you — <em>12–20% p.a.,</em> worldwide, secure.</h1>
+
+      <p class="hero-sub" data-de>Rentiers legt Ihre Unternehmensreserven in regulierten Bankeinlagen weltweit an. Staatliche Einlagengarantien, quartalsweise Zinszahlung, optionales EUR-Hedging. Ab €50.000.</p>
+      <p class="hero-sub" data-en>Rentiers places your company reserves into regulated bank deposits worldwide. State guarantees, quarterly interest payouts, optional EUR hedging. From €50,000.</p>
+
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          <span data-de>Kostenlose Beratung anfragen →</span>
+          <span data-en>Request free consultation →</span>
+        </button>
+        <button class="btn-ghost" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">
+          <span data-de>Rendite berechnen</span>
+          <span data-en>Calculate returns</span>
+        </button>
+      </div>
+
+      <div class="trust-row">
+        <div class="trust-item"><span data-de>Staatliche Einlagengarantien</span><span data-en>State deposit guarantees</span></div>
+        <div class="trust-item">MSB-<span data-de>lizenziert</span><span data-en>licensed</span> · FinCEN &amp; FINTRAC</div>
+        <div class="trust-item">EUR-Hedging</div>
+        <div class="trust-item">GDPR · CRS-<span data-de>konform</span><span data-en>compliant</span></div>
+      </div>
+    </div>
+
+    <!-- BUSINESS DASHBOARD MOCKUP -->
+    <div class="mockup">
+      <div class="mock-header">
+        <div>
+          <div style="font-size:11px;color:#64748b;margin-bottom:2px" data-de>Unternehmenskonto</div>
+          <div style="font-size:11px;color:#64748b;margin-bottom:2px" data-en>Corporate account</div>
+          <div class="mock-company">Musterfirma GmbH</div>
+        </div>
+        <div class="mock-tag">Business</div>
+      </div>
+
+      <div class="mock-balance">
+        <div class="mock-balance-label" data-de>Aktive Einlagen</div>
+        <div class="mock-balance-label" data-en>Active deposits</div>
+        <div class="mock-balance-val">€ 250.000</div>
+        <div class="mock-balance-sub">Rentiers Ausgewogen · 16% p.a.</div>
+      </div>
+
+      <div class="mock-rows">
+        <div class="mock-row">
+          <div class="mock-row-label" data-de>Jahresertrag (netto)</div>
+          <div class="mock-row-label" data-en>Annual return (net)</div>
+          <div class="mock-row-val up">+ €30.000</div>
+        </div>
+        <div class="mock-row">
+          <div class="mock-row-label" data-de>Laufzeit</div>
+          <div class="mock-row-label" data-en>Term</div>
+          <div class="mock-row-val" data-de>36 Monate</div>
+          <div class="mock-row-val" data-en>36 months</div>
+        </div>
+        <div class="mock-row">
+          <div class="mock-row-label" data-de>Partnerbanken</div>
+          <div class="mock-row-label" data-en>Partner banks</div>
+          <div class="mock-row-val">🇬🇪 · 🇦🇲 · 🇮🇱 · 🇷🇸</div>
+        </div>
+        <div class="mock-row">
+          <div class="mock-row-label">EUR-Hedging</div>
+          <div class="mock-row-val" style="color:#22c55e;font-size:12px" data-de>Aktiv</div>
+          <div class="mock-row-val" style="color:#22c55e;font-size:12px" data-en>Active</div>
+        </div>
+      </div>
+
+      <div class="mock-payout">
+        <div>
+          <div class="mock-payout-label" data-de>Nächste Quartalszahlung</div>
+          <div class="mock-payout-label" data-en>Next quarterly payout</div>
+          <div class="mock-payout-val">€ 7.500</div>
+        </div>
+        <div class="mock-payout-badge" data-de>01. Okt. 2026</div>
+        <div class="mock-payout-badge" data-en>Oct 1, 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-w">
+    <div class="section-head">
+      <h2 data-de>In 3 Schritten zu planbarem Unternehmensertrag</h2>
+      <h2 data-en>3 steps to predictable corporate returns</h2>
+      <p data-de>Keine Finanzerfahrung nötig. Kein Aufwand für Ihr Team. Wir übernehmen Strukturierung, Onboarding und laufende Überwachung.</p>
+      <p data-en>No financial expertise required. No burden on your team. We handle structuring, onboarding, and ongoing monitoring.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num" data-de>Schritt 01</div>
+        <div class="step-num" data-en>Step 01</div>
+        <h3 data-de>Beratungsgespräch</h3>
+        <h3 data-en>Consultation</h3>
+        <p data-de>Wir analysieren Ihre Unternehmensstruktur, verfügbare Reserven und Anforderungen an Liquidität und Laufzeit. Persönlicher Ansprechpartner, keinerlei Verpflichtung.</p>
+        <p data-en>We analyze your company structure, available reserves, and requirements for liquidity and term. Personal account manager, zero obligation.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num" data-de>Schritt 02</div>
+        <div class="step-num" data-en>Step 02</div>
+        <h3 data-de>Individuelle Konditionen</h3>
+        <h3 data-en>Custom Terms</h3>
+        <p data-de>Laufzeit, Risikoprofil, Währungsstruktur und EUR-Hedging werden auf Ihr Unternehmen zugeschnitten. Einlage direkt bei geprüften Partnerbanken mit staatlicher Garantie.</p>
+        <p data-en>Term, risk profile, currency structure, and EUR hedging tailored to your company. Deposit placed directly at vetted partner banks with state guarantees.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num" data-de>Schritt 03</div>
+        <div class="step-num" data-en>Step 03</div>
+        <h3 data-de>Zinsen empfangen</h3>
+        <h3 data-en>Receive Interest</h3>
+        <p data-de>Zinserträge fließen quartalsweise automatisch auf Ihr Geschäftskonto. CRS-konformes Reporting für Buchhaltung und Steuerberater inklusive.</p>
+        <p data-en>Interest flows quarterly to your business account automatically. CRS-compliant reporting for your accounting and tax team included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PORTFOLIOS -->
+<section class="section bg-dark">
+  <div class="section-w">
+    <div class="section-head">
+      <h2 data-de>Drei Portfolios für jedes Risikoprofil</h2>
+      <h2 data-en>Three portfolios for every risk profile</h2>
+      <p data-de>Alle Portfolios mit staatlichen Einlagengarantien und täglichem KI-Risikomonitoring. Zinszahlung vierteljährlich auf Ihr Geschäftskonto.</p>
+      <p data-en>All portfolios with state deposit guarantees and daily AI risk monitoring. Quarterly interest payouts to your business account.</p>
+    </div>
+
+    <div class="portfolios">
+      <div class="port-card">
+        <div class="port-label" data-de>Am sichersten</div>
+        <div class="port-label" data-en>Most secure</div>
+        <div class="port-rate">12<span>% p.a.</span></div>
+        <div class="port-name" data-de>Rentiers Konservativ</div>
+        <div class="port-name" data-en>Rentiers Conservative</div>
+        <div class="port-desc" data-de>Großen internationalen Banken mit Länderrating mind. B+ (S&P). Für Unternehmen mit Fokus auf maximale Sicherheit der Unternehmensreserve.</div>
+        <div class="port-desc" data-en>Major international banks with country rating min. B+ (S&P). For companies focused on maximum security of their corporate reserve.</div>
+        <div class="port-meta">
+          <div class="port-meta-row">
+            <div class="port-meta-key" data-de>Mindesteinlage</div>
+            <div class="port-meta-key" data-en>Min. deposit</div>
+            <div class="port-meta-val">€ 25.000</div>
+          </div>
+          <div class="port-meta-row">
+            <div class="port-meta-key" data-de>Laufzeit</div>
+            <div class="port-meta-key" data-en>Term</div>
+            <div class="port-meta-val" data-de>60–120 Monate</div>
+            <div class="port-meta-val" data-en>60–120 months</div>
+          </div>
+          <div class="port-meta-row">
+            <div class="port-meta-key" data-de>Zinszahlung</div>
+            <div class="port-meta-key" data-en>Interest</div>
+            <div class="port-meta-val" data-de>Vierteljährlich</div>
+            <div class="port-meta-val" data-en>Quarterly</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card featured">
+        <div class="port-label">
+          <span data-de>Beliebtestes Portfolio</span>
+          <span data-en>Most popular</span>
+          <span class="port-label-featured">Popular</span>
+        </div>
+        <div class="port-rate">16<span>% p.a.</span></div>
+        <div class="port-name" data-de>Rentiers Ausgewogen</div>
+        <div class="port-name" data-en>Rentiers Balanced</div>
+        <div class="port-desc" data-de>Ausgewogene Mischung aus stabilen und wachstumsstarken Märkten. Höhere Rendite bei moderatem Risiko. Mehrere Länder und Banken.</div>
+        <div class="port-desc" data-en>Balanced mix of stable and growth markets. Higher return at moderate risk. Multiple countries and banks.</div>
+        <div class="port-meta">
+          <div class="port-meta-row">
+            <div class="port-meta-key" data-de>Mindesteinlage</div>
+            <div class="port-meta-key" data-en>Min. deposit</div>
+            <div class="port-meta-val">€ 10.000</div>
+          </div>
+          <div class="port-meta-row">
+            <div class="port-meta-key" data-de>Laufzeit</div>
+            <div class="port-meta-key" data-en>Term</div>
+            <div class="port-meta-val" data-de>36–120 Monate</div>
+            <div class="port-meta-val" data-en>36–120 months</div>
+          </div>
+          <div class="port-meta-row">
+            <div class="port-meta-key" data-de>Zinszahlung</div>
+            <div class="port-meta-key" data-en>Interest</div>
+            <div class="port-meta-val" data-de>Vierteljährlich</div>
+            <div class="port-meta-val" data-en>Quarterly</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-label" data-de>Höchste Rendite</div>
+        <div class="port-label" data-en>Highest return</div>
+        <div class="port-rate">20<span>% p.a.</span></div>
+        <div class="port-name" data-de>Rentiers High-Yield</div>
+        <div class="port-name" data-en>Rentiers High-Yield</div>
+        <div class="port-desc" data-de>Maximale Rendite durch Emerging-Market-Einlagen (Türkei, Kasachstan, Usbekistan) mit staatlicher Garantie. EUR-Hedging empfohlen.</div>
+        <div class="port-desc" data-en>Maximum return through emerging market deposits (Turkey, Kazakhstan, Uzbekistan) with state guarantees. EUR hedging recommended.</div>
+        <div class="port-meta">
+          <div class="port-meta-row">
+            <div class="port-meta-key" data-de>Mindesteinlage</div>
+            <div class="port-meta-key" data-en>Min. deposit</div>
+            <div class="port-meta-val">€ 5.000</div>
+          </div>
+          <div class="port-meta-row">
+            <div class="port-meta-key" data-de>Laufzeit</div>
+            <div class="port-meta-key" data-en>Term</div>
+            <div class="port-meta-val" data-de>36–120 Monate</div>
+            <div class="port-meta-val" data-en>36–120 months</div>
+          </div>
+          <div class="port-meta-row">
+            <div class="port-meta-key" data-de>Zinszahlung</div>
+            <div class="port-meta-key" data-en>Interest</div>
+            <div class="port-meta-val" data-de>Vierteljährlich</div>
+            <div class="port-meta-val" data-en>Quarterly</div>
+          </div>
+        </div>
+        <div class="port-note" data-de>* Nettorendite in EUR nach optionalem Währungshedging.</div>
+        <div class="port-note" data-en>* Net return in EUR after optional currency hedging.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CALCULATOR -->
+<section class="section" id="calculator">
+  <div class="section-w">
+    <div class="section-head">
+      <h2 data-de>Berechnen Sie Ihren Unternehmensertrag</h2>
+      <h2 data-en>Calculate your corporate return</h2>
+      <p data-de>Sehen Sie, wie viel Ihr Betriebsvermögen bei Rentiers erwirtschaftet.</p>
+      <p data-en>See how much your company reserves earn at Rentiers.</p>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-controls">
+        <div class="ctrl-group">
+          <div class="ctrl-label">
+            <span data-de>Einlagebetrag</span><span data-en>Deposit amount</span>
+            <span id="d-amount">€ 250.000</span>
+          </div>
+          <input type="range" id="r-amount" min="50000" max="2000000" step="10000" value="250000" oninput="calc()">
+          <div class="range-bounds"><span>€ 50.000</span><span>€ 2.000.000</span></div>
+        </div>
+        <div class="ctrl-group">
+          <div class="ctrl-label">
+            <span data-de>Laufzeit</span><span data-en>Term</span>
+            <span id="d-term">36 <span data-de>Monate</span><span data-en>months</span></span>
+          </div>
+          <input type="range" id="r-term" min="12" max="120" step="12" value="36" oninput="calc()">
+          <div class="range-bounds">
+            <span>12 <span data-de>M.</span><span data-en>mo.</span></span>
+            <span>120 <span data-de>M.</span><span data-en>mo.</span></span>
+          </div>
+        </div>
+        <div class="ctrl-group">
+          <div class="ctrl-label"><span data-de>Portfolio</span><span data-en>Portfolio</span></div>
+          <div class="rate-btns">
+            <button class="rb" onclick="setRate(12,this)">Konservativ<br><small style="font-weight:400">12% p.a.</small></button>
+            <button class="rb on" onclick="setRate(16,this)">Ausgewogen<br><small style="font-weight:400">16% p.a.</small></button>
+            <button class="rb" onclick="setRate(20,this)">High-Yield<br><small style="font-weight:400">20% p.a.</small></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-result-card">
+        <div class="calc-result-main">
+          <div class="calc-result-main-label" data-de>Gesamtertrag</div>
+          <div class="calc-result-main-label" data-en>Total return</div>
+          <div class="calc-result-main-val" id="v-total">€ 90.000</div>
+          <div class="calc-result-main-sub" id="v-total-sub" data-de>über 36 Monate</div>
+          <div class="calc-result-main-sub" id="v-total-sub-en" data-en>over 36 months</div>
+        </div>
+        <div class="calc-rows">
+          <div class="calc-row">
+            <div class="calc-row-label" data-de>Einlage</div>
+            <div class="calc-row-label" data-en>Principal</div>
+            <div class="calc-row-val" id="v-principal">€ 250.000</div>
+          </div>
+          <div class="calc-row">
+            <div class="calc-row-label" data-de>Jahresertrag (netto)</div>
+            <div class="calc-row-label" data-en>Annual return (net)</div>
+            <div class="calc-row-val" id="v-annual" style="color:#4FC8E8">€ 30.000</div>
+          </div>
+          <div class="calc-row">
+            <div class="calc-row-label" data-de>Quartalszahlung</div>
+            <div class="calc-row-label" data-en>Quarterly payout</div>
+            <div class="calc-row-val" id="v-quarterly">€ 7.500</div>
+          </div>
+        </div>
+        <div class="calc-cta">
+          <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            <span data-de>B2B-Anfrage stellen →</span>
+            <span data-en>Request B2B consultation →</span>
+          </button>
+        </div>
+        <div class="calc-disclaimer" data-de>Nach Abzug der Rentiers-Servicegebühr (25% des Bruttojahresertrags). Keine Kapitalgarantie.</div>
+        <div class="calc-disclaimer" data-en>After Rentiers service fee (25% of gross annual return). No capital guarantee.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-w">
+    <div class="contact-layout">
+      <div class="contact-left">
+        <h2 data-de>B2B-Anfrage stellen</h2>
+        <h2 data-en>B2B consultation request</h2>
+        <p data-de>Unser Team meldet sich innerhalb von 24 Stunden. Kein Callcenter — ein persönlicher Ansprechpartner für Ihr Unternehmen.</p>
+        <p data-en>Our team responds within 24 hours. No call center — a dedicated contact for your company.</p>
+
+        <div class="contact-list">
+          <div class="cl-item">
+            <div class="cl-check">✓</div>
+            <div class="cl-text">
+              <h4 data-de>Individuelle Portfoliostrukturierung</h4>
+              <h4 data-en>Custom portfolio structuring</h4>
+              <p data-de>Laufzeit, Währung und Risikoprofil passend zu Ihrer Unternehmensstruktur</p>
+              <p data-en>Term, currency, and risk profile matched to your company structure</p>
+            </div>
+          </div>
+          <div class="cl-item">
+            <div class="cl-check">✓</div>
+            <div class="cl-text">
+              <h4 data-de>CRS-konformes Reporting</h4>
+              <h4 data-en>CRS-compliant reporting</h4>
+              <p data-de>Vollständige Dokumentation für Buchhaltung und Steuerberater</p>
+              <p data-en>Full documentation for your accounting and tax team</p>
+            </div>
+          </div>
+          <div class="cl-item">
+            <div class="cl-check">✓</div>
+            <div class="cl-text">
+              <h4 data-de>EUR-Hedging optional</h4>
+              <h4 data-en>EUR hedging optional</h4>
+              <p data-de>Kein FX-Risiko in Ihrer Bilanz — Ertrag landet in EUR</p>
+              <p data-en>No FX risk on your balance sheet — returns land in EUR</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-meta">
+          <strong data-de>Mindesteinlage</strong><strong data-en>Minimum deposit</strong> €50.000<br>
+          <strong data-de>Individuelle Konditionen</strong><strong data-en>Custom terms</strong> <span data-de>auf Anfrage</span><span data-en>on request</span><br>
+          <strong data-de>Antwort innerhalb</strong><strong data-en>Response within</strong> 24h
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div id="form-wrap">
+          <h3 data-de>Anfrage stellen</h3>
+          <h3 data-en>Submit inquiry</h3>
+          <div class="form-card-sub" data-de>Kostenlos · Unverbindlich · Antwort in 24h</div>
+          <div class="form-card-sub" data-en>Free · No obligation · Reply within 24h</div>
+
+          <form id="b2b-form" onsubmit="submitForm(event)" novalidate>
+            <div class="frow">
+              <div class="fg">
+                <label class="fl" for="b2b-name" data-de>Name *</label>
+                <label class="fl" for="b2b-name" data-en>Name *</label>
+                <input class="fi" id="b2b-name" name="name" type="text" placeholder="Max Müller" required>
+              </div>
+              <div class="fg">
+                <label class="fl" for="b2b-company" data-de>Unternehmen *</label>
+                <label class="fl" for="b2b-company" data-en>Company *</label>
+                <input class="fi" id="b2b-company" name="company" type="text" placeholder="GmbH / AG / Ltd." required>
+              </div>
+            </div>
+            <div class="fg">
+              <label class="fl" for="b2b-email">E-Mail *</label>
+              <input class="fi" id="b2b-email" name="email" type="email" placeholder="name@firma.de" required>
+            </div>
+            <div class="fg">
+              <label class="fl" for="b2b-phone" data-de>Telefon</label>
+              <label class="fl" for="b2b-phone" data-en>Phone</label>
+              <input class="fi" id="b2b-phone" name="phone" type="tel" placeholder="+49 ...">
+            </div>
+            <div class="fg">
+              <label class="fl" for="b2b-deposit" data-de>Einlagebetrag (ca.)</label>
+              <label class="fl" for="b2b-deposit" data-en>Deposit amount (approx.)</label>
+              <select class="fi" id="b2b-deposit" name="deposit">
+                <option value="" data-de>Bitte wählen …</option>
+                <option value="" data-en>Please select …</option>
+                <option value="€ 50.000 – € 100.000">€ 50.000 – € 100.000</option>
+                <option value="€ 100.000 – € 500.000">€ 100.000 – € 500.000</option>
+                <option value="€ 500.000 – € 1.000.000">€ 500.000 – € 1.000.000</option>
+                <option value="€ 1.000.000+">€ 1.000.000+</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label class="fl" for="b2b-message" data-de>Nachricht (optional)</label>
+              <label class="fl" for="b2b-message" data-en>Message (optional)</label>
+              <textarea class="fi" id="b2b-message" name="message" rows="3" placeholder="…"></textarea>
+            </div>
+            <p id="form-error" class="form-legal" style="display:none;color:#f87171"></p>
+            <button type="submit" class="btn-submit" id="b2b-submit">
+              <span data-de>Kostenlose Beratung anfragen →</span>
+              <span data-en>Request free consultation →</span>
+            </button>
+            <p class="form-legal" data-de>Mit dem Absenden stimmen Sie der <a href="/datenschutz/" style="color:#4FC8E8">Datenschutzrichtlinie</a> zu. Rentiers ist ein MSB-lizenzierter Technologiedienstleister, kein Kreditinstitut.</p>
+            <p class="form-legal" data-en>By submitting you agree to our <a href="/datenschutz/" style="color:#4FC8E8">Privacy Policy</a>. Rentiers is an MSB-licensed technology provider, not a bank.</p>
+          </form>
+        </div>
+
+        <div class="form-success" id="form-success">
+          <div class="check-icon">✓</div>
+          <h3 data-de>Anfrage eingegangen</h3>
+          <h3 data-en>Request received</h3>
+          <p data-de>Unser B2B-Team meldet sich innerhalb von 24 Stunden bei Ihnen.</p>
+          <p data-en>Our B2B team will be in touch within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-w">
+    <div>
+      <img src="/rentiers_logo.svg" alt="Rentiers" class="footer-logo">
+      <div class="footer-copy">© 2025 Rentiers. <span data-de>Alle Rechte vorbehalten.</span><span data-en>All rights reserved.</span></div>
+    </div>
+    <p class="footer-legal" data-de>Rentiers Global Corp. (USA) und Rentiers Global Inc. (Canada) sind als Money Services Business (MSB) bei FinCEN und FINTRAC lizenziert. Rentiers ist eine Technologieplattform, kein Kreditinstitut. Einlagen liegen direkt bei regulierten Partnerbanken und sind durch staatliche Einlagengarantien geschützt. Renditen sind nicht garantiert.</p>
+    <p class="footer-legal" data-en>Rentiers Global Corp. (USA) and Rentiers Global Inc. (Canada) are licensed as Money Services Businesses with FinCEN and FINTRAC. Rentiers is a technology platform, not a bank. Deposits are held at regulated partner banks with state deposit guarantees. Returns are not guaranteed.</p>
+  </div>
+</footer>
+
+<script>
+function setLang(l){
+  document.documentElement.setAttribute('data-lang',l);
+  document.getElementById('btn-de').classList.toggle('on',l==='de');
+  document.getElementById('btn-en').classList.toggle('on',l==='en');
+}
+
+let rate=16;
+function setRate(r,btn){
+  rate=r;
+  document.querySelectorAll('.rb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  calc();
+}
+
+function fmt(n){
+  return '€ '+Math.round(n).toLocaleString('de-DE');
+}
+
+function calc(){
+  const lang=document.documentElement.getAttribute('data-lang');
+  const amount=+document.getElementById('r-amount').value;
+  const term=+document.getElementById('r-term').value;
+  const netRate=rate*0.75;
+  const annual=amount*netRate/100;
+  const quarterly=annual/4;
+  const total=annual*term/12;
+  document.getElementById('d-amount').textContent=fmt(amount);
+  const termEl=document.getElementById('r-term');
+  document.getElementById('d-term').innerHTML=term+(lang==='de'?' <span data-de>Monate</span><span data-en>months</span>':' <span data-de>Monate</span><span data-en>months</span>');
+  document.getElementById('v-principal').textContent=fmt(amount);
+  document.getElementById('v-annual').textContent=fmt(annual);
+  document.getElementById('v-quarterly').textContent=fmt(quarterly);
+  document.getElementById('v-total').textContent=fmt(total);
+}
+calc();
+
+const LEADS_WEBHOOK_URL='https://script.google.com/macros/s/AKfycbxgm1M73LWE_23wtbWzJjLBwd7P_s1t46Y2bwDNf2Wc9KKkGjjPtR91xFTkKdp64PHV/exec';
+
+async function submitForm(e){
+  e.preventDefault();
+  const form=document.getElementById('b2b-form');
+  const submitBtn=document.getElementById('b2b-submit');
+  const errorEl=document.getElementById('form-error');
+  const lang=document.documentElement.getAttribute('data-lang')||'de';
+
+  const name=form.name.value.trim();
+  const company=form.company.value.trim();
+  const email=form.email.value.trim();
+  const phone=form.phone.value.trim();
+  const deposit=form.deposit.value;
+  const message=form.message.value.trim();
+
+  if(!name||!company||!email){
+    errorEl.textContent=lang==='de'?'Bitte füllen Sie alle Pflichtfelder aus.':'Please fill in all required fields.';
+    errorEl.style.display='block';
+    return;
+  }
+
+  const details=[
+    company&&`company: ${company}`,
+    deposit&&`deposit: ${deposit}`,
+    message&&`message: ${message}`,
+  ].filter(Boolean).join(' | ');
+
+  const payload={
+    name,
+    email,
+    phone,
+    consent:true,
+    project:'rentiers',
+    source:['B2B',`${window.location.hostname}${window.location.pathname}`,details].filter(Boolean).join(' | '),
+    timestamp:new Date().toISOString(),
+  };
+
+  submitBtn.disabled=true;
+  errorEl.style.display='none';
+
+  try{
+    const response=await fetch(LEADS_WEBHOOK_URL,{
+      method:'POST',
+      redirect:'follow',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify(payload),
+    });
+    const text=await response.text();
+    if(!response.ok) throw new Error(`HTTP ${response.status}`);
+    try{
+      const data=JSON.parse(text);
+      if(data.result!=='ok') throw new Error(data.error||'rejected');
+    }catch(err){
+      if(err instanceof SyntaxError){
+        if(!text.toLowerCase().includes('ok')) throw new Error('unexpected response');
+      }else{
+        throw err;
+      }
+    }
+    document.getElementById('form-wrap').style.display='none';
+    document.getElementById('form-success').style.display='block';
+  }catch{
+    errorEl.textContent=lang==='de'
+      ?'Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt.'
+      :'Submission failed. Please try again or contact us directly.';
+    errorEl.style.display='block';
+    submitBtn.disabled=false;
+  }
+}
+</script>
+</body>
+</html>

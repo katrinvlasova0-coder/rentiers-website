@@ -122,6 +122,12 @@ export default function LeadFormModal({ open, onClose, formSource }: Props) {
         email: form.email,
         phone: form.phone,
         message: form.message,
+        source:
+          formSource === 'b2b'
+            ? ['B2B', typeof window !== 'undefined' ? `${window.location.hostname}${window.location.pathname}` : 'rentiers.net', form.message.trim() && `message: ${form.message.trim()}`]
+                .filter(Boolean)
+                .join(' | ')
+            : undefined,
       });
 
       ymGoal(SUCCESS_GOALS[formSource]);
