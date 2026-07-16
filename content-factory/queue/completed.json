@@ -62,6 +62,37 @@
     "completedAt": "2026-02-08"
   },
   {
+    "id": 10,
+    "cluster": "Страновые гиды",
+    "slug": "georgien-bankzinsen-2026",
+    "titleDe": "Georgien Bankeinlagen 2026: TBC Bank & Bank of Georgia im Vergleich",
+    "titleEn": "Georgia Bank Deposits 2026: TBC Bank & Bank of Georgia Compared",
+    "keywordDe": "georgien bankzinsen 2026",
+    "searchVolDe": 1300,
+    "kd": 22,
+    "keywordEn": "georgia bank deposits 2026",
+    "searchVolEn": 2400,
+    "lsiKeywords": [
+      "tbc bank zinsen",
+      "bank of georgia festgeld",
+      "tiflis konto eröffnen"
+    ],
+    "format": "Country Guide",
+    "targetLength": 2333,
+    "taSegments": [
+      "1",
+      "2",
+      "4"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-01",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "completed",
+    "unsplashQuery": "tbilisi georgia finance",
+    "completedAt": "2026-02-01"
+  },
+  {
     "id": 11,
     "cluster": "Страновые гиды",
     "slug": "armenien-bankzinsen-2026",
@@ -280,34 +311,34 @@
     "completedAt": "2026-01-15"
   },
   {
-    "id": 10,
-    "cluster": "Страновые гиды",
-    "slug": "georgien-bankzinsen-2026",
-    "titleDe": "Georgien Bankeinlagen 2026: TBC Bank & Bank of Georgia im Vergleich",
-    "titleEn": "Georgia Bank Deposits 2026: TBC Bank & Bank of Georgia Compared",
-    "keywordDe": "georgien bankzinsen 2026",
-    "searchVolDe": 1300,
-    "kd": 22,
-    "keywordEn": "georgia bank deposits 2026",
-    "searchVolEn": 2400,
+    "id": 20,
+    "cluster": "Пассивный доход",
+    "slug": "von-zinsen-leben-kapital-2026",
+    "titleDe": "Von Zinsen leben 2026: Wie viel Kapital brauchen Sie wirklich?",
+    "titleEn": "Living Off Interest 2026: How Much Capital Do You Actually Need?",
+    "keywordDe": "von zinsen leben kapital",
+    "searchVolDe": 5400,
+    "kd": 29,
+    "keywordEn": "living off interest income how much capital",
+    "searchVolEn": 8100,
     "lsiKeywords": [
-      "tbc bank zinsen",
-      "bank of georgia festgeld",
-      "tiflis konto eröffnen"
+      "rentier werden",
+      "wie viel kapital für passives einkommen",
+      "zinseinkommen berechnen"
     ],
-    "format": "Country Guide",
+    "format": "Kalkulator-Artikel",
     "targetLength": 2333,
     "taSegments": [
       "1",
-      "2",
-      "4"
+      "3",
+      "6"
     ],
     "priority": "high",
     "plannedDate": "2026-02-01",
     "language": "DE+EN",
-    "category": "Länder-Guides",
+    "category": "Passives Einkommen",
     "status": "completed",
-    "unsplashQuery": "tbilisi georgia finance",
-    "completedAt": "2026-07-14T09:49:02.282Z"
+    "unsplashQuery": "passive income financial freedom",
+    "completedAt": "2026-07-16T09:58:50.149Z"
   }
 ]
