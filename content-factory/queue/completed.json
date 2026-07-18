@@ -187,6 +187,37 @@
     "completedAt": "2026-01-01"
   },
   {
+    "id": 20,
+    "cluster": "Пассивный доход",
+    "slug": "von-zinsen-leben-kapital-2026",
+    "titleDe": "Von Zinsen leben 2026: Wie viel Kapital brauchen Sie wirklich?",
+    "titleEn": "Living Off Interest 2026: How Much Capital Do You Actually Need?",
+    "keywordDe": "von zinsen leben kapital",
+    "searchVolDe": 5400,
+    "kd": 29,
+    "keywordEn": "living off interest income how much capital",
+    "searchVolEn": 8100,
+    "lsiKeywords": [
+      "rentier werden",
+      "wie viel kapital für passives einkommen",
+      "zinseinkommen berechnen"
+    ],
+    "format": "Kalkulator-Artikel",
+    "targetLength": 2333,
+    "taSegments": [
+      "1",
+      "3",
+      "6"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-01",
+    "language": "DE+EN",
+    "category": "Passives Einkommen",
+    "status": "completed",
+    "unsplashQuery": "passive income financial freedom",
+    "completedAt": "2026-02-01"
+  },
+  {
     "id": 28,
     "cluster": "Сравнения",
     "slug": "raisin-alternative-2026",
@@ -311,34 +342,33 @@
     "completedAt": "2026-01-15"
   },
   {
-    "id": 20,
-    "cluster": "Пассивный доход",
-    "slug": "von-zinsen-leben-kapital-2026",
-    "titleDe": "Von Zinsen leben 2026: Wie viel Kapital brauchen Sie wirklich?",
-    "titleEn": "Living Off Interest 2026: How Much Capital Do You Actually Need?",
-    "keywordDe": "von zinsen leben kapital",
-    "searchVolDe": 5400,
-    "kd": 29,
-    "keywordEn": "living off interest income how much capital",
-    "searchVolEn": 8100,
+    "id": 29,
+    "cluster": "Сравнения",
+    "slug": "trade-republic-zinsen-vergleich-2026",
+    "titleDe": "Trade Republic Zinsen vs. Rentiers: Direktvergleich 2026",
+    "titleEn": "Trade Republic Interest vs. Rentiers: Direct Comparison 2026",
+    "keywordDe": "trade republic zinsen vergleich",
+    "searchVolDe": 3600,
+    "kd": 41,
+    "keywordEn": "trade republic interest rate comparison",
+    "searchVolEn": 4400,
     "lsiKeywords": [
-      "rentier werden",
-      "wie viel kapital für passives einkommen",
-      "zinseinkommen berechnen"
+      "trade republic 4 prozent",
+      "trade republic festgeld",
+      "neobank zinsen vergleich"
     ],
-    "format": "Kalkulator-Artikel",
-    "targetLength": 2333,
+    "format": "Vergleich",
+    "targetLength": 1667,
     "taSegments": [
       "1",
-      "3",
       "6"
     ],
     "priority": "high",
     "plannedDate": "2026-02-01",
     "language": "DE+EN",
-    "category": "Passives Einkommen",
+    "category": "Vergleiche",
     "status": "completed",
-    "unsplashQuery": "passive income financial freedom",
-    "completedAt": "2026-07-16T09:58:50.149Z"
+    "unsplashQuery": "financial comparison investment",
+    "completedAt": "2026-07-18T09:17:51.141Z"
   }
 ]

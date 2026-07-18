@@ -581,35 +581,6 @@
     "unsplashQuery": "passive income financial freedom"
   },
   {
-    "id": 29,
-    "cluster": "Сравнения",
-    "slug": "trade-republic-zinsen-vergleich-2026",
-    "titleDe": "Trade Republic Zinsen vs. Rentiers: Direktvergleich 2026",
-    "titleEn": "Trade Republic Interest vs. Rentiers: Direct Comparison 2026",
-    "keywordDe": "trade republic zinsen vergleich",
-    "searchVolDe": 3600,
-    "kd": 41,
-    "keywordEn": "trade republic interest rate comparison",
-    "searchVolEn": 4400,
-    "lsiKeywords": [
-      "trade republic 4 prozent",
-      "trade republic festgeld",
-      "neobank zinsen vergleich"
-    ],
-    "format": "Vergleich",
-    "targetLength": 1667,
-    "taSegments": [
-      "1",
-      "6"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-02-01",
-    "language": "DE+EN",
-    "category": "Vergleiche",
-    "status": "pending",
-    "unsplashQuery": "financial comparison investment"
-  },
-  {
     "id": 31,
     "cluster": "Сравнения",
     "slug": "p2p-lending-vs-festgeld-2026",
