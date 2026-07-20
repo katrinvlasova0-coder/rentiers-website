@@ -1,4 +1,16 @@
-import { FORBIDDEN_PATTERNS } from '../config/forbidden-patterns';
+import {
+  FORBIDDEN_PATTERNS,
+  FORBIDDEN_PATTERN_MESSAGES,
+} from '../config/forbidden-patterns';
+
+const COMPLIANCE_KEYS = [
+  'rentiersYieldClaim',
+  'guaranteedReturn',
+  'investCta',
+  'luxcarYield',
+  'fakeExpertAuthor',
+  'adPolicyEvasion',
+] as const;
 
 export interface ValidationResult {
   valid: boolean;
@@ -144,6 +156,17 @@ export function validateArticle(
     errors.push('❌ Mock-Kopierpaste (Absatz N vertieft) im Artikel — Veröffentlichung blockiert');
   }
 
+  for (const key of COMPLIANCE_KEYS) {
+    if (FORBIDDEN_PATTERNS[key].test(content)) {
+      errors.push(`❌ ${FORBIDDEN_PATTERN_MESSAGES[key]}`);
+    }
+  }
+
+  const authorMatch = content.match(/^\s*name:\s*["']?(.+?)["']?\s*$/m);
+  if (authorMatch && !/rentiers\s+redaktion/i.test(authorMatch[1])) {
+    errors.push('❌ Autor muss „Rentiers Redaktion“ sein (keine erfundenen Experten)');
+  }
+
   errors.push(...detectCopyPaste(deBody, 'DE'));
   errors.push(...detectCopyPaste(enBody, 'EN'));
 
@@ -192,8 +215,12 @@ export function validateArticle(
   if (h2Count < 4) {
     warnings.push(`⚠️ Zu wenige H2-Headings: ${h2Count} (Empfehlung: 5–8)`);
   }
-  if (!content.includes('*Dieser Artikel dient')) {
-    warnings.push('⚠️ Disclaimer fehlt');
+  const hasDisclaimer =
+    content.includes('Bildungscharakter') ||
+    content.includes('educational purposes only') ||
+    content.includes('*Dieser Artikel dient');
+  if (!hasDisclaimer) {
+    errors.push('❌ Pflicht-Disclaimer fehlt (SEO_CONTENT_GUIDELINES)');
   }
   if (numberedListItems < 5) {
     warnings.push(`⚠️ Zu wenige nummerierte Listeneinträge: ${numberedListItems} (Empfehlung: 5+)`);

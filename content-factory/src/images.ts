@@ -1,4 +1,6 @@
 import axios from 'axios';
+import fs from 'fs';
+import path from 'path';
 
 export interface UnsplashImage {
   url: string;
@@ -6,6 +8,8 @@ export interface UnsplashImage {
   photographer: string;
   photographerUrl: string;
 }
+
+const BLOG_DIR = path.join(__dirname, '../../content/blog');
 
 const PLACEHOLDER_IMAGES: UnsplashImage[] = [
   {
@@ -26,24 +30,85 @@ const PLACEHOLDER_IMAGES: UnsplashImage[] = [
     photographer: 'Unsplash',
     photographerUrl: 'https://unsplash.com',
   },
+  {
+    url: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80&auto=format&fit=crop',
+    altText: 'Documents and checklist on a desk',
+    photographer: 'Unsplash',
+    photographerUrl: 'https://unsplash.com',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80&auto=format&fit=crop',
+    altText: 'Magnifying glass over financial papers',
+    photographer: 'Unsplash',
+    photographerUrl: 'https://unsplash.com',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80&auto=format&fit=crop',
+    altText: 'Business planning workspace',
+    photographer: 'Unsplash',
+    photographerUrl: 'https://unsplash.com',
+  },
 ];
+
+/** Extract Unsplash photo id from a URL (photo-XXXXXXXX-...). */
+export function extractPhotoId(url: string): string | null {
+  const match = url.match(/photo-([a-zA-Z0-9-]+)/);
+  return match ? match[1] : null;
+}
+
+/** Cover photo IDs already used in content/blog/*.mdx frontmatter. */
+export function getUsedCoverPhotoIds(excludeSlug?: string): Set<string> {
+  const used = new Set<string>();
+  if (!fs.existsSync(BLOG_DIR)) return used;
+
+  for (const file of fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith('.mdx'))) {
+    const slug = file.replace(/\.mdx$/, '');
+    if (excludeSlug && slug === excludeSlug) continue;
+    const raw = fs.readFileSync(path.join(BLOG_DIR, file), 'utf8');
+    const cover = raw.match(/^coverImage:\s*["']?([^"'\n]+)["']?/m);
+    if (!cover) continue;
+    const id = extractPhotoId(cover[1]);
+    if (id) used.add(id);
+  }
+  return used;
+}
+
+function photoIdFromImage(img: UnsplashImage): string | null {
+  return extractPhotoId(img.url);
+}
 
 export async function fetchUnsplashImages(
   query: string,
   count: number = 3,
+  options: { excludePhotoIds?: Set<string>; excludeSlug?: string } = {},
 ): Promise<UnsplashImage[]> {
+  const exclude = options.excludePhotoIds ?? getUsedCoverPhotoIds(options.excludeSlug);
   const accessKey = process.env.UNSPLASH_ACCESS_KEY;
+
+  const pickUnique = (candidates: UnsplashImage[]): UnsplashImage[] => {
+    const picked: UnsplashImage[] = [];
+    const seen = new Set<string>(exclude);
+    for (const img of candidates) {
+      const id = photoIdFromImage(img);
+      if (!id || seen.has(id)) continue;
+      seen.add(id);
+      picked.push(img);
+      if (picked.length >= count) break;
+    }
+    return picked;
+  };
 
   if (!accessKey) {
     console.warn('⚠️ UNSPLASH_ACCESS_KEY not set — using placeholder images');
-    return PLACEHOLDER_IMAGES.slice(0, count);
+    const unique = pickUnique(PLACEHOLDER_IMAGES);
+    return unique.length > 0 ? unique : PLACEHOLDER_IMAGES.slice(0, count);
   }
 
   try {
     const response = await axios.get('https://api.unsplash.com/search/photos', {
       params: {
         query,
-        per_page: count * 3,
+        per_page: Math.min(30, count * 5),
         orientation: 'landscape',
         content_filter: 'high',
       },
@@ -53,26 +118,28 @@ export async function fetchUnsplashImages(
       timeout: 15000,
     });
 
-    const results = (response.data.results ?? []).slice(0, count);
+    const results = (response.data.results ?? []).map(
+      (img: {
+        urls: { raw: string };
+        alt_description?: string;
+        description?: string;
+        user: { name: string; links: { html: string } };
+      }) => ({
+        url: `${img.urls.raw}&w=800&q=80&auto=format&fit=crop`,
+        altText: img.alt_description || img.description || query,
+        photographer: img.user.name,
+        photographerUrl: img.user.links.html,
+      }),
+    );
 
-    if (results.length === 0) {
-      return PLACEHOLDER_IMAGES.slice(0, count);
-    }
+    const unique = pickUnique(results);
+    if (unique.length > 0) return unique;
 
-    return results.map((img: {
-      urls: { raw: string };
-      alt_description?: string;
-      description?: string;
-      user: { name: string; links: { html: string } };
-    }) => ({
-      url: `${img.urls.raw}&w=800&q=80&auto=format&fit=crop`,
-      altText: img.alt_description || img.description || query,
-      photographer: img.user.name,
-      photographerUrl: img.user.links.html,
-    }));
+    console.warn('⚠️ No unique Unsplash results — falling back to unused placeholders');
+    return pickUnique(PLACEHOLDER_IMAGES);
   } catch (error) {
     console.warn('⚠️ Unsplash API failed — using placeholder images:', error);
-    return PLACEHOLDER_IMAGES.slice(0, count);
+    return pickUnique(PLACEHOLDER_IMAGES);
   }
 }
 
@@ -84,8 +151,8 @@ export const CLUSTER_IMAGE_QUERIES: Record<string, string[]> = {
   Безопасность: ['bank security vault', 'financial regulation', 'safe investment'],
   B2B: ['corporate finance', 'business banking', 'office finance meeting'],
   'RU/CIS': ['expat finance europe', 'international relocation banking', 'global banking'],
-  'Länder-Guides': ['tbilisi georgia', 'yerevan armenia', 'tel aviv finance'],
+  'Länder-Guides': ['tbilisi georgia skyline', 'yerevan armenia', 'tel aviv finance district'],
   'Passives Einkommen': ['passive income', 'financial freedom', 'retirement savings'],
-  Vergleiche: ['financial comparison', 'investment decision'],
-  Sicherheit: ['bank security', 'financial regulation', 'safe vault'],
+  Vergleiche: ['financial comparison dashboard', 'investment decision desk'],
+  Sicherheit: ['fraud prevention checklist', 'financial regulation documents', 'safe vault'],
 };

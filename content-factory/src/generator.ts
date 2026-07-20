@@ -66,7 +66,7 @@ export async function generateArticle(
 
   const imageQueries =
     CLUSTER_IMAGE_QUERIES[req.cluster] || [req.unsplashQuery || 'international banking'];
-  const images = await fetchUnsplashImages(imageQueries[0], 3);
+  const images = await fetchUnsplashImages(imageQueries[0], 3, { excludeSlug: req.slug });
 
   if (useMock) {
     console.log(`🧪 Mock generation (no Claude API): ${req.slug}...`);
