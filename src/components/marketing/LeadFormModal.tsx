@@ -105,7 +105,7 @@ export default function LeadFormModal({ open, onClose, formSource }: Props) {
     if (!data.name.trim() || data.name.trim().length < 2) next.name = lf.errName;
     if (!data.email.trim() || !EMAIL_RE.test(data.email.trim())) next.email = lf.errEmail;
     if (!data.phone.trim() || !PHONE_RE.test(data.phone.trim())) next.phone = lf.errPhone;
-    if (!data.message.trim() || data.message.trim().length < 10) next.message = lf.errMessage;
+    // message / "Your request" is optional
     return next;
   };
 
