@@ -1,3 +1,5 @@
+import { formatUtms, getUtms, hasUtms, type UtmParams } from '@/lib/utm';
+
 const LEADS_WEBHOOK_URL =
   process.env.NEXT_PUBLIC_LEADS_WEBHOOK_URL ??
   'https://script.google.com/macros/s/AKfycbxgm1M73LWE_23wtbWzJjLBwd7P_s1t46Y2bwDNf2Wc9KKkGjjPtR91xFTkKdp64PHV/exec';
@@ -13,6 +15,12 @@ export interface LeadPayload {
   consent?: boolean;
 }
 
+function withUtmSource(base: string, utms: UtmParams): string {
+  const tag = formatUtms(utms);
+  if (!tag) return base;
+  return [base, tag].filter(Boolean).join(' | ');
+}
+
 export async function submitLead({
   name,
   email,
@@ -26,6 +34,8 @@ export async function submitLead({
       ? `${window.location.hostname}${window.location.pathname}`
       : 'rentiers.net';
 
+  const utms = getUtms();
+
   const sourceDetails =
     source ??
     [page, message.trim() && `message: ${message.trim()}`].filter(Boolean).join(' | ');
@@ -36,8 +46,9 @@ export async function submitLead({
     phone: phone.trim(),
     consent,
     project: PROJECT_NAME,
-    source: sourceDetails,
+    source: withUtmSource(sourceDetails, utms),
     timestamp: new Date().toISOString(),
+    ...(hasUtms(utms) ? utms : {}),
   };
 
   const response = await fetch(LEADS_WEBHOOK_URL, {

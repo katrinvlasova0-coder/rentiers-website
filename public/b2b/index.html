@@ -765,6 +765,36 @@ function calc(){
 calc();
 
 const LEADS_WEBHOOK_URL='https://script.google.com/macros/s/AKfycbxgm1M73LWE_23wtbWzJjLBwd7P_s1t46Y2bwDNf2Wc9KKkGjjPtR91xFTkKdp64PHV/exec';
+const UTM_STORAGE_KEY='rentiers_utm';
+const UTM_KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+
+function readStoredUtms(){
+  try{
+    const raw=sessionStorage.getItem(UTM_STORAGE_KEY);
+    if(!raw) return {};
+    const parsed=JSON.parse(raw);
+    return parsed&&typeof parsed==='object'?parsed:{};
+  }catch{return {};}
+}
+
+function captureUtms(){
+  const params=new URLSearchParams(window.location.search);
+  const fromUrl={};
+  UTM_KEYS.forEach((key)=>{
+    const value=params.get(key)?.trim();
+    if(value) fromUrl[key]=value;
+  });
+  if(!Object.keys(fromUrl).length) return readStoredUtms();
+  const merged={...readStoredUtms(),...fromUrl};
+  try{sessionStorage.setItem(UTM_STORAGE_KEY,JSON.stringify(merged));}catch{}
+  return merged;
+}
+
+function formatUtms(utms){
+  return UTM_KEYS.filter((key)=>utms[key]).map((key)=>`${key}=${utms[key]}`).join('&');
+}
+
+captureUtms();
 
 async function submitForm(e){
   e.preventDefault();
@@ -792,14 +822,18 @@ async function submitForm(e){
     message&&`message: ${message}`,
   ].filter(Boolean).join(' | ');
 
+  const utms=captureUtms();
+  const utmTag=formatUtms(utms);
+
   const payload={
     name,
     email,
     phone,
     consent:true,
     project:'rentiers',
-    source:['B2B',`${window.location.hostname}${window.location.pathname}`,details].filter(Boolean).join(' | '),
+    source:['B2B',`${window.location.hostname}${window.location.pathname}`,utmTag,details].filter(Boolean).join(' | '),
     timestamp:new Date().toISOString(),
+    ...utms,
   };
 
   submitBtn.disabled=true;

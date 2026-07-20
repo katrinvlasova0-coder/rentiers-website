@@ -12,6 +12,7 @@ import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/constants/site";
 import YandexMetrika from "@/components/analytics/YandexMetrika";
 import FacebookPixel from "@/components/analytics/FacebookPixel";
 import FacebookPixelTracker from "@/components/analytics/FacebookPixelTracker";
+import UtmCapture from "@/components/analytics/UtmCapture";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -65,6 +66,7 @@ export default function RootLayout({
         <FacebookPixel />
         <Suspense fallback={null}>
           <FacebookPixelTracker />
+          <UtmCapture />
         </Suspense>
         <LanguageProvider>
           <LeadFormProvider>
