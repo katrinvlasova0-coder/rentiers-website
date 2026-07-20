@@ -249,6 +249,36 @@
     "completedAt": "2026-01-15"
   },
   {
+    "id": 29,
+    "cluster": "Сравнения",
+    "slug": "trade-republic-zinsen-vergleich-2026",
+    "titleDe": "Trade Republic Zinsen vs. Rentiers: Direktvergleich 2026",
+    "titleEn": "Trade Republic Interest vs. Rentiers: Direct Comparison 2026",
+    "keywordDe": "trade republic zinsen vergleich",
+    "searchVolDe": 3600,
+    "kd": 41,
+    "keywordEn": "trade republic interest rate comparison",
+    "searchVolEn": 4400,
+    "lsiKeywords": [
+      "trade republic 4 prozent",
+      "trade republic festgeld",
+      "neobank zinsen vergleich"
+    ],
+    "format": "Vergleich",
+    "targetLength": 1667,
+    "taSegments": [
+      "1",
+      "6"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-02-01",
+    "language": "DE+EN",
+    "category": "Vergleiche",
+    "status": "completed",
+    "unsplashQuery": "financial comparison investment",
+    "completedAt": "2026-02-01"
+  },
+  {
     "id": 30,
     "cluster": "Сравнения",
     "slug": "weltsparen-alternative-2026",
@@ -342,33 +372,34 @@
     "completedAt": "2026-01-15"
   },
   {
-    "id": 29,
-    "cluster": "Сравнения",
-    "slug": "trade-republic-zinsen-vergleich-2026",
-    "titleDe": "Trade Republic Zinsen vs. Rentiers: Direktvergleich 2026",
-    "titleEn": "Trade Republic Interest vs. Rentiers: Direct Comparison 2026",
-    "keywordDe": "trade republic zinsen vergleich",
-    "searchVolDe": 3600,
-    "kd": 41,
-    "keywordEn": "trade republic interest rate comparison",
-    "searchVolEn": 4400,
+    "id": 37,
+    "cluster": "Безопасность",
+    "slug": "bank-insolvenz-einlagen-2026",
+    "titleDe": "Was passiert mit meinen Einlagen, wenn eine Bank pleitegeht?",
+    "titleEn": "What Happens to My Deposits If a Bank Goes Bankrupt?",
+    "keywordDe": "bank insolvenz einlagen",
+    "searchVolDe": 3800,
+    "kd": 27,
+    "keywordEn": "bank bankruptcy what happens deposits",
+    "searchVolEn": 5400,
     "lsiKeywords": [
-      "trade republic 4 prozent",
-      "trade republic festgeld",
-      "neobank zinsen vergleich"
+      "bankpleite einlagensicherung",
+      "bank geht pleite was passiert",
+      "einlagensicherung deckel"
     ],
-    "format": "Vergleich",
-    "targetLength": 1667,
+    "format": "FAQ-Artikel",
+    "targetLength": 1333,
     "taSegments": [
       "1",
-      "6"
+      "2",
+      "3"
     ],
     "priority": "high",
     "plannedDate": "2026-02-01",
     "language": "DE+EN",
-    "category": "Vergleiche",
+    "category": "Sicherheit",
     "status": "completed",
-    "unsplashQuery": "financial comparison investment",
-    "completedAt": "2026-07-18T09:17:51.141Z"
+    "unsplashQuery": "bank security financial regulation",
+    "completedAt": "2026-07-20T10:42:00.802Z"
   }
 ]

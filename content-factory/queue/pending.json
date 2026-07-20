@@ -698,36 +698,6 @@
     "unsplashQuery": "financial comparison investment"
   },
   {
-    "id": 37,
-    "cluster": "Безопасность",
-    "slug": "bank-insolvenz-einlagen-2026",
-    "titleDe": "Was passiert mit meinen Einlagen, wenn eine Bank pleitegeht?",
-    "titleEn": "What Happens to My Deposits If a Bank Goes Bankrupt?",
-    "keywordDe": "bank insolvenz einlagen",
-    "searchVolDe": 3800,
-    "kd": 27,
-    "keywordEn": "bank bankruptcy what happens deposits",
-    "searchVolEn": 5400,
-    "lsiKeywords": [
-      "bankpleite einlagensicherung",
-      "bank geht pleite was passiert",
-      "einlagensicherung deckel"
-    ],
-    "format": "FAQ-Artikel",
-    "targetLength": 1333,
-    "taSegments": [
-      "1",
-      "2",
-      "3"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-02-01",
-    "language": "DE+EN",
-    "category": "Sicherheit",
-    "status": "pending",
-    "unsplashQuery": "bank security financial regulation"
-  },
-  {
     "id": 38,
     "cluster": "Безопасность",
     "slug": "waehrungsrisiko-absichern-auslandskonto-2026",
