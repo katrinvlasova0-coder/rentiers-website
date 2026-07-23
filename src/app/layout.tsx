@@ -49,8 +49,13 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: {
-    icon: [{ url: assetPath('/favicon.svg'), type: 'image/svg+xml' }],
+    icon: [
+      { url: assetPath('/favicon.svg'), type: 'image/svg+xml' },
+      { url: assetPath('/favicon-32.png'), sizes: '32x32', type: 'image/png' },
+      { url: assetPath('/favicon-48.png'), sizes: '48x48', type: 'image/png' },
+    ],
     shortcut: assetPath('/favicon.svg'),
+    apple: [{ url: assetPath('/apple-touch-icon.png'), sizes: '180x180', type: 'image/png' }],
   },
 };
 

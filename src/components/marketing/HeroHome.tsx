@@ -147,7 +147,7 @@ export default function HeroHome() {
                     </div>
                     <div>
                       <p className="text-xs font-semibold" style={{ color: 'var(--color-dark)' }}>{ph.welcome}</p>
-                      <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>Ariel Kharan</p>
+                      <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>John Doe</p>
                     </div>
                   </div>
 

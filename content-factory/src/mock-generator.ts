@@ -210,7 +210,7 @@ export function generateMockArticle(
   req: ArticleRequest,
   images: UnsplashImage[],
 ): string {
-  const author = req.author ?? { name: 'Dr. Stefan Kaufmann', role: 'Finanzanalyst, Rentiers Pro' };
+  const author = req.author ?? { name: 'Rentiers Redaktion', role: 'Redaktion' };
   const cover = images[0]?.url.replace('w=800', 'w=1200') ?? images[0]?.url ?? '';
 
   const internalLinks = getInternalLinks(req.slug, 3)

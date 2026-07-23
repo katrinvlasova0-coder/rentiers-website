@@ -16,7 +16,7 @@ export const FORBIDDEN_PATTERNS = {
   guaranteedReturn: /garantierte\s+(?:hohe\s+)?rendite|ohne\s+risiko|risk[-\s]?free\s+return|staatlich\s+garantierte\s+(?:rendite|ertrag)/i,
   investCta: /(?:jetzt|heute)\s+(?:anlegen|investieren)|konto\s+eröffnen|mit\s+rentiers(?:\s+pro)?\s+starten|open\s+(?:an\s+)?account|invest\s+(?:now|with\s+rentiers)/i,
   luxcarYield: /luxcar|100\s*%\s*(?:jahreszins|\+|p\.?\s*a\.?)/i,
-  fakeExpertAuthor: /dr\.\s*(?:stefan\s+kaufmann|markus\s+hoffmann)|elena\s+(?:marchetti|kowalski)|pierre\s+dijon/i,
+  fakeExpertAuthor: /dr\.\s*(?:stefan\s+kaufmann|markus\s+hoffmann)|elena\s+(?:marchetti|kowalski|berger)|pierre\s+dijon|michael\s+weber|max\s+müller|ariel\s+kharan/i,
   adPolicyEvasion: /facebook\s+financial\s+services\s+policy\s+umgeh|bypass\s+(?:ads?|facebook|google)\s+policy/i,
 } as const;
 
