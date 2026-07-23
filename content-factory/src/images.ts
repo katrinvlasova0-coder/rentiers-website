@@ -155,4 +155,5 @@ export const CLUSTER_IMAGE_QUERIES: Record<string, string[]> = {
   'Passives Einkommen': ['passive income', 'financial freedom', 'retirement savings'],
   Vergleiche: ['financial comparison dashboard', 'investment decision desk'],
   Sicherheit: ['fraud prevention checklist', 'financial regulation documents', 'safe vault'],
+  Finanzbildung: ['financial literacy education', 'credit rating documents', 'banking regulation'],
 };

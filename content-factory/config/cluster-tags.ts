@@ -5,6 +5,9 @@ export const CLUSTER_TAG: Record<string, { de: string; en: string }> = {
   'Пассивный доход': { de: 'Passives Einkommen', en: 'Passive Income' },
   Сравнения: { de: 'Vergleiche', en: 'Comparisons' },
   Безопасность: { de: 'Sicherheit', en: 'Security' },
+  Finanzbildung: { de: 'Finanzbildung', en: 'Financial literacy' },
+  Sicherheit: { de: 'Sicherheit', en: 'Safety' },
+  'Länder-Guides': { de: 'Länder-Guides', en: 'Country Guides' },
   B2B: { de: 'B2B', en: 'B2B' },
   'RU/CIS': { de: 'RU/CIS', en: 'RU/CIS' },
 };
