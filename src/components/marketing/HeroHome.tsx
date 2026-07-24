@@ -52,7 +52,7 @@ export default function HeroHome() {
               className="hidden md:block absolute -left-16 lg:-left-24 -top-10 pointer-events-none select-none opacity-[0.08] z-0"
               aria-hidden="true"
             >
-              <Image src="/rentiers_icon.svg" alt="" width={420} height={420} className="object-contain" priority />
+              <Image src="/rentiers_mark.png" alt="" width={350} height={420} className="object-contain" priority />
             </div>
 
             <div className="relative z-10">
@@ -143,7 +143,7 @@ export default function HeroHome() {
                       className="w-9 h-9 rounded-full flex items-center justify-center overflow-hidden shrink-0"
                       style={{ background: 'var(--color-bg-light)' }}
                     >
-                      <Image src="/rentiers_icon.svg" alt="Rentiers" width={28} height={28} className="object-contain" />
+                      <Image src="/rentiers_mark.png" alt="Rentiers" width={23} height={28} className="object-contain" />
                     </div>
                     <div>
                       <p className="text-xs font-semibold" style={{ color: 'var(--color-dark)' }}>{ph.welcome}</p>

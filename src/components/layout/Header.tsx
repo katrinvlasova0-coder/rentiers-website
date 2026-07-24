@@ -41,7 +41,7 @@ export default function Header() {
           <img
             src={assetPath('/rentiers_logo.svg')}
             alt="Rentiers"
-            className="h-8 w-auto object-contain object-left"
+            className="h-9 w-auto object-contain object-left"
           />
         </Link>
 
