@@ -35,14 +35,20 @@ export default function Header() {
       }`}
     >
       <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        {/* Logo — large mark + small dark wordmark */}
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={assetPath('/rentiers_logo.svg')}
-            alt="Rentiers"
-            className="h-9 w-auto object-contain object-left"
+            src={assetPath('/rentiers_mark.png')}
+            alt=""
+            className="h-10 w-auto object-contain"
           />
+          <span
+            className="text-[15px] font-bold tracking-[0.02em] leading-none"
+            style={{ color: 'var(--color-dark)' }}
+          >
+            rentiers
+          </span>
         </Link>
 
         {/* Desktop Nav */}
