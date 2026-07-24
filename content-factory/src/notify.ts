@@ -44,7 +44,7 @@ export async function sendArticleNotification(
         <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
           <tr>
             <td style="background:#1B2A4A;padding:28px 32px;">
-              <p style="margin:0;color:#C9A84C;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;">RENTIERS PRO — CONTENT UPDATE</p>
+              <p style="margin:0;color:#C9A84C;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;">RENTIERS — CONTENT UPDATE</p>
               <h1 style="margin:8px 0 0;color:#ffffff;font-size:20px;font-weight:700;">✅ Новая статья опубликована</h1>
             </td>
           </tr>
@@ -105,7 +105,7 @@ export async function sendArticleNotification(
           <tr>
             <td style="padding:20px 32px;background:#F8FAFC;border-top:1px solid #E2E8F0;">
               <p style="margin:0;color:#94A3B8;font-size:12px;text-align:center;">
-                Rentiers Pro Content Factory · Automatisch generiert und veröffentlicht<br>
+                Rentiers Content Factory · Automatisch generiert und veröffentlicht<br>
                 <a href="${baseUrl}/blog" style="color:#2563EB;">Alle Artikel ansehen</a>
               </p>
             </td>

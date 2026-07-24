@@ -66,7 +66,7 @@ function main(): void {
   const articles = [];
 
   for (const row of raw) {
-    const id = row['RENTIERS PRO — КОНТЕНТ-ПЛАН СТАТЕЙ 2026 (с ключевыми словами и статистикой поиска)'];
+    const id = row['RENTIERS — КОНТЕНТ-ПЛАН СТАТЕЙ 2026 (с ключевыми словами и статистикой поиска)'];
     if (typeof id !== 'number') continue;
 
     const cluster = String(row['__EMPTY'] ?? '');

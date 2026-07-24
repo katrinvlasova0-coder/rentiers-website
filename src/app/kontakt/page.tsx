@@ -3,9 +3,9 @@ import KontaktContent from '@/components/pages/KontaktContent';
 import { createMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Kontakt — Rentiers Pro',
+  title: 'Kontakt — Rentiers',
   description:
-    'Kontaktieren Sie Rentiers Pro per E-Mail oder Kontaktformular. Antwort innerhalb eines Werktags zu Portfolios, Konto und Einlagenarbitrage.',
+    'Kontaktieren Sie Rentiers per E-Mail oder Kontaktformular. Antwort innerhalb eines Werktags zu Portfolios, Konto und Einlagenarbitrage.',
   path: '/kontakt',
 });
 

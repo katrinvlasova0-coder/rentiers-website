@@ -2,7 +2,7 @@ export type Lang = 'de' | 'en';
 
 const de = {
   site: {
-    name: 'Rentiers Pro',
+    name: 'Rentiers',
     tagline: 'Bis zu 20% Jahresrendite auf Ihre Einlagen',
     description: 'Rentiers ist die erste digitale Plattform für Einlagenarbitrage. Erzielen Sie 12–20% Jahresrendite durch Einlagen bei internationalen Banken mit staatlichen Garantien.',
   },
@@ -213,7 +213,7 @@ const de = {
 
 const en = {
   site: {
-    name: 'Rentiers Pro',
+    name: 'Rentiers',
     tagline: 'Up to 20% annual return on your deposits',
     description: 'Rentiers is the first digital platform for deposit arbitrage. Earn 12–20% annual returns through deposits at international banks with government guarantees.',
   },

@@ -1,7 +1,7 @@
 // All UI copy in German — no hardcoded strings in JSX
 export const strings = {
   site: {
-    name: 'Rentiers Pro',
+    name: 'Rentiers',
     tagline: 'Bis zu 20% Jahresrendite auf Ihre Einlagen',
     domain: 'rentiers.net',
     url: 'https://rentiers.net',

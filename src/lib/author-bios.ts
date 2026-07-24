@@ -3,8 +3,8 @@ export const AUTHOR_BIOS: Record<
   { de: string; en: string; expertise: string[] }
 > = {
   'Rentiers Redaktion': {
-    de: 'Die Redaktion von Rentiers Pro erklärt Bankeinlagen, Einlagensicherung und Zinsstrategien in klarer Sprache — ohne erfundene Experten-Personas.',
-    en: 'The Rentiers Pro editorial team explains bank deposits, deposit insurance, and interest strategies in clear language — without invented expert personas.',
+    de: 'Die Redaktion von Rentiers erklärt Bankeinlagen, Einlagensicherung und Zinsstrategien in klarer Sprache — ohne erfundene Experten-Personas.',
+    en: 'The Rentiers editorial team explains bank deposits, deposit insurance, and interest strategies in clear language — without invented expert personas.',
     expertise: ['Einlagenarbitrage', 'Festgeld', 'Einlagengarantie', 'Finanzbildung'],
   },
 };

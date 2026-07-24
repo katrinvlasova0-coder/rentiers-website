@@ -7,7 +7,7 @@ import { pageContent } from '@/i18n/pages';
 const definition = pageContent.de.einlagenarbitrage.definition;
 
 export const metadata: Metadata = createMetadata({
-  title: 'Einlagenarbitrage erklärt — Definition, Risiken & Beispiele | Rentiers Pro',
+  title: 'Einlagenarbitrage erklärt — Definition, Risiken & Beispiele | Rentiers',
   description:
     'Was ist Einlagenarbitrage? Vollständiger Leitfaden: Definition, Funktionsweise, Risiken und Beispiele für Privatanleger. 12–20% p.a. mit staatlichen Garantien.',
   path: '/einlagenarbitrage',

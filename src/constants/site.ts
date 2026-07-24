@@ -1,5 +1,5 @@
 export const SITE_URL = 'https://rentiers.net';
-export const SITE_NAME = 'Rentiers Pro';
+export const SITE_NAME = 'Rentiers';
 export const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 export const SOCIAL_LINKS = {

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Rentiers Pro — запуск сборки
+# Rentiers — запуск сборки
 # Выполните в Terminal: cd в папку rentiers-website, затем bash BUILD.sh
 
 set -e

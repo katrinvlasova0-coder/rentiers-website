@@ -17,13 +17,13 @@ import UtmCapture from "@/components/analytics/UtmCapture";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rentiers Pro — Bis zu 20% Jahresrendite auf Bankeinlagen",
-    template: "%s | Rentiers Pro",
+    default: "Rentiers — Bis zu 20% Jahresrendite auf Bankeinlagen",
+    template: "%s | Rentiers",
   },
   description:
     "Rentiers bündelt Bankeinlagen weltweit und liefert 12–20% Jahresrendite mit staatlichen Einlagengarantien. Sicher, transparent, digital.",
   openGraph: {
-    title: "Rentiers Pro — Bis zu 20% Jahresrendite",
+    title: "Rentiers — Bis zu 20% Jahresrendite",
     description:
       "Globale Bankeinlagen mit staatlicher Garantie. 12–20% p.a. Einfach anlegen, Zinsen empfangen.",
     url: `${SITE_URL}/`,
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rentiers Pro — Bis zu 20% Jahresrendite",
+    title: "Rentiers — Bis zu 20% Jahresrendite",
     description:
       "Globale Bankeinlagen mit staatlicher Garantie. 12–20% p.a.",
     images: [OG_IMAGE],
@@ -50,11 +50,12 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: assetPath('/favicon.svg'), type: 'image/svg+xml' },
       { url: assetPath('/favicon-32.png'), sizes: '32x32', type: 'image/png' },
       { url: assetPath('/favicon-48.png'), sizes: '48x48', type: 'image/png' },
     ],
-    shortcut: assetPath('/favicon.svg'),
+    shortcut: '/favicon.ico',
     apple: [{ url: assetPath('/apple-touch-icon.png'), sizes: '180x180', type: 'image/png' }],
   },
 };

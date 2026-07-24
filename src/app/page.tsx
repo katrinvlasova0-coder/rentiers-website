@@ -20,7 +20,7 @@ import {
 } from '@/lib/seo';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Rentiers Pro — Bis zu 20% Jahresrendite auf Bankeinlagen | Festgeld weltweit',
+  title: 'Rentiers — Bis zu 20% Jahresrendite auf Bankeinlagen | Festgeld weltweit',
   description:
     'Rentiers bündelt Bankeinlagen weltweit und liefert 12–20% Jahresrendite mit staatlichen Einlagengarantien. Einfach anlegen, Zinsen empfangen. Jetzt kostenlos starten.',
   path: '/',

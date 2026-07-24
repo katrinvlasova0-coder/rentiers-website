@@ -3,9 +3,9 @@ import AboutContent from '@/components/pages/AboutContent';
 import { createMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Über uns — Rentiers Pro | Mission und Team',
+  title: 'Über uns — Rentiers | Mission und Team',
   description:
-    'Rentiers Pro wurde gegründet, um Privatanlegern Zugang zu den besten Bankzinsen der Welt zu verschaffen. Erfahren Sie mehr über unsere Mission, unser Team und unsere Werte.',
+    'Rentiers wurde gegründet, um Privatanlegern Zugang zu den besten Bankzinsen der Welt zu verschaffen. Erfahren Sie mehr über unsere Mission, unser Team und unsere Werte.',
   path: '/ueber-uns',
 });
 

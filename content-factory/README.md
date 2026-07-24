@@ -1,6 +1,6 @@
 # Rentiers Content Factory
 
-Autonomous TypeScript tool for generating Rentiers Pro blog articles from the content plan.
+Autonomous TypeScript tool for generating Rentiers blog articles from the content plan.
 
 ## Features
 

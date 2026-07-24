@@ -24,7 +24,7 @@ const program = new Command();
 
 program
   .name('content-factory')
-  .description('Rentiers Pro Autonomous Content Factory')
+  .description('Rentiers Autonomous Content Factory')
   .version('1.0.0');
 
 program

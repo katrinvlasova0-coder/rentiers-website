@@ -10,7 +10,7 @@ export function buildRussianArticlePrompt(
     .join('\n');
 
   return `
-Напишите полную статью для блога Rentiers Pro на русском языке (аудитория RU/CIS).
+Напишите полную статью для блога Rentiers на русском языке (аудитория RU/CIS).
 
 Параметры:
 - Slug: ${req.slug}

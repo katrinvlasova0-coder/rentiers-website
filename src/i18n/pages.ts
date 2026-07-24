@@ -101,7 +101,7 @@ export const pageContent = {
     },
     kontakt: {
       heroTitle: 'Kontakt',
-      heroSubtitle: 'Fragen zu Rentiers Pro, Portfolios oder Ihrem Konto? Wir antworten innerhalb eines Werktags.',
+      heroSubtitle: 'Fragen zu Rentiers, Portfolios oder Ihrem Konto? Wir antworten innerhalb eines Werktags.',
       formTitle: 'Nachricht senden',
       formSubtitle: 'Beschreiben Sie Ihr Anliegen — unser Team meldet sich persönlich bei Ihnen.',
       cta: 'Anfrage senden →',
@@ -117,7 +117,7 @@ export const pageContent = {
         'Kapital wird bei regulierten Partnerbanken in Schwellenländern als Festgeld oder Tagesgeld angelegt.',
         'Staatliche Einlagengarantien des Ziellandes schützen Einlagen bis zu länderspezifischen Limits.',
         'Die Zinsdifferenz zum Heimatmarkt bildet die Renditequelle — abzüglich Währungs- und Länderrisiko.',
-        'Plattformen wie Rentiers Pro übernehmen Bankauswahl, Compliance, Monitoring und Auszahlung.',
+        'Plattformen wie Rentiers übernehmen Bankauswahl, Compliance, Monitoring und Auszahlung.',
       ],
       risksTitle: 'Risiken im Überblick',
       risksText:
@@ -137,7 +137,7 @@ export const pageContent = {
         {
           category: 'Grundlagen',
           items: [
-            { q: 'Was ist Rentiers Pro?', a: 'Rentiers Pro ist eine digitale Plattform für Einlagenarbitrage. Wir bündeln Bankeinlagen aus über 50 Ländern und ermöglichen Privatanlegern, 12–20% Jahresrendite auf ihre Ersparnisse zu erzielen — mit staatlichen Einlagengarantien und ohne Aktienrisiko.' },
+            { q: 'Was ist Rentiers?', a: 'Rentiers ist eine digitale Plattform für Einlagenarbitrage. Wir bündeln Bankeinlagen aus über 50 Ländern und ermöglichen Privatanlegern, 12–20% Jahresrendite auf ihre Ersparnisse zu erzielen — mit staatlichen Einlagengarantien und ohne Aktienrisiko.' },
             { q: 'Was ist Einlagenarbitrage?', a: 'Einlagenarbitrage bezeichnet die Praxis, Kapital in Ländern anzulegen, die deutlich höhere Bankzinsen bieten als der Heimatmarkt. In Deutschland liegen Festgeldzinsen bei 0,5–3%. In Ländern wie Israel, Georgien oder der Türkei bieten regulierte Banken 10–25% p.a. Rentiers gibt Ihnen Zugang zu diesen Märkten.' },
             { q: 'Ist Rentiers reguliert?', a: 'Rentiers Global Corp. (USA) und Rentiers Global Inc. (Canada) sind als Money Services Business (MSB) bei FinCEN und FINTRAC lizenziert. Die Partnerbanken, bei denen Ihr Kapital liegt, sind vollständig von den lokalen Zentralbanken und Finanzaufsichtsbehörden der jeweiligen Länder reguliert.' },
             { q: 'Wo ist mein Geld tatsächlich?', a: 'Ihr Kapital liegt bei geprüften Partnerbanken in den Zielländern — nicht bei Rentiers selbst. Rentiers agiert als Plattform und Vermittler. Die Banken sind in ihren jeweiligen Ländern vollständig reguliert und unterliegen staatlichen Einlagengarantiesystemen.' },
@@ -182,7 +182,7 @@ export const pageContent = {
       ],
     },
     about: {
-      heroTitle: 'Über Rentiers Pro',
+      heroTitle: 'Über Rentiers',
       heroSubtitle:
         'Wir sind angetreten, um Einlagenarbitrage — lange nur institutionellen Anlegern vorbehalten — für jeden zugänglich zu machen.',
       missionTitle: 'Unsere Mission',
@@ -530,7 +530,7 @@ export const pageContent = {
     },
     kontakt: {
       heroTitle: 'Contact',
-      heroSubtitle: 'Questions about Rentiers Pro, portfolios, or your account? We reply within one business day.',
+      heroSubtitle: 'Questions about Rentiers, portfolios, or your account? We reply within one business day.',
       formTitle: 'Send a message',
       formSubtitle: 'Describe your request — our team will get back to you personally.',
       cta: 'Submit request →',
@@ -546,7 +546,7 @@ export const pageContent = {
         'Capital is placed with regulated partner banks in emerging markets as fixed or demand deposits.',
         'State deposit guarantee schemes in the target country protect deposits up to country-specific limits.',
         'The spread versus your home market is the return source — net of currency and country risk.',
-        'Platforms like Rentiers Pro handle bank selection, compliance, monitoring, and payouts.',
+        'Platforms like Rentiers handle bank selection, compliance, monitoring, and payouts.',
       ],
       risksTitle: 'Key risks',
       risksText:
@@ -566,7 +566,7 @@ export const pageContent = {
         {
           category: 'Basics',
           items: [
-            { q: 'What is Rentiers Pro?', a: 'Rentiers Pro is a digital platform for deposit arbitrage. We pool bank deposits from 50+ countries and enable private investors to earn 12–20% annual returns — with government deposit guarantees and no stock market risk.' },
+            { q: 'What is Rentiers?', a: 'Rentiers is a digital platform for deposit arbitrage. We pool bank deposits from 50+ countries and enable private investors to earn 12–20% annual returns — with government deposit guarantees and no stock market risk.' },
             { q: 'What is deposit arbitrage?', a: 'Deposit arbitrage means investing capital in countries that offer significantly higher bank interest rates than your home market. In Germany, fixed deposits pay 0.5–3%. In countries like Israel, Georgia, or Turkey, regulated banks offer 10–25% p.a. Rentiers gives you access to these markets.' },
             { q: 'Is Rentiers regulated?', a: 'Rentiers Global Corp. (USA) and Rentiers Global Inc. (Canada) are licensed as Money Services Businesses (MSB) with FinCEN and FINTRAC respectively. Partner banks holding your capital are fully regulated by local central banks and financial authorities.' },
             { q: 'Where is my money actually held?', a: 'Your capital is held at vetted partner banks in target countries — not at Rentiers itself. Rentiers acts as a platform and intermediary. Banks are fully regulated and covered by state deposit guarantee systems.' },
@@ -611,7 +611,7 @@ export const pageContent = {
       ],
     },
     about: {
-      heroTitle: 'About Rentiers Pro',
+      heroTitle: 'About Rentiers',
       heroSubtitle:
         'We set out to make deposit arbitrage — long reserved for institutional investors — accessible to everyone.',
       missionTitle: 'Our Mission',

@@ -3,7 +3,7 @@ import type { ArticleRequest } from './types';
 /** Prompt template for EN-only section regeneration (fallback) */
 export function buildEnglishSectionPrompt(req: ArticleRequest, germanBody: string): string {
   return `
-Translate and adapt the following German Rentiers Pro blog article into a complete English section.
+Translate and adapt the following German Rentiers blog article into a complete English section.
 
 Requirements:
 - British English, professional financial journalism

@@ -8,7 +8,7 @@ const DE_DEPTH: string[] = [
   'Georgien garantiert laut Nationalbank Georgiens (NBG) Einlagen bis 15.000 GEL pro Bank und Kontoinhaber. Bei einem GEL-Kurs von etwa 0,33 EUR entspricht das rund 5.000 EUR Schutz pro Institut.',
   'Armenien bietet über den Fonds für die Garantie von Einlagen der Bevölkerung einen Schutz bis 16 Mio. AMD (Stand 2026). Israel und Serbien haben eigene, jeweils national geregelte Garantiesysteme mit unterschiedlichen Deckelungen.',
   'Für deutsche Anleger gilt: Einlagenschutz im Ausland ersetzt nicht automatisch den EU-Standard. Entscheidend sind lokales Recht, Währung der Einlage und die Bonität der Einlagensicherungsstelle des jeweiligen Landes.',
-  'Rentiers Pro bündelt als Technologieplattform den Zugang zu Partnerbanken in mehreren Ländern. Die Einlage liegt direkt beim Partnerbank — nicht bei Rentiers. Die staatliche Garantie des Landes der Einlage bleibt der maßgebliche Schutzmechanismus.',
+  'Rentiers bündelt als Technologieplattform den Zugang zu Partnerbanken in mehreren Ländern. Die Einlage liegt direkt beim Partnerbank — nicht bei Rentiers. Die staatliche Garantie des Landes der Einlage bleibt der maßgebliche Schutzmechanismus.',
   'Wer Einlagengarantien international vergleicht, sollte neben der Höhe auch Auszahlungsfristen, Währungsrisiko und politische Stabilität berücksichtigen. Tabellen allein ersetzen keine individuelle Risikoanalyse.',
 ];
 
@@ -17,7 +17,7 @@ const EN_DEPTH: string[] = [
   'According to the National Bank of Georgia (NBG), deposits are protected up to 15,000 GEL per bank and account holder. At roughly 0.33 EUR per GEL, that equals about €5,000 protection per institution.',
   'Armenia provides protection up to 16 million AMD through its deposit guarantee fund (2026 figures). Israel and Serbia operate separate national schemes with different coverage caps.',
   'For EU investors: foreign deposit protection does not automatically match EU standards. Local law, deposit currency, and the credibility of the national guarantee scheme are decisive.',
-  'Rentiers Pro is a technology platform that provides access to partner banks in several countries. Deposits sit directly with the partner bank — not with Rentiers. The state guarantee of the deposit country remains the primary safeguard.',
+  'Rentiers is a technology platform that provides access to partner banks in several countries. Deposits sit directly with the partner bank — not with Rentiers. The state guarantee of the deposit country remains the primary safeguard.',
   'When comparing deposit insurance internationally, consider payout timelines, currency risk, and political stability alongside coverage limits. Tables alone do not replace individual risk assessment.',
 ];
 
@@ -25,20 +25,20 @@ function buildFaqBlock(req: ArticleRequest, lang: 'de' | 'en'): string {
   const items =
     lang === 'de'
       ? [
-          { q: `Was ist ${req.keywordDe}?`, a: `${req.keywordDe} bezeichnet die gezielte Nutzung von Zinsdifferenzen zwischen Ländern. Rentiers Pro ermöglicht Zugang ab €5.000.` },
+          { q: `Was ist ${req.keywordDe}?`, a: `${req.keywordDe} bezeichnet die gezielte Nutzung von Zinsdifferenzen zwischen Ländern. Rentiers ermöglicht Zugang ab €5.000.` },
           { q: `Ist ${req.keywordDe} legal?`, a: 'Ja, für EU-Anleger ist die Strategie grundsätzlich legal. Steuerliche Meldepflichten und AML-Prüfungen gelten.' },
           { q: 'Wie hoch sind die Renditen?', a: 'Brutto 12–20 % p.a. je nach Portfolio; netto nach 25 % Rentiers-Gebühr entsprechend niedriger.' },
           { q: 'Welche Risiken gibt es?', a: 'Währungsrisiko, politisches Risiko und abweichende Einlagengarantien gegenüber der EU-EDIS.' },
-          { q: 'Wie starte ich?', a: 'Registrierung bei Rentiers Pro, Portfolio wählen, SEPA-Überweisung — Platzierung bei Partnerbanken automatisch.' },
+          { q: 'Wie starte ich?', a: 'Registrierung bei Rentiers, Portfolio wählen, SEPA-Überweisung — Platzierung bei Partnerbanken automatisch.' },
           { q: 'Gibt es EUR-Hedging?', a: 'Ja, optional. Hedging-Kosten werden von der Rendite abgezogen.' },
           { q: 'Mindestanlage?', a: 'Ab €5.000 je nach gewähltem Portfolio.' },
         ]
       : [
-          { q: `What is ${req.keywordEn}?`, a: `${req.keywordEn} means exploiting interest-rate gaps across countries. Rentiers Pro offers access from €5,000.` },
+          { q: `What is ${req.keywordEn}?`, a: `${req.keywordEn} means exploiting interest-rate gaps across countries. Rentiers offers access from €5,000.` },
           { q: `Is ${req.keywordEn} legal?`, a: 'Yes, for EU investors it is generally legal, subject to tax reporting and AML checks.' },
           { q: 'What returns are realistic?', a: 'Gross 12–20% p.a. depending on portfolio; net of 25% Rentiers fee accordingly lower.' },
           { q: 'What are the risks?', a: 'Currency risk, political risk, and deposit guarantees that differ from EU EDIS.' },
-          { q: 'How do I start?', a: 'Register with Rentiers Pro, choose a portfolio, SEPA transfer — partner banks placed automatically.' },
+          { q: 'How do I start?', a: 'Register with Rentiers, choose a portfolio, SEPA transfer — partner banks placed automatically.' },
           { q: 'Is EUR hedging available?', a: 'Yes, optional. Hedging costs are deducted from returns.' },
           { q: 'Minimum investment?', a: 'From €5,000 depending on portfolio.' },
         ];
@@ -48,7 +48,7 @@ function buildFaqBlock(req: ArticleRequest, lang: 'de' | 'en'): string {
 
 function buildFrontmatterFaq(req: ArticleRequest): string {
   const faqs = [
-    { q: `Was ist ${req.keywordDe}?`, a: `${req.keywordDe} nutzt Zinsdifferenzen international. Rentiers Pro: ab €5.000, 12–20% brutto.` },
+    { q: `Was ist ${req.keywordDe}?`, a: `${req.keywordDe} nutzt Zinsdifferenzen international. Rentiers: ab €5.000, 12–20% brutto.` },
     { q: `Ist ${req.keywordDe} legal?`, a: 'Grundsätzlich ja für EU-Anleger. Steuerliche Meldepflicht beachten.' },
     { q: 'Welche Rendite ist realistisch?', a: 'Brutto 12–20% p.a.; netto Bankrate × 0,75 nach Rentiers-Gebühr.' },
     { q: 'Welche Risiken?', a: 'Währung, Politik, Einlagengarantie nicht EU-Standard.' },
@@ -70,7 +70,7 @@ function buildFrontmatterFaq(req: ArticleRequest): string {
         'Minimum investment?',
       ][i];
       const enA = [
-        `${req.keywordEn} exploits international rate gaps. Rentiers Pro from €5,000.`,
+        `${req.keywordEn} exploits international rate gaps. Rentiers from €5,000.`,
         'Generally yes for EU investors. Tax reporting required.',
         'Gross 12–20% p.a.; net bank rate × 0.75 after fee.',
         'Currency, politics, non-EU deposit guarantee.',
@@ -130,7 +130,7 @@ ${buildBodySection(DE_DEPTH)}
 
 ## Risiken und was Sie beachten müssen
 
-Nicht-EU-Garantien entsprechen nicht dem EDIS-Standard. Währungsschwankungen können den realen Schutzwert mindern. Rentiers Pro ist keine Bank — Einlagen liegen bei regulierten Partnerinstituten im jeweiligen Land.
+Nicht-EU-Garantien entsprechen nicht dem EDIS-Standard. Währungsschwankungen können den realen Schutzwert mindern. Rentiers ist keine Bank — Einlagen liegen bei regulierten Partnerinstituten im jeweiligen Land.
 
 Externe Quellen: [Nationalbank Georgiens](https://nbg.gov.ge), [Zentralbank Armeniens](https://www.cba.am), [Bundesbank](https://www.bundesbank.de).
 
@@ -191,7 +191,7 @@ ${buildBodySection(EN_DEPTH)}
 
 ## Risks to consider
 
-Non-EU guarantees do not match EDIS standards. Currency fluctuations can reduce real protection value. Rentiers Pro is not a bank — deposits are held at regulated partner institutions in each country.
+Non-EU guarantees do not match EDIS standards. Currency fluctuations can reduce real protection value. Rentiers is not a bank — deposits are held at regulated partner institutions in each country.
 
 Sources: [National Bank of Georgia](https://nbg.gov.ge), [Central Bank of Armenia](https://www.cba.am), [Bundesbank](https://www.bundesbank.de).
 

@@ -9,7 +9,7 @@ const deFaqs = pageContent.de.faq.categories.flatMap((cat) =>
 );
 
 export const metadata: Metadata = createMetadata({
-  title: 'FAQ — Häufige Fragen zu Rentiers Pro | Festgeld, Rendite, Sicherheit',
+  title: 'FAQ — Häufige Fragen zu Rentiers | Festgeld, Rendite, Sicherheit',
   description:
     'Antworten auf alle Fragen zu Rentiers: Wie funktionieren die Portfolios? Wie sicher ist mein Geld? Was sind staatliche Einlagengarantien? Alles erklärt.',
   path: '/faq',

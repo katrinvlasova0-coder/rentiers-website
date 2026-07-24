@@ -1,5 +1,5 @@
 # ============================================================
-# robots.txt — Rentiers Pro (rentiers.net)
+# robots.txt — Rentiers (rentiers.net)
 # Updated: 2026-06-20
 # ============================================================
 # Strategy: Allow all legitimate search & AI crawlers full
@@ -49,7 +49,7 @@ Disallow: /api/
 # -----------------------------------------------
 # Google-Extended is used for Google Gemini training
 # and AI Overviews. Allowing it maximises the chance
-# that Rentiers Pro content appears in AI answers.
+# that Rentiers content appears in AI answers.
 User-agent: Google-Extended
 Allow: /
 Allow: /blog/

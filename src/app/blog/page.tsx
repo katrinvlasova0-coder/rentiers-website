@@ -4,7 +4,7 @@ import BlogListContent from '@/components/pages/BlogListContent';
 import { createMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Blog — Rentiers Pro | Festgeld, passive Einkommen, Einlagenarbitrage',
+  title: 'Blog — Rentiers | Festgeld, passive Einkommen, Einlagenarbitrage',
   description:
     'Expertenwissen zu Festgeld, passivem Einkommen, Einlagenarbitrage und globalen Bankzinsen. Tipps und Guides für Anleger.',
   path: '/blog',
