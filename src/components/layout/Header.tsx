@@ -47,7 +47,7 @@ export default function Header() {
             className="text-[15px] font-bold tracking-[0.02em] leading-none"
             style={{ color: 'var(--color-dark)' }}
           >
-            rentiers
+            RENTIERS
           </span>
         </Link>
 
