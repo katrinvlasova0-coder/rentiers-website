@@ -1,38 +1,5 @@
 [
   {
-    "id": 201,
-    "cluster": "Finanzbildung",
-    "slug": "waehrungsrisiko-auslandskonto-2026",
-    "titleDe": "Währungsrisiko beim Auslandskonto: Was Anleger wissen sollten",
-    "titleEn": "Currency Risk on Foreign Accounts: What Investors Should Know",
-    "keywordDe": "währungsrisiko auslandskonto",
-    "searchVolDe": 910,
-    "kd": 20,
-    "keywordEn": "currency risk foreign account",
-    "searchVolEn": 1110,
-    "lsiKeywords": [
-      "wechselkursrisiko",
-      "eur usd hedgen",
-      "fremdwährung einlage"
-    ],
-    "format": "Explainer",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-07-25",
-    "language": "DE+EN",
-    "category": "Finanzbildung",
-    "status": "pending",
-    "unsplashQuery": "currency exchange finance",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 202,
     "cluster": "Sicherheit",
     "slug": "aml-kyc-warum-banken-pruefen-2026",
