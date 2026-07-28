@@ -125,6 +125,40 @@
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-07-26T09:53:24.331Z"
+    "completedAt": "2026-07-25"
+  },
+  {
+    "id": 202,
+    "cluster": "Sicherheit",
+    "slug": "aml-kyc-warum-banken-pruefen-2026",
+    "titleDe": "AML und KYC erklärt: Warum Banken Kunden prüfen",
+    "titleEn": "AML and KYC Explained: Why Banks Verify Customers",
+    "keywordDe": "aml kyc erklärt",
+    "searchVolDe": 920,
+    "kd": 20,
+    "keywordEn": "aml kyc explained",
+    "searchVolEn": 1120,
+    "lsiKeywords": [
+      "geldwäscheprävention",
+      "identitätsprüfung bank",
+      "compliance kunde"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-07-26",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "completed",
+    "unsplashQuery": "kyc identity verification",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-07-28T10:25:34.937Z"
   }
 ]
