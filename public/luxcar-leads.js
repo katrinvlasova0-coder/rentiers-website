@@ -18,12 +18,27 @@
 
   function readStoredUtms() {
     try {
-      const raw = sessionStorage.getItem(UTM_STORAGE_KEY);
+      const raw =
+        sessionStorage.getItem(UTM_STORAGE_KEY) ?? localStorage.getItem(UTM_STORAGE_KEY);
       if (!raw) return {};
       const parsed = JSON.parse(raw);
       return parsed && typeof parsed === 'object' ? parsed : {};
     } catch {
       return {};
+    }
+  }
+
+  function writeStoredUtms(utms) {
+    const json = JSON.stringify(utms);
+    try {
+      sessionStorage.setItem(UTM_STORAGE_KEY, json);
+    } catch {
+      // ignore
+    }
+    try {
+      localStorage.setItem(UTM_STORAGE_KEY, json);
+    } catch {
+      // ignore
     }
   }
 
@@ -36,11 +51,7 @@
     });
     if (!Object.keys(fromUrl).length) return readStoredUtms();
     const merged = { ...readStoredUtms(), ...fromUrl };
-    try {
-      sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(merged));
-    } catch {
-      // ignore
-    }
+    writeStoredUtms(merged);
     return merged;
   }
 
@@ -50,8 +61,37 @@
       .join('&');
   }
 
+  function appendUtmsToHref(href) {
+    const utms = captureUtms();
+    const hasAny = UTM_KEYS.some((key) => utms[key]);
+    if (!hasAny) return href;
+    try {
+      const url = new URL(href, window.location.origin);
+      UTM_KEYS.forEach((key) => {
+        const value = utms[key];
+        if (value && !url.searchParams.has(key)) {
+          url.searchParams.set(key, value);
+        }
+      });
+      return url.toString();
+    } catch {
+      const tag = formatUtms(utms);
+      if (!tag) return href;
+      return href.includes('?') ? `${href}&${tag}` : `${href}?${tag}`;
+    }
+  }
+
+  function enhanceRentiersLinks() {
+    document.querySelectorAll('a[href]').forEach((anchor) => {
+      const href = anchor.getAttribute('href') || '';
+      if (!/^https?:\/\/(www\.)?rentiers\.net\/?$/i.test(href)) return;
+      anchor.setAttribute('href', appendUtmsToHref(href));
+    });
+  }
+
   // Persist on load so UTMs survive navigation before submit.
   captureUtms();
+  enhanceRentiersLinks();
 
   async function submitLuxcarLead({ name, email, phone, message, formType }) {
     const page =

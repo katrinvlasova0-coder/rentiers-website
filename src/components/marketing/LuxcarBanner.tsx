@@ -1,22 +1,31 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ymGoal } from '@/lib/metrika';
+import { assetPath } from '@/lib/basePath';
+import { appendUtmsToUrl } from '@/lib/utm';
 
 const CAR_IMAGE =
   'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1200&q=80&auto=format&fit=crop';
 
+const LUXCAR_PATH = assetPath('/luxcar-a/');
+
 export default function LuxcarBanner() {
   const { t } = useLanguage();
+  const [luxcarHref, setLuxcarHref] = useState(LUXCAR_PATH);
+
+  useEffect(() => {
+    setLuxcarHref(appendUtmsToUrl(LUXCAR_PATH));
+  }, []);
 
   return (
     <section className="py-8 md:py-14" aria-label="LUXCAR">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-        <Link
-          href="/luxcar-a/"
+        <a
+          href={luxcarHref}
           onClick={() => ymGoal('luxcar_banner_click')}
           className="group block rounded-3xl overflow-hidden shadow-2xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-18px_rgba(11,14,36,0.55)]"
         >
@@ -77,7 +86,7 @@ export default function LuxcarBanner() {
               </div>
             </div>
           </div>
-        </Link>
+        </a>
       </div>
     </section>
   );
