@@ -159,6 +159,40 @@
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-07-28T10:25:34.937Z"
+    "completedAt": "2026-07-26"
+  },
+  {
+    "id": 203,
+    "cluster": "Finanzbildung",
+    "slug": "sepa-ueberweisung-erklaert-2026",
+    "titleDe": "SEPA-Überweisung erklärt: Dauer, Kosten und typische Stolperfallen",
+    "titleEn": "SEPA Transfers Explained: Timing, Costs and Common Pitfalls",
+    "keywordDe": "sepa überweisung erklärt",
+    "searchVolDe": 930,
+    "kd": 20,
+    "keywordEn": "sepa transfer explained",
+    "searchVolEn": 1130,
+    "lsiKeywords": [
+      "sepa instant",
+      "iban überweisung",
+      "eu zahlungsverkehr"
+    ],
+    "format": "Howto",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-07-27",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "completed",
+    "unsplashQuery": "sepa bank transfer",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-07-30T10:14:00.830Z"
   }
 ]
