@@ -58,5 +58,107 @@
     "plannedDate": "2026-07-23",
     "language": "DE+EN",
     "completedAt": "2026-07-23"
+  },
+  {
+    "id": 200,
+    "cluster": "Finanzbildung",
+    "slug": "einlage-vs-anleihe-vs-fonds-2026",
+    "titleDe": "Einlage, Anleihe oder Fonds: Die Unterschiede verständlich erklärt",
+    "titleEn": "Deposit, Bond or Fund: Clear Differences for Retail Investors",
+    "keywordDe": "einlage vs anleihe vs fonds",
+    "searchVolDe": 900,
+    "kd": 20,
+    "keywordEn": "deposit vs bond vs fund",
+    "searchVolEn": 1100,
+    "lsiKeywords": [
+      "festgeld unterschied",
+      "wertpapier vs einlage",
+      "fonds risiko"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-07-24",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "completed",
+    "unsplashQuery": "investment education books",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-07-24"
+  },
+  {
+    "id": 201,
+    "cluster": "Finanzbildung",
+    "slug": "waehrungsrisiko-auslandskonto-2026",
+    "titleDe": "Währungsrisiko beim Auslandskonto: Was Anleger wissen sollten",
+    "titleEn": "Currency Risk on Foreign Accounts: What Investors Should Know",
+    "keywordDe": "währungsrisiko auslandskonto",
+    "searchVolDe": 910,
+    "kd": 20,
+    "keywordEn": "currency risk foreign account",
+    "searchVolEn": 1110,
+    "lsiKeywords": [
+      "wechselkursrisiko",
+      "eur usd hedgen",
+      "fremdwährung einlage"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-07-25",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "completed",
+    "unsplashQuery": "currency exchange finance",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-07-25"
+  },
+  {
+    "id": 202,
+    "cluster": "Sicherheit",
+    "slug": "aml-kyc-warum-banken-pruefen-2026",
+    "titleDe": "AML und KYC erklärt: Warum Banken Kunden prüfen",
+    "titleEn": "AML and KYC Explained: Why Banks Verify Customers",
+    "keywordDe": "aml kyc erklärt",
+    "searchVolDe": 920,
+    "kd": 20,
+    "keywordEn": "aml kyc explained",
+    "searchVolEn": 1120,
+    "lsiKeywords": [
+      "geldwäscheprävention",
+      "identitätsprüfung bank",
+      "compliance kunde"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-07-26",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "completed",
+    "unsplashQuery": "kyc identity verification",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-07-28T10:25:34.937Z"
   }
 ]
