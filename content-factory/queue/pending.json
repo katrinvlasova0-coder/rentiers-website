@@ -1,38 +1,5 @@
 [
   {
-    "id": 204,
-    "cluster": "Sicherheit",
-    "slug": "msb-vs-investitionslizenz-2026",
-    "titleDe": "MSB-Registrierung vs. Investitionslizenz: Der Unterschied für Anleger",
-    "titleEn": "MSB Registration vs Investment Licence: What Investors Need to Know",
-    "keywordDe": "msb vs investitionslizenz",
-    "searchVolDe": 940,
-    "kd": 20,
-    "keywordEn": "msb vs investment license",
-    "searchVolEn": 1140,
-    "lsiKeywords": [
-      "fintrac fincen",
-      "bafin erlaubnis",
-      "zahlungsdienst vs investment"
-    ],
-    "format": "Explainer",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-07-28",
-    "language": "DE+EN",
-    "category": "Sicherheit",
-    "status": "pending",
-    "unsplashQuery": "financial regulation licence",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 205,
     "cluster": "Finanzbildung",
     "slug": "diversifikation-jurisdiktionen-2026",
