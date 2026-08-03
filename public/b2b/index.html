@@ -262,6 +262,7 @@ html[data-lang=en] span[data-en]{display:inline}
       <a href="/portfolios/"><span data-de>Portfolios</span><span data-en>Portfolios</span></a>
       <a href="/kalkulator/"><span data-de>Kalkulator</span><span data-en>Calculator</span></a>
       <a href="/partner-banken/"><span data-de>Partner-Banken</span><span data-en>Partner Banks</span></a>
+      <a href="/b2b/blog/"><span data-de>Blog</span><span data-en>Blog</span></a>
       <a href="/faq/">FAQ</a>
     </div>
     <div class="nav-right">
@@ -732,7 +733,13 @@ function setLang(l){
   document.documentElement.setAttribute('data-lang',l);
   document.getElementById('btn-de').classList.toggle('on',l==='de');
   document.getElementById('btn-en').classList.toggle('on',l==='en');
+  try { localStorage.setItem('rentiers-lang', l); } catch(e) {}
 }
+(function initLang(){
+  var saved = null;
+  try { saved = localStorage.getItem('rentiers-lang'); } catch(e) {}
+  if (saved === 'en' || saved === 'de') setLang(saved);
+})();
 
 let rate=16;
 function setRate(r,btn){

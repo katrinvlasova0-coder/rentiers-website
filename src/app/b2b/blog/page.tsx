@@ -17,9 +17,10 @@ export default async function B2BBlogPage() {
       posts={posts}
       basePath="/b2b/blog"
       hideCategoryFilter
+      variant="corporate"
       heroTitle={{
-        de: 'B2B Wissensblog',
-        en: 'B2B Knowledge Blog',
+        de: 'Corporate Investment Knowledge Hub',
+        en: 'Corporate Investment Knowledge Hub',
       }}
       heroSubtitle={{
         de: 'Geschäftskonto, Unternehmensreserven, CRS und internationale Bankeinlagen — Wissen für CFOs und Geschäftsführer.',

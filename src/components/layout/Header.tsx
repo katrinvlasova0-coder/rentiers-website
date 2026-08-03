@@ -23,8 +23,8 @@ export default function Header() {
     { label: t.nav.howItWorks, href: '/wie-es-funktioniert' },
     { label: t.nav.calculator, href: '/kalkulator' },
     { label: t.nav.partnerBanks, href: '/partner-banken' },
+    { label: t.nav.b2b, href: '/b2b/' },
     { label: t.nav.faq, href: '/faq' },
-    { label: t.nav.impressum, href: '/impressum' },
     { label: t.nav.blog, href: '/blog' },
   ];
 

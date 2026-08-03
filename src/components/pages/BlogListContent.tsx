@@ -37,10 +37,12 @@ function BlogCard({
   post,
   lang,
   basePath,
+  accent,
 }: {
   post: BlogPostMeta;
   lang: 'de' | 'en';
   basePath: string;
+  accent?: boolean;
 }) {
   const { p } = useLanguage();
   const labels = p.blog;
@@ -51,7 +53,10 @@ function BlogCard({
     <Link
       href={`${basePath}/${post.slug}`}
       className="group block rounded-2xl overflow-hidden border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white"
-      style={{ borderColor: 'var(--color-border)' }}
+      style={{
+        borderColor: accent ? 'rgba(26,85,102,0.22)' : 'var(--color-border)',
+        boxShadow: accent ? 'inset 3px 0 0 #1A5566' : undefined,
+      }}
     >
       {post.coverImage ? (
         <div className="relative h-44 overflow-hidden">
@@ -106,16 +111,19 @@ export default function BlogListContent({
   heroTitle,
   heroSubtitle,
   hideCategoryFilter = false,
+  variant = 'default',
 }: {
   posts: BlogPostMeta[];
   basePath?: string;
   heroTitle?: string | { de: string; en: string };
   heroSubtitle?: string | { de: string; en: string };
   hideCategoryFilter?: boolean;
+  variant?: 'default' | 'corporate';
 }) {
   const router = useRouter();
   const { lang, p } = useLanguage();
   const labels = p.blog;
+  const isCorporate = variant === 'corporate';
   const resolvedHeroTitle =
     typeof heroTitle === 'string' ? heroTitle : heroTitle?.[lang];
   const resolvedHeroSubtitle =
@@ -196,20 +204,58 @@ export default function BlogListContent({
   return (
     <>
       <section
-        className="pt-24 pb-12"
-        style={{ background: 'linear-gradient(135deg, #F2F2FA 0%, #EDEDFC 100%)' }}
+        className="pt-24 pb-12 relative overflow-hidden"
+        style={{
+          background: isCorporate
+            ? 'linear-gradient(135deg, #0B1F2A 0%, #123A4A 45%, #1A5566 100%)'
+            : 'linear-gradient(135deg, #F2F2FA 0%, #EDEDFC 100%)',
+        }}
       >
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <h1 className="text-3xl md:text-5xl font-extrabold mb-4" style={{ color: 'var(--color-dark)' }}>
+        {isCorporate && (
+          <div
+            className="pointer-events-none absolute inset-0 opacity-30"
+            style={{
+              background:
+                'radial-gradient(ellipse 80% 60% at 70% 20%, rgba(79,200,232,0.35), transparent)',
+            }}
+          />
+        )}
+        <div className="max-w-[1200px] mx-auto px-6 text-center relative">
+          {isCorporate && (
+            <span
+              className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full mb-5"
+              style={{
+                background: 'rgba(79,200,232,0.15)',
+                color: '#4FC8E8',
+                border: '1px solid rgba(79,200,232,0.35)',
+              }}
+            >
+              <span
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ background: '#4FC8E8' }}
+              />
+              Corporate
+            </span>
+          )}
+          <h1
+            className="text-3xl md:text-5xl font-extrabold mb-4"
+            style={{ color: isCorporate ? '#fff' : 'var(--color-dark)' }}
+          >
             {resolvedHeroTitle ?? labels.heroTitle}
           </h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
+          <p
+            className="text-lg max-w-2xl mx-auto"
+            style={{ color: isCorporate ? 'rgba(226,232,240,0.85)' : 'var(--color-text-secondary)' }}
+          >
             {resolvedHeroSubtitle ?? labels.heroSubtitle}
           </p>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section
+        className="py-16"
+        style={{ background: isCorporate ? '#F3F7F9' : 'white' }}
+      >
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="mb-10 space-y-6">
             <form onSubmit={handleSearchSubmit} className="flex flex-col sm:flex-row gap-3">
@@ -370,7 +416,7 @@ export default function BlogListContent({
           {rest.length > 0 && (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {rest.map((post) => (
-                <BlogCard key={post.slug} post={post} lang={lang} basePath={basePath} />
+                <BlogCard key={post.slug} post={post} lang={lang} basePath={basePath} accent={isCorporate} />
               ))}
             </div>
           )}
