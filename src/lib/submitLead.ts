@@ -5,6 +5,7 @@ const LEADS_WEBHOOK_URL =
   'https://script.google.com/macros/s/AKfycbxgm1M73LWE_23wtbWzJjLBwd7P_s1t46Y2bwDNf2Wc9KKkGjjPtR91xFTkKdp64PHV/exec';
 
 const PROJECT_NAME = 'rentiers';
+export const B2B_SOURCE_TAG = 'rentiers B2B';
 
 export interface LeadPayload {
   name: string;
@@ -19,6 +20,26 @@ function withUtmSource(base: string, utms: UtmParams): string {
   const tag = formatUtms(utms);
   if (!tag) return base;
   return [base, tag].filter(Boolean).join(' | ');
+}
+
+function isB2bContext(source?: string): boolean {
+  if (typeof window !== 'undefined' && window.location.pathname.startsWith('/b2b')) {
+    return true;
+  }
+  if (!source) return false;
+  return /\bB2B\b/i.test(source) || source.includes(B2B_SOURCE_TAG);
+}
+
+function normalizeSource(source: string): string {
+  return source
+    .replace(/^B2B\b/, B2B_SOURCE_TAG)
+    .replace(/\|\s*B2B\b/, `| ${B2B_SOURCE_TAG}`);
+}
+
+function ensureB2bTag(source: string): string {
+  const normalized = normalizeSource(source);
+  if (normalized.includes(B2B_SOURCE_TAG)) return normalized;
+  return [B2B_SOURCE_TAG, normalized].filter(Boolean).join(' | ');
 }
 
 export async function submitLead({
@@ -36,9 +57,15 @@ export async function submitLead({
 
   const utms = getUtms();
 
-  const sourceDetails =
+  let sourceDetails =
     source ??
     [page, message.trim() && `message: ${message.trim()}`].filter(Boolean).join(' | ');
+
+  if (isB2bContext(sourceDetails)) {
+    sourceDetails = ensureB2bTag(sourceDetails);
+  } else {
+    sourceDetails = normalizeSource(sourceDetails);
+  }
 
   const payload = {
     name: name.trim(),

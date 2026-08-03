@@ -75,18 +75,6 @@ export default function BlogPostContent({
         <div className="relative h-72 md:h-[28rem] mb-0">
           <Image src={meta.coverImage} alt={meta.title} fill className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-          {isB2b && (
-            <span
-              className="absolute top-6 left-6 text-xs font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full"
-              style={{
-                background: 'rgba(11,31,42,0.85)',
-                color: '#4FC8E8',
-                border: '1px solid rgba(79,200,232,0.35)',
-              }}
-            >
-              Corporate
-            </span>
-          )}
         </div>
       )}
 

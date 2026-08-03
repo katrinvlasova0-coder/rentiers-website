@@ -3,6 +3,10 @@
 import Script from 'next/script'
 import { FB_PIXEL_ID } from '@/lib/fbpixel'
 
+/**
+ * Meta Pixel base code (current official snippet).
+ * Loads fbevents.js from connect.facebook.net — Meta still ships this as version "2.0".
+ */
 export default function FacebookPixel() {
   if (!FB_PIXEL_ID) return null
 

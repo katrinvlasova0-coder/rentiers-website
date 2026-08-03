@@ -36,6 +36,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
 .btn-cta{padding:8px 18px;border-radius:7px;background:#4FC8E8;color:#07101f;
   font-size:14px;font-weight:700;border:none;cursor:pointer;transition:.15s;white-space:nowrap}
 .btn-cta:hover{opacity:.88}
+.cta-short{display:none!important}
 
 /* ── HERO ── */
 .hero{padding:120px 24px 80px;position:relative;overflow:hidden}
@@ -221,9 +222,9 @@ textarea.fi{resize:vertical;min-height:72px}
 footer{background:#07101f;border-top:1px solid rgba(255,255,255,.07);padding:40px 24px 28px}
 .footer-w{max-width:1100px;margin:0 auto;
   display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px}
-.footer-logo img{height:24px;filter:brightness(0) invert(1);opacity:.5;margin-bottom:10px}
-.footer-copy{font-size:12px;color:#334155}
-.footer-legal{font-size:11px;color:#334155;max-width:600px;line-height:1.6}
+.footer-logo{height:24px;filter:brightness(0) invert(1);opacity:.92;margin-bottom:10px}
+.footer-copy{font-size:12px;color:#94a3b8}
+.footer-legal{font-size:11px;color:#64748b;max-width:600px;line-height:1.6}
 
 /* ── DIVIDER ── */
 .divider{height:1px;background:rgba(255,255,255,.06);margin:0}
@@ -247,6 +248,23 @@ html[data-lang=en] span[data-en]{display:inline}
   .step-item{border:1px solid rgba(79,200,232,.1);border-radius:12px}
   .frow{grid-template-columns:1fr}
   .nav-links{display:none}
+  .btn-login{display:none}
+  .nav-w{padding:0 14px;gap:10px;height:58px}
+  .nav-logo{min-width:0;flex-shrink:1}
+  .nav-logo img{height:22px;max-width:120px;object-fit:contain}
+  .nav-right{gap:6px;flex-shrink:0}
+  .lang-tog{flex-shrink:0}
+  .lt{padding:3px 8px;font-size:11px}
+  .btn-cta{padding:8px 12px;font-size:12px}
+  .cta-full{display:none!important}
+  .cta-short{display:inline!important}
+  .hero{padding:96px 16px 56px}
+  .hero-btns{flex-direction:column}
+  .hero-btns .btn-primary,.hero-btns .btn-ghost{width:100%;text-align:center}
+}
+@media(max-width:380px){
+  .nav-logo img{max-width:96px}
+  .btn-cta{padding:7px 10px;font-size:11px}
 }
 </style>
 </head>
@@ -270,11 +288,11 @@ html[data-lang=en] span[data-en]{display:inline}
         <button class="lt on" id="btn-de" onclick="setLang('de')">DE</button>
         <button class="lt" id="btn-en" onclick="setLang('en')">EN</button>
       </div>
-      <button class="btn-login" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        <span data-de>Anfragen</span><span data-en>Inquire</span>
-      </button>
       <button class="btn-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        <span data-de>Unternehmenslösung anfragen</span><span data-en>Request Business Solution</span>
+        <span class="cta-full" data-de>Unternehmenslösung anfragen</span>
+        <span class="cta-full" data-en>Request Business Solution</span>
+        <span class="cta-short" data-de>Anfragen</span>
+        <span class="cta-short" data-en>Inquire</span>
       </button>
     </div>
   </div>
@@ -772,16 +790,43 @@ function calc(){
 calc();
 
 const LEADS_WEBHOOK_URL='https://script.google.com/macros/s/AKfycbxgm1M73LWE_23wtbWzJjLBwd7P_s1t46Y2bwDNf2Wc9KKkGjjPtR91xFTkKdp64PHV/exec';
+const FB_PIXEL_ID='1000964352775931';
 const UTM_STORAGE_KEY='rentiers_utm';
 const UTM_KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+const B2B_SOURCE_TAG='rentiers B2B';
+
+function initFacebookPixel(){
+  if(!FB_PIXEL_ID||typeof window==='undefined') return;
+  if(!window.fbq){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    if(!document.getElementById('fb-pixel-noscript')){
+      const noscript=document.createElement('noscript');
+      noscript.id='fb-pixel-noscript';
+      noscript.innerHTML='<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id='+FB_PIXEL_ID+'&ev=PageView&noscript=1" alt="" />';
+      document.body.appendChild(noscript);
+    }
+  }
+  window.fbq('init',FB_PIXEL_ID);
+  window.fbq('track','PageView');
+}
 
 function readStoredUtms(){
   try{
-    const raw=sessionStorage.getItem(UTM_STORAGE_KEY);
+    const raw=sessionStorage.getItem(UTM_STORAGE_KEY)??localStorage.getItem(UTM_STORAGE_KEY);
     if(!raw) return {};
     const parsed=JSON.parse(raw);
     return parsed&&typeof parsed==='object'?parsed:{};
   }catch{return {};}
+}
+
+function writeStoredUtms(utms){
+  const json=JSON.stringify(utms);
+  try{sessionStorage.setItem(UTM_STORAGE_KEY,json);}catch{}
+  try{localStorage.setItem(UTM_STORAGE_KEY,json);}catch{}
 }
 
 function captureUtms(){
@@ -793,7 +838,7 @@ function captureUtms(){
   });
   if(!Object.keys(fromUrl).length) return readStoredUtms();
   const merged={...readStoredUtms(),...fromUrl};
-  try{sessionStorage.setItem(UTM_STORAGE_KEY,JSON.stringify(merged));}catch{}
+  writeStoredUtms(merged);
   return merged;
 }
 
@@ -801,6 +846,7 @@ function formatUtms(utms){
   return UTM_KEYS.filter((key)=>utms[key]).map((key)=>`${key}=${utms[key]}`).join('&');
 }
 
+initFacebookPixel();
 captureUtms();
 
 async function submitForm(e){
@@ -838,7 +884,7 @@ async function submitForm(e){
     phone,
     consent:true,
     project:'rentiers',
-    source:['B2B',`${window.location.hostname}${window.location.pathname}`,utmTag,details].filter(Boolean).join(' | '),
+    source:[B2B_SOURCE_TAG,`${window.location.hostname}${window.location.pathname}`,utmTag,details].filter(Boolean).join(' | '),
     timestamp:new Date().toISOString(),
     ...utms,
   };
@@ -864,6 +910,9 @@ async function submitForm(e){
       }else{
         throw err;
       }
+    }
+    if(typeof window.fbq==='function'){
+      window.fbq('track','Lead',{content_name:'rentiers B2B',currency:'EUR'});
     }
     document.getElementById('form-wrap').style.display='none';
     document.getElementById('form-success').style.display='block';

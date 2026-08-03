@@ -100,7 +100,14 @@ export default function BlogConsultPopup({ slug }: Props) {
         email: trimmed,
         phone: '—',
         message: copy.leadMessage,
-        source: `blog_consult_popup | ${page}`,
+        source: [
+          typeof window !== 'undefined' && window.location.pathname.startsWith('/b2b')
+            ? 'rentiers B2B'
+            : null,
+          `blog_consult_popup | ${page}`,
+        ]
+          .filter(Boolean)
+          .join(' | '),
       });
 
       ymGoal('blog_consult_popup_submit', { slug });

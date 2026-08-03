@@ -221,22 +221,6 @@ export default function BlogListContent({
           />
         )}
         <div className="max-w-[1200px] mx-auto px-6 text-center relative">
-          {isCorporate && (
-            <span
-              className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full mb-5"
-              style={{
-                background: 'rgba(79,200,232,0.15)',
-                color: '#4FC8E8',
-                border: '1px solid rgba(79,200,232,0.35)',
-              }}
-            >
-              <span
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ background: '#4FC8E8' }}
-              />
-              Corporate
-            </span>
-          )}
           <h1
             className="text-3xl md:text-5xl font-extrabold mb-4"
             style={{ color: isCorporate ? '#fff' : 'var(--color-dark)' }}

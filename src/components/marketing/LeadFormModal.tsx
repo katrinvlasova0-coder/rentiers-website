@@ -124,7 +124,13 @@ export default function LeadFormModal({ open, onClose, formSource }: Props) {
         message: form.message,
         source:
           formSource === 'b2b'
-            ? ['B2B', typeof window !== 'undefined' ? `${window.location.hostname}${window.location.pathname}` : 'rentiers.net', form.message.trim() && `message: ${form.message.trim()}`]
+            ? [
+                'rentiers B2B',
+                typeof window !== 'undefined'
+                  ? `${window.location.hostname}${window.location.pathname}`
+                  : 'rentiers.net',
+                form.message.trim() && `message: ${form.message.trim()}`,
+              ]
                 .filter(Boolean)
                 .join(' | ')
             : undefined,
@@ -132,7 +138,7 @@ export default function LeadFormModal({ open, onClose, formSource }: Props) {
 
       ymGoal(SUCCESS_GOALS[formSource]);
       if (formSource === 'b2b') {
-        event('Lead', { content_name: 'B2B Inquiry', currency: 'EUR' });
+        event('Lead', { content_name: 'rentiers B2B', currency: 'EUR' });
         customEvent('B2BFormSubmitted');
       } else {
         event('Lead', { content_name: 'Rentiers Registration', currency: 'EUR' });

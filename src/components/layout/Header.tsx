@@ -85,14 +85,6 @@ export default function Header() {
           </button>
 
           <LeadButton
-            className="text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-100"
-            style={{ color: 'var(--color-text-secondary)' }}
-            metrikaGoal="cta_login"
-            formSource="login"
-          >
-            {t.nav.login}
-          </LeadButton>
-          <LeadButton
             className="text-sm font-semibold px-5 py-2.5 rounded-xl text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
             style={{ background: 'var(--color-primary)' }}
             metrikaGoal="cta_register_navbar"
