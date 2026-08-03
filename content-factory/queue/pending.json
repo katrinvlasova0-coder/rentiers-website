@@ -1,38 +1,5 @@
 [
   {
-    "id": 205,
-    "cluster": "Finanzbildung",
-    "slug": "diversifikation-jurisdiktionen-2026",
-    "titleDe": "Diversifikation über Jurisdiktionen: Chancen und Grenzen",
-    "titleEn": "Diversifying Across Jurisdictions: Opportunities and Limits",
-    "keywordDe": "diversifikation jurisdiktionen",
-    "searchVolDe": 950,
-    "kd": 20,
-    "keywordEn": "diversify across jurisdictions",
-    "searchVolEn": 1150,
-    "lsiKeywords": [
-      "länderrisiko",
-      "einlagensicherung länder",
-      "geografische streuung"
-    ],
-    "format": "Explainer",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-07-29",
-    "language": "DE+EN",
-    "category": "Finanzbildung",
-    "status": "pending",
-    "unsplashQuery": "world map finance diversification",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 206,
     "cluster": "Länder-Guides",
     "slug": "nichtresident-konto-georgien-anleitung-2026",
