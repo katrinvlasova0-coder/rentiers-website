@@ -7,7 +7,7 @@ import { ymGoal } from '@/lib/metrika';
 const icons = [TrendingUp, Calendar, Globe];
 
 export default function B2BSection() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const b = t.b2b;
 
   return (
@@ -61,6 +61,15 @@ export default function B2BSection() {
             {b.cta}
             <span>→</span>
           </a>
+          <p className="mt-4">
+            <a
+              href="/b2b/blog"
+              className="text-sm font-semibold hover:underline"
+              style={{ color: 'var(--color-primary)' }}
+            >
+              {lang === 'de' ? 'B2B Wissensblog →' : 'B2B Knowledge Blog →'}
+            </a>
+          </p>
           <p className="text-sm mt-4" style={{ color: 'var(--color-text-secondary)' }}>
             {b.note}
           </p>

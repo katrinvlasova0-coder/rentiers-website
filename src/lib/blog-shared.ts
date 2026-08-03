@@ -36,6 +36,7 @@ export const CATEGORY_LABELS: Record<string, { de: string; en: string }> = {
   Altersvorsorge: { de: 'Altersvorsorge', en: 'Retirement Planning' },
   Märkte: { de: 'Märkte', en: 'Markets' },
   Vergleiche: { de: 'Vergleiche', en: 'Comparisons' },
+  B2B: { de: 'B2B', en: 'B2B' },
 };
 
 /** Content-factory cluster names and legacy tag strings */

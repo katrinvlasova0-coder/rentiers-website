@@ -33,7 +33,15 @@ function postMatchesQuery(post: BlogPostMeta, query: string, lang: 'de' | 'en'):
   return haystack.includes(query.toLowerCase());
 }
 
-function BlogCard({ post, lang }: { post: BlogPostMeta; lang: 'de' | 'en' }) {
+function BlogCard({
+  post,
+  lang,
+  basePath,
+}: {
+  post: BlogPostMeta;
+  lang: 'de' | 'en';
+  basePath: string;
+}) {
   const { p } = useLanguage();
   const labels = p.blog;
   const meta = localizeBlogMeta(post, lang);
@@ -41,7 +49,7 @@ function BlogCard({ post, lang }: { post: BlogPostMeta; lang: 'de' | 'en' }) {
 
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={`${basePath}/${post.slug}`}
       className="group block rounded-2xl overflow-hidden border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white"
       style={{ borderColor: 'var(--color-border)' }}
     >
@@ -92,10 +100,26 @@ function BlogCard({ post, lang }: { post: BlogPostMeta; lang: 'de' | 'en' }) {
   );
 }
 
-export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
+export default function BlogListContent({
+  posts,
+  basePath = '/blog',
+  heroTitle,
+  heroSubtitle,
+  hideCategoryFilter = false,
+}: {
+  posts: BlogPostMeta[];
+  basePath?: string;
+  heroTitle?: string | { de: string; en: string };
+  heroSubtitle?: string | { de: string; en: string };
+  hideCategoryFilter?: boolean;
+}) {
   const router = useRouter();
   const { lang, p } = useLanguage();
   const labels = p.blog;
+  const resolvedHeroTitle =
+    typeof heroTitle === 'string' ? heroTitle : heroTitle?.[lang];
+  const resolvedHeroSubtitle =
+    typeof heroSubtitle === 'string' ? heroSubtitle : heroSubtitle?.[lang];
 
   const [tagFilter, setTagFilter] = useState<string | null>(null);
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
@@ -132,9 +156,9 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
       setCategoryFilter(nextCategory);
       setQueryFilter(nextQ);
       if ('q' in next) setSearchInput(nextQ);
-      router.push(qs ? `/blog?${qs}` : '/blog');
+      router.push(qs ? `${basePath}?${qs}` : basePath);
     },
-    [router, tagFilter, categoryFilter, queryFilter],
+    [router, tagFilter, categoryFilter, queryFilter, basePath],
   );
 
   let filtered = posts;
@@ -177,10 +201,10 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
       >
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4" style={{ color: 'var(--color-dark)' }}>
-            {labels.heroTitle}
+            {resolvedHeroTitle ?? labels.heroTitle}
           </h1>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
-            {labels.heroSubtitle}
+            {resolvedHeroSubtitle ?? labels.heroSubtitle}
           </p>
         </div>
       </section>
@@ -206,32 +230,34 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
               </button>
             </form>
 
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--color-text-secondary)' }}>
-                {labels.filterCategory}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {categories.map(({ key, label }) => {
-                  const slug = categorySlug(key);
-                  const active = categoryFilter === slug;
-                  return (
-                    <button
-                      key={key}
-                      type="button"
-                      onClick={() => pushFilters({ category: active ? null : slug })}
-                      className="text-sm px-3 py-1.5 rounded-full border transition-all"
-                      style={{
-                        background: active ? 'var(--color-primary)' : 'var(--color-bg-light)',
-                        color: active ? 'white' : 'var(--color-primary)',
-                        borderColor: active ? 'var(--color-primary)' : 'var(--color-border)',
-                      }}
-                    >
-                      {label}
-                    </button>
-                  );
-                })}
+            {!hideCategoryFilter && (
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--color-text-secondary)' }}>
+                  {labels.filterCategory}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {categories.map(({ key, label }) => {
+                    const slug = categorySlug(key);
+                    const active = categoryFilter === slug;
+                    return (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => pushFilters({ category: active ? null : slug })}
+                        className="text-sm px-3 py-1.5 rounded-full border transition-all"
+                        style={{
+                          background: active ? 'var(--color-primary)' : 'var(--color-bg-light)',
+                          color: active ? 'white' : 'var(--color-primary)',
+                          borderColor: active ? 'var(--color-primary)' : 'var(--color-border)',
+                        }}
+                      >
+                        {label}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
 
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--color-text-secondary)' }}>
@@ -287,7 +313,7 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
                 {' · '}
                 {filtered.length} {labels.filterResults}
               </p>
-              <Link href="/blog" className="text-sm font-semibold hover:underline" style={{ color: 'var(--color-primary)' }}>
+              <Link href={basePath} className="text-sm font-semibold hover:underline" style={{ color: 'var(--color-primary)' }}>
                 {labels.clearFilter}
               </Link>
             </div>
@@ -296,7 +322,7 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
           {featured && (
             <div className="mb-12">
               <Link
-                href={`/blog/${featured.slug}`}
+                href={`${basePath}/${featured.slug}`}
                 className="group block rounded-3xl overflow-hidden border hover:shadow-xl transition-all"
                 style={{ borderColor: 'var(--color-border)' }}
               >
@@ -344,7 +370,7 @@ export default function BlogListContent({ posts }: { posts: BlogPostMeta[] }) {
           {rest.length > 0 && (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {rest.map((post) => (
-                <BlogCard key={post.slug} post={post} lang={lang} />
+                <BlogCard key={post.slug} post={post} lang={lang} basePath={basePath} />
               ))}
             </div>
           )}

@@ -25,10 +25,15 @@ export default function BlogPostContent({
   de,
   en,
   readMore,
+  basePath = '/blog',
+  breadcrumbsExtra,
 }: {
   de: LocalizedPost;
   en: LocalizedPost;
   readMore: BlogPostMeta[];
+  basePath?: string;
+  /** Inserted after Home, before Blog (e.g. B2B crumb). */
+  breadcrumbsExtra?: Array<{ name: string; href: string }>;
 }) {
   const { lang, p } = useLanguage();
   const labels = p.blog;
@@ -37,6 +42,7 @@ export default function BlogPostContent({
   const meta = localizeBlogMeta(rawMeta, lang);
   const canonicalCategory = de.meta.category;
   const dateLocale = lang === 'en' ? 'en-GB' : 'de-DE';
+  const isB2b = basePath.startsWith('/b2b');
 
   const authorBio = getAuthorBio(meta.author.name, lang);
 
@@ -46,12 +52,17 @@ export default function BlogPostContent({
 
   const breadcrumbs = [
     { name: labels.home, href: '/' },
-    { name: labels.blog, href: '/blog' },
-    {
-      name: meta.category,
-      href: `/blog?category=${encodeURIComponent(categorySlug(canonicalCategory))}`,
-    },
-    { name: meta.title, href: `/blog/${meta.slug}` },
+    ...(breadcrumbsExtra ?? []),
+    { name: labels.blog, href: basePath },
+    ...(isB2b
+      ? []
+      : [
+          {
+            name: meta.category,
+            href: `${basePath}?category=${encodeURIComponent(categorySlug(canonicalCategory))}`,
+          },
+        ]),
+    { name: meta.title, href: `${basePath}/${meta.slug}` },
   ];
 
   return (
@@ -85,7 +96,7 @@ export default function BlogPostContent({
 
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <Link
-              href={`/blog?category=${encodeURIComponent(categorySlug(canonicalCategory))}`}
+              href={`${basePath}?category=${encodeURIComponent(categorySlug(canonicalCategory))}`}
               className="text-xs font-semibold px-3 py-1 rounded-full hover:opacity-80 transition-opacity"
               style={{ background: 'var(--color-primary-light)', color: 'var(--color-primary)' }}
             >
@@ -182,7 +193,7 @@ export default function BlogPostContent({
               {meta.tags.map((tag) => (
                 <Link
                   key={tag}
-                  href={`/blog?tag=${encodeURIComponent(slugify(tag))}`}
+                  href={`${basePath}?tag=${encodeURIComponent(slugify(tag))}`}
                   className="text-sm px-3 py-1.5 rounded-full border hover:shadow-sm transition-all"
                   style={{
                     background: 'var(--color-bg-light)',
@@ -205,7 +216,7 @@ export default function BlogPostContent({
               {labels.readMoreTitle}
             </h2>
             <Link
-              href="/blog"
+              href={basePath}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all hover:shadow-sm"
               style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
             >
@@ -218,7 +229,7 @@ export default function BlogPostContent({
               return (
                 <Link
                   key={post.slug}
-                  href={`/blog/${post.slug}`}
+                  href={`${basePath}/${post.slug}`}
                   className="group block rounded-2xl overflow-hidden border hover:shadow-md transition-all bg-white"
                   style={{ borderColor: 'var(--color-border)' }}
                 >
@@ -261,30 +272,61 @@ export default function BlogPostContent({
 
       <div className="max-w-[720px] mx-auto px-6 mt-12" id="blog-read-marker">
         <div className="flex flex-wrap gap-3 justify-center mb-6">
-          <Link
-            href="/portfolios"
-            onClick={() => trackBlogCta('portfolios')}
-            className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
-            style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
-          >
-            {lang === 'de' ? 'Portfolios vergleichen →' : 'Compare portfolios →'}
-          </Link>
-          <Link
-            href="/kalkulator"
-            onClick={() => trackBlogCta('kalkulator')}
-            className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
-            style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
-          >
-            {lang === 'de' ? 'Rendite berechnen →' : 'Calculate returns →'}
-          </Link>
-          <Link
-            href="/einlagenarbitrage"
-            onClick={() => trackBlogCta('einlagenarbitrage')}
-            className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
-            style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
-          >
-            {lang === 'de' ? 'Einlagenarbitrage erklärt →' : 'Deposit arbitrage guide →'}
-          </Link>
+          {isB2b ? (
+            <>
+              <Link
+                href="/b2b/"
+                onClick={() => trackBlogCta('b2b')}
+                className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
+                style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+              >
+                {lang === 'de' ? 'Unternehmenslösung →' : 'Business solution →'}
+              </Link>
+              <Link
+                href="/kalkulator"
+                onClick={() => trackBlogCta('kalkulator')}
+                className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
+                style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+              >
+                {lang === 'de' ? 'Zinsen berechnen →' : 'Calculate interest →'}
+              </Link>
+              <Link
+                href={basePath}
+                onClick={() => trackBlogCta('b2b_blog')}
+                className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
+                style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+              >
+                {lang === 'de' ? 'Zurück zum B2B-Blog →' : 'Back to B2B blog →'}
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/portfolios"
+                onClick={() => trackBlogCta('portfolios')}
+                className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
+                style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+              >
+                {lang === 'de' ? 'Portfolios vergleichen →' : 'Compare portfolios →'}
+              </Link>
+              <Link
+                href="/kalkulator"
+                onClick={() => trackBlogCta('kalkulator')}
+                className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
+                style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+              >
+                {lang === 'de' ? 'Rendite berechnen →' : 'Calculate returns →'}
+              </Link>
+              <Link
+                href="/einlagenarbitrage"
+                onClick={() => trackBlogCta('einlagenarbitrage')}
+                className="text-sm font-semibold px-4 py-2 rounded-xl border hover:shadow-sm transition-all"
+                style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
+              >
+                {lang === 'de' ? 'Einlagenarbitrage erklärt →' : 'Deposit arbitrage guide →'}
+              </Link>
+            </>
+          )}
         </div>
         <div
           className="rounded-2xl p-8 text-center"
@@ -297,7 +339,7 @@ export default function BlogPostContent({
             style={{ color: 'var(--color-primary)' }}
             metrikaGoal="blog_cta_click"
             metrikaParams={{ slug: meta.slug, cta_text: 'lead_form' }}
-            formSource="register"
+            formSource={isB2b ? 'b2b' : 'register'}
           >
             {labels.ctaButton}
           </LeadButton>

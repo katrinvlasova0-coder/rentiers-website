@@ -18,6 +18,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/faq/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/kontakt/`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/b2b/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE_URL}/b2b/blog/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/ueber-uns/`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/blog/`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${SITE_URL}/datenschutz/`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.3 },
@@ -32,5 +33,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...articlePages];
+  const b2bArticlePages: MetadataRoute.Sitemap = posts
+    .filter((post) => post.category === 'B2B')
+    .map((post) => ({
+      url: `${SITE_URL}/b2b/blog/${post.slug}/`,
+      lastModified: new Date(post.dateModified || post.datePublished),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }));
+
+  return [...staticPages, ...articlePages, ...b2bArticlePages];
 }
