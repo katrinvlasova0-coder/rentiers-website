@@ -3,8 +3,8 @@ export type Lang = 'de' | 'en';
 const de = {
   site: {
     name: 'Rentiers',
-    tagline: 'Bis zu 20% Jahresrendite auf Ihre Einlagen',
-    description: 'Rentiers ist die erste digitale Plattform für Einlagenarbitrage. Erzielen Sie 12–20% Jahresrendite durch Einlagen bei internationalen Banken mit staatlichen Garantien.',
+    tagline: 'Bis zu 20% Zinsen p.a. auf Ihre Bankeinlagen',
+    description: 'Rentiers ist die digitale Plattform für internationale Bankeinlagen. Erzielen Sie 12–20% Zinsen p.a. durch Einlagen bei geprüften Banken mit staatlichen Garantien.',
   },
   nav: {
     portfolios: 'Portfolios',
@@ -19,14 +19,14 @@ const de = {
     cta: 'Konto eröffnen',
   },
   hero: {
-    badge: 'Bis zu 20% Jahresrendite p.a.',
-    h1Line1: 'Ihr Geld arbeitet für Sie —',
-    h1Line2: 'weltweit, sicher, automatisch.',
-    subtitle: 'Rentiers bündelt Bankeinlagen aus über 50 Ländern und liefert Ihnen 12–20% Jahresrendite mit staatlichen Einlagengarantien. Einfach, transparent, ohne Aktienrisiko.',
+    badge: 'Bis zu 20% Zinsen p.a.',
+    h1Line1: 'Mehr Zinsen auf Ihr Geld —',
+    h1Line2: 'international, sicher, automatisch.',
+    subtitle: 'Rentiers platziert Ihre Einlagen bei internationalen Banken mit hohen Guthabenzinsen — bis zu 20% p.a. mit staatlichen Einlagengarantien. Einfach, transparent, ohne Aktienrisiko.',
     ctaPrimary: 'Konto eröffnen',
-    ctaSecondary: 'Rendite berechnen',
+    ctaSecondary: 'Zinsen berechnen',
     trustLine: 'Staatliche Einlagengarantien · FinCEN & FINTRAC reguliert · AES-256 verschlüsselt',
-    statReturns: '12–20%', statReturnsLabel: 'Jahresrendite',
+    statReturns: '12–20%', statReturnsLabel: 'Zinsen p.a.',
     statBanks: '50+', statBanksLabel: 'Partner-Banken',
     statCountries: '20+', statCountriesLabel: 'Länder',
     statGuarantee: '20+', statGuaranteeLabel: 'Länder mit Einlagengarantie',
@@ -64,23 +64,23 @@ const de = {
     imageAlt: 'Schwarzes Luxusauto — LUXCAR Investitionsprogramm',
   },
   problem: {
-    heading: 'Warum Ihr Erspartes auf dem Konto verliert',
+    heading: 'Warum Ihr Geld auf dem Konto verliert',
     subheading: 'Während Ihr Geld bei einer deutschen Bank 0–2% einbringt, fressen Inflation und Lebenshaltungskosten Ihre Kaufkraft auf.',
     items: [
       { title: 'Inflation schlägt Zinsen', desc: 'Deutsche Festgeldkonten zahlen 0,5–3% — weit unter der Inflationsrate. Ihre Ersparnisse schrumpfen real jedes Jahr.' },
       { title: 'Kapital gebunden, Rendite minimal', desc: 'Traditionelle Banken binden Ihr Geld für Monate oder Jahre und zahlen trotzdem kaum Zinsen.' },
-      { title: 'Hochzinsmärkte unzugänglich', desc: 'Banken in Ländern mit 10–20% Einlagenzinsen sind für Privatpersonen in Europa kaum zugänglich — bis jetzt.' },
+      { title: 'Hochzinsmärkte unzugänglich', desc: 'Banken in Georgien, Armenien oder der Türkei zahlen 10–20% Einlagenzinsen — für Europäer bisher kaum zugänglich.' },
     ],
     solution: 'Rentiers öffnet Ihnen Zugang zu den besten Bankzinsen weltweit.',
     solutionNote: 'Staatliche Einlagengarantien · FinCEN & FINTRAC reguliert · Vollständig digital',
   },
   howItWorks: {
-    heading: 'In 3 Schritten zu passivem Einkommen',
-    subheading: 'Keine Expertise nötig. Keine manuelle Verwaltung. Einfach anlegen und Zinsen kassieren.',
+    heading: 'In 3 Schritten zu planbaren Zinserträgen',
+    subheading: 'Keine Expertise nötig. Keine manuelle Verwaltung. Einlegen und Zinsen kassieren.',
     steps: [
       { num: '01', title: 'Konto eröffnen & verifizieren', desc: 'KYC in unter 5 Minuten: Personalausweis + Selfie. Ihr Konto ist sofort aktiv.' },
       { num: '02', title: 'Portfolio wählen & einzahlen', desc: 'Wählen Sie Konservativ (12%), Ausgewogen (16%) oder High-Yield (20%). Betrag per SEPA oder Karte einzahlen.' },
-      { num: '03', title: 'Zinsen empfangen', desc: 'Rentiers verteilt Ihr Kapital auf geprüfte Partnerbanken. Zinsen kommen quartalsweise direkt auf Ihre Rentiers-Karte.' },
+      { num: '03', title: 'Zinsen empfangen', desc: 'Rentiers platziert Ihr Kapital bei geprüften Partnerbanken. Zinsen kommen quartalsweise direkt auf Ihre Rentiers-Karte.' },
     ],
     stepDetails: ['ID-Scan · Liveness-Check · Adressnachweis', 'SEPA · SWIFT · Debit-/Kreditkarte', 'Quartalsweise Auszahlung · Rentiers Debitkarte'],
     portfolioLabel: 'Portfolioverteilung',
@@ -168,20 +168,29 @@ const de = {
   },
   mission: {
     heading: 'Wir sind Technologie, nicht Bank',
-    text: 'Rentiers ist die erste digitale Plattform für Einlagenarbitrage. Wir bringen Sie zu den Banken, die Ihnen am meisten zahlen — vollständig digital, ohne Bürokratie, ohne Sprachbarrieren. Das Vertrauen liegt bei den regulierten Partnerbanken. Wir sind das Werkzeug, das Sie dorthin bringt.',
+    text: 'Rentiers verbindet Sie mit den Banken, die Ihnen die höchsten Guthabenzinsen zahlen — vollständig digital, ohne Bürokratie, ohne Sprachbarrieren. Ihre Einlagen liegen direkt bei regulierten Partnerbanken mit staatlicher Garantie. Wir sind das Werkzeug, das Sie dorthin bringt.',
     tagline: 'Rentiers: Der Uber für Bankeinlagen.',
   },
   b2b: {
-    heading: 'Für Unternehmen: Liquiditätsreserven rentabel anlegen',
-    subheading: 'Ihr Betriebsvermögen liegt auf einem Konto mit 0% Zinsen? Rentiers macht Ihre Unternehmensreserven zu einer aktiven Ertragsquelle.',
+    heading: 'Ihr Geschäftskonto zahlt 0% — Rentiers zahlt bis zu 20%',
+    subheading: 'Das Geld auf Ihrem Firmenkonto verliert täglich an Wert. Rentiers platziert Ihre Unternehmenseinlagen bei internationalen Banken — mit planbaren Zinserträgen, staatlichen Garantien und voller CRS-Dokumentation.',
     items: [
-      { title: 'Höhere Rendite auf Reserven', desc: 'Wandeln Sie idle Cash in planbare Zinserträge um — 12–20% p.a. statt 0–1% auf dem Geschäftskonto.' },
-      { title: 'Quartalsweise Auszahlung', desc: 'Planbare Cashflow-Ströme für Ihr Unternehmen. Zinsen fließen automatisch auf Ihr Geschäftskonto.' },
-      { title: 'Multiwährung & EUR-Hedging', desc: 'EUR, USD und weitere Währungen. Optionales Währungshedging eliminiert FX-Risiken für Ihre Bilanz.' },
+      {
+        title: 'Zinsen statt Nullzins',
+        desc: 'Statt 0–1% auf dem deutschen Geschäftskonto erhalten Sie 12–20% p.a. auf Ihre Unternehmenseinlagen bei geprüften Partnerbanken — mit staatlichen Einlagengarantien.',
+      },
+      {
+        title: 'Quartalsauszahlung direkt auf Ihr Konto',
+        desc: 'Planbare Zinszahlungen für Ihre Liquiditätsplanung. Kein manueller Aufwand, kein Papierkram — alles läuft automatisch.',
+      },
+      {
+        title: 'EUR-Hedging & CRS-konforme Berichterstattung',
+        desc: 'Optionales Währungshedging schützt Ihre EUR-Bilanz. Vollständige CRS-Dokumentation und dedizierter Account Manager inklusive.',
+      },
     ],
-    cta: 'B2B-Anfrage stellen',
+    cta: 'Unternehmenslösung anfragen',
     ctaLink: '/kontakt',
-    note: 'Ab €50.000 Unternehmenseinlage. Individuelle Konditionen auf Anfrage.',
+    note: 'Ab €50.000 Unternehmenseinlage · Dedizierter Account Manager · Individuelle Konditionen auf Anfrage',
   },
   cta: {
     heading: 'Starten Sie noch heute',
@@ -190,7 +199,7 @@ const de = {
     disclaimer: 'Registrierung kostenlos · KYC in 5 Min. · MSB-lizenziert',
   },
   footer: {
-    desc: 'Rentiers ist die erste digitale Plattform für Einlagenarbitrage, die Anlegern 12–20% Jahresrendite durch internationale Bankeinlagen mit staatlichen Garantien ermöglicht.',
+    desc: 'Rentiers ist die digitale Plattform für internationale Bankeinlagen — 12–20% Zinsen p.a. bei geprüften Banken mit staatlichen Einlagengarantien.',
     links: 'Links',
     info: 'Info',
     social: 'Soziale Netzwerke',
@@ -207,15 +216,15 @@ const de = {
       { label: 'Über uns', href: '/ueber-uns' },
       { label: 'FAQ', href: '/faq' },
     ],
-    disclaimer: 'Rentiers Global Corp. (USA) und Rentiers Global Inc. (Canada) sind als Money Services Business (MSB) bei FinCEN und FINTRAC lizenziert. Rentiers ist eine Technologieplattform, kein Kreditinstitut. Einlagen liegen direkt bei regulierten Partnerbanken und sind durch staatliche Einlagengarantien des jeweiligen Landes geschützt. Renditen sind nicht garantiert. Vergangene Ergebnisse sind kein Indikator für zukünftige Entwicklungen.',
+    disclaimer: 'Rentiers Global Corp. (USA) und Rentiers Global Inc. (Canada) sind als Money Services Business (MSB) bei FinCEN und FINTRAC lizenziert. Rentiers ist eine Technologieplattform, kein Kreditinstitut. Einlagen liegen direkt bei regulierten Partnerbanken und sind durch staatliche Einlagengarantien des jeweiligen Landes geschützt. Zinserträge sind nicht garantiert. Vergangene Ergebnisse sind kein Indikator für zukünftige Entwicklungen.',
   },
 } as const;
 
 const en = {
   site: {
     name: 'Rentiers',
-    tagline: 'Up to 20% annual return on your deposits',
-    description: 'Rentiers is the first digital platform for deposit arbitrage. Earn 12–20% annual returns through deposits at international banks with government guarantees.',
+    tagline: 'Up to 20% interest p.a. on your bank deposits',
+    description: 'Rentiers is the digital platform for international bank deposits. Earn 12–20% interest p.a. through deposits at vetted banks with government guarantees.',
   },
   nav: {
     portfolios: 'Portfolios',
@@ -230,14 +239,14 @@ const en = {
     cta: 'Open Account',
   },
   hero: {
-    badge: 'Up to 20% annual return p.a.',
-    h1Line1: 'Your money works for you —',
-    h1Line2: 'global, secure, automatic.',
-    subtitle: 'Rentiers pools bank deposits from 50+ countries and delivers 12–20% annual returns with government deposit guarantees. Simple, transparent, no stock market risk.',
+    badge: 'Up to 20% interest p.a.',
+    h1Line1: 'More interest on your money —',
+    h1Line2: 'international, secure, automatic.',
+    subtitle: 'Rentiers places your deposits at international banks with high interest rates — up to 20% p.a. with government deposit guarantees. Simple, transparent, no stock market risk.',
     ctaPrimary: 'Open Account',
-    ctaSecondary: 'Calculate Returns',
+    ctaSecondary: 'Calculate Interest',
     trustLine: 'Government Deposit Guarantees · FinCEN & FINTRAC Regulated · AES-256 Encrypted',
-    statReturns: '12–20%', statReturnsLabel: 'Annual Return',
+    statReturns: '12–20%', statReturnsLabel: 'Interest p.a.',
     statBanks: '50+', statBanksLabel: 'Partner Banks',
     statCountries: '20+', statCountriesLabel: 'Countries',
     statGuarantee: '20+', statGuaranteeLabel: 'Countries with Deposit Guarantees',
@@ -275,23 +284,23 @@ const en = {
     imageAlt: 'Black luxury car — LUXCAR investment programme',
   },
   problem: {
-    heading: 'Why your savings are losing value',
+    heading: 'Why your money is losing value sitting in an account',
     subheading: 'While your money earns 0–2% at a German bank, inflation and rising costs eat away at your purchasing power.',
     items: [
       { title: 'Inflation beats interest rates', desc: 'German fixed-term accounts pay 0.5–3% — far below inflation. Your savings are shrinking in real terms every year.' },
       { title: 'Capital locked, returns minimal', desc: 'Traditional banks tie up your money for months or years and still pay barely any interest.' },
-      { title: 'High-yield markets inaccessible', desc: 'Banks in countries with 10–20% deposit rates are almost inaccessible to private investors in Europe — until now.' },
+      { title: 'High-yield markets inaccessible', desc: 'Banks in Georgia, Armenia, or Turkey pay 10–20% deposit interest — almost inaccessible for Europeans until now.' },
     ],
     solution: 'Rentiers opens up access to the best bank interest rates worldwide.',
     solutionNote: 'Government Deposit Guarantees · FinCEN & FINTRAC Regulated · Fully Digital',
   },
   howItWorks: {
-    heading: '3 steps to passive income',
-    subheading: 'No expertise required. No manual management. Simply invest and collect interest.',
+    heading: '3 steps to predictable interest income',
+    subheading: 'No expertise required. No manual management. Simply deposit and collect interest.',
     steps: [
       { num: '01', title: 'Open & verify your account', desc: 'KYC in under 5 minutes: ID document + selfie. Your account is immediately active.' },
       { num: '02', title: 'Choose portfolio & deposit', desc: 'Choose Conservative (12%), Balanced (16%) or High-Yield (20%). Deposit via SEPA or card.' },
-      { num: '03', title: 'Receive interest', desc: 'Rentiers distributes your capital to vetted partner banks. Interest arrives quarterly on your Rentiers card.' },
+      { num: '03', title: 'Receive interest', desc: 'Rentiers places your capital at vetted partner banks. Interest arrives quarterly on your Rentiers card.' },
     ],
     stepDetails: ['ID Scan · Liveness Check · Proof of Address', 'SEPA · SWIFT · Debit / Credit Card', 'Quarterly Payout · Rentiers Debit Card'],
     portfolioLabel: 'Portfolio Distribution',
@@ -379,20 +388,29 @@ const en = {
   },
   mission: {
     heading: 'We are technology, not a bank',
-    text: 'Rentiers is the first digital deposit arbitrage platform. We connect you to the banks that pay you the most — fully digital, no bureaucracy, no language barriers. Trust lies with regulated partner banks. We are the tool that gets you there.',
+    text: 'Rentiers connects you to the banks that pay the highest deposit interest rates — fully digital, no bureaucracy, no language barriers. Your deposits are held directly at regulated partner banks with government guarantees. We are the tool that gets you there.',
     tagline: 'Rentiers: The Uber for bank deposits.',
   },
   b2b: {
-    heading: 'For Businesses: Put Liquidity Reserves to Work',
-    subheading: 'Is your working capital sitting in a 0% interest account? Rentiers turns your corporate reserves into an active income source.',
+    heading: 'Your business account pays 0% — Rentiers pays up to 20%',
+    subheading: 'The money sitting in your corporate account loses value every day. Rentiers places your business deposits at international banks — with predictable interest income, government guarantees, and full CRS documentation.',
     items: [
-      { title: 'Higher Returns on Reserves', desc: 'Turn idle cash into predictable interest income — 12–20% p.a. instead of 0–1% on a business account.' },
-      { title: 'Quarterly Payouts', desc: 'Predictable cash flows for your business. Interest flows automatically to your business account.' },
-      { title: 'Multi-Currency & EUR Hedging', desc: 'EUR, USD and more. Optional currency hedging eliminates FX risks for your balance sheet.' },
+      {
+        title: 'Interest instead of zero yield',
+        desc: 'Instead of 0–1% at a German business account, earn 12–20% p.a. on your corporate deposits at vetted partner banks — with government deposit guarantees.',
+      },
+      {
+        title: 'Quarterly payouts directly to your account',
+        desc: 'Predictable interest payments for your cash flow planning. No manual effort, no paperwork — everything runs automatically.',
+      },
+      {
+        title: 'EUR Hedging & CRS-compliant reporting',
+        desc: 'Optional currency hedging protects your EUR balance sheet. Full CRS documentation and a dedicated account manager included.',
+      },
     ],
-    cta: 'Submit B2B Inquiry',
+    cta: 'Request Business Solution',
     ctaLink: '/kontakt',
-    note: 'From €50,000 corporate deposit. Individual terms on request.',
+    note: 'From €50,000 corporate deposit · Dedicated account manager · Individual terms on request',
   },
   cta: {
     heading: 'Start Today',
@@ -401,7 +419,7 @@ const en = {
     disclaimer: 'Free registration · KYC in 5 min · MSB licensed',
   },
   footer: {
-    desc: 'Rentiers is the first digital platform for deposit arbitrage, enabling investors to earn 12–20% annual returns through international bank deposits with government guarantees.',
+    desc: 'Rentiers is the digital platform for international bank deposits — 12–20% interest p.a. at vetted banks with government deposit guarantees.',
     links: 'Links',
     info: 'Info',
     social: 'Social Media',
@@ -418,7 +436,7 @@ const en = {
       { label: 'About Us', href: '/ueber-uns' },
       { label: 'FAQ', href: '/faq' },
     ],
-    disclaimer: 'Rentiers Global Corp. (USA) and Rentiers Global Inc. (Canada) are licensed as Money Services Businesses (MSB) with FinCEN and FINTRAC respectively. Rentiers is a technology platform, not a credit institution. Deposits are held directly at regulated partner banks and protected by state deposit guarantee schemes in the respective country. Returns are not guaranteed. Past performance is not indicative of future results.',
+    disclaimer: 'Rentiers Global Corp. (USA) and Rentiers Global Inc. (Canada) are licensed as Money Services Businesses (MSB) with FinCEN and FINTRAC respectively. Rentiers is a technology platform, not a credit institution. Deposits are held directly at regulated partner banks and protected by state deposit guarantee schemes in the respective country. Interest returns are not guaranteed. Past performance is not indicative of future results.',
   },
 } as const;
 
