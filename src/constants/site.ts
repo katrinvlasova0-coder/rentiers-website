@@ -1,6 +1,7 @@
 export const SITE_URL = 'https://rentiers.net';
 export const SITE_NAME = 'Rentiers';
 export const OG_IMAGE = `${SITE_URL}/og-image.png`;
+export const OG_IMAGE_B2B = `${SITE_URL}/og-b2b.png`;
 
 export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/company/rentierspro',

@@ -2,12 +2,14 @@ import type { Metadata } from 'next';
 import { getPostsByCategory } from '@/lib/blog';
 import BlogListContent from '@/components/pages/BlogListContent';
 import { createMetadata } from '@/lib/seo';
+import { OG_IMAGE_B2B } from '@/constants/site';
 
 export const metadata: Metadata = createMetadata({
   title: 'B2B Blog — Rentiers | Geschäftskonto, Unternehmensreserven, Zinsen',
   description:
     'Expertenwissen für Unternehmen: Geschäftskonto-Zinsen, Unternehmensreserven anlegen, CRS-Reporting und internationale Bankeinlagen.',
   path: '/b2b/blog',
+  ogImage: OG_IMAGE_B2B,
 });
 
 export default async function B2BBlogPage() {
