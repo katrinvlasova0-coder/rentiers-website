@@ -21,7 +21,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;
   border-bottom:1px solid rgba(79,200,232,.12)}
 .nav-w{max-width:1100px;margin:0 auto;padding:0 24px;
   height:66px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo img{height:28px;filter:brightness(0) invert(1)}
+.nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none}
+.nav-logo img{height:40px;width:auto;object-fit:contain}
+.nav-logo-text{font-size:15px;font-weight:700;letter-spacing:.02em;line-height:1;color:#fff}
 .nav-links{display:flex;gap:28px;font-size:14px;color:#94a3b8}
 .nav-links a:hover{color:#fff}
 .nav-right{display:flex;align-items:center;gap:10px}
@@ -222,7 +224,9 @@ textarea.fi{resize:vertical;min-height:72px}
 footer{background:#07101f;border-top:1px solid rgba(255,255,255,.07);padding:40px 24px 28px}
 .footer-w{max-width:1100px;margin:0 auto;
   display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px}
-.footer-logo{height:24px;filter:brightness(0) invert(1);opacity:.92;margin-bottom:10px}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.footer-brand img{height:40px;width:auto;object-fit:contain}
+.footer-brand-text{font-size:15px;font-weight:700;letter-spacing:.02em;line-height:1;color:#fff}
 .footer-copy{font-size:12px;color:#94a3b8}
 .footer-legal{font-size:11px;color:#64748b;max-width:600px;line-height:1.6}
 
@@ -250,8 +254,9 @@ html[data-lang=en] span[data-en]{display:inline}
   .nav-links{display:none}
   .btn-login{display:none}
   .nav-w{padding:0 14px;gap:10px;height:58px}
-  .nav-logo{min-width:0;flex-shrink:1}
-  .nav-logo img{height:22px;max-width:120px;object-fit:contain}
+  .nav-logo{gap:8px}
+  .nav-logo img{height:36px}
+  .nav-logo-text{font-size:15px}
   .nav-right{gap:6px;flex-shrink:0}
   .lang-tog{flex-shrink:0}
   .lt{padding:3px 8px;font-size:11px}
@@ -263,7 +268,8 @@ html[data-lang=en] span[data-en]{display:inline}
   .hero-btns .btn-primary,.hero-btns .btn-ghost{width:100%;text-align:center}
 }
 @media(max-width:380px){
-  .nav-logo img{max-width:96px}
+  .nav-logo img{height:32px}
+  .nav-logo-text{font-size:14px}
   .btn-cta{padding:7px 10px;font-size:11px}
 }
 </style>
@@ -274,7 +280,8 @@ html[data-lang=en] span[data-en]{display:inline}
 <nav>
   <div class="nav-w">
     <a href="/" class="nav-logo">
-      <img src="/rentiers_logo.svg" alt="Rentiers">
+      <img src="/rentiers_mark.png" alt="">
+      <span class="nav-logo-text">RENTIERS</span>
     </a>
     <div class="nav-links">
       <a href="/portfolios/"><span data-de>Portfolios</span><span data-en>Portfolios</span></a>
@@ -738,7 +745,10 @@ html[data-lang=en] span[data-en]{display:inline}
 <footer>
   <div class="footer-w">
     <div>
-      <img src="/rentiers_logo.svg" alt="Rentiers" class="footer-logo">
+      <div class="footer-brand">
+        <img src="/rentiers_mark.png" alt="">
+        <span class="footer-brand-text">RENTIERS</span>
+      </div>
       <div class="footer-copy">© 2025 Rentiers. <span data-de>Alle Rechte vorbehalten.</span><span data-en>All rights reserved.</span></div>
     </div>
     <p class="footer-legal" data-de>Rentiers Global Corp. (USA) und Rentiers Global Inc. (Canada) sind als Money Services Business (MSB) bei FinCEN und FINTRAC lizenziert. Rentiers ist eine Technologieplattform, kein Kreditinstitut. Einlagen liegen direkt bei regulierten Partnerbanken und sind durch staatliche Einlagengarantien geschützt. Zinserträge sind nicht garantiert.</p>
