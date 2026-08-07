@@ -12,6 +12,7 @@ import { Check, IdCard, X } from 'lucide-react';
 import { submitOnboarding } from '@/lib/submitOnboarding';
 import { ymGoal } from '@/lib/metrika';
 import { customEvent } from '@/lib/fbpixel';
+import { assetPath } from '@/lib/basePath';
 
 interface Props {
   open: boolean;
@@ -449,11 +450,14 @@ export default function AppOnboardingModal({ open, onClose }: Props) {
           className="flex items-center justify-between px-6 py-4 shrink-0"
           style={{ background: '#0d1829' }}
         >
-          <div className="flex items-center gap-2 min-w-0 leading-none">
-            <span className="font-bold text-base leading-none" style={{ color: '#4FC8E8' }}>
-              Rentiers
-            </span>
-            <span className="text-sm truncate leading-none" style={{ color: '#94a3b8' }}>
+          <div className="flex items-center gap-2.5 min-w-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={assetPath('/rentiers_mark.png')}
+              alt="Rentiers"
+              className="h-7 w-auto object-contain shrink-0"
+            />
+            <span className="text-sm font-medium truncate leading-none" style={{ color: '#94a3b8' }}>
               Account Setup
             </span>
           </div>
