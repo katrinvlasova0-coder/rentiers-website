@@ -19,7 +19,7 @@ export default function LeadButton({
   formSource = 'contact',
   ...props
 }: Props) {
-  const { openForm } = useLeadForm();
+  const { openForm, openOnboarding } = useLeadForm();
 
   return (
     <button
@@ -29,6 +29,10 @@ export default function LeadButton({
         onClick?.(e);
         if (!e.defaultPrevented) {
           if (metrikaGoal) ymGoal(metrikaGoal, metrikaParams);
+          if (formSource === 'register' || formSource === 'login') {
+            openOnboarding();
+            return;
+          }
           openForm(formSource);
         }
       }}

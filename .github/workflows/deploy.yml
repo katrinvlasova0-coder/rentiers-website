@@ -28,6 +28,7 @@ jobs:
         env:
           NEXT_PUBLIC_YM_ID: ${{ secrets.NEXT_PUBLIC_YM_ID }}
           NEXT_PUBLIC_FB_PIXEL_ID: ${{ secrets.NEXT_PUBLIC_FB_PIXEL_ID }}
+          NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL }}
       - uses: actions/upload-pages-artifact@v4
         with:
           path: ./out
