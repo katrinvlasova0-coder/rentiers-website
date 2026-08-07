@@ -449,11 +449,11 @@ export default function AppOnboardingModal({ open, onClose }: Props) {
           className="flex items-center justify-between px-6 py-4 shrink-0"
           style={{ background: '#0d1829' }}
         >
-          <div className="flex items-baseline gap-2 min-w-0">
-            <span className="font-bold text-base" style={{ color: '#4FC8E8' }}>
+          <div className="flex items-center gap-2 min-w-0 leading-none">
+            <span className="font-bold text-base leading-none" style={{ color: '#4FC8E8' }}>
               Rentiers
             </span>
-            <span className="text-sm truncate" style={{ color: '#94a3b8' }}>
+            <span className="text-sm truncate leading-none" style={{ color: '#94a3b8' }}>
               Account Setup
             </span>
           </div>
