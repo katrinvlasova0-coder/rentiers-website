@@ -1,10 +1,21 @@
 'use client';
 
-import { createContext, useCallback, useContext, useState, ReactNode } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import LeadFormModal from '@/components/marketing/LeadFormModal';
 import AppOnboardingModal from '@/components/marketing/AppOnboardingModal';
 
 export type LeadFormSource = 'contact' | 'register' | 'b2b' | 'login';
+
+/** Deep-link path that auto-opens account onboarding. */
+export const OPEN_ACCOUNT_PATH = '/open-account';
 
 interface LeadFormCtx {
   openForm: (source?: LeadFormSource) => void;
@@ -26,13 +37,32 @@ function isOnboardingSource(source: LeadFormSource): boolean {
   return source === 'register' || source === 'login';
 }
 
+function isOpenAccountPath(pathname: string | null): boolean {
+  if (!pathname) return false;
+  return pathname === OPEN_ACCOUNT_PATH || pathname === `${OPEN_ACCOUNT_PATH}/`;
+}
+
 export function LeadFormProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [onboardingOpen, setOnboardingOpen] = useState(false);
   const [formSource, setFormSource] = useState<LeadFormSource>('contact');
 
   const openOnboarding = useCallback(() => setOnboardingOpen(true), []);
-  const closeOnboarding = useCallback(() => setOnboardingOpen(false), []);
+
+  const closeOnboarding = useCallback(() => {
+    setOnboardingOpen(false);
+    if (isOpenAccountPath(pathname)) {
+      router.push('/');
+    }
+  }, [pathname, router]);
+
+  useEffect(() => {
+    if (isOpenAccountPath(pathname)) {
+      setOnboardingOpen(true);
+    }
+  }, [pathname]);
 
   const openForm = useCallback(
     (source: LeadFormSource = 'contact') => {
