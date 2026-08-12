@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getPostBySlug, getPostsByCategory } from '@/lib/blog';
 import { pickReadMorePosts } from '@/lib/blog-shared';
 import { articleSchema, faqSchema, breadcrumbSchema, createMetadata } from '@/lib/seo';
+import { OG_IMAGE_B2B } from '@/constants/site';
 import JsonLd from '@/components/layout/JsonLd';
 import BlogPostContent from '@/components/pages/BlogPostContent';
 import BlogArticleTracker from '@/components/analytics/BlogArticleTracker';
@@ -28,7 +29,7 @@ export async function generateMetadata({
       description: meta.description,
       path: `/b2b/blog/${slug}`,
       type: 'article',
-      ogImage: meta.coverImage,
+      ogImage: meta.coverImage || OG_IMAGE_B2B,
       publishedTime: meta.datePublished,
       modifiedTime: meta.dateModified,
     });

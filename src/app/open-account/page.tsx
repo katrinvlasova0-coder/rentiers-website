@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import { createMetadata } from '@/lib/seo';
+import { OG_DESCRIPTION_EN } from '@/constants/site';
 
 export const metadata: Metadata = createMetadata({
   title: 'Konto eröffnen — Rentiers',
   description:
     'Eröffnen Sie Ihr Rentiers-Konto in wenigen Schritten. Globale Bankeinlagen mit staatlicher Garantie und 12–20% Jahresrendite.',
   path: '/open-account',
+  ogTitle: 'Open a Rentiers account',
+  ogDescription: OG_DESCRIPTION_EN,
 });
 
 export default function OpenAccountPage() {

@@ -33,10 +33,6 @@ const LeadFormContext = createContext<LeadFormCtx>({
   formSource: 'contact',
 });
 
-function isOnboardingSource(source: LeadFormSource): boolean {
-  return source === 'register' || source === 'login';
-}
-
 function isOpenAccountPath(pathname: string | null): boolean {
   if (!pathname) return false;
   return pathname === OPEN_ACCOUNT_PATH || pathname === `${OPEN_ACCOUNT_PATH}/`;
@@ -64,17 +60,10 @@ export function LeadFormProvider({ children }: { children: ReactNode }) {
     }
   }, [pathname]);
 
-  const openForm = useCallback(
-    (source: LeadFormSource = 'contact') => {
-      if (isOnboardingSource(source)) {
-        setOnboardingOpen(true);
-        return;
-      }
-      setFormSource(source);
-      setOpen(true);
-    },
-    [],
-  );
+  const openForm = useCallback((source: LeadFormSource = 'contact') => {
+    setFormSource(source);
+    setOpen(true);
+  }, []);
 
   const closeForm = useCallback(() => setOpen(false), []);
 

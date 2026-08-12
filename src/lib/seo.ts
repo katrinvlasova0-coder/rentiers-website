@@ -1,11 +1,22 @@
 import type { Metadata } from 'next';
-import { OG_IMAGE, SITE_NAME, SITE_URL, SOCIAL_LINKS } from '@/constants/site';
+import {
+  OG_DESCRIPTION_EN,
+  OG_IMAGE,
+  OG_IMAGE_ALT_EN,
+  OG_TITLE_EN,
+  SITE_NAME,
+  SITE_URL,
+  SOCIAL_LINKS,
+} from '@/constants/site';
 
 interface MetadataArgs {
   title: string;
   description: string;
   path: string;
   ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImageAlt?: string;
   type?: 'website' | 'article';
   publishedTime?: string;
   modifiedTime?: string;
@@ -29,11 +40,16 @@ export function createMetadata({
   description,
   path,
   ogImage = OG_IMAGE,
+  ogTitle,
+  ogDescription = OG_DESCRIPTION_EN,
+  ogImageAlt = OG_IMAGE_ALT_EN,
   type = 'website',
   publishedTime,
   modifiedTime,
 }: MetadataArgs): Metadata {
   const url = pageUrl(path);
+  const shareTitle = ogTitle ?? title;
+  const shareDescription = ogDescription;
   return {
     title,
     description,
@@ -46,20 +62,20 @@ export function createMetadata({
       },
     },
     openGraph: {
-      title,
-      description,
+      title: shareTitle,
+      description: shareDescription,
       url,
       siteName: SITE_NAME,
-      locale: 'de_DE',
+      locale: 'en_US',
       type,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: SITE_NAME }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: ogImageAlt }],
       ...(publishedTime ? { publishedTime } : {}),
       ...(modifiedTime ? { modifiedTime } : {}),
     },
     twitter: {
       card: 'summary_large_image',
-      title,
-      description,
+      title: shareTitle,
+      description: shareDescription,
       images: [ogImage],
     },
   };
