@@ -261,6 +261,74 @@
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-08-03T11:14:12.338Z"
+    "completedAt": "2026-07-29"
+  },
+  {
+    "id": 206,
+    "cluster": "Länder-Guides",
+    "slug": "nichtresident-konto-georgien-anleitung-2026",
+    "titleDe": "Konto als Nichtresident in Georgien: Schritt-für-Schritt-Überblick",
+    "titleEn": "Opening a Non-Resident Account in Georgia: Step-by-Step Overview",
+    "keywordDe": "konto nichtresident georgien",
+    "searchVolDe": 960,
+    "kd": 20,
+    "keywordEn": "georgia non resident bank account",
+    "searchVolEn": 1160,
+    "lsiKeywords": [
+      "nbg aufsicht",
+      "kyc georgien",
+      "auslandskonto eröffnen"
+    ],
+    "format": "Howto",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-07-30",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "completed",
+    "unsplashQuery": "tbilisi banking office",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-17T14:38:10.726Z"
+  },
+  {
+    "id": 207,
+    "cluster": "Länder-Guides",
+    "slug": "bankensystem-georgien-ueberblick-2026",
+    "titleDe": "Bankensystem Georgien: Aufsicht, Struktur und Einlagensicherung",
+    "titleEn": "Georgia's Banking System: Supervision, Structure and Deposit Insurance",
+    "keywordDe": "bankensystem georgien",
+    "searchVolDe": 970,
+    "kd": 20,
+    "keywordEn": "georgia banking system",
+    "searchVolEn": 1170,
+    "lsiKeywords": [
+      "nbg",
+      "georgische banken",
+      "einlagensicherung georgien"
+    ],
+    "format": "Country Guide",
+    "targetLength": 1800,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-07-31",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "completed",
+    "unsplashQuery": "georgia tbilisi skyline banking",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-17T14:41:22.007Z"
   }
 ]
