@@ -11,6 +11,7 @@ import {
   getPendingArticles,
   markAsCompleted,
   markInProgress,
+  requeueFailedToEnd,
   getQueueStats,
   addToQueue,
 } from './queue';
@@ -56,6 +57,7 @@ program
         console.log(`${content.slice(0, 2000)}\n...[truncated]`);
       }
     } catch (error) {
+      requeueFailedToEnd(slug);
       console.error(`❌ Generation failed for ${slug}:`, error);
       process.exit(1);
     }
@@ -71,22 +73,24 @@ program
   .action(async (options: { count: string; commit?: boolean; mock?: boolean; delay: string }) => {
     const count = parseInt(options.count, 10);
     const delay = parseInt(options.delay, 10);
-    const articles = getPendingArticles(count);
+    // Pull extras so one validation failure cannot stall the whole factory on the same slug.
+    const articles = getPendingArticles(Math.max(count * 5, 5));
 
     if (articles.length === 0) {
       console.log('📋 Queue is empty — nothing to generate');
       return;
     }
 
-    console.log(`📋 Generating ${articles.length} articles from queue...`);
+    console.log(`📋 Generating up to ${count} article(s) from a pool of ${articles.length}...`);
 
     let successCount = 0;
     let failCount = 0;
 
     for (let i = 0; i < articles.length; i++) {
+      if (successCount >= count) break;
       const article = articles[i];
       try {
-        console.log(`\n━━━ [${i + 1}/${articles.length}] ${article.slug} ━━━`);
+        console.log(`\n━━━ [${successCount + failCount + 1}] ${article.slug} ━━━`);
         ensureRobotsTxt();
         markInProgress(article.slug);
         const content = await generateArticle(article, { mock: options.mock });
@@ -96,13 +100,14 @@ program
         successCount++;
         console.log(`✅ Done: /blog/${article.slug}`);
 
-        if (i < articles.length - 1) {
+        if (successCount < count && i < articles.length - 1) {
           console.log(`⏳ Waiting ${delay}ms before next article...`);
           await new Promise((r) => setTimeout(r, delay));
         }
       } catch (error) {
         failCount++;
-        console.error(`❌ Failed: ${article.slug}`, error);
+        requeueFailedToEnd(article.slug);
+        console.error(`❌ Failed: ${article.slug} — requeued to end, trying next`, error);
       }
     }
 

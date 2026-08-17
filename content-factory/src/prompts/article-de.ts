@@ -106,7 +106,7 @@ FAQ-Antworten dürfen nicht zu Rentiers-Investments auffordern.
 - ❌ # H1 im Body
 - ❌ YAML-Block-Arrays für tags
 - ❌ Renditeversprechen für Rentiers / LUXCAR
-- ❌ „Konto eröffnen“, „jetzt anlegen“, „mit Rentiers starten“
+- ❌ „Jetzt anlegen“, „Jetzt Konto eröffnen“, „Konto bei Rentiers eröffnen“, „mit Rentiers starten“ (Bildungsformulierungen wie „ein Bankkonto eröffnen“ sind erlaubt)
 - ❌ erfundene Experten-Autoren
 
 Schreibe jetzt den vollständigen Artikel. Beginne direkt mit den drei Bindestrichen (---) des Frontmatters.

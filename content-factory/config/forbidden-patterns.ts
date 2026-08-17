@@ -13,8 +13,11 @@ export const FORBIDDEN_PATTERNS = {
   mockAbsatzFiller: /Absatz \d+ vertieft/i,
   /** SEO_CONTENT_GUIDELINES — investment solicitation / yield claims */
   rentiersYieldClaim: /(?:12\s*[–-]\s*20|12–20|bis\s+zu\s+20)\s*%|\b16\s*%\s*p\.?\s*a\.?/i,
-  guaranteedReturn: /garantierte\s+(?:hohe\s+)?rendite|ohne\s+risiko|risk[-\s]?free\s+return|staatlich\s+garantierte\s+(?:rendite|ertrag)/i,
-  investCta: /(?:jetzt|heute)\s+(?:anlegen|investieren)|konto\s+eröffnen|mit\s+rentiers(?:\s+pro)?\s+starten|open\s+(?:an\s+)?account|invest\s+(?:now|with\s+rentiers)/i,
+  guaranteedReturn:
+    /garantierte\s+(?:hohe\s+)?rendite|(?:völlig|komplett|ganz)\s+ohne\s+risiko|risk[-\s]?free\s+return|staatlich\s+garantierte\s+(?:rendite|ertrag)/i,
+  /** Solicitation CTAs only — educational "Konto eröffnen" / "open a bank account" must pass. */
+  investCta:
+    /(?:jetzt|heute)\s+(?:anlegen|investieren)|(?:jetzt|heute)\s+(?:ein\s+)?konto\s+eröffnen|konto\s+bei\s+rentiers(?:\s+pro)?\s+eröffnen|mit\s+rentiers(?:\s+pro)?\s+starten|open\s+(?:a\s+)?rentiers\s+account|invest\s+(?:now|today|with\s+rentiers)/i,
   luxcarYield: /luxcar|100\s*%\s*(?:jahreszins|\+|p\.?\s*a\.?)/i,
   fakeExpertAuthor: /dr\.\s*(?:stefan\s+kaufmann|markus\s+hoffmann)|elena\s+(?:marchetti|kowalski|berger)|pierre\s+dijon|michael\s+weber|max\s+müller|ariel\s+kharan/i,
   adPolicyEvasion: /facebook\s+financial\s+services\s+policy\s+umgeh|bypass\s+(?:ads?|facebook|google)\s+policy/i,
@@ -34,7 +37,8 @@ export const FORBIDDEN_PATTERN_MESSAGES: Record<keyof typeof FORBIDDEN_PATTERNS,
   mockAbsatzFiller: 'Mock-Kopierpaste (Absatz N vertieft) — Artikel ungültig',
   rentiersYieldClaim: 'Renditeversprechen / %-Claims im Solicitation-Stil — verboten laut SEO_CONTENT_GUIDELINES',
   guaranteedReturn: 'Garantie-Formulierungen für Erträge — verboten',
-  investCta: 'Investitions-CTA (anlegen / Konto eröffnen / mit Rentiers starten) — verboten',
+  investCta:
+    'Investitions-CTA (Jetzt anlegen / Konto bei Rentiers eröffnen / mit Rentiers starten) — verboten',
   luxcarYield: 'LUXCAR / 100%-Yield-Claims — verboten',
   fakeExpertAuthor: 'Erfundener Experten-Autor — nur Rentiers Redaktion erlaubt',
   adPolicyEvasion: 'Hinweise zum Umgehen von Ad-Policies — verboten',

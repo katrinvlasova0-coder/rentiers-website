@@ -9,6 +9,7 @@
     "sitemap": "tsx src/index.ts sitemap",
     "init": "tsx scripts/init.ts",
     "test": "tsx src/index.ts test",
+    "test:compliance": "tsx src/compliance-patterns.test.ts",
     "mock": "tsx src/index.ts mock",
     "queue:list": "tsx src/index.ts queue list",
     "queue:add": "tsx src/index.ts queue add"

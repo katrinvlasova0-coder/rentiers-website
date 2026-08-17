@@ -48,6 +48,26 @@ export function markInProgress(slug: string): void {
   );
 }
 
+/** Put a failed in-progress article back at the end of pending so the batch can try the next one. */
+export function requeueFailedToEnd(slug: string): void {
+  const pendingPath = path.join(QUEUE_DIR, 'pending.json');
+  const inProgressPath = path.join(QUEUE_DIR, 'in-progress.json');
+
+  const pending = readJson<ArticleRequest[]>(pendingPath, []);
+  const inProgress = readJson<ArticleRequest[]>(inProgressPath, []);
+  const article = inProgress.find((a) => a.slug === slug);
+  if (!article) return;
+
+  writeJson(
+    inProgressPath,
+    inProgress.filter((a) => a.slug !== slug),
+  );
+  if (!pending.some((a) => a.slug === slug)) {
+    pending.push({ ...article, status: 'pending' });
+    writeJson(pendingPath, pending);
+  }
+}
+
 export function markAsCompleted(slug: string): void {
   const pendingPath = path.join(QUEUE_DIR, 'pending.json');
   const inProgressPath = path.join(QUEUE_DIR, 'in-progress.json');
