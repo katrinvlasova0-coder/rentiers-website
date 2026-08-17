@@ -99,39 +99,6 @@
     }
   },
   {
-    "id": 211,
-    "cluster": "B2B",
-    "slug": "gdpr-finanzdaten-schutz-2026",
-    "titleDe": "GDPR und Finanzdaten: Was Unternehmen über Datenschutz wissen sollten",
-    "titleEn": "GDPR and Financial Data: What Companies Should Know About Privacy",
-    "keywordDe": "gdpr finanzdaten",
-    "searchVolDe": 1010,
-    "kd": 20,
-    "keywordEn": "gdpr financial data",
-    "searchVolEn": 1210,
-    "lsiKeywords": [
-      "datenschutz bank",
-      "personenbezogene daten",
-      "finanz app privatsphäre"
-    ],
-    "format": "Explainer",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-08-04",
-    "language": "DE+EN",
-    "category": "B2B",
-    "status": "pending",
-    "unsplashQuery": "data privacy lock laptop",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 212,
     "cluster": "B2B",
     "slug": "swift-vs-sepa-alternativen-2026",
@@ -489,39 +456,6 @@
     "category": "Finanzbildung",
     "status": "pending",
     "unsplashQuery": "credit rating agency debate",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
-    "id": 223,
-    "cluster": "B2B",
-    "slug": "unternehmensliquiditaet-kurzfristig-parken-2026",
-    "titleDe": "Unternehmensliquidität kurzfristig parken: Optionen für CFOs 2026",
-    "titleEn": "Parking Corporate Liquidity Short-Term: Options for CFOs in 2026",
-    "keywordDe": "unternehmensliquidität parken",
-    "searchVolDe": 880,
-    "kd": 18,
-    "keywordEn": "corporate liquidity parking",
-    "searchVolEn": 1040,
-    "lsiKeywords": [
-      "firmenreserven",
-      "geschäftskonto zinsen",
-      "treasury kurzfristig"
-    ],
-    "format": "B2B Guide",
-    "targetLength": 1500,
-    "taSegments": [
-      "2",
-      "5"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-08-01",
-    "language": "DE+EN",
-    "category": "B2B",
-    "status": "pending",
-    "unsplashQuery": "corporate treasury office",
     "author": {
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
