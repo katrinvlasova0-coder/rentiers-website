@@ -14,6 +14,7 @@ export async function publishArticle(
   content: string,
   request: ArticleRequest,
   autoCommit: boolean = false,
+  notifyMeta?: { isFallback?: boolean; fallbackReason?: string },
 ): Promise<void> {
   const contentDir = getContentDir();
   const filePath = path.join(contentDir, `${slug}.mdx`);
@@ -59,6 +60,8 @@ export async function publishArticle(
     publishedDate: String(frontmatter.datePublished ?? request.plannedDate),
     coverImage: String(frontmatter.coverImage ?? ''),
     descriptionDe: String(frontmatter.description ?? ''),
+    isFallback: notifyMeta?.isFallback,
+    fallbackReason: notifyMeta?.fallbackReason,
     });
   } catch (e) {
     console.warn('⚠️ Email notification failed (article still published):', e);

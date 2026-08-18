@@ -76,8 +76,16 @@ program
     // Pull extras so one validation failure cannot stall the whole factory on the same slug.
     const articles = getPendingArticles(Math.max(count * 5, 5));
 
+    const failedSlugs: string[] = [];
+
     if (articles.length === 0) {
-      console.log('📋 Queue is empty — nothing to generate');
+      console.log('📋 Queue is empty — publishing safe fallback');
+      const fallback = await import('./safe-fallback').then((m) =>
+        m.publishSafeFallback({ reason: 'queue-empty' }),
+      );
+      if (!fallback.published && !fallback.skipped) {
+        process.exit(1);
+      }
       return;
     }
 
@@ -106,6 +114,7 @@ program
         }
       } catch (error) {
         failCount++;
+        failedSlugs.push(article.slug);
         requeueFailedToEnd(article.slug);
         console.error(`❌ Failed: ${article.slug} — requeued to end, trying next`, error);
       }
@@ -114,7 +123,16 @@ program
     console.log(`\n🏁 Batch complete: ${successCount} succeeded, ${failCount} failed`);
 
     if (successCount === 0 && articles.length > 0) {
-      process.exit(1);
+      console.warn('⚠️ Batch published 0 articles — publishing safe fallback');
+      const { publishSafeFallback } = await import('./safe-fallback');
+      const fallback = await publishSafeFallback({
+        reason: 'batch-zero-success',
+        onlyIfMissing: true,
+        failedSlugs,
+      });
+      if (!fallback.published && !fallback.skipped) {
+        process.exit(1);
+      }
     }
   });
 
@@ -225,6 +243,27 @@ program
     }
     const { runMockGenerateTest } = await import('./test');
     await runMockGenerateTest(request, options.dryRun ?? false);
+  });
+
+program
+  .command('fallback')
+  .description('Publish a validator-safe evergreen article if generation produced nothing')
+  .option('--only-if-missing', 'Skip when uncommitted blog MDX or today\'s fallback already exists')
+  .option('--reason <text>', 'Ops reason recorded in logs and email', 'manual')
+  .action(async (options: { onlyIfMissing?: boolean; reason?: string }) => {
+    const { publishSafeFallback } = await import('./safe-fallback');
+    try {
+      const result = await publishSafeFallback({
+        reason: options.reason ?? 'manual',
+        onlyIfMissing: Boolean(options.onlyIfMissing),
+      });
+      if (!result.published && !result.skipped) {
+        process.exit(1);
+      }
+    } catch (error) {
+      console.error('❌ Safe fallback failed:', error);
+      process.exit(1);
+    }
   });
 
 program.parse(process.argv);

@@ -15,6 +15,8 @@ export interface ArticleNotification {
   publishedDate: string;
   coverImage: string;
   descriptionDe: string;
+  isFallback?: boolean;
+  fallbackReason?: string;
 }
 
 export async function sendArticleNotification(
@@ -45,7 +47,11 @@ export async function sendArticleNotification(
           <tr>
             <td style="background:#1B2A4A;padding:28px 32px;">
               <p style="margin:0;color:#C9A84C;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;">RENTIERS — CONTENT UPDATE</p>
-              <h1 style="margin:8px 0 0;color:#ffffff;font-size:20px;font-weight:700;">✅ Новая статья опубликована</h1>
+              <h1 style="margin:8px 0 0;color:#ffffff;font-size:20px;font-weight:700;">${
+                article.isFallback
+                  ? '⚠️ Fallback-Artikel veröffentlicht'
+                  : '✅ Новая статья опубликована'
+              }</h1>
             </td>
           </tr>
           ${
@@ -59,6 +65,11 @@ export async function sendArticleNotification(
               <h2 style="margin:0 0 8px;color:#0F172A;font-size:22px;font-weight:700;line-height:1.3;">${article.titleDe}</h2>
               <p style="margin:0 0 4px;color:#64748B;font-size:14px;font-style:italic;">${article.titleEn}</p>
               <p style="margin:16px 0 24px;color:#475569;font-size:15px;line-height:1.6;">${article.descriptionDe}</p>
+              ${
+                article.isFallback
+                  ? `<p style="margin:0 0 24px;padding:12px 14px;background:#FEF3C7;border-radius:8px;color:#92400E;font-size:13px;line-height:1.5;"><strong>Fallback:</strong> die geplante Claude-Artikelgeneration ist fehlgeschlagen oder leer geblieben. Stattdessen wurde ein geprüfter Bildungsartikel veröffentlicht. Die ursprüngliche Queue-Position bleibt offen. ${article.fallbackReason ? `<br><span style="color:#78350F;">${article.fallbackReason}</span>` : ''}</p>`
+                  : ''
+              }
               <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
                 <tr>
                   <td width="25%" style="padding:12px;background:#F1F5F9;border-radius:8px;text-align:center;">
@@ -120,7 +131,9 @@ export async function sendArticleNotification(
   const { data, error } = await resend.emails.send({
     from: `Rentiers Content Factory <${fromEmail}>`,
     to: process.env.NOTIFY_EMAIL,
-    subject: `✅ Neue Artikel: ${article.titleDe}`,
+    subject: article.isFallback
+      ? `⚠️ FALLBACK veröffentlicht: ${article.titleDe}`
+      : `✅ Neue Artikel: ${article.titleDe}`,
     html,
   });
 

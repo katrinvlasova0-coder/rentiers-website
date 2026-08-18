@@ -69,9 +69,9 @@ jobs:
             echo "run=true" >> "$GITHUB_OUTPUT"
             echo "✅ Claude API available — real article generation"
           elif [ "$IS_SCHEDULE" = "true" ]; then
-            echo "mode=skip" >> "$GITHUB_OUTPUT"
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "⏭️ Scheduled run skipped: ANTHROPIC_API_KEY not set (mock articles are not published automatically)"
+            echo "mode=fallback-only" >> "$GITHUB_OUTPUT"
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "⚠️ ANTHROPIC_API_KEY missing on publish day — will publish a safe fallback article"
           elif [ "$INPUT_MOCK" = "true" ] && [ "$PUBLISH_MOCK" = "true" ]; then
             echo "mode=mock" >> "$GITHUB_OUTPUT"
             echo "run=true" >> "$GITHUB_OUTPUT"
@@ -113,6 +113,10 @@ jobs:
           npm run queue:list
           npx tsx src/index.ts queue stats
 
+      - name: Validate safe-fallback templates
+        if: steps.gen.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
+        run: cd content-factory && npm run test:fallback
+
       - name: Run integration test
         if: github.event_name == 'workflow_dispatch'
         continue-on-error: true
@@ -127,7 +131,9 @@ jobs:
           SITE_PUBLIC_DIR: ../public
 
       - name: Generate articles batch
-        if: steps.gen.outputs.run == 'true'
+        id: batch
+        if: steps.gen.outputs.run == 'true' && steps.gen.outputs.mode != 'fallback-only'
+        continue-on-error: true
         run: |
           cd content-factory
           MOCK_FLAG=""
@@ -141,6 +147,21 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ANTHROPIC_MODEL: ${{ secrets.ANTHROPIC_MODEL }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+          FROM_EMAIL: onboarding@resend.dev
+          SITE_BASE_URL: https://rentiers.net
+          CONTENT_DIR: ../content/blog
+          SITE_PUBLIC_DIR: ../public
+
+      - name: Publish safe fallback if no new article
+        if: steps.gen.outputs.run == 'true'
+        run: |
+          cd content-factory
+          npx tsx src/index.ts fallback --only-if-missing --reason "ci-safety-net (mode=${{ steps.gen.outputs.mode }}, batch=${{ steps.batch.outcome }})"
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
@@ -163,7 +184,12 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add content/blog/ public/sitemap.xml content-factory/queue/
           if git diff --staged --quiet; then
-            echo "::error::No article files to commit — generation likely failed. Check batch logs above."
+            TODAY=$(date -u +%F)
+            if ls content/blog/fallback-*-"$TODAY".mdx >/dev/null 2>&1; then
+              echo "No new files to commit — today's fallback is already in the repo."
+              exit 0
+            fi
+            echo "::error::No article files to commit — generation and fallback both produced nothing. Check logs above."
             exit 1
           fi
           git commit -m "feat(blog): content factory generated articles"
