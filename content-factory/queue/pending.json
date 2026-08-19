@@ -99,39 +99,6 @@
     }
   },
   {
-    "id": 212,
-    "cluster": "B2B",
-    "slug": "swift-vs-sepa-alternativen-2026",
-    "titleDe": "SWIFT und Alternativen: Wie internationale Zahlungen funktionieren",
-    "titleEn": "SWIFT and Alternatives: How International Payments Work",
-    "keywordDe": "swift zahlung erklärt",
-    "searchVolDe": 1020,
-    "kd": 20,
-    "keywordEn": "swift payment explained",
-    "searchVolEn": 1220,
-    "lsiKeywords": [
-      "sepa vs swift",
-      "korrespondenzbank",
-      "grenzüberschreitende zahlung"
-    ],
-    "format": "Explainer",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-08-05",
-    "language": "DE+EN",
-    "category": "B2B",
-    "status": "pending",
-    "unsplashQuery": "global payment network",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 213,
     "cluster": "Sicherheit",
     "slug": "einlagensicherung-grenzen-verstehen-2026",

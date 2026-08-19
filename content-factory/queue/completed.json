@@ -332,40 +332,6 @@
     "completedAt": "2026-07-31"
   },
   {
-    "id": 223,
-    "cluster": "B2B",
-    "slug": "unternehmensliquiditaet-kurzfristig-parken-2026",
-    "titleDe": "Unternehmensliquidität kurzfristig parken: Optionen für CFOs 2026",
-    "titleEn": "Parking Corporate Liquidity Short-Term: Options for CFOs in 2026",
-    "keywordDe": "unternehmensliquidität parken",
-    "searchVolDe": 880,
-    "kd": 18,
-    "keywordEn": "corporate liquidity parking",
-    "searchVolEn": 1040,
-    "lsiKeywords": [
-      "firmenreserven",
-      "geschäftskonto zinsen",
-      "treasury kurzfristig"
-    ],
-    "format": "B2B Guide",
-    "targetLength": 1500,
-    "taSegments": [
-      "2",
-      "5"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-08-01",
-    "language": "DE+EN",
-    "category": "B2B",
-    "status": "completed",
-    "unsplashQuery": "corporate treasury office",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    },
-    "completedAt": "2026-08-17T14:46:15.003Z"
-  },
-  {
     "id": 211,
     "cluster": "B2B",
     "slug": "gdpr-finanzdaten-schutz-2026",
@@ -397,6 +363,74 @@
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-08-17T14:49:17.378Z"
+    "completedAt": "2026-08-04"
+  },
+  {
+    "id": 223,
+    "cluster": "B2B",
+    "slug": "unternehmensliquiditaet-kurzfristig-parken-2026",
+    "titleDe": "Unternehmensliquidität kurzfristig parken: Optionen für CFOs 2026",
+    "titleEn": "Parking Corporate Liquidity Short-Term: Options for CFOs in 2026",
+    "keywordDe": "unternehmensliquidität parken",
+    "searchVolDe": 880,
+    "kd": 18,
+    "keywordEn": "corporate liquidity parking",
+    "searchVolEn": 1040,
+    "lsiKeywords": [
+      "firmenreserven",
+      "geschäftskonto zinsen",
+      "treasury kurzfristig"
+    ],
+    "format": "B2B Guide",
+    "targetLength": 1500,
+    "taSegments": [
+      "2",
+      "5"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-08-01",
+    "language": "DE+EN",
+    "category": "B2B",
+    "status": "completed",
+    "unsplashQuery": "corporate treasury office",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-01"
+  },
+  {
+    "id": 212,
+    "cluster": "B2B",
+    "slug": "swift-vs-sepa-alternativen-2026",
+    "titleDe": "SWIFT und Alternativen: Wie internationale Zahlungen funktionieren",
+    "titleEn": "SWIFT and Alternatives: How International Payments Work",
+    "keywordDe": "swift zahlung erklärt",
+    "searchVolDe": 1020,
+    "kd": 20,
+    "keywordEn": "swift payment explained",
+    "searchVolEn": 1220,
+    "lsiKeywords": [
+      "sepa vs swift",
+      "korrespondenzbank",
+      "grenzüberschreitende zahlung"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-08-05",
+    "language": "DE+EN",
+    "category": "B2B",
+    "status": "completed",
+    "unsplashQuery": "global payment network",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-19T08:25:33.795Z"
   }
 ]
