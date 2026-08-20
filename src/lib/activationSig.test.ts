@@ -12,6 +12,7 @@ describe('activationSig', () => {
 
   it('verifies matching sig and rejects tampering', async () => {
     const sig = await createActivationSig(base);
+    expect(sig).toBe('82dcad7edc2a5f6d');
     expect(sig).toMatch(/^[0-9a-f]{16}$/);
     expect(await verifyActivationSig({ ...base, sig })).toBe(true);
     expect(await verifyActivationSig({ ...base, amount: '1', sig })).toBe(false);
