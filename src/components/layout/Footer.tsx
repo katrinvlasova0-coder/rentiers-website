@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { shouldHideSiteChrome } from '@/components/account/SiteChromeGate';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { assetPath } from '@/lib/basePath';
 import { SOCIAL_LINKS } from '@/constants/site';
@@ -47,7 +49,10 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
   const { t } = useLanguage();
+
+  if (shouldHideSiteChrome(pathname)) return null;
 
   return (
     <footer style={{ background: 'var(--color-bg-light)' }}>
