@@ -23,17 +23,22 @@ export interface RentiersSession {
   portfolioActivatedAt?: string;
 }
 
+let memorySession: RentiersSession | null = null;
+
 export function getSession(): RentiersSession | null {
   try {
     const raw = localStorage.getItem(SESSION_KEY);
-    if (!raw) return null;
-    return JSON.parse(raw) as RentiersSession;
+    if (!raw) return memorySession;
+    const session = JSON.parse(raw) as RentiersSession;
+    memorySession = session;
+    return session;
   } catch {
-    return null;
+    return memorySession;
   }
 }
 
 export function setSession(session: RentiersSession): boolean {
+  memorySession = session;
   try {
     localStorage.setItem(SESSION_KEY, JSON.stringify(session));
     return true;
@@ -46,11 +51,12 @@ export function updateSession(partial: Partial<RentiersSession>): RentiersSessio
   const current = getSession();
   if (!current) return null;
   const updated = { ...current, ...partial };
-  if (!setSession(updated)) return null;
+  setSession(updated);
   return updated;
 }
 
 export function clearSession(): void {
+  memorySession = null;
   try {
     localStorage.removeItem(SESSION_KEY);
   } catch {

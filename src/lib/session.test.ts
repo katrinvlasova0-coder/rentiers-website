@@ -20,6 +20,7 @@ function sample(): RentiersSession {
 
 describe('session', () => {
   beforeEach(() => {
+    clearSession();
     const store = new Map<string, string>();
     vi.stubGlobal('localStorage', {
       getItem: (k: string) => store.get(k) ?? null,
@@ -41,7 +42,7 @@ describe('session', () => {
     expect(SESSION_KEY).toBe('rentiers_session');
   });
 
-  it('returns null and false when storage throws', () => {
+  it('returns null and false when storage throws and memory is empty', () => {
     vi.stubGlobal('localStorage', {
       getItem: () => {
         throw new Error('blocked');
@@ -55,5 +56,72 @@ describe('session', () => {
     });
     expect(getSession()).toBeNull();
     expect(setSession(sample())).toBe(false);
+  });
+
+  it('returns session from memory when setItem throws', () => {
+    vi.stubGlobal('localStorage', {
+      getItem: () => {
+        throw new Error('blocked');
+      },
+      setItem: () => {
+        throw new Error('blocked');
+      },
+      removeItem: () => {
+        throw new Error('blocked');
+      },
+    });
+    expect(setSession(sample())).toBe(false);
+    expect(getSession()?.email).toBe('a@b.com');
+  });
+
+  it('returns session from memory when getItem throws after memory set', () => {
+    const s = sample();
+    expect(setSession(s)).toBe(true);
+
+    vi.stubGlobal('localStorage', {
+      getItem: () => {
+        throw new Error('blocked');
+      },
+      setItem: () => {
+        throw new Error('blocked');
+      },
+      removeItem: () => {
+        throw new Error('blocked');
+      },
+    });
+    expect(getSession()?.email).toBe('a@b.com');
+  });
+
+  it('returns session from memory when localStorage is empty after memory set', () => {
+    const store = new Map<string, string>();
+    vi.stubGlobal('localStorage', {
+      getItem: (k: string) => store.get(k) ?? null,
+      setItem: () => {
+        throw new Error('blocked');
+      },
+      removeItem: (k: string) => {
+        store.delete(k);
+      },
+    });
+    expect(setSession(sample())).toBe(false);
+    expect(getSession()?.email).toBe('a@b.com');
+  });
+
+  it('updateSession returns updated object when storage fails but memory has session', () => {
+    vi.stubGlobal('localStorage', {
+      getItem: () => {
+        throw new Error('blocked');
+      },
+      setItem: () => {
+        throw new Error('blocked');
+      },
+      removeItem: () => {
+        throw new Error('blocked');
+      },
+    });
+    expect(setSession(sample())).toBe(false);
+    const updated = updateSession({ step: 'payment_pending' });
+    expect(updated?.step).toBe('payment_pending');
+    expect(getSession()?.step).toBe('payment_pending');
   });
 });
