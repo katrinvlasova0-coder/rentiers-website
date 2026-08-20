@@ -29,6 +29,8 @@ jobs:
           NEXT_PUBLIC_YM_ID: ${{ secrets.NEXT_PUBLIC_YM_ID }}
           NEXT_PUBLIC_FB_PIXEL_ID: ${{ secrets.NEXT_PUBLIC_FB_PIXEL_ID }}
           NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL }}
+          NEXT_PUBLIC_STRIPE_PAYMENT_LINK: ${{ secrets.NEXT_PUBLIC_STRIPE_PAYMENT_LINK }}
+          NEXT_PUBLIC_ACTIVATION_SECRET: ${{ secrets.NEXT_PUBLIC_ACTIVATION_SECRET }}
       - uses: actions/upload-pages-artifact@v4
         with:
           path: ./out
