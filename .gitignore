@@ -46,3 +46,4 @@ content-factory/logs/*.json
 *.tsbuildinfo
 next-env.d.ts
 .worktrees
+.superpowers/

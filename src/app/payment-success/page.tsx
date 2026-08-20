@@ -13,8 +13,8 @@ export default function PaymentSuccessPage() {
   useEffect(() => {
     if (analyticsSent.current) return;
     analyticsSent.current = true;
-    ymGoal('payment_success');
-    customEvent('PaymentSuccess');
+    ymGoal('payment_completed');
+    customEvent('DepositCompleted', { source: 'stripe' });
   }, []);
 
   return (

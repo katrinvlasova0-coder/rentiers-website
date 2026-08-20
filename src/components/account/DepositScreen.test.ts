@@ -74,10 +74,23 @@ describe('startDepositPayment', () => {
     });
 
     expect(result).toBe('Payment is not configured.');
-    expect(updateSession).toHaveBeenCalledWith({
-      stripeRef: 'rentiers_1723000000000_ada',
-      step: 'payment_pending',
+    expect(updateSession).not.toHaveBeenCalled();
+    expect(redirect).not.toHaveBeenCalled();
+  });
+
+  it('reports invalid Stripe configuration without changing the session', () => {
+    const updateSession = vi.fn();
+    const redirect = vi.fn();
+
+    const result = startDepositPayment(session.email, {
+      paymentLink: 'not a URL',
+      now: () => 1_723_000_000_000,
+      updateSession,
+      redirect,
     });
+
+    expect(result).toBe('Payment is not configured.');
+    expect(updateSession).not.toHaveBeenCalled();
     expect(redirect).not.toHaveBeenCalled();
   });
 });

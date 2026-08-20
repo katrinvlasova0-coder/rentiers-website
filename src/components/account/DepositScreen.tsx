@@ -30,16 +30,22 @@ export function startDepositPayment(
   email: string,
   dependencies: DepositPaymentDependencies,
 ): string | null {
+  if (!dependencies.paymentLink) return 'Payment is not configured.';
+
   const local = email.split('@')[0] || 'user';
   const stripeRef = `rentiers_${dependencies.now()}_${local}`;
 
+  let url: URL;
+  try {
+    url = new URL(dependencies.paymentLink);
+    if (url.protocol !== 'https:') return 'Payment is not configured.';
+    url.searchParams.set('prefilled_email', email);
+    url.searchParams.set('client_reference_id', stripeRef);
+  } catch {
+    return 'Payment is not configured.';
+  }
+
   dependencies.updateSession({ stripeRef, step: 'payment_pending' });
-
-  if (!dependencies.paymentLink) return 'Payment is not configured.';
-
-  const url = new URL(dependencies.paymentLink);
-  url.searchParams.set('prefilled_email', email);
-  url.searchParams.set('client_reference_id', stripeRef);
   dependencies.redirect(url.toString());
   return null;
 }
