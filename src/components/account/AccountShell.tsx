@@ -43,10 +43,10 @@ export function AccountShell({ children, stepIndex = null, title }: AccountShell
         )}
       </header>
 
-      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8">
+      <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-8">
         {title && <h1 className="mb-6 text-2xl font-semibold text-white sm:text-3xl">{title}</h1>}
         {children}
-      </main>
+      </div>
 
       <footer className="border-t border-slate-800/80 px-4 py-5 text-center text-xs text-slate-500">
         Secure connection · Your information is encrypted and protected
