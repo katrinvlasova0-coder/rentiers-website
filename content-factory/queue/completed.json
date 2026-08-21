@@ -366,6 +366,40 @@
     "completedAt": "2026-08-04"
   },
   {
+    "id": 212,
+    "cluster": "B2B",
+    "slug": "swift-vs-sepa-alternativen-2026",
+    "titleDe": "SWIFT und Alternativen: Wie internationale Zahlungen funktionieren",
+    "titleEn": "SWIFT and Alternatives: How International Payments Work",
+    "keywordDe": "swift zahlung erklärt",
+    "searchVolDe": 1020,
+    "kd": 20,
+    "keywordEn": "swift payment explained",
+    "searchVolEn": 1220,
+    "lsiKeywords": [
+      "sepa vs swift",
+      "korrespondenzbank",
+      "grenzüberschreitende zahlung"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-08-05",
+    "language": "DE+EN",
+    "category": "B2B",
+    "status": "completed",
+    "unsplashQuery": "global payment network",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-05"
+  },
+  {
     "id": 223,
     "cluster": "B2B",
     "slug": "unternehmensliquiditaet-kurzfristig-parken-2026",
@@ -400,20 +434,20 @@
     "completedAt": "2026-08-01"
   },
   {
-    "id": 212,
+    "id": 216,
     "cluster": "B2B",
-    "slug": "swift-vs-sepa-alternativen-2026",
-    "titleDe": "SWIFT und Alternativen: Wie internationale Zahlungen funktionieren",
-    "titleEn": "SWIFT and Alternatives: How International Payments Work",
-    "keywordDe": "swift zahlung erklärt",
-    "searchVolDe": 1020,
+    "slug": "crs-fatca-erklaert-2026",
+    "titleDe": "CRS und FATCA erklärt: Meldepflichten bei Auslandskonten",
+    "titleEn": "CRS and FATCA Explained: Reporting Rules for Foreign Accounts",
+    "keywordDe": "crs fatca erklärt",
+    "searchVolDe": 1060,
     "kd": 20,
-    "keywordEn": "swift payment explained",
-    "searchVolEn": 1220,
+    "keywordEn": "crs fatca explained",
+    "searchVolEn": 1260,
     "lsiKeywords": [
-      "sepa vs swift",
-      "korrespondenzbank",
-      "grenzüberschreitende zahlung"
+      "automatischer informationsaustausch",
+      "steuerreporting ausland",
+      "auslandskonto melden"
     ],
     "format": "Explainer",
     "targetLength": 1500,
@@ -422,15 +456,15 @@
       "2"
     ],
     "priority": "high",
-    "plannedDate": "2026-08-05",
+    "plannedDate": "2026-08-09",
     "language": "DE+EN",
     "category": "B2B",
     "status": "completed",
-    "unsplashQuery": "global payment network",
+    "unsplashQuery": "tax documents international",
     "author": {
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-08-19T08:25:33.795Z"
+    "completedAt": "2026-08-21T08:28:40.364Z"
   }
 ]

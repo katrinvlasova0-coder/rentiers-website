@@ -198,39 +198,6 @@
     }
   },
   {
-    "id": 216,
-    "cluster": "B2B",
-    "slug": "crs-fatca-erklaert-2026",
-    "titleDe": "CRS und FATCA erklärt: Meldepflichten bei Auslandskonten",
-    "titleEn": "CRS and FATCA Explained: Reporting Rules for Foreign Accounts",
-    "keywordDe": "crs fatca erklärt",
-    "searchVolDe": 1060,
-    "kd": 20,
-    "keywordEn": "crs fatca explained",
-    "searchVolEn": 1260,
-    "lsiKeywords": [
-      "automatischer informationsaustausch",
-      "steuerreporting ausland",
-      "auslandskonto melden"
-    ],
-    "format": "Explainer",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "high",
-    "plannedDate": "2026-08-09",
-    "language": "DE+EN",
-    "category": "B2B",
-    "status": "pending",
-    "unsplashQuery": "tax documents international",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 217,
     "cluster": "Finanzbildung",
     "slug": "festgeld-vs-tagesgeld-unterschied-2026",
