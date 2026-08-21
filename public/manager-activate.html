@@ -108,8 +108,12 @@
       const copy = document.getElementById('copy');
       const status = document.getElementById('status');
       document.getElementById('activatedAt').value = new Date().toISOString().slice(0, 10);
+      // Prefer current origin + optional /test base when hosted as a preview.
+      const pathPrefix = window.location.pathname.startsWith('/test')
+        ? '/test'
+        : '';
       document.getElementById('baseUrl').value =
-        `${window.location.origin}/account/activate/`;
+        `${window.location.origin}${pathPrefix}/account/activate/`;
 
       async function sha256Hex(message) {
         const data = new TextEncoder().encode(message);

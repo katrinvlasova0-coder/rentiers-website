@@ -7,17 +7,21 @@ import HtmlLang from "@/components/layout/HtmlLang";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { LeadFormProvider } from "@/contexts/LeadFormContext";
-import { assetPath } from "@/lib/basePath";
+import { assetPath, BASE_PATH } from "@/lib/basePath";
 import { OG_IMAGE, OG_IMAGE_ALT_EN, OG_DESCRIPTION_EN, OG_TITLE_EN, SITE_NAME, SITE_URL } from "@/constants/site";
 import YandexMetrika from "@/components/analytics/YandexMetrika";
 import FacebookPixel from "@/components/analytics/FacebookPixel";
 import FacebookPixelTracker from "@/components/analytics/FacebookPixelTracker";
 import UtmCapture from "@/components/analytics/UtmCapture";
 
+const isTestPreview = Boolean(BASE_PATH);
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rentiers — Bis zu 20% Jahresrendite auf Bankeinlagen",
+    default: isTestPreview
+      ? "Rentiers TEST — preview (not public)"
+      : "Rentiers — Bis zu 20% Jahresrendite auf Bankeinlagen",
     template: "%s | Rentiers",
   },
   description:
@@ -25,18 +29,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: OG_TITLE_EN,
     description: OG_DESCRIPTION_EN,
-    url: `${SITE_URL}/`,
+    url: `${SITE_URL}${BASE_PATH || ''}/`,
     siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: OG_IMAGE_ALT_EN }],
   },
   alternates: {
-    canonical: `${SITE_URL}/`,
+    canonical: `${SITE_URL}${BASE_PATH || ''}/`,
     languages: {
-      de: `${SITE_URL}/`,
-      en: `${SITE_URL}/`,
-      "x-default": `${SITE_URL}/`,
+      de: `${SITE_URL}${BASE_PATH || ''}/`,
+      en: `${SITE_URL}${BASE_PATH || ''}/`,
+      "x-default": `${SITE_URL}${BASE_PATH || ''}/`,
     },
   },
   twitter: {
@@ -45,7 +49,9 @@ export const metadata: Metadata = {
     description: OG_DESCRIPTION_EN,
     images: [OG_IMAGE],
   },
-  robots: { index: true, follow: true },
+  robots: isTestPreview
+    ? { index: false, follow: false, nocache: true }
+    : { index: true, follow: true },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },

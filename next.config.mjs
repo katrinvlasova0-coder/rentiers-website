@@ -2,11 +2,14 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
+const rawBase = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+const basePath = rawBase.replace(/\/$/, '') || undefined;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
+  ...(basePath ? { basePath } : {}),
   turbopack: {
     root: projectRoot,
   },
