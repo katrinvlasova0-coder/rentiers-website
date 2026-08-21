@@ -160,9 +160,10 @@ export function PortfolioSelector() {
 
       <div
         role="status"
-        className="rounded-xl border border-amber-300/25 bg-amber-300/10 px-4 py-3 text-sm text-amber-100"
+        className="rounded-xl border border-cyan-300/20 bg-cyan-300/10 px-4 py-3 text-sm text-cyan-50"
       >
-        Identity verification will be required before portfolio activation.
+        You can select a portfolio now. Our team will complete identity
+        verification later, before activation.
       </div>
 
       <fieldset>

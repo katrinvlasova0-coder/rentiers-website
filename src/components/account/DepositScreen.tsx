@@ -38,7 +38,12 @@ export function startDepositPayment(
   let url: URL;
   try {
     url = new URL(dependencies.paymentLink);
-    if (url.protocol !== 'https:') return 'Payment is not configured.';
+    const isLocalHttp =
+      url.protocol === 'http:' &&
+      (url.hostname === 'localhost' || url.hostname === '127.0.0.1');
+    if (url.protocol !== 'https:' && !isLocalHttp) {
+      return 'Payment is not configured.';
+    }
     url.searchParams.set('prefilled_email', email);
     url.searchParams.set('client_reference_id', stripeRef);
   } catch {

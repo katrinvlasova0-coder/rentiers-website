@@ -64,7 +64,8 @@
       <form id="activation-form">
         <label>
           Activation page URL
-          <input id="baseUrl" type="url" value="https://rentiers.net/account/activate/" required />
+          <input id="baseUrl" type="url" value="" required />
+          <small style="color:#64748b">Defaults to this site’s /account/activate/</small>
         </label>
         <label>
           Investor email
@@ -107,6 +108,8 @@
       const copy = document.getElementById('copy');
       const status = document.getElementById('status');
       document.getElementById('activatedAt').value = new Date().toISOString().slice(0, 10);
+      document.getElementById('baseUrl').value =
+        `${window.location.origin}/account/activate/`;
 
       async function sha256Hex(message) {
         const data = new TextEncoder().encode(message);

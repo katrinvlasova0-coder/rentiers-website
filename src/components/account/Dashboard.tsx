@@ -11,6 +11,7 @@ import {
   type AccountEventPayload,
 } from '@/lib/submitAccountEvent';
 import { ACCOUNT_THEME } from './accountTheme';
+import { openAccountStatement } from './AccountStatement';
 
 const SUPPORT_EMAIL = 'hello@rentiers.net';
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -68,7 +69,12 @@ export async function requestWithdrawal(
   submit: (payload: AccountEventPayload) => Promise<void>,
 ): Promise<void> {
   const iban = values.iban.replace(/\s/g, '').toUpperCase();
-  if (!iban) throw new Error('Enter your IBAN');
+  if (iban.length < 15 || iban.length > 34) {
+    throw new Error('Enter a valid IBAN (15–34 characters)');
+  }
+  if (!/^[A-Z]{2}[0-9A-Z]+$/.test(iban)) {
+    throw new Error('IBAN must start with a country code (e.g. DE, FR)');
+  }
 
   await submit({
     type: 'withdrawal',
@@ -317,8 +323,8 @@ function ActiveDashboard({ session }: { session: RentiersSession }) {
             role="status"
             className="mt-4 rounded-xl border border-emerald-300/25 bg-emerald-300/10 px-4 py-3 text-sm text-emerald-200"
           >
-            Your withdrawal request has been submitted. Our team will contact
-            you shortly.
+            Withdrawal request received. Processing usually takes up to 3
+            business days — we will email you at {session.email}.
           </div>
         )}
 
@@ -328,6 +334,7 @@ function ActiveDashboard({ session }: { session: RentiersSession }) {
             onClick={() => {
               setWithdrawalOpen((current) => !current);
               setError('');
+              setSuccess(false);
             }}
             className="min-h-11 rounded-xl px-5 py-3 text-sm font-semibold text-white"
             style={{
@@ -338,9 +345,20 @@ function ActiveDashboard({ session }: { session: RentiersSession }) {
           </button>
           <button
             type="button"
-            disabled
-            title="Statements will be available in a future update"
-            className="min-h-11 cursor-not-allowed rounded-xl border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-600"
+            onClick={() => {
+              try {
+                openAccountStatement(session);
+                setError('');
+              } catch (err) {
+                setError(
+                  err instanceof Error
+                    ? err.message
+                    : 'Could not open statement',
+                );
+              }
+            }}
+            className="min-h-11 rounded-xl border border-cyan-300/25 px-5 py-3 text-sm font-semibold transition hover:bg-cyan-300/10"
+            style={{ color: ACCOUNT_THEME.primary }}
           >
             Download Statement
           </button>

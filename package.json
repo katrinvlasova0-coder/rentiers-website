@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3001",
+    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev --port 3001 --hostname 127.0.0.1 --webpack",
+    "preview": "python3 -m http.server 3001 --bind 127.0.0.1 --directory out",
     "build": "next build",
     "start": "next start",
     "test": "vitest run",

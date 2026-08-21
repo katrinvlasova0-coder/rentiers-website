@@ -86,6 +86,16 @@ describe('requestWithdrawal', () => {
         activeSession.email,
         vi.fn(),
       ),
-    ).rejects.toThrow('Enter your IBAN');
+    ).rejects.toThrow('Enter a valid IBAN');
+  });
+
+  it('rejects a malformed IBAN', async () => {
+    await expect(
+      requestWithdrawal(
+        { iban: '12345', amount: '10000' },
+        activeSession.email,
+        vi.fn(),
+      ),
+    ).rejects.toThrow('Enter a valid IBAN');
   });
 });

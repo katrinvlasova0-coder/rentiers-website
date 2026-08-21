@@ -93,4 +93,22 @@ describe('startDepositPayment', () => {
     expect(updateSession).not.toHaveBeenCalled();
     expect(redirect).not.toHaveBeenCalled();
   });
+
+  it('allows localhost http payment links for local demo', () => {
+    const updateSession = vi.fn();
+    const redirect = vi.fn();
+
+    const result = startDepositPayment(session.email, {
+      paymentLink: 'http://localhost:3000/payment-success',
+      now: () => 1_723_000_000_000,
+      updateSession,
+      redirect,
+    });
+
+    expect(result).toBeNull();
+    expect(updateSession).toHaveBeenCalled();
+    expect(redirect).toHaveBeenCalledWith(
+      'http://localhost:3000/payment-success?prefilled_email=ada%40example.com&client_reference_id=rentiers_1723000000000_ada',
+    );
+  });
 });
