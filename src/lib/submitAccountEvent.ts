@@ -1,7 +1,12 @@
 import { getUtms, hasUtms } from '@/lib/utm';
 
-const ONBOARDING_WEBHOOK_URL =
-  process.env.NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL ?? '';
+function getAccountWebhookUrl(): string {
+  return (
+    process.env.NEXT_PUBLIC_ACCOUNT_WEBHOOK_URL ??
+    process.env.NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL ??
+    ''
+  );
+}
 
 export type AccountEventType = 'registration' | 'portfolio' | 'withdrawal';
 
@@ -21,8 +26,9 @@ export type AccountEventPayload = {
 export async function submitAccountEvent(
   data: AccountEventPayload,
 ): Promise<void> {
-  if (!ONBOARDING_WEBHOOK_URL) {
-    console.warn('Account event webhook URL is not configured');
+  const webhookUrl = getAccountWebhookUrl();
+  if (!webhookUrl) {
+    console.warn('Account webhook URL is not configured');
     return;
   }
 
@@ -40,7 +46,7 @@ export async function submitAccountEvent(
     ...(hasUtms(utms) ? utms : {}),
   };
 
-  const response = await fetch(ONBOARDING_WEBHOOK_URL, {
+  const response = await fetch(webhookUrl, {
     method: 'POST',
     redirect: 'follow',
     headers: { 'Content-Type': 'text/plain;charset=utf-8' },

@@ -49,6 +49,7 @@ jobs:
         env:
           NEXT_PUBLIC_YM_ID: ${{ secrets.NEXT_PUBLIC_YM_ID }}
           NEXT_PUBLIC_FB_PIXEL_ID: ${{ secrets.NEXT_PUBLIC_FB_PIXEL_ID }}
+          NEXT_PUBLIC_ACCOUNT_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ACCOUNT_WEBHOOK_URL }}
           NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL }}
           NEXT_PUBLIC_STRIPE_PAYMENT_LINK: ${{ secrets.NEXT_PUBLIC_STRIPE_PAYMENT_LINK }}
           NEXT_PUBLIC_ACTIVATION_SECRET: ${{ secrets.NEXT_PUBLIC_ACTIVATION_SECRET }}
@@ -60,6 +61,7 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: /test
           NEXT_PUBLIC_YM_ID: ${{ secrets.NEXT_PUBLIC_YM_ID }}
           NEXT_PUBLIC_FB_PIXEL_ID: ${{ secrets.NEXT_PUBLIC_FB_PIXEL_ID }}
+          NEXT_PUBLIC_ACCOUNT_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ACCOUNT_WEBHOOK_URL }}
           NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL }}
           # Payment Link success URL should be https://rentiers.net/test/payment-success/
           # Optional override: NEXT_PUBLIC_STRIPE_PAYMENT_LINK_TEST
