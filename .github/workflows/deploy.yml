@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
@@ -19,21 +19,48 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production site (root)
+        run: npm run build
         env:
           NEXT_PUBLIC_YM_ID: ${{ secrets.NEXT_PUBLIC_YM_ID }}
           NEXT_PUBLIC_FB_PIXEL_ID: ${{ secrets.NEXT_PUBLIC_FB_PIXEL_ID }}
           NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL }}
           NEXT_PUBLIC_STRIPE_PAYMENT_LINK: ${{ secrets.NEXT_PUBLIC_STRIPE_PAYMENT_LINK }}
           NEXT_PUBLIC_ACTIVATION_SECRET: ${{ secrets.NEXT_PUBLIC_ACTIVATION_SECRET }}
+
+      - name: Stage production build
+        run: |
+          mkdir -p assembled
+          cp -R out/. assembled/
+
+      - name: Build test preview (/test)
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /test
+          NEXT_PUBLIC_YM_ID: ${{ secrets.NEXT_PUBLIC_YM_ID }}
+          NEXT_PUBLIC_FB_PIXEL_ID: ${{ secrets.NEXT_PUBLIC_FB_PIXEL_ID }}
+          NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL }}
+          NEXT_PUBLIC_STRIPE_PAYMENT_LINK: ${{ secrets.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_TEST || secrets.NEXT_PUBLIC_STRIPE_PAYMENT_LINK }}
+          NEXT_PUBLIC_ACTIVATION_SECRET: ${{ secrets.NEXT_PUBLIC_ACTIVATION_SECRET }}
+
+      - name: Assemble /test preview
+        run: |
+          mkdir -p assembled/test
+          cp -R out/. assembled/test/
+          printf 'User-agent: *\nDisallow: /\n' > assembled/test/robots.txt
+
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: ./out
+          path: assembled
 
   deploy:
     environment:

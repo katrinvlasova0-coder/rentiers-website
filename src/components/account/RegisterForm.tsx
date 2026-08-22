@@ -183,12 +183,6 @@ export function RegisterForm() {
       style={{ backgroundColor: ACCOUNT_THEME.card }}
     >
       <div className="mb-6">
-        <p
-          className="mb-2 text-xs font-semibold uppercase tracking-[0.16em]"
-          style={{ color: ACCOUNT_THEME.primary }}
-        >
-          Step 1 of 4
-        </p>
         <h2 className="text-xl font-bold text-white">Create your account</h2>
         <p className="mt-2 text-sm text-slate-400">
           Start with your contact details. It only takes a minute.

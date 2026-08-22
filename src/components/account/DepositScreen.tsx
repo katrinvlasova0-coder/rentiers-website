@@ -78,6 +78,8 @@ export function DepositScreen() {
     maximumFractionDigits: 0,
   }).format(Number(session.investmentAmount));
 
+  const paymentConfigured = Boolean(process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK);
+
   const handlePayment = () => {
     setError('');
     try {
@@ -100,15 +102,10 @@ export function DepositScreen() {
       className="rounded-2xl border border-cyan-300/10 p-5 shadow-2xl shadow-black/20 sm:p-7"
       style={{ backgroundColor: ACCOUNT_THEME.card }}
     >
-      <p
-        className="text-xs font-semibold uppercase tracking-[0.16em]"
-        style={{ color: ACCOUNT_THEME.primary }}
-      >
-        Step 3 of 4
-      </p>
-      <h2 className="mt-2 text-xl font-bold text-white">Fund your investment</h2>
+      <h2 className="text-xl font-bold text-white">Fund your investment</h2>
       <p className="mt-2 text-sm text-slate-400">
-        Review your selection, then continue to our secure Stripe checkout.
+        Review your selection, then continue to our secure Stripe checkout. First payout
+        is typically about 12 months after activation.
       </p>
 
       <dl className="mt-6 divide-y divide-slate-700/70 rounded-xl border border-slate-700/70 bg-slate-950/20 px-4">
@@ -123,6 +120,19 @@ export function DepositScreen() {
           <dd className="font-semibold text-white">{formattedAmount}</dd>
         </div>
       </dl>
+
+      <div className="mt-5 rounded-xl border border-slate-700/70 bg-slate-950/20 px-4 py-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
+          Payment methods
+        </p>
+        <p className="mt-2 text-sm text-slate-300">Card · SEPA · iDEAL</p>
+      </div>
+
+      <ul className="mt-5 space-y-2 text-sm text-slate-400">
+        <li>Stripe PCI-compliant checkout — we never store card details.</li>
+        <li>Funds are received by Rentiers Global Inc.</li>
+        <li>Account activation within 3 business days after payment clears.</li>
+      </ul>
 
       <Link
         href="/account/portfolio"
@@ -144,12 +154,13 @@ export function DepositScreen() {
       <button
         type="button"
         onClick={handlePayment}
-        className="mt-6 w-full rounded-xl py-3.5 font-semibold text-white"
+        disabled={!paymentConfigured}
+        className="mt-6 w-full rounded-xl py-3.5 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
         style={{
           background: `linear-gradient(90deg, ${ACCOUNT_THEME.blue}, ${ACCOUNT_THEME.primary})`,
         }}
       >
-        Pay Deposit Securely →
+        Pay Securely with Stripe →
       </button>
 
       <button
@@ -157,7 +168,7 @@ export function DepositScreen() {
         onClick={() => setPaidMessage(true)}
         className="mt-4 w-full text-sm text-slate-400 underline underline-offset-4 hover:text-white"
       >
-        I’ve already paid
+        I’ve already paid — check my status
       </button>
 
       {paidMessage && (
@@ -165,7 +176,7 @@ export function DepositScreen() {
           role="status"
           className="mt-4 rounded-xl border border-cyan-300/20 bg-cyan-300/5 px-4 py-3 text-sm text-slate-300"
         >
-          Your payment may still be processing.{' '}
+          We&apos;re checking your payment — this can take up to 24 hours.{' '}
           <Link
             href="/account/dashboard"
             className="font-semibold underline underline-offset-4"

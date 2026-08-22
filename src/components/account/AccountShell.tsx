@@ -49,7 +49,7 @@ export function AccountShell({ children, stepIndex = null, title }: AccountShell
       </div>
 
       <footer className="border-t border-slate-800/80 px-4 py-5 text-center text-xs text-slate-500">
-        Secure connection · Your information is encrypted and protected
+        AES-256 · FinCEN/FINTRAC · Rentiers Global Inc. © 2026
       </footer>
     </div>
   );
