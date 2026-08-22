@@ -45,3 +45,5 @@ content-factory/logs/*.json
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.worktrees
+.superpowers/

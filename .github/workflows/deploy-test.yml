@@ -1,8 +1,14 @@
-name: Deploy to GitHub Pages
+name: Deploy test preview (/test)
+
+# Publishes the feature build at https://rentiers.net/test/
+# while keeping production (from main) at https://rentiers.net/
+#
+# Note: a plain main-branch deploy.yml run will replace the whole Pages
+# site and remove /test until this assemble step is also on main.
 
 on:
   push:
-    branches: [main]
+    branches: [feat/account-app-iteration1]
   workflow_dispatch:
 
 permissions:
@@ -18,44 +24,56 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout feature branch (test app)
+        uses: actions/checkout@v6
+        with:
+          path: test-app
+
+      - name: Checkout main (production root)
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          path: prod-app
 
       - uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+          cache-dependency-path: |
+            prod-app/package-lock.json
+            test-app/package-lock.json
 
       - name: Build production site (root)
-        run: npm run build
+        working-directory: prod-app
+        run: npm ci && npm run build
         env:
           NEXT_PUBLIC_YM_ID: ${{ secrets.NEXT_PUBLIC_YM_ID }}
           NEXT_PUBLIC_FB_PIXEL_ID: ${{ secrets.NEXT_PUBLIC_FB_PIXEL_ID }}
+          NEXT_PUBLIC_ACCOUNT_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ACCOUNT_WEBHOOK_URL }}
           NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL }}
           NEXT_PUBLIC_STRIPE_PAYMENT_LINK: ${{ secrets.NEXT_PUBLIC_STRIPE_PAYMENT_LINK }}
           NEXT_PUBLIC_ACTIVATION_SECRET: ${{ secrets.NEXT_PUBLIC_ACTIVATION_SECRET }}
 
-      - name: Stage production build
-        run: |
-          mkdir -p assembled
-          cp -R out/. assembled/
-
       - name: Build test preview (/test)
-        run: npm run build
+        working-directory: test-app
+        run: npm ci && npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /test
           NEXT_PUBLIC_YM_ID: ${{ secrets.NEXT_PUBLIC_YM_ID }}
           NEXT_PUBLIC_FB_PIXEL_ID: ${{ secrets.NEXT_PUBLIC_FB_PIXEL_ID }}
+          NEXT_PUBLIC_ACCOUNT_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ACCOUNT_WEBHOOK_URL }}
           NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL: ${{ secrets.NEXT_PUBLIC_ONBOARDING_WEBHOOK_URL }}
+          # Payment Link success URL should be https://rentiers.net/test/payment-success/
+          # Optional override: NEXT_PUBLIC_STRIPE_PAYMENT_LINK_TEST
           NEXT_PUBLIC_STRIPE_PAYMENT_LINK: ${{ secrets.NEXT_PUBLIC_STRIPE_PAYMENT_LINK_TEST || secrets.NEXT_PUBLIC_STRIPE_PAYMENT_LINK }}
           NEXT_PUBLIC_ACTIVATION_SECRET: ${{ secrets.NEXT_PUBLIC_ACTIVATION_SECRET }}
 
-      - name: Assemble /test preview
+      - name: Assemble root + /test
         run: |
           mkdir -p assembled/test
-          cp -R out/. assembled/test/
+          cp -R prod-app/out/. assembled/
+          cp -R test-app/out/. assembled/test/
+          # Soft gate: discourage indexing of the preview tree
           printf 'User-agent: *\nDisallow: /\n' > assembled/test/robots.txt
 
       - uses: actions/upload-pages-artifact@v4

@@ -2,21 +2,29 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { shouldHideSiteChrome } from '@/components/account/SiteChromeGate';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LeadButton from '@/components/ui/LeadButton';
 import { assetPath } from '@/lib/basePath';
 import { ymGoal } from '@/lib/metrika';
 
 export default function Header() {
+  const pathname = usePathname();
+  const hideSiteChrome = shouldHideSiteChrome(pathname);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { lang, t, toggle } = useLanguage();
 
   useEffect(() => {
+    if (hideSiteChrome) return;
+
     const handler = () => setScrolled(window.scrollY > 16);
     window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
-  }, []);
+  }, [hideSiteChrome]);
+
+  if (hideSiteChrome) return null;
 
   const navLinks = [
     { label: t.nav.portfolios, href: '/portfolios' },

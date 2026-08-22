@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rentiers Manager Activation Link</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        background: #080d1d;
+        color: #e2e8f0;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; padding: 48px 20px; }
+      main {
+        width: min(100%, 680px);
+        margin: 0 auto;
+        padding: 28px;
+        border: 1px solid #20304b;
+        border-radius: 18px;
+        background: #10182a;
+        box-shadow: 0 24px 70px rgb(0 0 0 / 35%);
+      }
+      h1 { margin: 0; color: #67d7eb; font-size: 1.6rem; }
+      p { color: #94a3b8; line-height: 1.6; }
+      form { display: grid; gap: 16px; margin-top: 24px; }
+      label { display: grid; gap: 7px; color: #cbd5e1; font-size: 0.85rem; }
+      input, select, button, textarea {
+        width: 100%;
+        border: 1px solid #2a3d5e;
+        border-radius: 10px;
+        padding: 12px 14px;
+        background: #0a1120;
+        color: #f8fafc;
+        font: inherit;
+      }
+      input:focus, select:focus, textarea:focus {
+        border-color: #67d7eb;
+        outline: 2px solid rgb(103 215 235 / 12%);
+      }
+      button {
+        cursor: pointer;
+        border: 0;
+        background: linear-gradient(90deg, #2563eb, #67d7eb);
+        color: #07101f;
+        font-weight: 750;
+      }
+      button.secondary {
+        margin-top: 10px;
+        border: 1px solid #2a3d5e;
+        background: transparent;
+        color: #e2e8f0;
+      }
+      textarea { min-height: 112px; resize: vertical; }
+      #status { min-height: 1.4em; margin-bottom: 0; font-size: 0.85rem; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Portfolio activation link</h1>
+      <p>Internal manager helper. Enter the confirmed portfolio details and share the generated link with the investor.</p>
+
+      <form id="activation-form">
+        <label>
+          Activation page URL
+          <input id="baseUrl" type="url" value="" required />
+          <small style="color:#64748b">Defaults to this site’s /account/activate/</small>
+        </label>
+        <label>
+          Investor email
+          <input id="email" type="email" autocomplete="email" required />
+        </label>
+        <label>
+          Portfolio
+          <select id="portfolio" required>
+            <option value="conservative">Conservative</option>
+            <option value="balanced">Balanced</option>
+            <option value="high_yield">High Yield</option>
+          </select>
+        </label>
+        <label>
+          Investment amount (EUR)
+          <input id="amount" type="number" min="1" step="1" required />
+        </label>
+        <label>
+          Activated at
+          <input id="activatedAt" type="date" required />
+        </label>
+        <label>
+          Activation secret
+          <input id="secret" type="password" autocomplete="off" required />
+        </label>
+        <button type="submit">Generate activation link</button>
+      </form>
+
+      <label style="margin-top: 22px">
+        Generated link
+        <textarea id="result" readonly placeholder="The signed activation URL will appear here."></textarea>
+      </label>
+      <button id="copy" class="secondary" type="button" disabled>Copy link</button>
+      <p id="status" aria-live="polite"></p>
+    </main>
+
+    <script>
+      const form = document.getElementById('activation-form');
+      const result = document.getElementById('result');
+      const copy = document.getElementById('copy');
+      const status = document.getElementById('status');
+      document.getElementById('activatedAt').value = new Date().toISOString().slice(0, 10);
+      // Prefer current origin + optional /test base when hosted as a preview.
+      const pathPrefix = window.location.pathname.startsWith('/test')
+        ? '/test'
+        : '';
+      document.getElementById('baseUrl').value =
+        `${window.location.origin}${pathPrefix}/account/activate/`;
+
+      async function sha256Hex(message) {
+        const data = new TextEncoder().encode(message);
+        const hash = await crypto.subtle.digest('SHA-256', data);
+        return Array.from(new Uint8Array(hash))
+          .map((byte) => byte.toString(16).padStart(2, '0'))
+          .join('');
+      }
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        status.textContent = 'Generating…';
+
+        try {
+          const email = document.getElementById('email').value;
+          const portfolio = document.getElementById('portfolio').value;
+          const amount = document.getElementById('amount').value;
+          const activatedAt = document.getElementById('activatedAt').value;
+          const secret = document.getElementById('secret').value;
+
+          // Must match activationSig.ts.
+          const payload = `${email.trim().toLowerCase()}|${amount}|${activatedAt}|${portfolio}|${secret}`;
+          const sig = (await sha256Hex(payload)).slice(0, 16);
+          const url = new URL(document.getElementById('baseUrl').value);
+          url.search = new URLSearchParams({
+            email,
+            portfolio,
+            amount,
+            activatedAt,
+            sig,
+          }).toString();
+
+          result.value = url.toString();
+          copy.disabled = false;
+          status.textContent = 'Activation link generated.';
+        } catch {
+          result.value = '';
+          copy.disabled = true;
+          status.textContent = 'Could not generate the link. Check the entered values.';
+        }
+      });
+
+      copy.addEventListener('click', async () => {
+        if (!result.value) return;
+        await navigator.clipboard.writeText(result.value);
+        status.textContent = 'Link copied.';
+      });
+    </script>
+  </body>
+</html>
