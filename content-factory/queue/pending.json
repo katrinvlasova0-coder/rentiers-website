@@ -1,38 +1,5 @@
 [
   {
-    "id": 208,
-    "cluster": "Länder-Guides",
-    "slug": "bankensystem-armenien-ueberblick-2026",
-    "titleDe": "Bankensystem Armenien: Aufsicht, Struktur und Einlagensicherung",
-    "titleEn": "Armenia's Banking System: Supervision, Structure and Deposit Insurance",
-    "keywordDe": "bankensystem armenien",
-    "searchVolDe": 980,
-    "kd": 20,
-    "keywordEn": "armenia banking system",
-    "searchVolEn": 1180,
-    "lsiKeywords": [
-      "cba armenien",
-      "yerevan banken",
-      "einlagensicherung armenien"
-    ],
-    "format": "Country Guide",
-    "targetLength": 1800,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "medium",
-    "plannedDate": "2026-08-01",
-    "language": "DE+EN",
-    "category": "Länder-Guides",
-    "status": "pending",
-    "unsplashQuery": "yerevan armenia finance",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 209,
     "cluster": "Länder-Guides",
     "slug": "bankensystem-israel-ueberblick-2026",
