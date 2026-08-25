@@ -1,38 +1,5 @@
 [
   {
-    "id": 209,
-    "cluster": "Länder-Guides",
-    "slug": "bankensystem-israel-ueberblick-2026",
-    "titleDe": "Bankensystem Israel: Aufsicht und Einlagenschutz im Überblick",
-    "titleEn": "Israel's Banking System: Supervision and Deposit Protection Overview",
-    "keywordDe": "bankensystem israel",
-    "searchVolDe": 990,
-    "kd": 20,
-    "keywordEn": "israel banking system",
-    "searchVolEn": 1190,
-    "lsiKeywords": [
-      "bank of israel",
-      "einlagenschutz israel",
-      "tel aviv finance"
-    ],
-    "format": "Country Guide",
-    "targetLength": 1800,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "medium",
-    "plannedDate": "2026-08-02",
-    "language": "DE+EN",
-    "category": "Länder-Guides",
-    "status": "pending",
-    "unsplashQuery": "tel aviv finance district",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 210,
     "cluster": "Länder-Guides",
     "slug": "bankensystem-serbien-ueberblick-2026",
