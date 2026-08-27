@@ -1,38 +1,5 @@
 [
   {
-    "id": 210,
-    "cluster": "Länder-Guides",
-    "slug": "bankensystem-serbien-ueberblick-2026",
-    "titleDe": "Bankensystem Serbien: Aufsicht und Einlagensicherung erklärt",
-    "titleEn": "Serbia's Banking System: Supervision and Deposit Insurance Explained",
-    "keywordDe": "bankensystem serbien",
-    "searchVolDe": 1000,
-    "kd": 20,
-    "keywordEn": "serbia banking system",
-    "searchVolEn": 1200,
-    "lsiKeywords": [
-      "nationalbank serbien",
-      "einlagensicherung serbien",
-      "belgrad banken"
-    ],
-    "format": "Country Guide",
-    "targetLength": 1800,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "medium",
-    "plannedDate": "2026-08-03",
-    "language": "DE+EN",
-    "category": "Länder-Guides",
-    "status": "pending",
-    "unsplashQuery": "belgrade serbia banking",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 213,
     "cluster": "Sicherheit",
     "slug": "einlagensicherung-grenzen-verstehen-2026",

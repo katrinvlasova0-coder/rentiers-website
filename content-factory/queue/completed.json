@@ -366,6 +366,40 @@
     "completedAt": "2026-08-01"
   },
   {
+    "id": 209,
+    "cluster": "Länder-Guides",
+    "slug": "bankensystem-israel-ueberblick-2026",
+    "titleDe": "Bankensystem Israel: Aufsicht und Einlagenschutz im Überblick",
+    "titleEn": "Israel's Banking System: Supervision and Deposit Protection Overview",
+    "keywordDe": "bankensystem israel",
+    "searchVolDe": 990,
+    "kd": 20,
+    "keywordEn": "israel banking system",
+    "searchVolEn": 1190,
+    "lsiKeywords": [
+      "bank of israel",
+      "einlagenschutz israel",
+      "tel aviv finance"
+    ],
+    "format": "Country Guide",
+    "targetLength": 1800,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-08-02",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "completed",
+    "unsplashQuery": "tel aviv finance district",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-02"
+  },
+  {
     "id": 211,
     "cluster": "B2B",
     "slug": "gdpr-finanzdaten-schutz-2026",
@@ -502,20 +536,20 @@
     "completedAt": "2026-08-01"
   },
   {
-    "id": 209,
+    "id": 210,
     "cluster": "Länder-Guides",
-    "slug": "bankensystem-israel-ueberblick-2026",
-    "titleDe": "Bankensystem Israel: Aufsicht und Einlagenschutz im Überblick",
-    "titleEn": "Israel's Banking System: Supervision and Deposit Protection Overview",
-    "keywordDe": "bankensystem israel",
-    "searchVolDe": 990,
+    "slug": "bankensystem-serbien-ueberblick-2026",
+    "titleDe": "Bankensystem Serbien: Aufsicht und Einlagensicherung erklärt",
+    "titleEn": "Serbia's Banking System: Supervision and Deposit Insurance Explained",
+    "keywordDe": "bankensystem serbien",
+    "searchVolDe": 1000,
     "kd": 20,
-    "keywordEn": "israel banking system",
-    "searchVolEn": 1190,
+    "keywordEn": "serbia banking system",
+    "searchVolEn": 1200,
     "lsiKeywords": [
-      "bank of israel",
-      "einlagenschutz israel",
-      "tel aviv finance"
+      "nationalbank serbien",
+      "einlagensicherung serbien",
+      "belgrad banken"
     ],
     "format": "Country Guide",
     "targetLength": 1800,
@@ -524,15 +558,15 @@
       "2"
     ],
     "priority": "medium",
-    "plannedDate": "2026-08-02",
+    "plannedDate": "2026-08-03",
     "language": "DE+EN",
     "category": "Länder-Guides",
     "status": "completed",
-    "unsplashQuery": "tel aviv finance district",
+    "unsplashQuery": "belgrade serbia banking",
     "author": {
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-08-25T08:31:28.065Z"
+    "completedAt": "2026-08-27T18:31:38.221Z"
   }
 ]
