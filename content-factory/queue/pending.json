@@ -1,38 +1,5 @@
 [
   {
-    "id": 213,
-    "cluster": "Sicherheit",
-    "slug": "einlagensicherung-grenzen-verstehen-2026",
-    "titleDe": "Einlagensicherung verstehen: Decungen, Grenzen und typische Irrtümer",
-    "titleEn": "Understanding Deposit Insurance: Coverage, Limits and Myths",
-    "keywordDe": "einlagensicherung verstehen",
-    "searchVolDe": 1030,
-    "kd": 20,
-    "keywordEn": "deposit insurance explained",
-    "searchVolEn": 1230,
-    "lsiKeywords": [
-      "dgs edis",
-      "entschädigung einleger",
-      "pro bank pro person"
-    ],
-    "format": "Explainer",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "medium",
-    "plannedDate": "2026-08-06",
-    "language": "DE+EN",
-    "category": "Sicherheit",
-    "status": "pending",
-    "unsplashQuery": "bank vault security",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 214,
     "cluster": "Sicherheit",
     "slug": "bafin-register-pruefen-2026",

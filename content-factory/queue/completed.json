@@ -400,6 +400,40 @@
     "completedAt": "2026-08-02"
   },
   {
+    "id": 210,
+    "cluster": "Länder-Guides",
+    "slug": "bankensystem-serbien-ueberblick-2026",
+    "titleDe": "Bankensystem Serbien: Aufsicht und Einlagensicherung erklärt",
+    "titleEn": "Serbia's Banking System: Supervision and Deposit Insurance Explained",
+    "keywordDe": "bankensystem serbien",
+    "searchVolDe": 1000,
+    "kd": 20,
+    "keywordEn": "serbia banking system",
+    "searchVolEn": 1200,
+    "lsiKeywords": [
+      "nationalbank serbien",
+      "einlagensicherung serbien",
+      "belgrad banken"
+    ],
+    "format": "Country Guide",
+    "targetLength": 1800,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-08-03",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "completed",
+    "unsplashQuery": "belgrade serbia banking",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-03"
+  },
+  {
     "id": 211,
     "cluster": "B2B",
     "slug": "gdpr-finanzdaten-schutz-2026",
@@ -536,37 +570,37 @@
     "completedAt": "2026-08-01"
   },
   {
-    "id": 210,
-    "cluster": "Länder-Guides",
-    "slug": "bankensystem-serbien-ueberblick-2026",
-    "titleDe": "Bankensystem Serbien: Aufsicht und Einlagensicherung erklärt",
-    "titleEn": "Serbia's Banking System: Supervision and Deposit Insurance Explained",
-    "keywordDe": "bankensystem serbien",
-    "searchVolDe": 1000,
+    "id": 213,
+    "cluster": "Sicherheit",
+    "slug": "einlagensicherung-grenzen-verstehen-2026",
+    "titleDe": "Einlagensicherung verstehen: Decungen, Grenzen und typische Irrtümer",
+    "titleEn": "Understanding Deposit Insurance: Coverage, Limits and Myths",
+    "keywordDe": "einlagensicherung verstehen",
+    "searchVolDe": 1030,
     "kd": 20,
-    "keywordEn": "serbia banking system",
-    "searchVolEn": 1200,
+    "keywordEn": "deposit insurance explained",
+    "searchVolEn": 1230,
     "lsiKeywords": [
-      "nationalbank serbien",
-      "einlagensicherung serbien",
-      "belgrad banken"
+      "dgs edis",
+      "entschädigung einleger",
+      "pro bank pro person"
     ],
-    "format": "Country Guide",
-    "targetLength": 1800,
+    "format": "Explainer",
+    "targetLength": 1500,
     "taSegments": [
       "1",
       "2"
     ],
     "priority": "medium",
-    "plannedDate": "2026-08-03",
+    "plannedDate": "2026-08-06",
     "language": "DE+EN",
-    "category": "Länder-Guides",
+    "category": "Sicherheit",
     "status": "completed",
-    "unsplashQuery": "belgrade serbia banking",
+    "unsplashQuery": "bank vault security",
     "author": {
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-08-27T18:31:38.221Z"
+    "completedAt": "2026-08-29T13:30:30.524Z"
   }
 ]
