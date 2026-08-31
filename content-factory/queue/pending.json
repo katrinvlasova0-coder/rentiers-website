@@ -1,38 +1,5 @@
 [
   {
-    "id": 214,
-    "cluster": "Sicherheit",
-    "slug": "bafin-register-pruefen-2026",
-    "titleDe": "BaFin-Register prüfen: So kontrollieren Sie Anbieter selbst",
-    "titleEn": "Checking the BaFin Register: How to Verify Providers Yourself",
-    "keywordDe": "bafin register prüfen",
-    "searchVolDe": 1040,
-    "kd": 20,
-    "keywordEn": "check bafin register",
-    "searchVolEn": 1240,
-    "lsiKeywords": [
-      "unternehmensdatenbank bafin",
-      "erlaubnis prüfen",
-      "aufsicht deutschland"
-    ],
-    "format": "Howto",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "medium",
-    "plannedDate": "2026-08-07",
-    "language": "DE+EN",
-    "category": "Sicherheit",
-    "status": "pending",
-    "unsplashQuery": "regulatory documents stamp",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 215,
     "cluster": "Sicherheit",
     "slug": "finanzapps-sicherheit-2fa-2026",
