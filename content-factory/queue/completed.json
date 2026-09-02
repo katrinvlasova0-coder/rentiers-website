@@ -536,6 +536,40 @@
     "completedAt": "2026-08-06"
   },
   {
+    "id": 214,
+    "cluster": "Sicherheit",
+    "slug": "bafin-register-pruefen-2026",
+    "titleDe": "BaFin-Register prüfen: So kontrollieren Sie Anbieter selbst",
+    "titleEn": "Checking the BaFin Register: How to Verify Providers Yourself",
+    "keywordDe": "bafin register prüfen",
+    "searchVolDe": 1040,
+    "kd": 20,
+    "keywordEn": "check bafin register",
+    "searchVolEn": 1240,
+    "lsiKeywords": [
+      "unternehmensdatenbank bafin",
+      "erlaubnis prüfen",
+      "aufsicht deutschland"
+    ],
+    "format": "Howto",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-08-07",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "completed",
+    "unsplashQuery": "regulatory documents stamp",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-07"
+  },
+  {
     "id": 216,
     "cluster": "B2B",
     "slug": "crs-fatca-erklaert-2026",
@@ -604,20 +638,20 @@
     "completedAt": "2026-08-01"
   },
   {
-    "id": 214,
+    "id": 215,
     "cluster": "Sicherheit",
-    "slug": "bafin-register-pruefen-2026",
-    "titleDe": "BaFin-Register prüfen: So kontrollieren Sie Anbieter selbst",
-    "titleEn": "Checking the BaFin Register: How to Verify Providers Yourself",
-    "keywordDe": "bafin register prüfen",
-    "searchVolDe": 1040,
+    "slug": "finanzapps-sicherheit-2fa-2026",
+    "titleDe": "Sicherheit von Finanz-Apps: Verschlüsselung, 2FA und Phishing",
+    "titleEn": "Financial App Security: Encryption, 2FA and Phishing Risks",
+    "keywordDe": "finanz app sicherheit",
+    "searchVolDe": 1050,
     "kd": 20,
-    "keywordEn": "check bafin register",
-    "searchVolEn": 1240,
+    "keywordEn": "financial app security 2fa",
+    "searchVolEn": 1250,
     "lsiKeywords": [
-      "unternehmensdatenbank bafin",
-      "erlaubnis prüfen",
-      "aufsicht deutschland"
+      "zwei faktor authentifizierung",
+      "phishing bank",
+      "mobile banking sicherheit"
     ],
     "format": "Howto",
     "targetLength": 1500,
@@ -626,15 +660,15 @@
       "2"
     ],
     "priority": "medium",
-    "plannedDate": "2026-08-07",
+    "plannedDate": "2026-08-08",
     "language": "DE+EN",
     "category": "Sicherheit",
     "status": "completed",
-    "unsplashQuery": "regulatory documents stamp",
+    "unsplashQuery": "smartphone security lock",
     "author": {
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-08-31T15:40:46.070Z"
+    "completedAt": "2026-09-02T12:24:18.425Z"
   }
 ]
