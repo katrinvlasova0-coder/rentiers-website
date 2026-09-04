@@ -1,38 +1,5 @@
 [
   {
-    "id": 217,
-    "cluster": "Finanzbildung",
-    "slug": "festgeld-vs-tagesgeld-unterschied-2026",
-    "titleDe": "Festgeld vs. Tagesgeld: Unterschiede ohne Produktwerbung",
-    "titleEn": "Fixed Deposit vs Instant Access Savings: Differences Without Product Hype",
-    "keywordDe": "festgeld vs tagesgeld",
-    "searchVolDe": 1070,
-    "kd": 20,
-    "keywordEn": "fixed deposit vs savings account",
-    "searchVolEn": 1270,
-    "lsiKeywords": [
-      "laufzeit zinsen",
-      "verfügbarkeit einlage",
-      "kündigungsfrist"
-    ],
-    "format": "Vergleich",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "medium",
-    "plannedDate": "2026-08-10",
-    "language": "DE+EN",
-    "category": "Finanzbildung",
-    "status": "pending",
-    "unsplashQuery": "savings jar calendar",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 218,
     "cluster": "Sicherheit",
     "slug": "gegenparteirisiko-banken-verstehen-2026",

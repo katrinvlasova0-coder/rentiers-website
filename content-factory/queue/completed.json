@@ -570,6 +570,40 @@
     "completedAt": "2026-08-07"
   },
   {
+    "id": 215,
+    "cluster": "Sicherheit",
+    "slug": "finanzapps-sicherheit-2fa-2026",
+    "titleDe": "Sicherheit von Finanz-Apps: Verschlüsselung, 2FA und Phishing",
+    "titleEn": "Financial App Security: Encryption, 2FA and Phishing Risks",
+    "keywordDe": "finanz app sicherheit",
+    "searchVolDe": 1050,
+    "kd": 20,
+    "keywordEn": "financial app security 2fa",
+    "searchVolEn": 1250,
+    "lsiKeywords": [
+      "zwei faktor authentifizierung",
+      "phishing bank",
+      "mobile banking sicherheit"
+    ],
+    "format": "Howto",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-08-08",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "completed",
+    "unsplashQuery": "smartphone security lock",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-08"
+  },
+  {
     "id": 216,
     "cluster": "B2B",
     "slug": "crs-fatca-erklaert-2026",
@@ -638,37 +672,37 @@
     "completedAt": "2026-08-01"
   },
   {
-    "id": 215,
-    "cluster": "Sicherheit",
-    "slug": "finanzapps-sicherheit-2fa-2026",
-    "titleDe": "Sicherheit von Finanz-Apps: Verschlüsselung, 2FA und Phishing",
-    "titleEn": "Financial App Security: Encryption, 2FA and Phishing Risks",
-    "keywordDe": "finanz app sicherheit",
-    "searchVolDe": 1050,
+    "id": 217,
+    "cluster": "Finanzbildung",
+    "slug": "festgeld-vs-tagesgeld-unterschied-2026",
+    "titleDe": "Festgeld vs. Tagesgeld: Unterschiede ohne Produktwerbung",
+    "titleEn": "Fixed Deposit vs Instant Access Savings: Differences Without Product Hype",
+    "keywordDe": "festgeld vs tagesgeld",
+    "searchVolDe": 1070,
     "kd": 20,
-    "keywordEn": "financial app security 2fa",
-    "searchVolEn": 1250,
+    "keywordEn": "fixed deposit vs savings account",
+    "searchVolEn": 1270,
     "lsiKeywords": [
-      "zwei faktor authentifizierung",
-      "phishing bank",
-      "mobile banking sicherheit"
+      "laufzeit zinsen",
+      "verfügbarkeit einlage",
+      "kündigungsfrist"
     ],
-    "format": "Howto",
+    "format": "Vergleich",
     "targetLength": 1500,
     "taSegments": [
       "1",
       "2"
     ],
     "priority": "medium",
-    "plannedDate": "2026-08-08",
+    "plannedDate": "2026-08-10",
     "language": "DE+EN",
-    "category": "Sicherheit",
+    "category": "Finanzbildung",
     "status": "completed",
-    "unsplashQuery": "smartphone security lock",
+    "unsplashQuery": "savings jar calendar",
     "author": {
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-09-02T12:24:18.425Z"
+    "completedAt": "2026-09-04T12:23:08.577Z"
   }
 ]
