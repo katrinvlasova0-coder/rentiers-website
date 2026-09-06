@@ -638,6 +638,40 @@
     "completedAt": "2026-08-09"
   },
   {
+    "id": 217,
+    "cluster": "Finanzbildung",
+    "slug": "festgeld-vs-tagesgeld-unterschied-2026",
+    "titleDe": "Festgeld vs. Tagesgeld: Unterschiede ohne Produktwerbung",
+    "titleEn": "Fixed Deposit vs Instant Access Savings: Differences Without Product Hype",
+    "keywordDe": "festgeld vs tagesgeld",
+    "searchVolDe": 1070,
+    "kd": 20,
+    "keywordEn": "fixed deposit vs savings account",
+    "searchVolEn": 1270,
+    "lsiKeywords": [
+      "laufzeit zinsen",
+      "verfügbarkeit einlage",
+      "kündigungsfrist"
+    ],
+    "format": "Vergleich",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-08-10",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "completed",
+    "unsplashQuery": "savings jar calendar",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-10"
+  },
+  {
     "id": 223,
     "cluster": "B2B",
     "slug": "unternehmensliquiditaet-kurzfristig-parken-2026",
@@ -672,37 +706,37 @@
     "completedAt": "2026-08-01"
   },
   {
-    "id": 217,
-    "cluster": "Finanzbildung",
-    "slug": "festgeld-vs-tagesgeld-unterschied-2026",
-    "titleDe": "Festgeld vs. Tagesgeld: Unterschiede ohne Produktwerbung",
-    "titleEn": "Fixed Deposit vs Instant Access Savings: Differences Without Product Hype",
-    "keywordDe": "festgeld vs tagesgeld",
-    "searchVolDe": 1070,
+    "id": 218,
+    "cluster": "Sicherheit",
+    "slug": "gegenparteirisiko-banken-verstehen-2026",
+    "titleDe": "Gegenparteirisiko bei Banken: Was Einleger beachten sollten",
+    "titleEn": "Bank Counterparty Risk: What Depositors Should Watch For",
+    "keywordDe": "gegenparteirisiko bank",
+    "searchVolDe": 1080,
     "kd": 20,
-    "keywordEn": "fixed deposit vs savings account",
-    "searchVolEn": 1270,
+    "keywordEn": "bank counterparty risk",
+    "searchVolEn": 1280,
     "lsiKeywords": [
-      "laufzeit zinsen",
-      "verfügbarkeit einlage",
-      "kündigungsfrist"
+      "kreditrisiko bank",
+      "insolvenz bank einleger",
+      "risikostreuung"
     ],
-    "format": "Vergleich",
+    "format": "Explainer",
     "targetLength": 1500,
     "taSegments": [
       "1",
       "2"
     ],
     "priority": "medium",
-    "plannedDate": "2026-08-10",
+    "plannedDate": "2026-08-11",
     "language": "DE+EN",
-    "category": "Finanzbildung",
+    "category": "Sicherheit",
     "status": "completed",
-    "unsplashQuery": "savings jar calendar",
+    "unsplashQuery": "risk management finance",
     "author": {
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-09-04T12:23:08.577Z"
+    "completedAt": "2026-09-06T11:51:28.671Z"
   }
 ]

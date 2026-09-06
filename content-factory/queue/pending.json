@@ -1,38 +1,5 @@
 [
   {
-    "id": 218,
-    "cluster": "Sicherheit",
-    "slug": "gegenparteirisiko-banken-verstehen-2026",
-    "titleDe": "Gegenparteirisiko bei Banken: Was Einleger beachten sollten",
-    "titleEn": "Bank Counterparty Risk: What Depositors Should Watch For",
-    "keywordDe": "gegenparteirisiko bank",
-    "searchVolDe": 1080,
-    "kd": 20,
-    "keywordEn": "bank counterparty risk",
-    "searchVolEn": 1280,
-    "lsiKeywords": [
-      "kreditrisiko bank",
-      "insolvenz bank einleger",
-      "risikostreuung"
-    ],
-    "format": "Explainer",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "medium",
-    "plannedDate": "2026-08-11",
-    "language": "DE+EN",
-    "category": "Sicherheit",
-    "status": "pending",
-    "unsplashQuery": "risk management finance",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 219,
     "cluster": "Sicherheit",
     "slug": "anlagebetrug-social-engineering-2026",
