@@ -1,38 +1,5 @@
 [
   {
-    "id": 219,
-    "cluster": "Sicherheit",
-    "slug": "anlagebetrug-social-engineering-2026",
-    "titleDe": "Social Engineering bei Geldanlagen: Manipulation erkennen",
-    "titleEn": "Social Engineering in Investments: Recognising Manipulation",
-    "keywordDe": "social engineering anlagebetrug",
-    "searchVolDe": 1090,
-    "kd": 20,
-    "keywordEn": "social engineering investment scam",
-    "searchVolEn": 1290,
-    "lsiKeywords": [
-      "druck taktiken",
-      "fake support",
-      "phishing investition"
-    ],
-    "format": "Howto",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "medium",
-    "plannedDate": "2026-08-12",
-    "language": "DE+EN",
-    "category": "Sicherheit",
-    "status": "pending",
-    "unsplashQuery": "phishing awareness cybersecurity",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 220,
     "cluster": "Finanzbildung",
     "slug": "inflation-kaufkraft-verstehen-2026",
