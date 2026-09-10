@@ -1,38 +1,5 @@
 [
   {
-    "id": 220,
-    "cluster": "Finanzbildung",
-    "slug": "inflation-kaufkraft-verstehen-2026",
-    "titleDe": "Inflation und Kaufkraft verstehen: Grundlagen für Sparer",
-    "titleEn": "Understanding Inflation and Purchasing Power: Basics for Savers",
-    "keywordDe": "inflation kaufkraft verstehen",
-    "searchVolDe": 1100,
-    "kd": 20,
-    "keywordEn": "inflation purchasing power explained",
-    "searchVolEn": 1300,
-    "lsiKeywords": [
-      "reale kaufkraft",
-      "verbraucherpreisindex",
-      "sparen und inflation"
-    ],
-    "format": "Explainer",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "medium",
-    "plannedDate": "2026-08-13",
-    "language": "DE+EN",
-    "category": "Finanzbildung",
-    "status": "pending",
-    "unsplashQuery": "inflation price tags market",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 221,
     "cluster": "Länder-Guides",
     "slug": "emerging-markets-bankenaufsicht-2026",
