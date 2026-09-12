@@ -1,38 +1,5 @@
 [
   {
-    "id": 221,
-    "cluster": "Länder-Guides",
-    "slug": "emerging-markets-bankenaufsicht-2026",
-    "titleDe": "Bankenaufsicht in Emerging Markets: Worauf Beobachter achten",
-    "titleEn": "Banking Supervision in Emerging Markets: What Observers Watch",
-    "keywordDe": "bankenaufsicht emerging markets",
-    "searchVolDe": 1110,
-    "kd": 20,
-    "keywordEn": "emerging markets banking supervision",
-    "searchVolEn": 1310,
-    "lsiKeywords": [
-      "zentralbank rolle",
-      "aufsichtsstandards",
-      "finanzstabilität"
-    ],
-    "format": "Explainer",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "medium",
-    "plannedDate": "2026-08-14",
-    "language": "DE+EN",
-    "category": "Länder-Guides",
-    "status": "pending",
-    "unsplashQuery": "central bank building",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    }
-  },
-  {
     "id": 222,
     "cluster": "Finanzbildung",
     "slug": "ratingagenturen-kritik-grenzen-2026",

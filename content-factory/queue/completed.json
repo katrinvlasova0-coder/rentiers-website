@@ -740,6 +740,40 @@
     "completedAt": "2026-08-12"
   },
   {
+    "id": 220,
+    "cluster": "Finanzbildung",
+    "slug": "inflation-kaufkraft-verstehen-2026",
+    "titleDe": "Inflation und Kaufkraft verstehen: Grundlagen für Sparer",
+    "titleEn": "Understanding Inflation and Purchasing Power: Basics for Savers",
+    "keywordDe": "inflation kaufkraft verstehen",
+    "searchVolDe": 1100,
+    "kd": 20,
+    "keywordEn": "inflation purchasing power explained",
+    "searchVolEn": 1300,
+    "lsiKeywords": [
+      "reale kaufkraft",
+      "verbraucherpreisindex",
+      "sparen und inflation"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-08-13",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "completed",
+    "unsplashQuery": "inflation price tags market",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-13"
+  },
+  {
     "id": 223,
     "cluster": "B2B",
     "slug": "unternehmensliquiditaet-kurzfristig-parken-2026",
@@ -774,20 +808,20 @@
     "completedAt": "2026-08-01"
   },
   {
-    "id": 220,
-    "cluster": "Finanzbildung",
-    "slug": "inflation-kaufkraft-verstehen-2026",
-    "titleDe": "Inflation und Kaufkraft verstehen: Grundlagen für Sparer",
-    "titleEn": "Understanding Inflation and Purchasing Power: Basics for Savers",
-    "keywordDe": "inflation kaufkraft verstehen",
-    "searchVolDe": 1100,
+    "id": 221,
+    "cluster": "Länder-Guides",
+    "slug": "emerging-markets-bankenaufsicht-2026",
+    "titleDe": "Bankenaufsicht in Emerging Markets: Worauf Beobachter achten",
+    "titleEn": "Banking Supervision in Emerging Markets: What Observers Watch",
+    "keywordDe": "bankenaufsicht emerging markets",
+    "searchVolDe": 1110,
     "kd": 20,
-    "keywordEn": "inflation purchasing power explained",
-    "searchVolEn": 1300,
+    "keywordEn": "emerging markets banking supervision",
+    "searchVolEn": 1310,
     "lsiKeywords": [
-      "reale kaufkraft",
-      "verbraucherpreisindex",
-      "sparen und inflation"
+      "zentralbank rolle",
+      "aufsichtsstandards",
+      "finanzstabilität"
     ],
     "format": "Explainer",
     "targetLength": 1500,
@@ -796,15 +830,15 @@
       "2"
     ],
     "priority": "medium",
-    "plannedDate": "2026-08-13",
+    "plannedDate": "2026-08-14",
     "language": "DE+EN",
-    "category": "Finanzbildung",
+    "category": "Länder-Guides",
     "status": "completed",
-    "unsplashQuery": "inflation price tags market",
+    "unsplashQuery": "central bank building",
     "author": {
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-09-10T12:29:53.421Z"
+    "completedAt": "2026-09-12T11:49:37.783Z"
   }
 ]
