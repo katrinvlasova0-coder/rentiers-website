@@ -774,6 +774,40 @@
     "completedAt": "2026-08-13"
   },
   {
+    "id": 221,
+    "cluster": "Länder-Guides",
+    "slug": "emerging-markets-bankenaufsicht-2026",
+    "titleDe": "Bankenaufsicht in Emerging Markets: Worauf Beobachter achten",
+    "titleEn": "Banking Supervision in Emerging Markets: What Observers Watch",
+    "keywordDe": "bankenaufsicht emerging markets",
+    "searchVolDe": 1110,
+    "kd": 20,
+    "keywordEn": "emerging markets banking supervision",
+    "searchVolEn": 1310,
+    "lsiKeywords": [
+      "zentralbank rolle",
+      "aufsichtsstandards",
+      "finanzstabilität"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-08-14",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "completed",
+    "unsplashQuery": "central bank building",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-14"
+  },
+  {
     "id": 223,
     "cluster": "B2B",
     "slug": "unternehmensliquiditaet-kurzfristig-parken-2026",
@@ -808,37 +842,37 @@
     "completedAt": "2026-08-01"
   },
   {
-    "id": 221,
-    "cluster": "Länder-Guides",
-    "slug": "emerging-markets-bankenaufsicht-2026",
-    "titleDe": "Bankenaufsicht in Emerging Markets: Worauf Beobachter achten",
-    "titleEn": "Banking Supervision in Emerging Markets: What Observers Watch",
-    "keywordDe": "bankenaufsicht emerging markets",
-    "searchVolDe": 1110,
+    "id": 222,
+    "cluster": "Finanzbildung",
+    "slug": "ratingagenturen-kritik-grenzen-2026",
+    "titleDe": "Kritik an Ratingagenturen: Grenzen und Interessenkonflikte",
+    "titleEn": "Criticism of Rating Agencies: Limits and Conflicts of Interest",
+    "keywordDe": "ratingagenturen kritik",
+    "searchVolDe": 1120,
     "kd": 20,
-    "keywordEn": "emerging markets banking supervision",
-    "searchVolEn": 1310,
+    "keywordEn": "rating agencies criticism",
+    "searchVolEn": 1320,
     "lsiKeywords": [
-      "zentralbank rolle",
-      "aufsichtsstandards",
-      "finanzstabilität"
+      "interessenkonflikt ratings",
+      "ratingversagen krise",
+      "regulierungsdebatte"
     ],
-    "format": "Explainer",
+    "format": "Meinungsartikel",
     "targetLength": 1500,
     "taSegments": [
       "1",
       "2"
     ],
     "priority": "medium",
-    "plannedDate": "2026-08-14",
+    "plannedDate": "2026-08-15",
     "language": "DE+EN",
-    "category": "Länder-Guides",
+    "category": "Finanzbildung",
     "status": "completed",
-    "unsplashQuery": "central bank building",
+    "unsplashQuery": "credit rating agency debate",
     "author": {
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     },
-    "completedAt": "2026-09-12T11:49:37.783Z"
+    "completedAt": "2026-09-14T14:35:14.771Z"
   }
 ]
