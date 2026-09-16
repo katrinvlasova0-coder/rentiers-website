@@ -808,6 +808,40 @@
     "completedAt": "2026-08-14"
   },
   {
+    "id": 222,
+    "cluster": "Finanzbildung",
+    "slug": "ratingagenturen-kritik-grenzen-2026",
+    "titleDe": "Kritik an Ratingagenturen: Grenzen und Interessenkonflikte",
+    "titleEn": "Criticism of Rating Agencies: Limits and Conflicts of Interest",
+    "keywordDe": "ratingagenturen kritik",
+    "searchVolDe": 1120,
+    "kd": 20,
+    "keywordEn": "rating agencies criticism",
+    "searchVolEn": 1320,
+    "lsiKeywords": [
+      "interessenkonflikt ratings",
+      "ratingversagen krise",
+      "regulierungsdebatte"
+    ],
+    "format": "Meinungsartikel",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "medium",
+    "plannedDate": "2026-08-15",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "completed",
+    "unsplashQuery": "credit rating agency debate",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    },
+    "completedAt": "2026-08-15"
+  },
+  {
     "id": 223,
     "cluster": "B2B",
     "slug": "unternehmensliquiditaet-kurzfristig-parken-2026",
@@ -840,39 +874,5 @@
       "role": "Redaktion"
     },
     "completedAt": "2026-08-01"
-  },
-  {
-    "id": 222,
-    "cluster": "Finanzbildung",
-    "slug": "ratingagenturen-kritik-grenzen-2026",
-    "titleDe": "Kritik an Ratingagenturen: Grenzen und Interessenkonflikte",
-    "titleEn": "Criticism of Rating Agencies: Limits and Conflicts of Interest",
-    "keywordDe": "ratingagenturen kritik",
-    "searchVolDe": 1120,
-    "kd": 20,
-    "keywordEn": "rating agencies criticism",
-    "searchVolEn": 1320,
-    "lsiKeywords": [
-      "interessenkonflikt ratings",
-      "ratingversagen krise",
-      "regulierungsdebatte"
-    ],
-    "format": "Meinungsartikel",
-    "targetLength": 1500,
-    "taSegments": [
-      "1",
-      "2"
-    ],
-    "priority": "medium",
-    "plannedDate": "2026-08-15",
-    "language": "DE+EN",
-    "category": "Finanzbildung",
-    "status": "completed",
-    "unsplashQuery": "credit rating agency debate",
-    "author": {
-      "name": "Rentiers Redaktion",
-      "role": "Redaktion"
-    },
-    "completedAt": "2026-09-14T14:35:14.771Z"
   }
 ]
