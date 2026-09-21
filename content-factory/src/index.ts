@@ -172,7 +172,7 @@ program
 
 program
   .command('sitemap')
-  .description('Rebuild sitemap.xml from all existing articles')
+  .description('Rebuild sitemap.xml and llms.txt from public articles (excludes fallback-*)')
   .action(async () => {
     const contentDir = path.resolve(process.env.CONTENT_DIR || '../content/blog');
     const slugs = fs
@@ -181,7 +181,6 @@ program
       .map((f) => f.replace('.mdx', ''));
 
     regenerateSitemap(slugs);
-    console.log(`✅ Sitemap rebuilt with ${slugs.length} entries`);
   });
 
 program

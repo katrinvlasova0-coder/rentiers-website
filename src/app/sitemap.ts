@@ -5,7 +5,8 @@ export const dynamic = 'force-static';
 import { getAllPosts } from '@/lib/blog';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = await getAllPosts();
+  // fallback-* posts are safe-fallback drafts, not public URLs.
+  const posts = (await getAllPosts()).filter((post) => !post.slug.startsWith('fallback-'));
 
   // trailingSlash: true in next.config — sitemap URLs must match canonicals
   const staticPages: MetadataRoute.Sitemap = [

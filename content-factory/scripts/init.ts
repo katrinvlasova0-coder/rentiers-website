@@ -5,7 +5,7 @@
  * - Initializes queue from content-plan.json
  * - Marks existing blog articles as completed
  * - Ensures robots.txt is up to date
- * - Regenerates public/sitemap.xml
+ * - Regenerates public/sitemap.xml and public/llms.txt
  */
 import dotenv from 'dotenv';
 import fs from 'fs';
@@ -85,7 +85,7 @@ function main(): void {
 
   ensureRobotsTxt();
   regenerateSitemap(existingSlugs);
-  console.log('✅ robots.txt and sitemap.xml updated');
+  console.log('✅ robots.txt, sitemap.xml, and llms.txt updated');
 
   console.log('\n🎉 Initialization complete!');
   console.log('\nNext steps:');

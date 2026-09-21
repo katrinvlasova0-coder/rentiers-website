@@ -1,13 +1,15 @@
 import fs from 'fs';
 import path from 'path';
 import { XMLBuilder, XMLParser } from 'fast-xml-parser';
+import { writeLlmsTxt } from './llms';
+import { isFallbackSlug, isFallbackUrl } from './public-slugs';
 
 function getSitemapPath(): string {
   return path.join(process.env.SITE_PUBLIC_DIR || '../public', 'sitemap.xml');
 }
 
 function getBaseUrl(): string {
-  return process.env.SITE_BASE_URL || 'https://rentiers.net';
+  return (process.env.SITE_BASE_URL || 'https://rentiers.net').replace(/\/$/, '');
 }
 
 interface SitemapEntry {
@@ -18,6 +20,27 @@ interface SitemapEntry {
   'xhtml:link'?: Array<{ '@_rel': string; '@_hreflang': string; '@_href': string }>;
 }
 
+/**
+ * English is a client-side toggle on the German URL. Do not advertise hreflang="en"
+ * or /en/blog/ until those routes exist. x-default matches the German URL.
+ */
+export function germanHreflangLinks(href: string): NonNullable<SitemapEntry['xhtml:link']> {
+  return [
+    { '@_rel': 'alternate', '@_hreflang': 'de', '@_href': href },
+    { '@_rel': 'alternate', '@_hreflang': 'x-default', '@_href': href },
+  ];
+}
+
+function normalizeEntry(entry: SitemapEntry): SitemapEntry | null {
+  if (!entry?.loc || isFallbackUrl(entry.loc)) return null;
+  const loc = entry.loc.replace('/en/blog/', '/blog/');
+  return {
+    ...entry,
+    loc,
+    'xhtml:link': germanHreflangLinks(loc),
+  };
+}
+
 function buildBlogEntry(
   slug: string,
   lastmod: string,
@@ -25,17 +48,14 @@ function buildBlogEntry(
 ): SitemapEntry {
   const BASE_URL = getBaseUrl();
   const priorityMap = { high: '0.9', medium: '0.7', low: '0.5' };
+  const loc = `${BASE_URL}/blog/${slug}`;
 
   return {
-    loc: `${BASE_URL}/blog/${slug}`,
+    loc,
     lastmod,
     changefreq: 'monthly',
     priority: priorityMap[priority],
-    'xhtml:link': [
-      { '@_rel': 'alternate', '@_hreflang': 'de', '@_href': `${BASE_URL}/blog/${slug}` },
-      { '@_rel': 'alternate', '@_hreflang': 'en', '@_href': `${BASE_URL}/en/blog/${slug}` },
-      { '@_rel': 'alternate', '@_hreflang': 'x-default', '@_href': `${BASE_URL}/blog/${slug}` },
-    ],
+    'xhtml:link': germanHreflangLinks(loc),
   };
 }
 
@@ -55,6 +75,9 @@ function readSitemap(): { urlset: { url: SitemapEntry[] } } {
 
 function writeSitemap(sitemap: { urlset: { url: SitemapEntry[] } }): void {
   const SITEMAP_PATH = getSitemapPath();
+  sitemap.urlset.url = sitemap.urlset.url
+    .map((entry) => normalizeEntry(entry))
+    .filter((entry): entry is SitemapEntry => entry !== null);
   const builder = new XMLBuilder({
     ignoreAttributes: false,
     format: true,
@@ -78,12 +101,23 @@ export async function addArticleToSitemap(
   priority: 'high' | 'medium' | 'low' = 'medium',
 ): Promise<void> {
   const BASE_URL = getBaseUrl();
-  const newEntry = buildBlogEntry(slug, datePublished, priority);
   const sitemap = readSitemap();
 
-  sitemap.urlset.url = sitemap.urlset.url.filter(
-    (u) => u.loc !== `${BASE_URL}/blog/${slug}`,
-  );
+  if (isFallbackSlug(slug)) {
+    const rawPath = getSitemapPath();
+    const raw = fs.existsSync(rawPath) ? fs.readFileSync(rawPath, 'utf-8') : '';
+    if (raw.includes('/fallback-') || raw.includes('hreflang="en"') || raw.includes('/en/blog/')) {
+      writeSitemap(sitemap);
+    }
+    writeLlmsTxt();
+    console.log(`ℹ️ Sitemap skipped fallback article: /blog/${slug}`);
+    return;
+  }
+
+  const newEntry = buildBlogEntry(slug, datePublished, priority);
+  const loc = `${BASE_URL}/blog/${slug}`;
+
+  sitemap.urlset.url = sitemap.urlset.url.filter((u) => u.loc !== loc && u.loc !== `${loc}/`);
   sitemap.urlset.url.push(newEntry);
 
   sitemap.urlset.url.sort(
@@ -91,6 +125,7 @@ export async function addArticleToSitemap(
   );
 
   writeSitemap(sitemap);
+  writeLlmsTxt();
   console.log(`✅ Sitemap updated: added /blog/${slug}`);
 }
 
@@ -106,12 +141,15 @@ export function regenerateSitemap(
     (u) => !u.loc?.includes('/blog/') || u.loc === `${BASE_URL}/blog`,
   );
 
-  const blogEntries = slugs.map((slug) => buildBlogEntry(slug, defaultDate, 'medium'));
+  const blogEntries = slugs
+    .filter((slug) => !isFallbackSlug(slug))
+    .map((slug) => buildBlogEntry(slug, defaultDate, 'medium'));
 
   sitemap.urlset.url = [...staticEntries, ...blogEntries].sort(
     (a, b) => parseFloat(b.priority) - parseFloat(a.priority),
   );
 
   writeSitemap(sitemap);
+  writeLlmsTxt();
   console.log(`✅ Sitemap regenerated with ${blogEntries.length} blog entries`);
 }

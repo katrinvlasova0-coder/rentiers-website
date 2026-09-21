@@ -8,7 +8,7 @@ Autonomous TypeScript tool for generating Rentiers blog articles from the conten
 - MDX validator (no JSX, no anchor IDs, bilingual `---en---` section)
 - Unsplash image integration
 - Queue management (`pending` → `in-progress` → `completed`)
-- `sitemap.xml` and `robots.txt` maintenance
+- `sitemap.xml`, `llms.txt`, and `robots.txt` maintenance (`fallback-*` articles stay out of the public sitemap and llms index)
 - Optional Resend email notifications
 - GitHub Actions scheduled batch generation
 
@@ -46,7 +46,7 @@ npm run batch -- -n 3 --commit --delay 10000
 | `npm run generate -- <slug>` | Generate one article |
 | `npm run batch` | Generate next N from queue |
 | `npm run validate -- <slug>` | Validate existing `.mdx` |
-| `npm run sitemap` | Rebuild `public/sitemap.xml` |
+| `npm run sitemap` | Rebuild `public/sitemap.xml` and `public/llms.txt` |
 | `npm run queue:list` | List pending articles |
 | `npm run queue:add -- <slug>` | Add article to queue |
 
