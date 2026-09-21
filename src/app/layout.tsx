@@ -9,6 +9,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { LeadFormProvider } from "@/contexts/LeadFormContext";
 import { assetPath } from "@/lib/basePath";
 import { OG_IMAGE, OG_IMAGE_ALT_EN, OG_DESCRIPTION_EN, OG_TITLE_EN, SITE_NAME, SITE_URL } from "@/constants/site";
+import { languageAlternates } from "@/lib/seo";
 import YandexMetrika from "@/components/analytics/YandexMetrika";
 import FacebookPixel from "@/components/analytics/FacebookPixel";
 import FacebookPixelTracker from "@/components/analytics/FacebookPixelTracker";
@@ -33,11 +34,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: `${SITE_URL}/`,
-    languages: {
-      de: `${SITE_URL}/`,
-      en: `${SITE_URL}/`,
-      "x-default": `${SITE_URL}/`,
-    },
+    languages: languageAlternates(`${SITE_URL}/`),
   },
   twitter: {
     card: "summary_large_image",

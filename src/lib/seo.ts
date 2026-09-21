@@ -35,6 +35,18 @@ export function pageUrl(path: string): string {
   return `${SITE_URL}${normalized}`;
 }
 
+/**
+ * English copy is a client-side toggle on this same URL. There is no /en/ tree,
+ * so hreflang="en" would point at the German document. Emit de + x-default only
+ * until real English URLs exist. x-default may share the German URL.
+ */
+export function languageAlternates(url: string): { de: string; 'x-default': string } {
+  return {
+    de: url,
+    'x-default': url,
+  };
+}
+
 export function createMetadata({
   title,
   description,
@@ -55,11 +67,7 @@ export function createMetadata({
     description,
     alternates: {
       canonical: url,
-      languages: {
-        de: url,
-        en: url,
-        'x-default': url,
-      },
+      languages: languageAlternates(url),
     },
     openGraph: {
       title: shareTitle,

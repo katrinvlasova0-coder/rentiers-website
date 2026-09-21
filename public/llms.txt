@@ -1,0 +1,84 @@
+# Rentiers
+
+> Digitale Plattform für Einlagenarbitrage / Festgeld bei Partnerbanken. Rentiers ist eine Technologieplattform, kein Kreditinstitut.
+
+Site: https://rentiers.net/
+Blog: https://rentiers.net/blog/
+B2B: https://rentiers.net/b2b/
+
+## Primary pages
+
+- [Home](https://rentiers.net/)
+- [Portfolios](https://rentiers.net/portfolios/)
+- [Wie es funktioniert](https://rentiers.net/wie-es-funktioniert/)
+- [Kalkulator](https://rentiers.net/kalkulator/)
+- [Einlagenarbitrage](https://rentiers.net/einlagenarbitrage/)
+- [Partner-Banken](https://rentiers.net/partner-banken/)
+- [Open account](https://rentiers.net/open-account/)
+- [B2B](https://rentiers.net/b2b/)
+- [FAQ](https://rentiers.net/faq/)
+- [Über uns](https://rentiers.net/ueber-uns/)
+- [Kontakt](https://rentiers.net/kontakt/)
+
+## Blog
+
+- [AML und KYC erklärt: Warum Banken Kunden prüfen](https://rentiers.net/blog/aml-kyc-warum-banken-pruefen-2026/)
+- [Anlagebetrug erkennen: Checkliste für Privatanleger 2026](https://rentiers.net/blog/anlagebetrug-erkennen-checkliste/)
+- [Social Engineering bei Geldanlagen: Manipulation erkennen](https://rentiers.net/blog/anlagebetrug-social-engineering-2026/)
+- [BaFin-Register prüfen: So kontrollieren Sie Anbieter selbst](https://rentiers.net/blog/bafin-register-pruefen-2026/)
+- [Globale Bankzinsen 2025: Warum zahlen manche Banken 15% — und deutsche nur 3%?](https://rentiers.net/blog/bank-deposit-rates-global/)
+- [Was passiert mit meinen Einlagen, wenn eine Bank pleitegeht?](https://rentiers.net/blog/bank-insolvenz-einlagen-2026/)
+- [Bankensystem Armenien: Aufsicht, Struktur und Einlagensicherung](https://rentiers.net/blog/bankensystem-armenien-ueberblick-2026/)
+- [Bankensystem Georgien: Aufsicht, Struktur und Einlagensicherung](https://rentiers.net/blog/bankensystem-georgien-ueberblick-2026/)
+- [Bankensystem Israel: Aufsicht und Einlagenschutz im Überblick](https://rentiers.net/blog/bankensystem-israel-ueberblick-2026/)
+- [Bankensystem Serbien: Aufsicht und Einlagensicherung erklärt](https://rentiers.net/blog/bankensystem-serbien-ueberblick-2026/)
+- [Bankratings lesen: Was S&P, Moody's und Fitch Anlegern sagen](https://rentiers.net/blog/bankratings-lesen-anleger-2026/)
+- [Beste Festgeld-Zinsen 2026 Deutschland vs. Ausland](https://rentiers.net/blog/beste-festgeld-zinsen-2026/)
+- [Tagesgeld-Alternativen 2025: Was bringt mehr als 4% — bei ähnlicher Sicherheit?](https://rentiers.net/blog/beste-tagesgeld-festgeld-alternativen/)
+- [CRS und FATCA erklärt: Meldepflichten bei Auslandskonten](https://rentiers.net/blog/crs-fatca-erklaert-2026/)
+- [CRS-Reporting für Unternehmen: Was Geschäftsführer bei Auslandskonten melden müssen](https://rentiers.net/blog/crs-reporting-unternehmen-auslandskonten/)
+- [Diversifikation über Jurisdiktionen: Chancen und Grenzen](https://rentiers.net/blog/diversifikation-jurisdiktionen-2026/)
+- [Einlage, Anleihe oder Fonds: Die Unterschiede verständlich erklärt](https://rentiers.net/blog/einlage-vs-anleihe-vs-fonds-2026/)
+- [Einlagenarbitrage: Wie Privatanleger endlich von globalen Zinsdifferenzen profitieren](https://rentiers.net/blog/einlagenarbitrage-erklaert/)
+- [Staatliche Einlagengarantien weltweit: Was schützt Ihr Firmengeld wirklich?](https://rentiers.net/blog/einlagengarantie-ausland-unternehmen-2026/)
+- [Staatliche Einlagengarantien weltweit: Vollständige Ländertabelle 2026](https://rentiers.net/blog/einlagengarantie-laender-tabelle-2026/)
+- [Einlagengarantie weltweit 2026: Vollständige Länder-Tabelle](https://rentiers.net/blog/einlagengarantie-weltweit-tabelle-2026/)
+- [Einlagensicherung verstehen: Decungen, Grenzen und typische Irrtümer](https://rentiers.net/blog/einlagensicherung-grenzen-verstehen-2026/)
+- [Bankenaufsicht in Emerging Markets: Worauf Beobachter achten](https://rentiers.net/blog/emerging-markets-bankenaufsicht-2026/)
+- [Einlagenarbitrage Länder-Ranking 2026: Rendite, Garantie, Risiko](https://rentiers.net/blog/festgeld-ausland-laender-vergleich-2026/)
+- [Festgeld 2025: Die besten Zinsen im Vergleich — und warum Sie über Europa hinausschauen sollten](https://rentiers.net/blog/festgeld-vergleich-2025/)
+- [Festgeld vs. Tagesgeld: Unterschiede ohne Produktwerbung](https://rentiers.net/blog/festgeld-vs-tagesgeld-unterschied-2026/)
+- [Sicherheit von Finanz-Apps: Verschlüsselung, 2FA und Phishing](https://rentiers.net/blog/finanzapps-sicherheit-2fa-2026/)
+- [Finanzielle Freiheit berechnen: Wie viel Kapital Sie wirklich brauchen](https://rentiers.net/blog/finanzielle-freiheit-berechnen/)
+- [GDPR und Finanzdaten: Was Unternehmen über Datenschutz wissen sollten](https://rentiers.net/blog/gdpr-finanzdaten-schutz-2026/)
+- [Gegenparteirisiko bei Banken: Was Einleger beachten sollten](https://rentiers.net/blog/gegenparteirisiko-banken-verstehen-2026/)
+- [Geld anlegen 2025: Sicher und mit hoher Rendite — geht das wirklich?](https://rentiers.net/blog/geld-anlegen-sicher-hohe-rendite/)
+- [Georgien Bankeinlagen 2026: TBC Bank & Bank of Georgia im Vergleich](https://rentiers.net/blog/georgien-bankzinsen-2026/)
+- [Geschäftskonto mit Zinsen 2026: Welche Optionen gibt es für KMU?](https://rentiers.net/blog/geschaeftskonto-zinsen-vergleich-2026/)
+- [Hohe Bankzinsen im Ausland: Georgien, Armenien & Co. – der vollständige Leitfaden 2026](https://rentiers.net/blog/hohe-bankzinsen-ausland-georgien-armenien/)
+- [Inflation und Kaufkraft verstehen: Grundlagen für Sparer](https://rentiers.net/blog/inflation-kaufkraft-verstehen-2026/)
+- [Inflation und Sparen 2025: Wie Sie Ihre Ersparnisse wirklich schützen](https://rentiers.net/blog/inflation-schutz-sparen/)
+- [Kapital für sich arbeiten lassen: 8 bewährte Strategien für 2025](https://rentiers.net/blog/kapital-arbeiten-lassen-tipps/)
+- [Liquiditätsreserve im Unternehmen: Wie viel Cash sollte auf dem Konto liegen?](https://rentiers.net/blog/liquiditaetsreserve-unternehmen-wieviel/)
+- [MSB-Registrierung vs. Investitionslizenz: Der Unterschied für Anleger](https://rentiers.net/blog/msb-vs-investitionslizenz-2026/)
+- [Konto als Nichtresident in Georgien: Schritt-für-Schritt-Überblick](https://rentiers.net/blog/nichtresident-konto-georgien-anleitung-2026/)
+- [Passives Einkommen durch Zinsen: Wie Sie 2025 monatlich von Ihrem Kapital leben](https://rentiers.net/blog/passives-einkommen-zinsen/)
+- [Raisin vs. Rentiers 2026: Welche Plattform passt zu wem?](https://rentiers.net/blog/raisin-alternative-2026/)
+- [Kritik an Ratingagenturen: Grenzen und Interessenkonflikte](https://rentiers.net/blog/ratingagenturen-kritik-grenzen-2026/)
+- [Rente aufbessern mit Zinsen: Strategien für Rentner und Vorruheständler 2025](https://rentiers.net/blog/rente-aufbessern-strategie/)
+- [SEPA-Überweisung erklärt: Dauer, Kosten und typische Stolperfallen](https://rentiers.net/blog/sepa-ueberweisung-erklaert-2026/)
+- [Staatliche Einlagengarantie: Was sie bedeutet, wie sie funktioniert und warum sie auch international gilt](https://rentiers.net/blog/staatliche-einlagengarantie-guide/)
+- [SWIFT und Alternativen: Wie internationale Zahlungen funktionieren](https://rentiers.net/blog/swift-vs-sepa-alternativen-2026/)
+- [Trade Republic Zinsen vs. Rentiers: Direktvergleich 2026](https://rentiers.net/blog/trade-republic-zinsen-vergleich-2026/)
+- [Unternehmensliquidität kurzfristig parken: Optionen für CFOs 2026](https://rentiers.net/blog/unternehmensliquiditaet-kurzfristig-parken-2026/)
+- [Unternehmensreserven sinnvoll anlegen: Was Geschäftsführer 2026 wissen müssen](https://rentiers.net/blog/unternehmensreserven-anlegen-2026/)
+- [Von Zinsen leben 2026: Wie viel Kapital brauchen Sie wirklich?](https://rentiers.net/blog/von-zinsen-leben-kapital-2026/)
+- [Währungsrisiko beim Auslandskonto: Was Anleger wissen sollten](https://rentiers.net/blog/waehrungsrisiko-auslandskonto-2026/)
+
+## Languages
+
+Content is served primarily in German. English is a client-side locale toggle on the same URLs (no separate /en/ tree yet).
+
+## Contact
+
+https://rentiers.net/kontakt/

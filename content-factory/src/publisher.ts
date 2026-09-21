@@ -33,7 +33,7 @@ export async function publishArticle(
     try {
       const repoRoot = path.resolve(contentDir, '../..');
       execSync(
-        `git -C "${repoRoot}" add "content/blog/${slug}.mdx" public/sitemap.xml public/robots.txt`,
+        `git -C "${repoRoot}" add "content/blog/${slug}.mdx" public/sitemap.xml public/llms.txt public/robots.txt`,
         { stdio: 'inherit' },
       );
       execSync(
