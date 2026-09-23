@@ -13,6 +13,7 @@ import {
 import { getAuthorBio } from '@/lib/author-bios';
 import { markdownToHtml } from '@/lib/markdown';
 import { slugify } from '@/lib/slugify';
+import { isFallbackBlogPost } from '@/lib/blog-public';
 import { ymGoal } from '@/lib/metrika';
 import BlogConsultPopup from '@/components/blog/BlogConsultPopup';
 
@@ -43,6 +44,7 @@ export default function BlogPostContent({
   const canonicalCategory = de.meta.category;
   const dateLocale = lang === 'en' ? 'en-GB' : 'de-DE';
   const isB2b = basePath.startsWith('/b2b');
+  const visibleReadMore = readMore.filter((post) => !isFallbackBlogPost(post));
 
   const authorBio = getAuthorBio(meta.author.name, lang);
 
@@ -212,7 +214,7 @@ export default function BlogPostContent({
         )}
       </div>
 
-      {readMore.length > 0 && (
+      {visibleReadMore.length > 0 && (
         <div className="max-w-[1200px] mx-auto px-6 mt-16">
           <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
             <h2 className="text-xl font-extrabold" style={{ color: 'var(--color-dark)' }}>
@@ -227,7 +229,7 @@ export default function BlogPostContent({
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {readMore.map((post) => {
+            {visibleReadMore.map((post) => {
               const relatedMeta = localizeBlogMeta(post, lang);
               return (
                 <Link

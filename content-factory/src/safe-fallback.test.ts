@@ -30,6 +30,8 @@ for (const template of SAFE_TEMPLATES) {
   });
 
   assert(slug === `fallback-${template.id}-2026-08-18`, `unexpected slug ${slug}`);
+  assert(/^fallback:\s*true$/m.test(content), `${slug} missing fallback frontmatter`);
+  assert(/robots:\s*"noindex, follow"/.test(content), `${slug} missing noindex robots frontmatter`);
   assert(content.includes('Bildungscharakter'), `${slug} missing DE disclaimer`);
   assert(content.includes('educational purposes only'), `${slug} missing EN disclaimer`);
   assert(/name:\s*"Rentiers Redaktion"/.test(content), `${slug} wrong author`);

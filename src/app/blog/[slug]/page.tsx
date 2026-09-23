@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getAllPostSlugs, getPostBySlug, getAllPosts } from '@/lib/blog';
+import { getAllPostSlugs, getPostBySlug, getPublicPosts } from '@/lib/blog';
 import { pickReadMorePosts, categorySlug } from '@/lib/blog-shared';
+import { isFallbackBlogPost } from '@/lib/blog-public';
 import { articleSchema, faqSchema, breadcrumbSchema, createMetadata } from '@/lib/seo';
 import { OG_IMAGE } from '@/constants/site';
 import JsonLd from '@/components/layout/JsonLd';
@@ -29,6 +30,7 @@ export async function generateMetadata({
       ogImage: meta.coverImage || OG_IMAGE,
       publishedTime: meta.datePublished,
       modifiedTime: meta.dateModified,
+      noindex: isFallbackBlogPost({ ...meta, slug }),
     });
   } catch {
     return { title: 'Artikel nicht gefunden' };
@@ -51,8 +53,8 @@ export default async function BlogPostPage({
     notFound();
   }
 
-  const allPosts = await getAllPosts();
-  const readMore = pickReadMorePosts(allPosts, slug, de.meta.category, 4);
+  const publicPosts = await getPublicPosts();
+  const readMore = pickReadMorePosts(publicPosts, slug, de.meta.category, 4);
 
   const breadcrumbs = [
     { name: 'Home', href: '/' },

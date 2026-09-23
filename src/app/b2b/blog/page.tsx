@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getPostsByCategory } from '@/lib/blog';
+import { getPublicPosts } from '@/lib/blog';
 import BlogListContent from '@/components/pages/BlogListContent';
 import { createMetadata } from '@/lib/seo';
 import { OG_DESCRIPTION_B2B_EN, OG_IMAGE_B2B, OG_TITLE_B2B_EN } from '@/constants/site';
@@ -15,7 +15,7 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default async function B2BBlogPage() {
-  const posts = await getPostsByCategory('B2B');
+  const posts = (await getPublicPosts()).filter((post) => post.category === 'B2B');
   return (
     <BlogListContent
       posts={posts}

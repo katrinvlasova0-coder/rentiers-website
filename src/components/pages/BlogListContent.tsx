@@ -15,6 +15,7 @@ import {
   type BlogPostMeta,
 } from '@/lib/blog-shared';
 import { slugify } from '@/lib/slugify';
+import { isFallbackBlogPost } from '@/lib/blog-public';
 
 function postMatchesTag(post: BlogPostMeta, tagSlug: string, lang: 'de' | 'en'): boolean {
   const tags = localizeTags(post.tags, post.tagsEn, lang);
@@ -143,8 +144,12 @@ export default function BlogListContent({
     setSearchInput(q);
   }, []);
 
-  const categories = useMemo(() => collectCategories(posts, lang), [posts, lang]);
-  const allTags = useMemo(() => collectUniqueTags(posts, lang).slice(0, 16), [posts, lang]);
+  const visiblePosts = useMemo(
+    () => posts.filter((post) => !isFallbackBlogPost(post)),
+    [posts],
+  );
+  const categories = useMemo(() => collectCategories(visiblePosts, lang), [visiblePosts, lang]);
+  const allTags = useMemo(() => collectUniqueTags(visiblePosts, lang).slice(0, 16), [visiblePosts, lang]);
 
   const pushFilters = useCallback(
     (next: { tag?: string | null; category?: string | null; q?: string | null }) => {
@@ -169,7 +174,7 @@ export default function BlogListContent({
     [router, tagFilter, categoryFilter, queryFilter, basePath],
   );
 
-  let filtered = posts;
+  let filtered = visiblePosts;
   if (tagFilter) {
     filtered = filtered.filter((post) => postMatchesTag(post, tagFilter, lang));
   }
@@ -186,7 +191,7 @@ export default function BlogListContent({
 
   const activeTagLabel = tagFilter
     ? allTags.find((t) => slugify(t) === tagFilter) ??
-      posts
+      visiblePosts
         .flatMap((p) => localizeTags(p.tags, p.tagsEn, lang))
         .find((t) => slugify(t) === tagFilter) ??
       tagFilter

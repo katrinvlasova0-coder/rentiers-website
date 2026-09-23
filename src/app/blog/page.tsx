@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getAllPosts } from '@/lib/blog';
+import { getPublicPosts } from '@/lib/blog';
 import BlogListContent from '@/components/pages/BlogListContent';
 import { createMetadata } from '@/lib/seo';
 
@@ -11,6 +11,6 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default async function BlogPage() {
-  const posts = await getAllPosts();
+  const posts = await getPublicPosts();
   return <BlogListContent posts={posts} />;
 }

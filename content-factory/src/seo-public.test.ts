@@ -1,5 +1,5 @@
 import { renderLlmsTxt, selectPublicSlugs } from './llms';
-import { isFallbackSlug, isFallbackUrl } from './public-slugs';
+import { isFallbackFrontmatter, isFallbackSlug, isFallbackUrl } from './public-slugs';
 import { germanHreflangLinks } from './sitemap';
 
 function assert(condition: boolean, message: string): void {
@@ -13,6 +13,19 @@ assert(
   'fallback loc should match',
 );
 assert(!isFallbackUrl('https://rentiers.net/blog/crs-fatca-erklaert-2026'), 'real loc should stay');
+
+const marked = `---
+title: "Example"
+fallback: true
+robots: "noindex, follow"
+---
+Body mentions noindex only here and must not count.
+`;
+assert(isFallbackFrontmatter(marked), 'fallback frontmatter should match');
+assert(
+  !isFallbackFrontmatter('---\ntitle: "Public"\nrobots: "index, follow"\n---\nnoindex in the body\n'),
+  'public frontmatter and body copy must stay indexable',
+);
 
 const publicSlugs = selectPublicSlugs([
   'fallback-bankratings-lesen-2026-09-16',
