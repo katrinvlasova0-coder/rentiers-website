@@ -845,5 +845,467 @@
       "name": "Rentiers Redaktion",
       "role": "Redaktion"
     }
+  },
+  {
+    "id": 224,
+    "cluster": "Finanzbildung",
+    "slug": "abgeltungsteuer-zinsen-erklaert-2026",
+    "titleDe": "Abgeltungsteuer auf Zinsen erklärt: Kapitalertragsteuer, Freistellungsauftrag, Bescheinigung",
+    "titleEn": "Withholding Tax on Interest Explained: Capital Income Tax, Exemption Order and Certificate",
+    "keywordDe": "abgeltungsteuer zinsen erklärt",
+    "searchVolDe": 1400,
+    "kd": 22,
+    "keywordEn": "german withholding tax on interest explained",
+    "searchVolEn": 620,
+    "lsiKeywords": [
+      "kapitalertragsteuer",
+      "freistellungsauftrag",
+      "steuerbescheinigung zinsen"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-09-26",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "pending",
+    "unsplashQuery": "tax documents calculator desk",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 225,
+    "cluster": "Finanzbildung",
+    "slug": "anlage-kap-auslandsertraege-melden-2026",
+    "titleDe": "Anlage KAP und Auslandserträge: Welche Zinsen in der Steuererklärung stehen",
+    "titleEn": "Anlage KAP and Foreign Income: Which Interest Belongs on the German Tax Return",
+    "keywordDe": "anlage kap auslandserträge",
+    "searchVolDe": 980,
+    "kd": 24,
+    "keywordEn": "anlage kap foreign interest reporting",
+    "searchVolEn": 540,
+    "lsiKeywords": [
+      "steuererklärung zinsen ausland",
+      "kapitalerträge melden",
+      "auslandsbank steuererklärung"
+    ],
+    "format": "Howto",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-09-28",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "pending",
+    "unsplashQuery": "tax return paperwork desk",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 226,
+    "cluster": "Finanzbildung",
+    "slug": "quellensteuer-dba-zinsen-lesen-2026",
+    "titleDe": "Quellensteuer und Doppelbesteuerungsabkommen lesen: Den Zinsartikel verstehen",
+    "titleEn": "How to Read Withholding Tax and a Double-Tax Treaty Interest Article",
+    "keywordDe": "quellensteuer doppelbesteuerungsabkommen lesen",
+    "searchVolDe": 760,
+    "kd": 28,
+    "keywordEn": "read double tax treaty interest article",
+    "searchVolEn": 890,
+    "lsiKeywords": [
+      "dba zinsartikel",
+      "anrechnung quellensteuer",
+      "steuerabzug ausland"
+    ],
+    "format": "Howto",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-09-30",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "pending",
+    "unsplashQuery": "international tax treaty documents",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 227,
+    "cluster": "Finanzbildung",
+    "slug": "iban-bic-aufbau-erklaert-2026",
+    "titleDe": "IBAN und BIC erklärt: Aufbau, Prüfziffer und typische Überweisungsfehler",
+    "titleEn": "IBAN and BIC Explained: Structure, Check Digit and Common Transfer Errors",
+    "keywordDe": "iban bic aufbau",
+    "searchVolDe": 2100,
+    "kd": 18,
+    "keywordEn": "iban bic structure explained",
+    "searchVolEn": 2600,
+    "lsiKeywords": [
+      "iban prüfziffer",
+      "bic swift code",
+      "internationale kontonummer"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-10-02",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "pending",
+    "unsplashQuery": "bank transfer form iban",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 228,
+    "cluster": "Finanzbildung",
+    "slug": "nominalzins-effektivzins-lesen-2026",
+    "titleDe": "Nominalzins und Effektivzins lesen: Was Konditionsangaben bedeuten",
+    "titleEn": "How to Read Nominal and Effective Interest Rates on Account Terms",
+    "keywordDe": "nominalzins effektivzins unterschied",
+    "searchVolDe": 1200,
+    "kd": 21,
+    "keywordEn": "nominal vs effective interest rate",
+    "searchVolEn": 1500,
+    "lsiKeywords": [
+      "effektivzins verstehen",
+      "zinsangabe konditionen",
+      "sollzins habenzins"
+    ],
+    "format": "Howto",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-10-04",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "pending",
+    "unsplashQuery": "interest rate terms document",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 229,
+    "cluster": "Finanzbildung",
+    "slug": "referenzzinssatz-leitzins-euribor-2026",
+    "titleDe": "Referenzzinssatz erklärt: Leitzins, Einlagenfazilität und EURIBOR",
+    "titleEn": "Reference Rates Explained: Policy Rate, Deposit Facility and EURIBOR",
+    "keywordDe": "referenzzinssatz leitzins euribor",
+    "searchVolDe": 1100,
+    "kd": 23,
+    "keywordEn": "reference rate euribor explained",
+    "searchVolEn": 1400,
+    "lsiKeywords": [
+      "ezb leitzins",
+      "euribor definition",
+      "variabler zinssatz"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-10-06",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "pending",
+    "unsplashQuery": "central bank interest rate chart",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 230,
+    "cluster": "Sicherheit",
+    "slug": "psd2-starke-kundenauthentifizierung-2026",
+    "titleDe": "PSD2 erklärt: Starke Kundenauthentifizierung und Kontozugriff",
+    "titleEn": "PSD2 Explained: Strong Customer Authentication and Account Access",
+    "keywordDe": "psd2 starke kundenauthentifizierung",
+    "searchVolDe": 1600,
+    "kd": 26,
+    "keywordEn": "psd2 strong customer authentication",
+    "searchVolEn": 2100,
+    "lsiKeywords": [
+      "zahlungsdiensterichtlinie",
+      "zwei faktor bank",
+      "kontoinformationsdienst"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-10-08",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "mobile banking authentication security",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 231,
+    "cluster": "Sicherheit",
+    "slug": "ezb-bankenaufsicht-ssm-erklaert-2026",
+    "titleDe": "EZB-Bankenaufsicht erklärt: SSM, nationale Aufseher und öffentliche Register",
+    "titleEn": "ECB Banking Supervision Explained: The SSM, National Supervisors and Public Registers",
+    "keywordDe": "ezb bankenaufsicht ssm",
+    "searchVolDe": 720,
+    "kd": 27,
+    "keywordEn": "ecb banking supervision ssm explained",
+    "searchVolEn": 900,
+    "lsiKeywords": [
+      "einheitlicher aufsichtsmechanismus",
+      "bedeutende institute",
+      "bankenlizenz eurozone"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-10-10",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "european central bank building",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 232,
+    "cluster": "Finanzbildung",
+    "slug": "kontoauszug-lesen-valuta-2026",
+    "titleDe": "Kontoauszug lesen: Buchungstag, Valuta, Saldo und Verwendungszweck",
+    "titleEn": "How to Read a Bank Statement: Booking Date, Value Date, Balance and Reference",
+    "keywordDe": "kontoauszug lesen valuta",
+    "searchVolDe": 1900,
+    "kd": 15,
+    "keywordEn": "how to read a bank statement value date",
+    "searchVolEn": 1700,
+    "lsiKeywords": [
+      "buchungstag valuta unterschied",
+      "kontosaldo",
+      "verwendungszweck überweisung"
+    ],
+    "format": "Howto",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-10-12",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "pending",
+    "unsplashQuery": "bank statement paperwork reading",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 233,
+    "cluster": "Finanzbildung",
+    "slug": "priips-basisinformationsblatt-lesen-2026",
+    "titleDe": "PRIIPs-Basisinformationsblatt lesen: Risikoindikator, Kosten und Szenarien",
+    "titleEn": "How to Read a PRIIPs KID: Risk Indicator, Costs and Scenarios",
+    "keywordDe": "basisinformationsblatt lesen priips",
+    "searchVolDe": 640,
+    "kd": 30,
+    "keywordEn": "how to read priips kid",
+    "searchVolEn": 780,
+    "lsiKeywords": [
+      "sri risikoindikator",
+      "priips kid",
+      "kostenausweis produktinformation"
+    ],
+    "format": "Howto",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-10-14",
+    "language": "DE+EN",
+    "category": "Finanzbildung",
+    "status": "pending",
+    "unsplashQuery": "financial product information document",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 234,
+    "cluster": "Sicherheit",
+    "slug": "mifid-zielmarkt-angemessenheit-2026",
+    "titleDe": "MiFID II für Privatanleger: Zielmarkt, Angemessenheit und Kostenausweis",
+    "titleEn": "MiFID II for Retail Clients: Target Market, Appropriateness and Cost Disclosure",
+    "keywordDe": "mifid zielmarkt angemessenheit",
+    "searchVolDe": 880,
+    "kd": 29,
+    "keywordEn": "mifid target market appropriateness",
+    "searchVolEn": 1100,
+    "lsiKeywords": [
+      "anlegerprofil",
+      "kosteninformation mifid",
+      "beratung beratungsfrei"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-10-16",
+    "language": "DE+EN",
+    "category": "Sicherheit",
+    "status": "pending",
+    "unsplashQuery": "financial regulation documents office",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 235,
+    "cluster": "Länder-Guides",
+    "slug": "bankensystem-montenegro-ueberblick-2026",
+    "titleDe": "Bankensystem Montenegro: Aufsicht, Struktur und Einlagensicherung",
+    "titleEn": "Montenegro Banking System: Supervision, Structure and Deposit Insurance",
+    "keywordDe": "bankensystem montenegro aufsicht",
+    "searchVolDe": 390,
+    "kd": 22,
+    "keywordEn": "montenegro banking supervision overview",
+    "searchVolEn": 260,
+    "lsiKeywords": [
+      "zentralbank montenegro",
+      "einlagensicherung montenegro",
+      "banklizenz montenegro"
+    ],
+    "format": "Explainer",
+    "targetLength": 1500,
+    "taSegments": [
+      "1",
+      "2"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-10-18",
+    "language": "DE+EN",
+    "category": "Länder-Guides",
+    "status": "pending",
+    "unsplashQuery": "montenegro city bank building",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 236,
+    "cluster": "B2B",
+    "slug": "vier-augen-prinzip-firmenzahlungen-2026",
+    "titleDe": "Vier-Augen-Prinzip im Firmenzahlungsverkehr: Freigaben, Rollen und Nachweise",
+    "titleEn": "Dual Control for Corporate Payments: Approvals, Roles and Audit Evidence",
+    "keywordDe": "vier augen prinzip zahlungsverkehr",
+    "searchVolDe": 520,
+    "kd": 19,
+    "keywordEn": "dual control corporate payments",
+    "searchVolEn": 640,
+    "lsiKeywords": [
+      "zahlungsfreigabe unternehmen",
+      "zeichnungsberechtigung",
+      "interne kontrolle treasury"
+    ],
+    "format": "B2B Guide",
+    "targetLength": 1500,
+    "taSegments": [
+      "2",
+      "5"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-10-20",
+    "language": "DE+EN",
+    "category": "B2B",
+    "status": "pending",
+    "unsplashQuery": "corporate payment approval office",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
+  },
+  {
+    "id": 237,
+    "cluster": "B2B",
+    "slug": "gobd-aufbewahrung-kontobelege-2026",
+    "titleDe": "GoBD und Kontobelege: Aufbewahrungsfristen für Unternehmen erklärt",
+    "titleEn": "GoBD and Bank Records: Retention Periods for Companies Explained",
+    "keywordDe": "gobd aufbewahrung kontobelege",
+    "searchVolDe": 860,
+    "kd": 25,
+    "keywordEn": "gobd bank record retention company",
+    "searchVolEn": 410,
+    "lsiKeywords": [
+      "aufbewahrungsfrist belege",
+      "elektronische kontoauszüge",
+      "verfahrensdokumentation gobd"
+    ],
+    "format": "B2B Guide",
+    "targetLength": 1500,
+    "taSegments": [
+      "2",
+      "5"
+    ],
+    "priority": "high",
+    "plannedDate": "2026-10-22",
+    "language": "DE+EN",
+    "category": "B2B",
+    "status": "pending",
+    "unsplashQuery": "business archive filing cabinets",
+    "author": {
+      "name": "Rentiers Redaktion",
+      "role": "Redaktion"
+    }
   }
 ]
