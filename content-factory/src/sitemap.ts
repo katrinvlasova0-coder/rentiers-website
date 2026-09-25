@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { XMLBuilder, XMLParser } from 'fast-xml-parser';
 import { writeLlmsTxt } from './llms';
-import { isFallbackSlug, isFallbackUrl } from './public-slugs';
+import { isFallbackFrontmatter, isFallbackSlug, isFallbackUrl } from './public-slugs';
 
 function getSitemapPath(): string {
   return path.join(process.env.SITE_PUBLIC_DIR || '../public', 'sitemap.xml');
@@ -10,6 +10,13 @@ function getSitemapPath(): string {
 
 function getBaseUrl(): string {
   return (process.env.SITE_BASE_URL || 'https://rentiers.net').replace(/\/$/, '');
+}
+
+function articleIsPublic(slug: string): boolean {
+  if (isFallbackSlug(slug)) return false;
+  const articlePath = path.resolve(process.env.CONTENT_DIR || '../content/blog', `${slug}.mdx`);
+  if (!fs.existsSync(articlePath)) return true;
+  return !isFallbackFrontmatter(fs.readFileSync(articlePath, 'utf-8'));
 }
 
 interface SitemapEntry {
@@ -103,10 +110,19 @@ export async function addArticleToSitemap(
   const BASE_URL = getBaseUrl();
   const sitemap = readSitemap();
 
-  if (isFallbackSlug(slug)) {
+  if (!articleIsPublic(slug)) {
     const rawPath = getSitemapPath();
     const raw = fs.existsSync(rawPath) ? fs.readFileSync(rawPath, 'utf-8') : '';
-    if (raw.includes('/fallback-') || raw.includes('hreflang="en"') || raw.includes('/en/blog/')) {
+    const loc = `${BASE_URL}/blog/${slug}`;
+    const before = sitemap.urlset.url.length;
+    sitemap.urlset.url = sitemap.urlset.url.filter((u) => u.loc !== loc && u.loc !== `${loc}/`);
+    const removedSelf = sitemap.urlset.url.length !== before;
+    if (
+      removedSelf ||
+      raw.includes('/fallback-') ||
+      raw.includes('hreflang="en"') ||
+      raw.includes('/en/blog/')
+    ) {
       writeSitemap(sitemap);
     }
     writeLlmsTxt();
@@ -142,7 +158,7 @@ export function regenerateSitemap(
   );
 
   const blogEntries = slugs
-    .filter((slug) => !isFallbackSlug(slug))
+    .filter((slug) => articleIsPublic(slug))
     .map((slug) => buildBlogEntry(slug, defaultDate, 'medium'));
 
   sitemap.urlset.url = [...staticEntries, ...blogEntries].sort(

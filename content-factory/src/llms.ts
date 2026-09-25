@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { isFallbackSlug } from './public-slugs';
+import { isFallbackFrontmatter, isFallbackSlug } from './public-slugs';
 
 function getLlmsPath(): string {
   return path.join(process.env.SITE_PUBLIC_DIR || '../public', 'llms.txt');
@@ -39,7 +39,12 @@ function readSlugsFromDisk(): string[] {
   return fs
     .readdirSync(dir)
     .filter((file) => file.endsWith('.mdx'))
-    .map((file) => file.replace(/\.mdx$/, ''));
+    .map((file) => file.replace(/\.mdx$/, ''))
+    .filter((slug) => {
+      if (isFallbackSlug(slug)) return false;
+      const raw = fs.readFileSync(path.join(dir, `${slug}.mdx`), 'utf-8');
+      return !isFallbackFrontmatter(raw);
+    });
 }
 
 export function selectPublicSlugs(slugs: string[]): string[] {

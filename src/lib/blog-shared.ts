@@ -14,6 +14,11 @@ export interface BlogPostMeta {
   readTime: number;
   coverImage?: string;
   featured?: boolean;
+  /** Content-factory safe fallback. Hidden from listings and sitemaps; pages stay noindex. */
+  fallback?: boolean;
+  noindex?: boolean;
+  /** Raw robots directive from frontmatter, e.g. "noindex, follow". */
+  robots?: string;
   tags: string[];
   tagsEn?: string[];
   faq?: Array<{ question: string; answer: string }>;

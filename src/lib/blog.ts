@@ -5,6 +5,7 @@ import {
   type BlogLang,
   type BlogPostMeta,
 } from '@/lib/blog-shared';
+import { isFallbackBlogPost } from '@/lib/blog-public';
 
 export type { BlogLang, BlogPostMeta } from '@/lib/blog-shared';
 export { CATEGORY_LABELS, localizeBlogMeta, pickReadMorePosts, categorySlug } from '@/lib/blog-shared';
@@ -104,6 +105,12 @@ function ensureBlogDir() {
   if (!fs.existsSync(BLOG_DIR)) {
     fs.mkdirSync(BLOG_DIR, { recursive: true });
   }
+}
+
+/** Public listings, related posts, and the Next sitemap. Fallback drafts stay addressable by slug. */
+export async function getPublicPosts(): Promise<BlogPostMeta[]> {
+  const posts = await getAllPosts();
+  return posts.filter((post) => !isFallbackBlogPost(post));
 }
 
 export async function getAllPosts(): Promise<BlogPostMeta[]> {

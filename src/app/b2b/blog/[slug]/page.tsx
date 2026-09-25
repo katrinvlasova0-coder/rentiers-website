@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getPostBySlug, getPostsByCategory } from '@/lib/blog';
+import { getPostBySlug, getPostsByCategory, getPublicPosts } from '@/lib/blog';
 import { pickReadMorePosts } from '@/lib/blog-shared';
+import { isFallbackBlogPost } from '@/lib/blog-public';
 import { articleSchema, faqSchema, breadcrumbSchema, createMetadata } from '@/lib/seo';
 import { OG_IMAGE_B2B } from '@/constants/site';
 import JsonLd from '@/components/layout/JsonLd';
@@ -32,6 +33,7 @@ export async function generateMetadata({
       ogImage: meta.coverImage || OG_IMAGE_B2B,
       publishedTime: meta.datePublished,
       modifiedTime: meta.dateModified,
+      noindex: isFallbackBlogPost({ ...meta, slug }),
     });
   } catch {
     return { title: 'Artikel nicht gefunden' };
@@ -58,7 +60,7 @@ export default async function B2BBlogPostPage({
     notFound();
   }
 
-  const b2bPosts = await getPostsByCategory('B2B');
+  const b2bPosts = (await getPublicPosts()).filter((post) => post.category === 'B2B');
   const readMore = pickReadMorePosts(b2bPosts, slug, de.meta.category, 4);
 
   const breadcrumbs = [

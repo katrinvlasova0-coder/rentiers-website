@@ -356,6 +356,8 @@ category: ${yamlString(template.category)}
 readTime: "8 min"
 coverImage: ${yamlString(images[0].url)}
 featured: false
+fallback: true
+robots: "noindex, follow"
 tags: ${JSON.stringify([template.keywordDe, template.category, 'Finanzbildung', '2026'])}
 tagsEn: ${JSON.stringify([template.keywordEn, template.category, 'financial literacy', '2026'])}
 faq:

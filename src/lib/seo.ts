@@ -20,6 +20,8 @@ interface MetadataArgs {
   type?: 'website' | 'article';
   publishedTime?: string;
   modifiedTime?: string;
+  /** Fallback drafts: noindex, follow. Public pages keep the layout default. */
+  noindex?: boolean;
 }
 
 function normalizePath(path: string): string {
@@ -58,6 +60,7 @@ export function createMetadata({
   type = 'website',
   publishedTime,
   modifiedTime,
+  noindex = false,
 }: MetadataArgs): Metadata {
   const url = pageUrl(path);
   const shareTitle = ogTitle ?? title;
@@ -86,6 +89,7 @@ export function createMetadata({
       description: shareDescription,
       images: [ogImage],
     },
+    ...(noindex ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
