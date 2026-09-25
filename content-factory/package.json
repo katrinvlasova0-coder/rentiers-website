@@ -12,6 +12,7 @@
     "fallback": "tsx src/index.ts fallback",
     "test:compliance": "tsx src/compliance-patterns.test.ts",
     "test:fallback": "tsx src/safe-fallback.test.ts",
+    "test:policy": "tsx src/generation-policy.test.ts && bash scripts/decide-generation-mode.test.sh",
     "test:seo": "tsx src/seo-public.test.ts",
     "mock": "tsx src/index.ts mock",
     "queue:list": "tsx src/index.ts queue list",

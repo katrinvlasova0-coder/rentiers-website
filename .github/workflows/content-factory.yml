@@ -40,51 +40,10 @@ jobs:
         id: gen
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          HAS_ANTHROPIC="false"
-          if [ -n "$ANTHROPIC_API_KEY" ]; then
-            HAS_ANTHROPIC="true"
-          fi
-
-          INPUT_MOCK="${{ github.event.inputs.mock }}"
-          PUBLISH_MOCK="${{ github.event.inputs.publish_mock }}"
-          IS_SCHEDULE="${{ github.event_name == 'schedule' }}"
-
-          # Every other day on schedule (anchor: 2026-07-06 = first publish day).
-          # Manual workflow_dispatch always runs when API key is set.
-          if [ "$IS_SCHEDULE" = "true" ]; then
-            ANCHOR_DAY=$(( $(date -u -d "2026-07-06" +%s) / 86400 ))
-            TODAY_DAY=$(( $(date -u +%s) / 86400 ))
-            if [ $(( (TODAY_DAY - ANCHOR_DAY) % 2 )) -ne 0 ]; then
-              echo "mode=skip-eod" >> "$GITHUB_OUTPUT"
-              echo "run=false" >> "$GITHUB_OUTPUT"
-              echo "⏭️ Every-other-day schedule: no article today (next run tomorrow 08:00 UTC)"
-              exit 0
-            fi
-            echo "📅 Every-other-day schedule: publish day"
-          fi
-
-          if [ "$HAS_ANTHROPIC" = "true" ]; then
-            echo "mode=claude" >> "$GITHUB_OUTPUT"
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "✅ Claude API available — real article generation"
-          elif [ "$IS_SCHEDULE" = "true" ]; then
-            echo "mode=fallback-only" >> "$GITHUB_OUTPUT"
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "⚠️ ANTHROPIC_API_KEY missing on publish day — will publish a safe fallback article"
-          elif [ "$INPUT_MOCK" = "true" ] && [ "$PUBLISH_MOCK" = "true" ]; then
-            echo "mode=mock" >> "$GITHUB_OUTPUT"
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "🧪 Manual mock publish enabled (test content only)"
-          elif [ "$INPUT_MOCK" = "true" ]; then
-            echo "mode=test-only" >> "$GITHUB_OUTPUT"
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "🧪 Mock selected but publish_mock=false — only integration test will run"
-          else
-            echo "mode=skip" >> "$GITHUB_OUTPUT"
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "⏭️ No ANTHROPIC_API_KEY and mock not enabled — generation skipped"
-          fi
+          INPUT_MOCK: ${{ github.event.inputs.mock }}
+          PUBLISH_MOCK: ${{ github.event.inputs.publish_mock }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: bash content-factory/scripts/decide-generation-mode.sh
 
       - uses: actions/setup-node@v6
         if: steps.gen.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
@@ -107,11 +66,21 @@ jobs:
           SITE_PUBLIC_DIR: ../public
 
       - name: Show queue before generation
+        id: queue
         if: steps.gen.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
         run: |
           cd content-factory
           npm run queue:list
           npx tsx src/index.ts queue stats
+          PENDING=$(node -pe "JSON.parse(require('fs').readFileSync('queue/pending.json','utf8')).length")
+          echo "pending=$PENDING" >> "$GITHUB_OUTPUT"
+          # The live cron has a key and an empty queue; batch used to mint fallback-* anyway.
+          if [ "$PENDING" = "0" ] && [ "${{ github.event_name }}" = "schedule" ]; then
+            echo "skip_fallback=true" >> "$GITHUB_OUTPUT"
+            echo "📋 Scheduled run: queue is empty — will not publish a fallback article"
+          else
+            echo "skip_fallback=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Validate safe-fallback templates
         if: steps.gen.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
@@ -132,7 +101,7 @@ jobs:
 
       - name: Generate articles batch
         id: batch
-        if: steps.gen.outputs.run == 'true' && steps.gen.outputs.mode != 'fallback-only'
+        if: steps.gen.outputs.run == 'true' && steps.gen.outputs.mode != 'fallback-only' && steps.queue.outputs.skip_fallback != 'true'
         continue-on-error: true
         run: |
           cd content-factory
@@ -154,9 +123,10 @@ jobs:
           SITE_BASE_URL: https://rentiers.net
           CONTENT_DIR: ../content/blog
           SITE_PUBLIC_DIR: ../public
+          CONTENT_FACTORY_SCHEDULED: ${{ github.event_name == 'schedule' }}
 
       - name: Publish safe fallback if no new article
-        if: steps.gen.outputs.run == 'true'
+        if: steps.gen.outputs.run == 'true' && steps.queue.outputs.skip_fallback != 'true'
         run: |
           cd content-factory
           npx tsx src/index.ts fallback --only-if-missing --reason "ci-safety-net (mode=${{ steps.gen.outputs.mode }}, batch=${{ steps.batch.outcome }})"
@@ -171,14 +141,14 @@ jobs:
           SITE_PUBLIC_DIR: ../public
 
       - name: Show generated files
-        if: steps.gen.outputs.run == 'true'
+        if: steps.gen.outputs.run == 'true' && steps.queue.outputs.skip_fallback != 'true'
         run: |
           echo "=== New/updated blog files ==="
           git status --short content/blog/ public/sitemap.xml public/llms.txt content-factory/queue/ || true
           ls -la content/blog/*.mdx | tail -5 || true
 
       - name: Commit and push generated articles
-        if: steps.gen.outputs.run == 'true'
+        if: steps.gen.outputs.run == 'true' && steps.queue.outputs.skip_fallback != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -202,15 +172,25 @@ jobs:
           git push origin HEAD:${{ github.ref_name }}
 
       - name: Trigger GitHub Pages deploy
-        if: steps.gen.outputs.run == 'true'
+        if: steps.gen.outputs.run == 'true' && steps.queue.outputs.skip_fallback != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Triggering deploy workflow (GITHUB_TOKEN pushes do not auto-trigger deploy.yml)..."
           gh workflow run deploy.yml --ref "${{ github.ref_name }}"
 
+      - name: Skip empty scheduled queue
+        if: steps.queue.outputs.skip_fallback == 'true'
+        run: |
+          echo "Generation skipped: scheduled run and the content queue is empty."
+          echo "Not publishing a fallback-* article."
+          echo "Add articles to the content plan to resume scheduled publishing."
+
       - name: Skip summary
         if: steps.gen.outputs.run != 'true'
         run: |
           echo "Generation skipped (${{ steps.gen.outputs.mode }})."
-          echo "Add ANTHROPIC_API_KEY for real articles, or run manually with mock=true + publish_mock=true to test the pipeline."
+          echo "For real Claude articles: set repo secret ANTHROPIC_API_KEY (optional ANTHROPIC_MODEL)."
+          echo "Pipeline test without Claude: workflow_dispatch with mock=true + publish_mock=true."
+          echo "Manual fallback only (no Claude): workflow_dispatch without mock (mode=fallback-only)."
+          echo "Scheduled runs with a missing key fail closed (mode=missing-key) and do not publish a fallback."

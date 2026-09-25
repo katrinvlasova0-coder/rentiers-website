@@ -16,6 +16,7 @@ import {
   addToQueue,
 } from './queue';
 import { validateArticle } from './validator';
+import { shouldPublishFallbackWhenQueueEmpty } from './generation-policy';
 import type { ArticleRequest } from './prompts/types';
 import contentPlan from '../config/content-plan.json';
 
@@ -79,6 +80,10 @@ program
     const failedSlugs: string[] = [];
 
     if (articles.length === 0) {
+      if (!shouldPublishFallbackWhenQueueEmpty()) {
+        console.log('📋 Queue is empty — scheduled run will not publish a safe fallback');
+        return;
+      }
       console.log('📋 Queue is empty — publishing safe fallback');
       const fallback = await import('./safe-fallback').then((m) =>
         m.publishSafeFallback({ reason: 'queue-empty' }),
